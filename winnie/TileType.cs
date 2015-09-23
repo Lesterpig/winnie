@@ -5,7 +5,11 @@ using System.Text;
 
 namespace winnie
 {
-    public abstract class Race
+    public enum TileType
     {
+        Plain,
+        Water,
+        Mountain,
+        Forest
     }
 }

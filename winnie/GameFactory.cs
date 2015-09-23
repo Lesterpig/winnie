@@ -7,16 +7,15 @@ namespace winnie
 {
     public class GameFactory
     {
-        public Game Game
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
 
-            set
-            {
-            }
+        public Game load()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void save()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

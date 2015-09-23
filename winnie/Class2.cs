@@ -5,7 +5,7 @@ using System.Text;
 
 namespace winnie
 {
-    public abstract class Race
+    public abstract class Class2
     {
     }
 }
