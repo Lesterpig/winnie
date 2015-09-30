@@ -1,10 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Comment CommentText="Strategy / Builder">
+  <Comment CommentText="Strategy">
     <Position X="2.814" Y="5.146" Height="0.306" Width="1.218" />
   </Comment>
   <Comment CommentText="Factory">
     <Position X="4.508" Y="1.746" Height="0.306" Width="1.218" />
+  </Comment>
+  <Comment CommentText="Flyweight">
+    <Position X="7.127" Y="5.426" Height="0.306" Width="1.218" />
+  </Comment>
+  <Comment CommentText="Builder">
+    <Position X="11.261" Y="1.69" Height="0.306" Width="1.218" />
   </Comment>
   <Class Name="winnie.Game">
     <Position X="6.25" Y="1.75" Width="1.5" />
