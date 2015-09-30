@@ -5,11 +5,7 @@ using System.Text;
 
 namespace winnie
 {
-    public enum TileType
+    public class TileType
     {
-        Plain,
-        Water,
-        Mountain,
-        Forest
     }
 }

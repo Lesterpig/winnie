@@ -7,5 +7,6 @@ namespace winnie
 {
     public interface MapGeneration
     {
+        void generate();
     }
 }

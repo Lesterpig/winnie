@@ -5,13 +5,9 @@ using System.Text;
 
 namespace winnie
 {
-    public abstract class Race
+    public class TileTypeFactory
     {
-        protected int life;
-        protected int armor;
-        protected int attack;
-
-        public float getMovePoints()
+        public TileType get()
         {
             throw new System.NotImplementedException();
         }
