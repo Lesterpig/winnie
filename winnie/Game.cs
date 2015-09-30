@@ -19,7 +19,7 @@ namespace winnie
             }
         }
 
-        public Battle Battle
+        public List<winnie.Player> Players
         {
             get
             {
@@ -31,7 +31,7 @@ namespace winnie
             }
         }
 
-        public Player Player
+        public List<Action> Actions
         {
             get
             {

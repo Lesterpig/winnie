@@ -1,68 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Comment CommentText="Strategy">
-    <Position X="2.814" Y="5.146" Height="0.306" Width="1.218" />
+    <Position X="3.305" Y="4.795" Height="0.306" Width="1.218" />
   </Comment>
   <Comment CommentText="Factory">
     <Position X="4.508" Y="1.746" Height="0.306" Width="1.218" />
   </Comment>
   <Comment CommentText="Flyweight">
-    <Position X="7.127" Y="5.426" Height="0.306" Width="1.218" />
+    <Position X="8.683" Y="8.222" Height="0.306" Width="1.218" />
   </Comment>
   <Comment CommentText="Builder">
-    <Position X="11.261" Y="1.69" Height="0.306" Width="1.218" />
+    <Position X="11.501" Y="4.044" Height="0.306" Width="1.218" />
+  </Comment>
+  <Comment CommentText="Command">
+    <Position X="8.962" Y="1.207" Height="0.291" Width="0.776" />
   </Comment>
   <Class Name="winnie.Game">
     <Position X="6.25" Y="1.75" Width="1.5" />
+    <AssociationLine Name="Players" Type="winnie.Player" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="2.375" />
+        <Point X="10.25" Y="2.375" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAAAACAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAAAAAIBAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Map" />
-      <Property Name="Battle" />
-      <Property Name="Player" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Players" />
+      <Property Name="Actions" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="winnie.Player">
-    <Position X="9.5" Y="1.75" Width="1.5" />
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <AssociationLine Name="Race" Type="winnie.Race" FixedToPoint="true">
+      <Path>
+        <Point X="11.75" Y="2.065" />
+        <Point X="14.75" Y="2.065" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Unit" />
       <Property Name="Race" />
     </ShowAsAssociation>
   </Class>
   <Class Name="winnie.Race">
-    <Position X="13.75" Y="1.75" Width="1.5" />
+    <Position X="14.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAgAACAAAAAABAAAAA=</HashCode>
       <FileName>Race.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="winnie.Map">
     <Position X="6.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAABAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Unit" />
-      <Property Name="Tile" />
-      <Property Name="MapGeneration" />
-    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="tiles" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="winnie.Unit">
-    <Position X="9.5" Y="4.5" Width="1.5" />
+    <Position X="10.75" Y="4" Width="1.5" />
+    <Members>
+      <Property Name="Race" Hidden="true" />
+    </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Player" />
+      <Property Name="Race" />
+      <Property Name="Tile" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="winnie.Tile">
-    <Position X="6.25" Y="6.25" Width="1.5" />
+    <Position X="10.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tile.cs</FileName>
@@ -72,28 +94,31 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="winnie.Orc">
-    <Position X="13.75" Y="3" Width="1.5" />
+    <Position X="15.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Orc.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="winnie.Battle">
-    <Position X="7.75" Y="0.5" Width="1.5" />
+  <Class Name="winnie.Action">
+    <Position X="8" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Battle.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Action.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ActionType" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="winnie.Human">
-    <Position X="15.5" Y="3" Width="1.5" />
+    <Position X="17.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Human.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="winnie.Elf">
-    <Position X="12" Y="3" Width="1.5" />
+    <Position X="14" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Elf.cs</FileName>
@@ -106,42 +131,40 @@
       <FileName>GameFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="winnie.DemoMapGeneration">
-    <Position X="0.5" Y="6.25" Width="1.5" />
+  <Class Name="winnie.TileType">
+    <Position X="10.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DemoMapGeneration.cs</FileName>
+      <FileName>TileType.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.214" />
   </Class>
-  <Class Name="winnie.SmallMapGeneration">
-    <Position X="2.25" Y="6.25" Width="1.5" />
+  <Class Name="winnie.TileTypeFactory">
+    <Position X="7.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SmallMapGeneration.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TileTypeFactory.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="winnie.StandardMapGeneration">
-    <Position X="4" Y="6.25" Width="1.5" />
+  <Class Name="winnie.IslandMap">
+    <Position X="2.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>StandardMapGeneration.cs</FileName>
+      <FileName>IslandMap.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="winnie.MapGeneration">
     <Position X="2.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>MapGeneration.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="winnie.TileType">
-    <Position X="8.75" Y="6" Width="1.5" />
+  <Enum Name="winnie.ActionType" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAACAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAA=</HashCode>
-      <FileName>TileType.cs</FileName>
+      <HashCode>AAAAAAAAAIAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Action.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace winnie
 {
-    public class StandardMapGeneration : MapGeneration
+    public class IslandMap : MapGeneration
     {
     }
 }

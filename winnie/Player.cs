@@ -7,7 +7,8 @@ namespace winnie
 {
     public class Player
     {
-        public Unit Unit
+
+        public Race Race
         {
             get
             {
@@ -19,7 +20,19 @@ namespace winnie
             }
         }
 
-        public Race Race
+        public int score
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public string name
         {
             get
             {
