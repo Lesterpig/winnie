@@ -7,11 +7,53 @@ namespace winnie
 {
     public abstract class Race
     {
-        protected int life;
-        protected int armor;
-        protected int attack;
+        public static int Life
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
 
-        public float getMovePoints()
+            set
+            {
+            }
+        }
+
+        public static int Armor
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public static int Attack
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public static float GetRequiredMovePoints(Tile tileType)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public static float GetVictoryPoints(Tile tileType)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public static bool CanMove()
         {
             throw new System.NotImplementedException();
         }

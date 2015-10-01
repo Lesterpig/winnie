@@ -5,15 +5,14 @@ using System.Text;
 
 namespace winnie
 {
-    public class GameFactory
+    public class Move : Action
     {
-
-        public Game Load(string filename)
+        public void Execute()
         {
             throw new System.NotImplementedException();
         }
 
-        public void Save(Game game)
+        public Move ReverseExecute()
         {
             throw new System.NotImplementedException();
         }

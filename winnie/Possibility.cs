@@ -5,9 +5,9 @@ using System.Text;
 
 namespace winnie
 {
-    public class Tile
+    public class Possibility
     {
-        public TileType TileType
+        public Action Action
         {
             get
             {
@@ -19,7 +19,7 @@ namespace winnie
             }
         }
 
-        public List<Tile> Neighbours
+        public Tile Tile
         {
             get
             {
@@ -29,23 +29,6 @@ namespace winnie
             set
             {
             }
-        }
-
-        public List<Unit> Units
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public Unit GetStrongestUnit()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

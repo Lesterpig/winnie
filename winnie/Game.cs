@@ -42,5 +42,75 @@ namespace winnie
             {
             }
         }
+
+        public int Turns
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int CurrentTurn
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public bool CheatMode
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Player CurrentPlayer
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Unit CurrentUnit
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public void NextTurn()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void NewAction(Tile destination)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace winnie
             }
         }
 
-        public int score
+        public int Score
         {
             get
             {
@@ -32,7 +32,7 @@ namespace winnie
             }
         }
 
-        public string name
+        public string Name
         {
             get
             {
@@ -42,6 +42,23 @@ namespace winnie
             set
             {
             }
+        }
+
+        public List<winnie.Unit> Units
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public void StartTurn()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -5,10 +5,9 @@ using System.Text;
 
 namespace winnie
 {
-    public class Action
+    public abstract class Action
     {
-
-        public ActionType ActionType
+        public Tile TileFrom
         {
             get
             {
@@ -18,6 +17,40 @@ namespace winnie
             set
             {
             }
+        }
+
+        public Unit Unit
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Tile TileTo
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public void Execute()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void ReverseExecute()
+        {
+            throw new System.NotImplementedException();
         }
     }
 

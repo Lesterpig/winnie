@@ -43,7 +43,7 @@ namespace winnie
             }
         }
 
-        public int life
+        public int Life
         {
             get
             {
@@ -55,7 +55,7 @@ namespace winnie
             }
         }
 
-        public float movePoints
+        public float MovePoints
         {
             get
             {
@@ -65,6 +65,28 @@ namespace winnie
             set
             {
             }
+        }
+
+        public List<Possibility> Possibilities
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public void Move()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Attack()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace winnie
 {
-    public class Tile
+    public class Battle : Action
     {
-        public TileType TileType
+        public Unit Target
         {
             get
             {
@@ -19,7 +19,7 @@ namespace winnie
             }
         }
 
-        public List<Tile> Neighbours
+        public Unit Winner
         {
             get
             {
@@ -31,7 +31,7 @@ namespace winnie
             }
         }
 
-        public List<Unit> Units
+        public int LifeLost
         {
             get
             {
@@ -43,7 +43,12 @@ namespace winnie
             }
         }
 
-        public Unit GetStrongestUnit()
+        public void Execute()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Battle ReverseExecute()
         {
             throw new System.NotImplementedException();
         }

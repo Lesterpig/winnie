@@ -7,5 +7,7 @@ namespace winnie
 {
     public class TileType
     {
+        private int Height;
+        private string Type;
     }
 }

@@ -7,6 +7,6 @@ namespace winnie
 {
     public class Map
     {
-        private winnie.Tile[][] tiles;
+        private winnie.Tile[][] Tiles;
     }
 }

@@ -7,7 +7,7 @@ namespace winnie
 {
     public class TileTypeFactory
     {
-        public TileType get()
+        public TileType Get()
         {
             throw new System.NotImplementedException();
         }

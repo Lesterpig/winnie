@@ -8,4 +8,5 @@ namespace winnie
     public class IslandMap : MapGeneration
     {
     }
+
 }
