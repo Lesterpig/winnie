@@ -18,12 +18,18 @@
     <ClInclude Include="Fraction.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="sequences.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fraction.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sequences.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

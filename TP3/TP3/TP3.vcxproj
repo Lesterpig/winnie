@@ -77,10 +77,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Fraction.h" />
+    <ClInclude Include="sequences.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fraction.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sequences.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

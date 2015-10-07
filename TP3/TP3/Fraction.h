@@ -10,20 +10,13 @@ private:
 	int _d;
 
 	static int safeAdd(int a, int b);
-	static int safeSub(int a, int b);
 	static int safeMul(int a, int b);
-	static int safeDiv(int a, int b);
-
-	// @TODO add simplify()
 
 public:
-	Fraction(int n);
-	Fraction(int n, int d);
+	Fraction(int n, int d = 1);
 	
-	friend Fraction operator+(const Fraction& a, const Fraction& b);
-	friend Fraction operator-(const Fraction& a, const Fraction& b);
-	friend Fraction operator*(const Fraction& a, const Fraction& b);
-	friend Fraction operator/(const Fraction& a, const Fraction& b);
+	Fraction operator+(const Fraction& f);
+	Fraction operator*(const Fraction& f);
 
 	double eval();
 
@@ -45,10 +38,5 @@ public:
 	};
 
 };
-
-Fraction operator+(const Fraction& a, const Fraction& b);
-Fraction operator-(const Fraction& a, const Fraction& b);
-Fraction operator*(const Fraction& a, const Fraction& b);
-Fraction operator/(const Fraction& a, const Fraction& b);
 
 #endif
