@@ -5,7 +5,7 @@ using System.Text;
 
 namespace winnie
 {
-    public class GameFactory
+    public class GameBuilder
     {
 
         public Game Load(string filename)

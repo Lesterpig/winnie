@@ -23,6 +23,13 @@
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
     <Folder Include="ModelDefinition\" />
+    <Content Include="battle.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="battle.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>battle.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Winnie.uml.uml">
       <SubType>Content</SubType>
     </Content>

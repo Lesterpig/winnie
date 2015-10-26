@@ -67,7 +67,7 @@ namespace winnie
             }
         }
 
-        public List<Possibility> Possibilities
+        public List<Action> Possibilities
         {
             get
             {
