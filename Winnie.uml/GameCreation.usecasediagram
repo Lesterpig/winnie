@@ -1,156 +1,156 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ea699a4a-3d23-42c2-ad52-6ec0e2d136f9" name="GameCreation" linkedPackageId="d5a41171-0644-4205-863f-f2d33d018da0" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
-  <profileInstances>
-    <packageHasProfileInstances Id="8f76c495-8be9-42dc-8c87-5ac424a729d5">
-      <profileInstance Id="db89ac48-23be-466e-9260-13d24e7631b6" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="afc7d3da-da6b-4b3b-92d5-add303978fa4">
-      <profileInstance Id="96a65e27-9aee-44eb-96d7-d78ac647052d" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ea699a4a-3d23-42c2-ad52-6ec0e2d136f9" name="GameCreation" linkedPackageId="d5a41171-0644-4205-863f-f2d33d018da0" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
-      <actor Id="18c5967b-51e1-4269-92b2-8516e1cf8334" name="Player" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="b3e4792b-273e-4343-85c4-df8679f16363" />
+      <actor Id="21cea705-cd8b-4db9-8d29-d8c1edfaaec5" name="Player" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6e380d57-6f45-4c31-972d-8b344403eb33" />
         <targetEnds>
-          <association Id="19aadade-3bf3-44bc-9dda-22f973d4a814" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Create a new game" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="56961024-fe3e-480a-904b-60ab28752c17" LastKnownName="Create a new game" />
+          <association Id="d1cfc72a-830b-404c-81aa-a181c6ff0f56" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Load Game" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f55314a4-7b29-4112-8084-ed1ee6ac3bd9" LastKnownName="Load Game" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="18d7c04f-e788-40b8-a11a-1a7e84527e87" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="b2dc843a-ac16-4691-9794-81605bee3598" />
+                <memberEnd Id="812f3db2-2785-4abb-b650-aeff5a7ba711" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5dd4e00b-7126-420c-9c59-5bf69cea789d" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="23aaab19-c840-44de-821c-3d56a9bc4f92" name="Create a new game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="a3a967c2-210b-4a61-8e7a-4f822d564365" />
+                <memberEnd Id="d1e6faf1-35ad-4b7c-bbb7-0cb2ace60ce8" name="Load Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="767f79b7-4f3d-4a0d-9a9b-c6ddb090a96c" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="b71651bd-4616-4627-b38a-fccf1f169024" />
+            <elementDefinition Id="7beb6d07-97dd-41e7-89e6-79c1b17dca70" />
           </association>
-          <association Id="df65286c-3c98-4e9d-807a-5a256e95835e" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Load an exisiting game" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="daaeb00a-0c7e-45ce-aa4f-642b56af8c3f" LastKnownName="Load an exisiting game" />
+          <association Id="2e2335d9-55ed-4c6a-adef-17c3af8605bc" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Create Game" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ed863d6a-3ac6-4c4b-a79b-1e2c44228f72" LastKnownName="Create Game" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="0b736e07-a377-4760-ac3f-7bfd9e331b68" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="6092b9c3-61dc-4f30-9e44-9b6f9d44f651" />
+                <memberEnd Id="c95b02fa-414b-43d2-b236-55f59f9e8049" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="14d67947-e63e-4b47-951a-7e2ebdc566b5" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="dc0005da-f1df-4ae2-a4a2-549633f5971e" name="Load an exisiting game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="08287c36-a94e-44c3-987e-d799ff3052a1" />
+                <memberEnd Id="feb9999c-eda8-4ff9-a1fd-3c6537ff8a79" name="Create Game" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bfcf1bbf-2763-49db-a752-6fdded065209" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="57d0ee9e-588b-4062-ae91-3fc75563163d" />
+            <elementDefinition Id="b3cb0550-795b-4fc1-9bf3-566d1de43a4a" />
           </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <actor Id="cda06ee5-29ba-453f-8972-60ba18b9ad55" name="Player 2" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="98c0146d-a23d-42b1-bcee-d1021f83c81d" />
+      <actor Id="a58cb424-b4b0-4fa4-a3d3-c3f91b17e5f1" name="Player 1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ebf5cba6-f3f5-43bd-b766-18f81107b28e" />
         <generalsInternal>
-          <generalization Id="c3cfffb9-60a1-4246-8632-4d185aafe8f2" isSubstitutable="false">
-            <actorMoniker Id="18c5967b-51e1-4269-92b2-8516e1cf8334" LastKnownName="Player" />
-            <elementDefinition Id="4e10a564-f2f9-4813-9144-5615923f7d9e" />
+          <generalization Id="a8f9fce2-03ff-4c7b-a9f7-c0e7522e3679" isSubstitutable="false">
+            <actorMoniker Id="21cea705-cd8b-4db9-8d29-d8c1edfaaec5" LastKnownName="Player" />
+            <elementDefinition Id="46a86c5c-7880-4acd-9220-d51838d478d3" />
           </generalization>
         </generalsInternal>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <actor Id="f07cc0de-7fee-4143-b585-4ec9218e8e1f" name="Player 1" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="5a3ea8a2-4544-4f02-bda1-146ff6d36c58" />
+      <actor Id="06145f48-1ab1-4e89-8aca-702e5bd35110" name="Player 2" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f69746c0-181d-44d1-9326-015f764f8f26" />
         <generalsInternal>
-          <generalization Id="266ae90b-e378-4d2e-b1e4-b49b16d4d1c4" isSubstitutable="false">
-            <actorMoniker Id="18c5967b-51e1-4269-92b2-8516e1cf8334" LastKnownName="Player" />
-            <elementDefinition Id="e58daad8-f25d-4c61-9cdc-3326bc87cebe" />
+          <generalization Id="ac94c29e-abcc-4c64-88bc-4e020f1ebf2a" isSubstitutable="false">
+            <actorMoniker Id="21cea705-cd8b-4db9-8d29-d8c1edfaaec5" LastKnownName="Player" />
+            <elementDefinition Id="30562b97-6d73-45ff-9076-fbf8fb7cd9e2" />
           </generalization>
         </generalsInternal>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <subsystem Id="e1cf770f-bf48-4156-a282-58c299415c28" name="Small World Game" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="d11373d2-8cf4-4ed0-a293-326c08c1a35f" />
+      <subsystem Id="15c453ed-9237-4d60-b54e-cc9f26691b54" name="Small World Game" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b54112cf-0f07-4697-849a-270db859b6bd" />
       </subsystem>
     </useCaseModelRootHasTypes>
     <packageHasNamedElement>
-      <useCase Id="56961024-fe3e-480a-904b-60ab28752c17" name="Create a new game" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="0a3e2ae2-2bd3-4369-aa48-643d21354a23" />
+      <useCase Id="ed863d6a-3ac6-4c4b-a79b-1e2c44228f72" name="Create Game" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2dcd6e0e-1076-4ce1-a187-19fc939ae2f3" />
         <additions>
-          <include Id="5ea351f8-0372-4b6d-bfbc-750bf46606ee">
-            <useCaseMoniker Id="6bb5dfa1-7e3c-40dd-ad69-da4bf6425019" LastKnownName="Choose map size" />
-            <elementDefinition Id="f2bd6b5c-f15b-4ccc-995a-409078a6bbfd" />
+          <include Id="043c59e6-9e00-424c-bb75-2c8f2ddc9eed">
+            <useCaseMoniker Id="059ec7aa-eb04-4ead-b800-065ce6f454fa" LastKnownName="Choose name" />
+            <elementDefinition Id="5d0a141a-2234-44c5-9aa0-cf81726369a9" />
           </include>
-          <include Id="03992d43-5fd1-4a16-be38-0f69befedcc1">
-            <useCaseMoniker Id="b2edbba0-a198-4a93-9a32-215824d475e4" LastKnownName="Choose name" />
-            <elementDefinition Id="649fa98f-ef74-43dc-84c3-5e54fce841bc" />
+          <include Id="08a967b1-ad6d-4df1-aea2-b8e81e682a1b">
+            <useCaseMoniker Id="774c770c-ab65-4d66-9d82-80a729109769" LastKnownName="Choose map size" />
+            <elementDefinition Id="c51132d4-e2dc-4674-bc7f-e712fe436386" />
           </include>
-          <include Id="401cb956-97d2-45a5-9064-7557ac28432c">
-            <useCaseMoniker Id="3b057acc-9e54-4747-9498-029f15871ac8" LastKnownName="Choose race" />
-            <elementDefinition Id="6da2c128-895f-485d-aee1-83bd8f8c84df" />
+          <include Id="d82237f8-0632-4e79-8fcc-ce556521250e">
+            <useCaseMoniker Id="d5766103-a0df-4cee-b670-3a5dc8bd4340" LastKnownName="Choose race" />
+            <elementDefinition Id="e86a5026-e70f-403b-982e-4f6c572a7bcf" />
           </include>
         </additions>
         <subjects>
-          <subsystemMoniker Id="e1cf770f-bf48-4156-a282-58c299415c28" LastKnownName="Small World Game" />
+          <subsystemMoniker Id="15c453ed-9237-4d60-b54e-cc9f26691b54" LastKnownName="Small World Game" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="daaeb00a-0c7e-45ce-aa4f-642b56af8c3f" name="Load an exisiting game" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="b7f9cb46-ec6e-4782-9a3d-1c3106f7fa42" />
+      <useCase Id="f55314a4-7b29-4112-8084-ed1ee6ac3bd9" name="Load Game" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="937c004d-3162-44d2-a13b-f78798a087ec" />
         <additions>
-          <include Id="428e03f5-7115-4966-ab50-0f06c92a817e">
-            <useCaseMoniker Id="a9c7a9ba-0458-45be-80bb-bc6f576b6f2c" LastKnownName="Choose a save" />
-            <elementDefinition Id="25977906-7f46-4e70-adbc-e28b4ab8f6ab" />
+          <include Id="49b63c9d-55fd-49a9-8e7c-874e3236eda3">
+            <useCaseMoniker Id="da1caf09-4ab1-410a-8c03-92601aed549c" LastKnownName="Choose save" />
+            <elementDefinition Id="23cbddbe-0a9f-4e8c-b355-67b056451fcc" />
           </include>
         </additions>
         <subjects>
-          <subsystemMoniker Id="e1cf770f-bf48-4156-a282-58c299415c28" LastKnownName="Small World Game" />
+          <subsystemMoniker Id="15c453ed-9237-4d60-b54e-cc9f26691b54" LastKnownName="Small World Game" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="a9c7a9ba-0458-45be-80bb-bc6f576b6f2c" name="Choose a save" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="e01713e9-fb60-4479-8618-5466fcfb1ada" />
+      <useCase Id="da1caf09-4ab1-410a-8c03-92601aed549c" name="Choose save" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="92307659-a7e6-46c3-bc9e-7ff8d93eaf10" />
         <subjects>
-          <subsystemMoniker Id="e1cf770f-bf48-4156-a282-58c299415c28" LastKnownName="Small World Game" />
+          <subsystemMoniker Id="15c453ed-9237-4d60-b54e-cc9f26691b54" LastKnownName="Small World Game" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="3b057acc-9e54-4747-9498-029f15871ac8" name="Choose race" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="86bd9d9a-141b-4851-9285-a1893524386f" />
+      <useCase Id="059ec7aa-eb04-4ead-b800-065ce6f454fa" name="Choose name" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dbb5b928-6e41-4a63-8c07-d96c9200f940" />
         <subjects>
-          <subsystemMoniker Id="e1cf770f-bf48-4156-a282-58c299415c28" LastKnownName="Small World Game" />
+          <subsystemMoniker Id="15c453ed-9237-4d60-b54e-cc9f26691b54" LastKnownName="Small World Game" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="b2edbba0-a198-4a93-9a32-215824d475e4" name="Choose name" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="1efc6c33-2014-4fa0-9d8c-03965eb9b4c6" />
+      <useCase Id="d5766103-a0df-4cee-b670-3a5dc8bd4340" name="Choose race" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2172c18b-43a8-45b3-a02b-15af37eeb6d5" />
         <subjects>
-          <subsystemMoniker Id="e1cf770f-bf48-4156-a282-58c299415c28" LastKnownName="Small World Game" />
+          <subsystemMoniker Id="15c453ed-9237-4d60-b54e-cc9f26691b54" LastKnownName="Small World Game" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase Id="6bb5dfa1-7e3c-40dd-ad69-da4bf6425019" name="Choose map size" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="f3a83759-5152-45f0-8cdd-6774b5247b85" />
+      <useCase Id="774c770c-ab65-4d66-9d82-80a729109769" name="Choose map size" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="eb0c43aa-bb26-436e-862f-12e4c9be1191" />
         <subjects>
-          <subsystemMoniker Id="e1cf770f-bf48-4156-a282-58c299415c28" LastKnownName="Small World Game" />
+          <subsystemMoniker Id="15c453ed-9237-4d60-b54e-cc9f26691b54" LastKnownName="Small World Game" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
   </packagedElements>
   <package Id="d5a41171-0644-4205-863f-f2d33d018da0" name="Winnie.uml">
     <elementDefinition Id="e909f15a-362b-4099-880a-70c12a2cf04a" />
+    <profileInstances>
+      <packageHasProfileInstances Id="8f76c495-8be9-42dc-8c87-5ac424a729d5">
+        <profileInstance Id="db89ac48-23be-466e-9260-13d24e7631b6" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="afc7d3da-da6b-4b3b-92d5-add303978fa4">
+        <profileInstance Id="96a65e27-9aee-44eb-96d7-d78ac647052d" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>
