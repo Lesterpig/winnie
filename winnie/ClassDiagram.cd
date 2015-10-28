@@ -7,16 +7,13 @@
     <Position X="5.702" Y="5.36" Height="0.306" Width="0.7" />
   </Comment>
   <Comment CommentText="Flyweight">
-    <Position X="10.337" Y="13.268" Height="0.306" Width="0.926" />
+    <Position X="10.493" Y="13.31" Height="0.306" Width="0.926" />
   </Comment>
   <Comment CommentText="Factory">
     <Position X="10.719" Y="8.713" Height="0.306" Width="0.7" />
   </Comment>
   <Comment CommentText="Command">
     <Position X="10.73" Y="0.871" Height="0.291" Width="0.776" />
-  </Comment>
-  <Comment CommentText="Static">
-    <Position X="17.507" Y="4.131" Height="0.291" Width="0.7" />
   </Comment>
   <Class Name="winnie.Game">
     <Position X="7" Y="4.5" Width="1.5" />
@@ -218,7 +215,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="winnie.TileType">
-    <Position X="11.5" Y="13.75" Width="1.5" />
+    <Position X="11.5" Y="13" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>TileType.cs</FileName>
@@ -231,7 +228,7 @@
       <FileName>TileTypeFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="winnie.IslandMap">
+  <Class Name="winnie.IslandMap" Collapsed="true">
     <Position X="5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -271,7 +268,7 @@
       <FileName>Move.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="winnie.NaiveMap">
+  <Class Name="winnie.NaiveMap" Collapsed="true">
     <Position X="3" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -282,8 +279,36 @@
   <Class Name="winnie.UnitFactory">
     <Position X="9.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>UnitFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="winnie.PlainTileType" Collapsed="true">
+    <Position X="9.5" Y="15" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TileType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="winnie.WaterTileType" Collapsed="true">
+    <Position X="11" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TileType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="winnie.MountainTileType" Collapsed="true">
+    <Position X="12.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TileType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="winnie.ForestTileType" Collapsed="true">
+    <Position X="14.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TileType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="winnie.MapGeneration">

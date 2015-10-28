@@ -7,5 +7,9 @@ namespace winnie
 {
     public class UnitFactory
     {
+        public void Build()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
