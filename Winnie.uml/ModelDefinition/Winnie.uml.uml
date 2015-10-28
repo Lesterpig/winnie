@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="e909f15a-362b-4099-880a-70c12a2cf04a"
   name="Winnie.uml" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -823,24 +823,6 @@
             </nestedOccurrences>
           </behaviorExecutionSpecification>
           <executionOccurrenceSpecification
-            Id="03fa5360-41cf-418c-aebf-dfed1f1fd747"
-            name="ExecutionOccurrenceSpecification2">
-            <event>
-              <executionOccurrenceSpecificationReferencesEvent>
-                <executionEventMoniker
-                  Id="e77be92a-5eca-48e6-97bc-e92303a23269"
-                  LastKnownName="ExecutionEvent"
-                  LastKnownLocation="Winnie.uml.uml" />
-              </executionOccurrenceSpecificationReferencesEvent>
-            </event>
-            <covered>
-              <lifelineMoniker
-                Id="2f8dd0d1-e35c-45b5-a6c5-765e89acb413"
-                LastKnownName=": Game"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </executionOccurrenceSpecification>
-          <executionOccurrenceSpecification
             Id="00abc9aa-8a5f-4529-9118-02d2b93d80ca"
             name="ExecutionOccurrenceSpecification17">
             <event>
@@ -855,6 +837,24 @@
               <lifelineMoniker
                 Id="6a1f87e9-7632-4887-8106-3edc4dfb86d5"
                 LastKnownName="battle : Action"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="03fa5360-41cf-418c-aebf-dfed1f1fd747"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="e77be92a-5eca-48e6-97bc-e92303a23269"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="Winnie.uml.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2f8dd0d1-e35c-45b5-a6c5-765e89acb413"
+                LastKnownName=": Game"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -1100,12 +1100,12 @@
             interactionOperator="Alt">
             <coveredLifelines>
               <lifelineMoniker
-                Id="9aef0776-825e-425e-a61c-7117bd906c15"
-                LastKnownName="unitB : Unit"
-                LastKnownLocation="Winnie.uml.uml" />
-              <lifelineMoniker
                 Id="f49a9db3-927c-4877-a171-9b277912f9a2"
                 LastKnownName="unitA : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+              <lifelineMoniker
+                Id="9aef0776-825e-425e-a61c-7117bd906c15"
+                LastKnownName="unitB : Unit"
                 LastKnownLocation="Winnie.uml.uml" />
             </coveredLifelines>
             <operands>
@@ -1114,12 +1114,12 @@
                 name="InteractionOperand1">
                 <coveredLifelines>
                   <lifelineMoniker
-                    Id="9aef0776-825e-425e-a61c-7117bd906c15"
-                    LastKnownName="unitB : Unit"
-                    LastKnownLocation="Winnie.uml.uml" />
-                  <lifelineMoniker
                     Id="f49a9db3-927c-4877-a171-9b277912f9a2"
                     LastKnownName="unitA : Unit"
+                    LastKnownLocation="Winnie.uml.uml" />
+                  <lifelineMoniker
+                    Id="9aef0776-825e-425e-a61c-7117bd906c15"
+                    LastKnownName="unitB : Unit"
                     LastKnownLocation="Winnie.uml.uml" />
                 </coveredLifelines>
                 <guard>
@@ -1151,12 +1151,12 @@
                 name="InteractionOperand2">
                 <coveredLifelines>
                   <lifelineMoniker
-                    Id="9aef0776-825e-425e-a61c-7117bd906c15"
-                    LastKnownName="unitB : Unit"
-                    LastKnownLocation="Winnie.uml.uml" />
-                  <lifelineMoniker
                     Id="f49a9db3-927c-4877-a171-9b277912f9a2"
                     LastKnownName="unitA : Unit"
+                    LastKnownLocation="Winnie.uml.uml" />
+                  <lifelineMoniker
+                    Id="9aef0776-825e-425e-a61c-7117bd906c15"
+                    LastKnownName="unitB : Unit"
                     LastKnownLocation="Winnie.uml.uml" />
                 </coveredLifelines>
                 <guard>
@@ -1186,22 +1186,22 @@
             </operands>
           </combinedFragment>
           <operandOccurrenceSpecification
-            Id="5827c0a8-a507-4539-a5bf-d37746f1858a"
-            name="OperandOccurrenceSpecification17">
-            <covered>
-              <lifelineMoniker
-                Id="9aef0776-825e-425e-a61c-7117bd906c15"
-                LastKnownName="unitB : Unit"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="715eb28f-f884-4350-bc0f-de00f8000290"
             name="OperandOccurrenceSpecification19">
             <covered>
               <lifelineMoniker
                 Id="f49a9db3-927c-4877-a171-9b277912f9a2"
                 LastKnownName="unitA : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="5827c0a8-a507-4539-a5bf-d37746f1858a"
+            name="OperandOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="9aef0776-825e-425e-a61c-7117bd906c15"
+                LastKnownName="unitB : Unit"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -1414,22 +1414,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="f313fb51-248b-44e3-8fd2-b54414284c7f"
-            name="OperandOccurrenceSpecification22">
-            <covered>
-              <lifelineMoniker
-                Id="9aef0776-825e-425e-a61c-7117bd906c15"
-                LastKnownName="unitB : Unit"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="efff2f19-d4fa-4ec9-8888-b1fc49758602"
             name="OperandOccurrenceSpecification24">
             <covered>
               <lifelineMoniker
                 Id="f49a9db3-927c-4877-a171-9b277912f9a2"
                 LastKnownName="unitA : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="f313fb51-248b-44e3-8fd2-b54414284c7f"
+            name="OperandOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="9aef0776-825e-425e-a61c-7117bd906c15"
+                LastKnownName="unitB : Unit"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -1920,22 +1920,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="39e5eca9-b9be-44a4-92b3-e20f9e5e9dbe"
-            name="MessageOccurrenceSpecification62">
-            <covered>
-              <lifelineMoniker
-                Id="be542003-bc81-42c5-a652-e8469cb1a7d7"
-                LastKnownName="move : Action"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="6bc13a04-1462-43f3-b232-3c8ed5d88721"
             name="MessageOccurrenceSpecification61">
             <covered>
               <lifelineMoniker
                 Id="f49a9db3-927c-4877-a171-9b277912f9a2"
                 LastKnownName="unitA : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="39e5eca9-b9be-44a4-92b3-e20f9e5e9dbe"
+            name="MessageOccurrenceSpecification62">
+            <covered>
+              <lifelineMoniker
+                Id="be542003-bc81-42c5-a652-e8469cb1a7d7"
+                LastKnownName="move : Action"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -2126,22 +2126,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="2a684068-007e-422b-8bcc-cc6781c07d76"
-            name="OperandOccurrenceSpecification30">
-            <covered>
-              <lifelineMoniker
-                Id="2f8dd0d1-e35c-45b5-a6c5-765e89acb413"
-                LastKnownName=": Game"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="8487bd36-7ff1-4ae2-b42d-8d507be52510"
             name="OperandOccurrenceSpecification26">
             <covered>
               <lifelineMoniker
                 Id="be542003-bc81-42c5-a652-e8469cb1a7d7"
                 LastKnownName="move : Action"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="2a684068-007e-422b-8bcc-cc6781c07d76"
+            name="OperandOccurrenceSpecification30">
+            <covered>
+              <lifelineMoniker
+                Id="2f8dd0d1-e35c-45b5-a6c5-765e89acb413"
+                LastKnownName=": Game"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -3028,6 +3028,254 @@
       <executionEvent
         Id="35046fe2-95bc-44cb-bbbd-627e7a8f7032"
         name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="b3e4792b-273e-4343-85c4-df8679f16363"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="b71651bd-4616-4627-b38a-fccf1f169024"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Create a new game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0a3e2ae2-2bd3-4369-aa48-643d21354a23"
+              LastKnownName="Create a new game"
+              LastKnownLocation="Winnie.uml.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b2dc843a-ac16-4691-9794-81605bee3598"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a3a967c2-210b-4a61-8e7a-4f822d564365"
+                  name="Create a new game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="57d0ee9e-588b-4062-ae91-3fc75563163d"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Load an exisiting game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b7f9cb46-ec6e-4782-9a3d-1c3106f7fa42"
+              LastKnownName="Load an exisiting game"
+              LastKnownLocation="Winnie.uml.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6092b9c3-61dc-4f30-9e44-9b6f9d44f651"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="08287c36-a94e-44c3-987e-d799ff3052a1"
+                  name="Load an exisiting game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="98c0146d-a23d-42b1-bcee-d1021f83c81d"
+        name="Player 2"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="4e10a564-f2f9-4813-9144-5615923f7d9e"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="b3e4792b-273e-4343-85c4-df8679f16363"
+              LastKnownName="Player"
+              LastKnownLocation="Winnie.uml.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="5a3ea8a2-4544-4f02-bda1-146ff6d36c58"
+        name="Player 1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="e58daad8-f25d-4c61-9cdc-3326bc87cebe"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="b3e4792b-273e-4343-85c4-df8679f16363"
+              LastKnownName="Player"
+              LastKnownLocation="Winnie.uml.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="d11373d2-8cf4-4ed0-a293-326c08c1a35f"
+        name="Small World Game"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0a3e2ae2-2bd3-4369-aa48-643d21354a23"
+        name="Create a new game"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="f2bd6b5c-f15b-4ccc-995a-409078a6bbfd">
+            <useCaseMoniker
+              Id="f3a83759-5152-45f0-8cdd-6774b5247b85"
+              LastKnownName="Choose map size"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+          <include
+            Id="649fa98f-ef74-43dc-84c3-5e54fce841bc">
+            <useCaseMoniker
+              Id="1efc6c33-2014-4fa0-9d8c-03965eb9b4c6"
+              LastKnownName="Choose name"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+          <include
+            Id="6da2c128-895f-485d-aee1-83bd8f8c84df">
+            <useCaseMoniker
+              Id="86bd9d9a-141b-4851-9285-a1893524386f"
+              LastKnownName="Choose race"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="d11373d2-8cf4-4ed0-a293-326c08c1a35f"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b7f9cb46-ec6e-4782-9a3d-1c3106f7fa42"
+        name="Load an exisiting game"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="25977906-7f46-4e70-adbc-e28b4ab8f6ab">
+            <useCaseMoniker
+              Id="e01713e9-fb60-4479-8618-5466fcfb1ada"
+              LastKnownName="Choose a save"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="d11373d2-8cf4-4ed0-a293-326c08c1a35f"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e01713e9-fb60-4479-8618-5466fcfb1ada"
+        name="Choose a save"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d11373d2-8cf4-4ed0-a293-326c08c1a35f"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="86bd9d9a-141b-4851-9285-a1893524386f"
+        name="Choose race"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d11373d2-8cf4-4ed0-a293-326c08c1a35f"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1efc6c33-2014-4fa0-9d8c-03965eb9b4c6"
+        name="Choose name"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d11373d2-8cf4-4ed0-a293-326c08c1a35f"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f3a83759-5152-45f0-8cdd-6774b5247b85"
+        name="Choose map size"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="d11373d2-8cf4-4ed0-a293-326c08c1a35f"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
