@@ -17,5 +17,10 @@ namespace winnie
         {
             throw new System.NotImplementedException();
         }
+
+        public void New()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

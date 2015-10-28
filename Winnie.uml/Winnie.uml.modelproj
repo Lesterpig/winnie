@@ -37,6 +37,13 @@
       <SubType>Content</SubType>
       <DependentUpon>battle.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="init.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="init.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>init.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Winnie.uml.uml">
       <SubType>Content</SubType>
     </Content>
