@@ -3044,6 +3044,16 @@
             <body>first : player = alpha
 second : player = beta</body>
           </comment>
+          <comment
+            Id="cc64a1b0-844f-473d-8759-dca0b902c8e5">
+            <body>Flyweight</body>
+            <annotatedElements>
+              <combinedFragmentMoniker
+                Id="1544dd58-79c9-4da2-9a23-44a2663512b8"
+                LastKnownName="CombinedFragment1"
+                LastKnownLocation="Winnie.uml.uml" />
+            </annotatedElements>
+          </comment>
         </ownedCommentsInternal>
         <fragments>
           <behaviorExecutionSpecification
@@ -3205,22 +3215,22 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="d39a119a-51ac-48a8-9878-62151c50604e"
-            name="MessageOccurrenceSpecification8">
-            <covered>
-              <lifelineMoniker
-                Id="596739f8-8e82-4fbe-8c3e-cafd6b9dd4cf"
-                LastKnownName="beta : Player"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="d4f8e960-3bb2-415a-9635-8e9f1f494166"
             name="MessageOccurrenceSpecification7">
             <covered>
               <lifelineMoniker
                 Id="66fac8b6-e010-4ae8-97f1-3cced11f712b"
                 LastKnownName="CLIENT"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d39a119a-51ac-48a8-9878-62151c50604e"
+            name="MessageOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="596739f8-8e82-4fbe-8c3e-cafd6b9dd4cf"
+                LastKnownName="beta : Player"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -3357,22 +3367,22 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="6451b2a3-6c26-4e68-a317-afd21fdd4803"
-            name="MessageOccurrenceSpecification12">
-            <covered>
-              <lifelineMoniker
-                Id="66fac8b6-e010-4ae8-97f1-3cced11f712b"
-                LastKnownName="CLIENT"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="ea79c44c-6736-479f-b2c2-56d44de16544"
             name="MessageOccurrenceSpecification13">
             <covered>
               <lifelineMoniker
                 Id="20829810-2fb2-45b0-8269-233cda6c2d56"
                 LastKnownName=": GameBuilder"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="6451b2a3-6c26-4e68-a317-afd21fdd4803"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="66fac8b6-e010-4ae8-97f1-3cced11f712b"
+                LastKnownName="CLIENT"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -3435,22 +3445,22 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="a0a3c686-9fd5-4674-8926-79e129fc5368"
-            name="MessageOccurrenceSpecification19">
-            <covered>
-              <lifelineMoniker
-                Id="ecb80c10-1481-46b9-ac17-4c56eadded37"
-                LastKnownName="game : Game"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="f0178ec7-0479-47cb-9eeb-d501ba3e5283"
             name="MessageOccurrenceSpecification18">
             <covered>
               <lifelineMoniker
                 Id="20829810-2fb2-45b0-8269-233cda6c2d56"
                 LastKnownName=": GameBuilder"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="a0a3c686-9fd5-4674-8926-79e129fc5368"
+            name="MessageOccurrenceSpecification19">
+            <covered>
+              <lifelineMoniker
+                Id="ecb80c10-1481-46b9-ac17-4c56eadded37"
+                LastKnownName="game : Game"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -3563,22 +3573,22 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="84726757-7b7e-4243-899d-5386652c31a9"
-            name="MessageOccurrenceSpecification21">
-            <covered>
-              <lifelineMoniker
-                Id="20829810-2fb2-45b0-8269-233cda6c2d56"
-                LastKnownName=": GameBuilder"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="fb095e78-2853-47dd-8ce0-4d3e48a7bc74"
             name="MessageOccurrenceSpecification20">
             <covered>
               <lifelineMoniker
                 Id="ecb80c10-1481-46b9-ac17-4c56eadded37"
                 LastKnownName="game : Game"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="84726757-7b7e-4243-899d-5386652c31a9"
+            name="MessageOccurrenceSpecification21">
+            <covered>
+              <lifelineMoniker
+                Id="20829810-2fb2-45b0-8269-233cda6c2d56"
+                LastKnownName=": GameBuilder"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -4002,56 +4012,6 @@ second : player = beta</body>
             </operands>
           </combinedFragment>
           <operandOccurrenceSpecification
-            Id="27f6de5a-78ac-47e9-a3b3-cc15c551dd85"
-            name="OperandOccurrenceSpecification37">
-            <covered>
-              <lifelineMoniker
-                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
-                LastKnownName=": TileTypeFactory"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="73ec5b0e-f87a-4a48-ad14-ead1c8138edf"
-            name="OperandOccurrenceSpecification39">
-            <covered>
-              <lifelineMoniker
-                Id="b8f63578-316e-492b-ab72-29fdf911449a"
-                LastKnownName=": TileType"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="cf54ff08-cae1-4245-a16a-685602441890"
-            name="OperandOccurrenceSpecification35">
-            <covered>
-              <lifelineMoniker
-                Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                LastKnownName=": Tile"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="97bc3a66-4782-48f1-a284-d20bc8f00681"
-            name="OperandOccurrenceSpecification31">
-            <covered>
-              <lifelineMoniker
-                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
-                LastKnownName=": MapGeneration"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="ec501e8d-70ae-4677-9084-37f99495eb1d"
-            name="OperandOccurrenceSpecification41">
-            <covered>
-              <lifelineMoniker
-                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
-                LastKnownName="map : Map"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="ad8594ab-dac5-4125-b50c-eb7d16710b4a"
             name="OperandOccurrenceSpecification55">
             <covered>
@@ -4068,6 +4028,56 @@ second : player = beta</body>
               <lifelineMoniker
                 Id="20829810-2fb2-45b0-8269-233cda6c2d56"
                 LastKnownName=": GameBuilder"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="ec501e8d-70ae-4677-9084-37f99495eb1d"
+            name="OperandOccurrenceSpecification41">
+            <covered>
+              <lifelineMoniker
+                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
+                LastKnownName="map : Map"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="97bc3a66-4782-48f1-a284-d20bc8f00681"
+            name="OperandOccurrenceSpecification31">
+            <covered>
+              <lifelineMoniker
+                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
+                LastKnownName=": MapGeneration"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="cf54ff08-cae1-4245-a16a-685602441890"
+            name="OperandOccurrenceSpecification35">
+            <covered>
+              <lifelineMoniker
+                Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                LastKnownName=": Tile"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="73ec5b0e-f87a-4a48-ad14-ead1c8138edf"
+            name="OperandOccurrenceSpecification39">
+            <covered>
+              <lifelineMoniker
+                Id="b8f63578-316e-492b-ab72-29fdf911449a"
+                LastKnownName=": TileType"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="27f6de5a-78ac-47e9-a3b3-cc15c551dd85"
+            name="OperandOccurrenceSpecification37">
+            <covered>
+              <lifelineMoniker
+                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
+                LastKnownName=": TileTypeFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4142,16 +4152,6 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="afac55a2-4774-4bcb-befe-5f3649018f62"
-            name="MessageOccurrenceSpecification26">
-            <covered>
-              <lifelineMoniker
-                Id="20829810-2fb2-45b0-8269-233cda6c2d56"
-                LastKnownName=": GameBuilder"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="db2dc3ca-70f7-4bfb-b2db-230c407ee810"
             name="MessageOccurrenceSpecification27">
             <covered>
@@ -4161,33 +4161,23 @@ second : player = beta</body>
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="b5b1d9d1-52e4-466f-b992-70e6290c057b"
-            name="OperandOccurrenceSpecification13">
+          <messageOccurrenceSpecification
+            Id="afac55a2-4774-4bcb-befe-5f3649018f62"
+            name="MessageOccurrenceSpecification26">
             <covered>
               <lifelineMoniker
-                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
-                LastKnownName="map : Map"
+                Id="20829810-2fb2-45b0-8269-233cda6c2d56"
+                LastKnownName=": GameBuilder"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
-          </operandOccurrenceSpecification>
+          </messageOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="71f869d0-331d-4396-9005-695d9e29869c"
-            name="OperandOccurrenceSpecification9">
+            Id="3cc5fedc-b850-4eb1-b3d1-4bc8d26689c2"
+            name="OperandOccurrenceSpecification7">
             <covered>
               <lifelineMoniker
-                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
-                LastKnownName=": TileTypeFactory"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="42d43fe6-e5de-455d-ad20-ad2cbf43664d"
-            name="OperandOccurrenceSpecification5">
-            <covered>
-              <lifelineMoniker
-                Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                LastKnownName=": Tile"
+                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
+                LastKnownName=": MapGeneration"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4202,12 +4192,32 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="3cc5fedc-b850-4eb1-b3d1-4bc8d26689c2"
-            name="OperandOccurrenceSpecification7">
+            Id="42d43fe6-e5de-455d-ad20-ad2cbf43664d"
+            name="OperandOccurrenceSpecification5">
             <covered>
               <lifelineMoniker
-                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
-                LastKnownName=": MapGeneration"
+                Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                LastKnownName=": Tile"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="71f869d0-331d-4396-9005-695d9e29869c"
+            name="OperandOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
+                LastKnownName=": TileTypeFactory"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="b5b1d9d1-52e4-466f-b992-70e6290c057b"
+            name="OperandOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
+                LastKnownName="map : Map"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4356,22 +4366,22 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="e2c16bf2-d4d3-43f7-979f-07d699f3ee3a"
-            name="MessageOccurrenceSpecification36">
-            <covered>
-              <lifelineMoniker
-                Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                LastKnownName=": Tile"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="b0271103-f765-4143-b24d-abd26e4866e2"
             name="MessageOccurrenceSpecification37">
             <covered>
               <lifelineMoniker
                 Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
                 LastKnownName=": TileTypeFactory"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e2c16bf2-d4d3-43f7-979f-07d699f3ee3a"
+            name="MessageOccurrenceSpecification36">
+            <covered>
+              <lifelineMoniker
+                Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                LastKnownName=": Tile"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -4466,22 +4476,22 @@ second : player = beta</body>
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="ba03606b-7d46-47aa-82a9-164da6ca7242"
-            name="MessageOccurrenceSpecification43">
-            <covered>
-              <lifelineMoniker
-                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
-                LastKnownName=": TileTypeFactory"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="bc040853-b187-425a-b85c-d33d356dc179"
             name="MessageOccurrenceSpecification42">
             <covered>
               <lifelineMoniker
                 Id="b8f63578-316e-492b-ab72-29fdf911449a"
                 LastKnownName=": TileType"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ba03606b-7d46-47aa-82a9-164da6ca7242"
+            name="MessageOccurrenceSpecification43">
+            <covered>
+              <lifelineMoniker
+                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
+                LastKnownName=": TileTypeFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -4562,22 +4572,22 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="9a55540f-c2ed-4178-987f-f3b45fc75175"
-            name="MessageOccurrenceSpecification32">
-            <covered>
-              <lifelineMoniker
-                Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                LastKnownName=": Tile"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="6a16ba2b-574a-4a0d-9ab1-1ae76f163dd1"
             name="MessageOccurrenceSpecification33">
             <covered>
               <lifelineMoniker
                 Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
                 LastKnownName=": MapGeneration"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="9a55540f-c2ed-4178-987f-f3b45fc75175"
+            name="MessageOccurrenceSpecification32">
+            <covered>
+              <lifelineMoniker
+                Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                LastKnownName=": Tile"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -4684,36 +4694,6 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="da680d8a-e86c-4d3f-b0ba-d0136947e35b"
-            name="OperandOccurrenceSpecification10">
-            <covered>
-              <lifelineMoniker
-                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
-                LastKnownName=": TileTypeFactory"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="e48f0d23-ab05-408a-97c9-1dbef181bd62"
-            name="OperandOccurrenceSpecification8">
-            <covered>
-              <lifelineMoniker
-                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
-                LastKnownName=": MapGeneration"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="9a94e746-f15e-4e55-9f88-3382ba4918da"
-            name="OperandOccurrenceSpecification6">
-            <covered>
-              <lifelineMoniker
-                Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                LastKnownName=": Tile"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="f37f22bd-27be-42f3-bd48-b880228a6413"
             name="OperandOccurrenceSpecification12">
             <covered>
@@ -4730,6 +4710,36 @@ second : player = beta</body>
               <lifelineMoniker
                 Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
                 LastKnownName="map : Map"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="da680d8a-e86c-4d3f-b0ba-d0136947e35b"
+            name="OperandOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
+                LastKnownName=": TileTypeFactory"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="9a94e746-f15e-4e55-9f88-3382ba4918da"
+            name="OperandOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                LastKnownName=": Tile"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="e48f0d23-ab05-408a-97c9-1dbef181bd62"
+            name="OperandOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
+                LastKnownName=": MapGeneration"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4772,26 +4782,6 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="3b48192f-eb6f-4937-9535-2613579e94c8"
-            name="OperandOccurrenceSpecification56">
-            <covered>
-              <lifelineMoniker
-                Id="ecb80c10-1481-46b9-ac17-4c56eadded37"
-                LastKnownName="game : Game"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="9469ad9a-8675-449f-913d-078976ec471a"
-            name="OperandOccurrenceSpecification42">
-            <covered>
-              <lifelineMoniker
-                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
-                LastKnownName="map : Map"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="fe5b1ae0-1fbd-47d2-8934-4f34489156ff"
             name="OperandOccurrenceSpecification36">
             <covered>
@@ -4802,12 +4792,12 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="abdb9949-dcbc-45ab-a205-7a75e0e1165b"
-            name="OperandOccurrenceSpecification40">
+            Id="3b48192f-eb6f-4937-9535-2613579e94c8"
+            name="OperandOccurrenceSpecification56">
             <covered>
               <lifelineMoniker
-                Id="b8f63578-316e-492b-ab72-29fdf911449a"
-                LastKnownName=": TileType"
+                Id="ecb80c10-1481-46b9-ac17-4c56eadded37"
+                LastKnownName="game : Game"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4818,6 +4808,16 @@ second : player = beta</body>
               <lifelineMoniker
                 Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
                 LastKnownName=": MapGeneration"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="9469ad9a-8675-449f-913d-078976ec471a"
+            name="OperandOccurrenceSpecification42">
+            <covered>
+              <lifelineMoniker
+                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
+                LastKnownName="map : Map"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4842,22 +4842,12 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="9a6b82bb-1fa9-4192-8b93-37cb05296806"
-            name="OperandOccurrenceSpecification51">
+            Id="abdb9949-dcbc-45ab-a205-7a75e0e1165b"
+            name="OperandOccurrenceSpecification40">
             <covered>
               <lifelineMoniker
                 Id="b8f63578-316e-492b-ab72-29fdf911449a"
                 LastKnownName=": TileType"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="7d3906ab-0778-4313-8ea8-3ec30da7b1c7"
-            name="OperandOccurrenceSpecification57">
-            <covered>
-              <lifelineMoniker
-                Id="ecb80c10-1481-46b9-ac17-4c56eadded37"
-                LastKnownName="game : Game"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4872,22 +4862,12 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="7e1d72eb-07f0-4f8e-92f5-308ae94ab667"
-            name="OperandOccurrenceSpecification43">
+            Id="7d3906ab-0778-4313-8ea8-3ec30da7b1c7"
+            name="OperandOccurrenceSpecification57">
             <covered>
               <lifelineMoniker
-                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
-                LastKnownName=": MapGeneration"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="221e4f01-24ac-40a7-8234-894ef9a3eb35"
-            name="OperandOccurrenceSpecification49">
-            <covered>
-              <lifelineMoniker
-                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
-                LastKnownName=": TileTypeFactory"
+                Id="ecb80c10-1481-46b9-ac17-4c56eadded37"
+                LastKnownName="game : Game"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -4902,12 +4882,42 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
+            Id="221e4f01-24ac-40a7-8234-894ef9a3eb35"
+            name="OperandOccurrenceSpecification49">
+            <covered>
+              <lifelineMoniker
+                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
+                LastKnownName=": TileTypeFactory"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
             Id="5819f70d-85ec-4015-a020-11328d16574c"
             name="OperandOccurrenceSpecification53">
             <covered>
               <lifelineMoniker
                 Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
                 LastKnownName="map : Map"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="9a6b82bb-1fa9-4192-8b93-37cb05296806"
+            name="OperandOccurrenceSpecification51">
+            <covered>
+              <lifelineMoniker
+                Id="b8f63578-316e-492b-ab72-29fdf911449a"
+                LastKnownName=": TileType"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="7e1d72eb-07f0-4f8e-92f5-308ae94ab667"
+            name="OperandOccurrenceSpecification43">
+            <covered>
+              <lifelineMoniker
+                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
+                LastKnownName=": MapGeneration"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -5080,12 +5090,22 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="cce6cf3b-b698-43b3-b675-28403c7d6946"
-            name="OperandOccurrenceSpecification50">
+            Id="1b90e725-0086-4e87-834e-b6a0ce6fae75"
+            name="OperandOccurrenceSpecification48">
             <covered>
               <lifelineMoniker
-                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
-                LastKnownName=": TileTypeFactory"
+                Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                LastKnownName=": Tile"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="dd1db4c3-79fa-4911-b005-3b92ff67e0ab"
+            name="OperandOccurrenceSpecification58">
+            <covered>
+              <lifelineMoniker
+                Id="ecb80c10-1481-46b9-ac17-4c56eadded37"
+                LastKnownName="game : Game"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -5110,26 +5130,6 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="dd1db4c3-79fa-4911-b005-3b92ff67e0ab"
-            name="OperandOccurrenceSpecification58">
-            <covered>
-              <lifelineMoniker
-                Id="ecb80c10-1481-46b9-ac17-4c56eadded37"
-                LastKnownName="game : Game"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="9cca7de8-2bb2-4c6b-b78f-3d5f61854088"
-            name="OperandOccurrenceSpecification44">
-            <covered>
-              <lifelineMoniker
-                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
-                LastKnownName=": MapGeneration"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="59e19773-6044-41d3-887f-7be5c5a869ba"
             name="OperandOccurrenceSpecification52">
             <covered>
@@ -5140,12 +5140,22 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="1b90e725-0086-4e87-834e-b6a0ce6fae75"
-            name="OperandOccurrenceSpecification48">
+            Id="cce6cf3b-b698-43b3-b675-28403c7d6946"
+            name="OperandOccurrenceSpecification50">
             <covered>
               <lifelineMoniker
-                Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                LastKnownName=": Tile"
+                Id="cce52b4f-be7c-4427-bc6b-cb2f3c72906a"
+                LastKnownName=": TileTypeFactory"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="9cca7de8-2bb2-4c6b-b78f-3d5f61854088"
+            name="OperandOccurrenceSpecification44">
+            <covered>
+              <lifelineMoniker
+                Id="29c557f3-ca27-4e88-8753-16a018f4cc05"
+                LastKnownName=": MapGeneration"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -5181,12 +5191,16 @@ second : player = beta</body>
                 LastKnownName="map : Map"
                 LastKnownLocation="Winnie.uml.uml" />
               <lifelineMoniker
-                Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                LastKnownName=": Tile"
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
                 LastKnownLocation="Winnie.uml.uml" />
               <lifelineMoniker
                 Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
                 LastKnownName="unit : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+              <lifelineMoniker
+                Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                LastKnownName=": Tile"
                 LastKnownLocation="Winnie.uml.uml" />
             </coveredLifelines>
             <operands>
@@ -5203,12 +5217,16 @@ second : player = beta</body>
                     LastKnownName="map : Map"
                     LastKnownLocation="Winnie.uml.uml" />
                   <lifelineMoniker
-                    Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                    LastKnownName=": Tile"
+                    Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                    LastKnownName=": UnitFactory"
                     LastKnownLocation="Winnie.uml.uml" />
                   <lifelineMoniker
                     Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
                     LastKnownName="unit : Unit"
+                    LastKnownLocation="Winnie.uml.uml" />
+                  <lifelineMoniker
+                    Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                    LastKnownName=": Tile"
                     LastKnownLocation="Winnie.uml.uml" />
                 </coveredLifelines>
                 <fragments>
@@ -5226,12 +5244,16 @@ second : player = beta</body>
                         LastKnownName="map : Map"
                         LastKnownLocation="Winnie.uml.uml" />
                       <lifelineMoniker
-                        Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                        LastKnownName=": Tile"
+                        Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                        LastKnownName=": UnitFactory"
                         LastKnownLocation="Winnie.uml.uml" />
                       <lifelineMoniker
                         Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
                         LastKnownName="unit : Unit"
+                        LastKnownLocation="Winnie.uml.uml" />
+                      <lifelineMoniker
+                        Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                        LastKnownName=": Tile"
                         LastKnownLocation="Winnie.uml.uml" />
                     </coveredLifelines>
                     <operands>
@@ -5248,12 +5270,16 @@ second : player = beta</body>
                             LastKnownName="map : Map"
                             LastKnownLocation="Winnie.uml.uml" />
                           <lifelineMoniker
-                            Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                            LastKnownName=": Tile"
+                            Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                            LastKnownName=": UnitFactory"
                             LastKnownLocation="Winnie.uml.uml" />
                           <lifelineMoniker
                             Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
                             LastKnownName="unit : Unit"
+                            LastKnownLocation="Winnie.uml.uml" />
+                          <lifelineMoniker
+                            Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                            LastKnownName=": Tile"
                             LastKnownLocation="Winnie.uml.uml" />
                         </coveredLifelines>
                         <guard>
@@ -5275,14 +5301,6 @@ second : player = beta</body>
                         </guard>
                         <operandOccurrenceSpecifications>
                           <operandOccurrenceSpecificationMoniker
-                            Id="e57b1078-1ce9-404c-aceb-d22163ba1043"
-                            LastKnownName="OperandOccurrenceSpecification23"
-                            LastKnownLocation="Winnie.uml.uml" />
-                          <operandOccurrenceSpecificationMoniker
-                            Id="df4c11f7-b243-44a7-b9b4-cec2cfdd5e77"
-                            LastKnownName="OperandOccurrenceSpecification24"
-                            LastKnownLocation="Winnie.uml.uml" />
-                          <operandOccurrenceSpecificationMoniker
                             Id="345980f1-0ba5-4edd-8d84-e02d85f6e0ab"
                             LastKnownName="OperandOccurrenceSpecification25"
                             LastKnownLocation="Winnie.uml.uml" />
@@ -5291,20 +5309,36 @@ second : player = beta</body>
                             LastKnownName="OperandOccurrenceSpecification26"
                             LastKnownLocation="Winnie.uml.uml" />
                           <operandOccurrenceSpecificationMoniker
-                            Id="887b3c27-d543-4b84-902c-ab1b846c16ee"
-                            LastKnownName="OperandOccurrenceSpecification27"
-                            LastKnownLocation="Winnie.uml.uml" />
-                          <operandOccurrenceSpecificationMoniker
-                            Id="b50a092f-c7cd-4133-a43e-69fe4e05b354"
-                            LastKnownName="OperandOccurrenceSpecification28"
-                            LastKnownLocation="Winnie.uml.uml" />
-                          <operandOccurrenceSpecificationMoniker
                             Id="4aba4299-72a1-495c-ac64-dbd8673ee92f"
                             LastKnownName="OperandOccurrenceSpecification29"
                             LastKnownLocation="Winnie.uml.uml" />
                           <operandOccurrenceSpecificationMoniker
                             Id="514fa4b6-e188-49c5-bd5d-9f6a21e6740d"
                             LastKnownName="OperandOccurrenceSpecification30"
+                            LastKnownLocation="Winnie.uml.uml" />
+                          <operandOccurrenceSpecificationMoniker
+                            Id="f1539709-5e25-4f3c-bba1-d67c289bfeb9"
+                            LastKnownName="OperandOccurrenceSpecification59"
+                            LastKnownLocation="Winnie.uml.uml" />
+                          <operandOccurrenceSpecificationMoniker
+                            Id="607c003b-3c00-42e2-aedd-8a277f7fae78"
+                            LastKnownName="OperandOccurrenceSpecification60"
+                            LastKnownLocation="Winnie.uml.uml" />
+                          <operandOccurrenceSpecificationMoniker
+                            Id="cb52882b-f1ac-464f-8079-4f3e509f5501"
+                            LastKnownName="OperandOccurrenceSpecification63"
+                            LastKnownLocation="Winnie.uml.uml" />
+                          <operandOccurrenceSpecificationMoniker
+                            Id="fea86237-a02d-44c2-8139-7d34cb3f5907"
+                            LastKnownName="OperandOccurrenceSpecification64"
+                            LastKnownLocation="Winnie.uml.uml" />
+                          <operandOccurrenceSpecificationMoniker
+                            Id="ee9d74cf-eae4-4012-8d96-1dae02699022"
+                            LastKnownName="OperandOccurrenceSpecification67"
+                            LastKnownLocation="Winnie.uml.uml" />
+                          <operandOccurrenceSpecificationMoniker
+                            Id="0b45a9e0-12f2-4779-8154-814713be01f7"
+                            LastKnownName="OperandOccurrenceSpecification68"
                             LastKnownLocation="Winnie.uml.uml" />
                         </operandOccurrenceSpecifications>
                       </interactionOperand>
@@ -5330,28 +5364,12 @@ second : player = beta</body>
                 </guard>
                 <operandOccurrenceSpecifications>
                   <operandOccurrenceSpecificationMoniker
-                    Id="7719115f-5d23-43c7-b007-f712d0dd2ce0"
-                    LastKnownName="OperandOccurrenceSpecification15"
-                    LastKnownLocation="Winnie.uml.uml" />
-                  <operandOccurrenceSpecificationMoniker
-                    Id="a26f3d9d-038e-4929-b600-9cfcb928147d"
-                    LastKnownName="OperandOccurrenceSpecification16"
-                    LastKnownLocation="Winnie.uml.uml" />
-                  <operandOccurrenceSpecificationMoniker
                     Id="b5927115-5c27-4825-a398-56da02c3c083"
                     LastKnownName="OperandOccurrenceSpecification17"
                     LastKnownLocation="Winnie.uml.uml" />
                   <operandOccurrenceSpecificationMoniker
                     Id="481197ea-625d-41d8-8ef6-e6aaee04b8bb"
                     LastKnownName="OperandOccurrenceSpecification18"
-                    LastKnownLocation="Winnie.uml.uml" />
-                  <operandOccurrenceSpecificationMoniker
-                    Id="f0d05cf1-4033-46bf-bdf9-58cf07a7250b"
-                    LastKnownName="OperandOccurrenceSpecification19"
-                    LastKnownLocation="Winnie.uml.uml" />
-                  <operandOccurrenceSpecificationMoniker
-                    Id="f7e19ee8-41dc-429c-b10b-7777a7647f17"
-                    LastKnownName="OperandOccurrenceSpecification20"
                     LastKnownLocation="Winnie.uml.uml" />
                   <operandOccurrenceSpecificationMoniker
                     Id="e24578f8-a6b2-4234-87a3-ec7cce6ef4bf"
@@ -5361,17 +5379,41 @@ second : player = beta</body>
                     Id="a38308f9-acb3-4cae-9bc4-f291fc0de8b5"
                     LastKnownName="OperandOccurrenceSpecification22"
                     LastKnownLocation="Winnie.uml.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="a844b5d4-02f8-41ed-abb0-d81708336210"
+                    LastKnownName="OperandOccurrenceSpecification61"
+                    LastKnownLocation="Winnie.uml.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="acfd932c-9b1d-4454-9cd6-97f492cbe2f9"
+                    LastKnownName="OperandOccurrenceSpecification62"
+                    LastKnownLocation="Winnie.uml.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="aeba95b5-926d-49a9-97de-f85231f7db3b"
+                    LastKnownName="OperandOccurrenceSpecification65"
+                    LastKnownLocation="Winnie.uml.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="a7f15be8-877f-4bd2-a14a-d12d8a9ae2c1"
+                    LastKnownName="OperandOccurrenceSpecification66"
+                    LastKnownLocation="Winnie.uml.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="958e5609-91b5-419e-9229-bb143e5eb74c"
+                    LastKnownName="OperandOccurrenceSpecification69"
+                    LastKnownLocation="Winnie.uml.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="93aa08f3-f8de-4055-bba7-3bec13eea785"
+                    LastKnownName="OperandOccurrenceSpecification70"
+                    LastKnownLocation="Winnie.uml.uml" />
                 </operandOccurrenceSpecifications>
               </interactionOperand>
             </operands>
           </combinedFragment>
           <operandOccurrenceSpecification
-            Id="e24578f8-a6b2-4234-87a3-ec7cce6ef4bf"
-            name="OperandOccurrenceSpecification21">
+            Id="aeba95b5-926d-49a9-97de-f85231f7db3b"
+            name="OperandOccurrenceSpecification65">
             <covered>
               <lifelineMoniker
-                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
-                LastKnownName="map : Map"
+                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
+                LastKnownName="unit : Unit"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -5386,18 +5428,28 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="7719115f-5d23-43c7-b007-f712d0dd2ce0"
-            name="OperandOccurrenceSpecification15">
+            Id="a844b5d4-02f8-41ed-abb0-d81708336210"
+            name="OperandOccurrenceSpecification61">
             <covered>
               <lifelineMoniker
-                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
-                LastKnownName="unit : Unit"
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="f0d05cf1-4033-46bf-bdf9-58cf07a7250b"
-            name="OperandOccurrenceSpecification19">
+            Id="e24578f8-a6b2-4234-87a3-ec7cce6ef4bf"
+            name="OperandOccurrenceSpecification21">
+            <covered>
+              <lifelineMoniker
+                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
+                LastKnownName="map : Map"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="958e5609-91b5-419e-9229-bb143e5eb74c"
+            name="OperandOccurrenceSpecification69">
             <covered>
               <lifelineMoniker
                 Id="7c5575d9-586b-488c-900c-108a51237aeb"
@@ -5406,22 +5458,22 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="e57b1078-1ce9-404c-aceb-d22163ba1043"
-            name="OperandOccurrenceSpecification23">
+            Id="ee9d74cf-eae4-4012-8d96-1dae02699022"
+            name="OperandOccurrenceSpecification67">
             <covered>
               <lifelineMoniker
-                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
-                LastKnownName="unit : Unit"
+                Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                LastKnownName=": Tile"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="345980f1-0ba5-4edd-8d84-e02d85f6e0ab"
-            name="OperandOccurrenceSpecification25">
+            Id="cb52882b-f1ac-464f-8079-4f3e509f5501"
+            name="OperandOccurrenceSpecification63">
             <covered>
               <lifelineMoniker
-                Id="20829810-2fb2-45b0-8269-233cda6c2d56"
-                LastKnownName=": GameBuilder"
+                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
+                LastKnownName="unit : Unit"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -5436,12 +5488,22 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="887b3c27-d543-4b84-902c-ab1b846c16ee"
-            name="OperandOccurrenceSpecification27">
+            Id="345980f1-0ba5-4edd-8d84-e02d85f6e0ab"
+            name="OperandOccurrenceSpecification25">
             <covered>
               <lifelineMoniker
-                Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                LastKnownName=": Tile"
+                Id="20829810-2fb2-45b0-8269-233cda6c2d56"
+                LastKnownName=": GameBuilder"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="f1539709-5e25-4f3c-bba1-d67c289bfeb9"
+            name="OperandOccurrenceSpecification59">
+            <covered>
+              <lifelineMoniker
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -5554,82 +5616,194 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <behaviorExecutionSpecification
-            Id="3068b44d-abb6-44af-beb3-0396dcdfb59d"
-            name="BehaviorExecutionSpecification15">
+            Id="0fdf0b2c-e973-4d1f-a408-1770f6c9f9e6"
+            name="BehaviorExecutionSpecification24">
             <coveredLifelines>
               <lifelineMoniker
-                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
-                LastKnownName="unit : Unit"
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </coveredLifelines>
             <finish>
               <executionOccurrenceSpecificationMoniker
-                Id="17ab2783-c87a-41f7-8814-98b9c635572d"
-                LastKnownName="ExecutionOccurrenceSpecification30"
+                Id="6385395a-5d69-4ccb-9f1e-54ddd4036dfe"
+                LastKnownName="ExecutionOccurrenceSpecification48"
                 LastKnownLocation="Winnie.uml.uml" />
             </finish>
             <start>
               <executionOccurrenceSpecificationMoniker
-                Id="45841131-bad6-4cb8-876f-32857b18d12d"
-                LastKnownName="ExecutionOccurrenceSpecification29"
+                Id="4761db05-4f97-4280-942e-626914a16058"
+                LastKnownName="ExecutionOccurrenceSpecification47"
                 LastKnownLocation="Winnie.uml.uml" />
             </start>
             <nestedOccurrences>
               <messageOccurrenceSpecificationMoniker
-                Id="09e24ccd-f510-482b-b743-def92468eb2f"
-                LastKnownName="MessageOccurrenceSpecification47"
+                Id="48b9af64-6b6e-4276-8fa9-343b06738af8"
+                LastKnownName="MessageOccurrenceSpecification69"
                 LastKnownLocation="Winnie.uml.uml" />
               <messageOccurrenceSpecificationMoniker
-                Id="ba44adbd-4fca-4311-9700-ba9e91a86c0c"
-                LastKnownName="MessageOccurrenceSpecification50"
+                Id="147e3fff-1391-410b-a344-b732bb145912"
+                LastKnownName="MessageOccurrenceSpecification70"
                 LastKnownLocation="Winnie.uml.uml" />
               <messageOccurrenceSpecificationMoniker
-                Id="2af09702-5bb6-47fb-b6cf-1aa403b38eac"
-                LastKnownName="MessageOccurrenceSpecification48"
+                Id="fbc0d35b-169b-465a-a34b-2a6336e18282"
+                LastKnownName="MessageOccurrenceSpecification73"
+                LastKnownLocation="Winnie.uml.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="8a668800-7c8c-4fdc-946f-d567c582a774"
+                LastKnownName="MessageOccurrenceSpecification74"
                 LastKnownLocation="Winnie.uml.uml" />
             </nestedOccurrences>
           </behaviorExecutionSpecification>
           <executionOccurrenceSpecification
-            Id="45841131-bad6-4cb8-876f-32857b18d12d"
-            name="ExecutionOccurrenceSpecification29">
+            Id="4761db05-4f97-4280-942e-626914a16058"
+            name="ExecutionOccurrenceSpecification47">
             <event>
               <executionOccurrenceSpecificationReferencesEvent>
                 <executionEventMoniker
-                  Id="1f814c29-8ac1-43fc-82ed-4e759cbc7aa3"
+                  Id="dbf88dd9-55eb-44ee-bd7c-4060fb482388"
                   LastKnownName="ExecutionEvent"
                   LastKnownLocation="Winnie.uml.uml" />
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
               <lifelineMoniker
-                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
-                LastKnownName="unit : Unit"
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="09e24ccd-f510-482b-b743-def92468eb2f"
-            name="MessageOccurrenceSpecification47">
-            <covered>
-              <lifelineMoniker
-                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
-                LastKnownName="unit : Unit"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
-            Id="7ced2efc-0390-4670-9e9a-b241821778c2"
-            name="MessageOccurrenceSpecification46">
+            Id="9f07322f-899a-4ee2-ba3f-6b49f40db4e5"
+            name="MessageOccurrenceSpecification68">
             <covered>
               <lifelineMoniker
                 Id="20829810-2fb2-45b0-8269-233cda6c2d56"
                 LastKnownName=": GameBuilder"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="48b9af64-6b6e-4276-8fa9-343b06738af8"
+            name="MessageOccurrenceSpecification69">
+            <covered>
+              <lifelineMoniker
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
           <behaviorExecutionSpecification
-            Id="896d5644-d48c-4532-b468-0954e7710ee4"
-            name="BehaviorExecutionSpecification16">
+            Id="72bb3d8e-68a9-4060-84d4-d61461c37bad"
+            name="BehaviorExecutionSpecification25">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
+                LastKnownName="unit : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="362c79a9-9cee-4ad0-a846-cf776dd0d855"
+                LastKnownName="ExecutionOccurrenceSpecification50"
+                LastKnownLocation="Winnie.uml.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="767870b7-e005-4467-b796-e73c670c3aa3"
+                LastKnownName="ExecutionOccurrenceSpecification49"
+                LastKnownLocation="Winnie.uml.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="759379a4-88a9-427c-b742-cea159713d82"
+                LastKnownName="MessageOccurrenceSpecification71"
+                LastKnownLocation="Winnie.uml.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d34c1883-994e-420b-82a9-3a74e29640c8"
+                LastKnownName="MessageOccurrenceSpecification72"
+                LastKnownLocation="Winnie.uml.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="767870b7-e005-4467-b796-e73c670c3aa3"
+            name="ExecutionOccurrenceSpecification49">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="d97b77d3-e970-4019-8bbe-4be315fb6095"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="Winnie.uml.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
+                LastKnownName="unit : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="759379a4-88a9-427c-b742-cea159713d82"
+            name="MessageOccurrenceSpecification71">
+            <covered>
+              <lifelineMoniker
+                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
+                LastKnownName="unit : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="147e3fff-1391-410b-a344-b732bb145912"
+            name="MessageOccurrenceSpecification70">
+            <covered>
+              <lifelineMoniker
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d34c1883-994e-420b-82a9-3a74e29640c8"
+            name="MessageOccurrenceSpecification72">
+            <covered>
+              <lifelineMoniker
+                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
+                LastKnownName="unit : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="fbc0d35b-169b-465a-a34b-2a6336e18282"
+            name="MessageOccurrenceSpecification73">
+            <covered>
+              <lifelineMoniker
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="362c79a9-9cee-4ad0-a846-cf776dd0d855"
+            name="ExecutionOccurrenceSpecification50">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="7554d6b1-a79a-46ca-b715-9e71607dba8c"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="Winnie.uml.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
+                LastKnownName="unit : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="650c5a76-af9e-410f-b40c-91e379563f4b"
+            name="BehaviorExecutionSpecification26">
             <coveredLifelines>
               <lifelineMoniker
                 Id="7c5575d9-586b-488c-900c-108a51237aeb"
@@ -5638,30 +5812,30 @@ second : player = beta</body>
             </coveredLifelines>
             <finish>
               <executionOccurrenceSpecificationMoniker
-                Id="acc4aed5-a335-49a3-b761-19c95f754451"
-                LastKnownName="ExecutionOccurrenceSpecification32"
+                Id="9ee21b90-e929-4ca6-8b17-0b639b2e9269"
+                LastKnownName="ExecutionOccurrenceSpecification52"
                 LastKnownLocation="Winnie.uml.uml" />
             </finish>
             <start>
               <executionOccurrenceSpecificationMoniker
-                Id="81856632-84da-4951-848b-fcce3e2a64b1"
-                LastKnownName="ExecutionOccurrenceSpecification31"
+                Id="f69044fc-939a-498e-be3f-955562aefd0d"
+                LastKnownName="ExecutionOccurrenceSpecification51"
                 LastKnownLocation="Winnie.uml.uml" />
             </start>
             <nestedOccurrences>
               <messageOccurrenceSpecificationMoniker
-                Id="fe35bbb9-03e8-4f6f-b829-0730f33e7a5f"
-                LastKnownName="MessageOccurrenceSpecification51"
+                Id="c1fab09c-58ad-4070-940a-e839cc1db5ff"
+                LastKnownName="MessageOccurrenceSpecification75"
                 LastKnownLocation="Winnie.uml.uml" />
             </nestedOccurrences>
           </behaviorExecutionSpecification>
           <executionOccurrenceSpecification
-            Id="81856632-84da-4951-848b-fcce3e2a64b1"
-            name="ExecutionOccurrenceSpecification31">
+            Id="f69044fc-939a-498e-be3f-955562aefd0d"
+            name="ExecutionOccurrenceSpecification51">
             <event>
               <executionOccurrenceSpecificationReferencesEvent>
                 <executionEventMoniker
-                  Id="aa784d17-c7f3-4678-b6cd-84238301483d"
+                  Id="75df28ac-d48d-47f6-af10-07ee5dedc327"
                   LastKnownName="ExecutionEvent"
                   LastKnownLocation="Winnie.uml.uml" />
               </executionOccurrenceSpecificationReferencesEvent>
@@ -5674,8 +5848,8 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="fe35bbb9-03e8-4f6f-b829-0730f33e7a5f"
-            name="MessageOccurrenceSpecification51">
+            Id="c1fab09c-58ad-4070-940a-e839cc1db5ff"
+            name="MessageOccurrenceSpecification75">
             <covered>
               <lifelineMoniker
                 Id="7c5575d9-586b-488c-900c-108a51237aeb"
@@ -5684,60 +5858,40 @@ second : player = beta</body>
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="ba44adbd-4fca-4311-9700-ba9e91a86c0c"
-            name="MessageOccurrenceSpecification50">
+            Id="8a668800-7c8c-4fdc-946f-d567c582a774"
+            name="MessageOccurrenceSpecification74">
             <covered>
               <lifelineMoniker
-                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
-                LastKnownName="unit : Unit"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
-            Id="60ad39e1-de90-43f1-aeab-7122dead5cf2"
-            name="MessageOccurrenceSpecification49">
-            <covered>
-              <lifelineMoniker
-                Id="20829810-2fb2-45b0-8269-233cda6c2d56"
-                LastKnownName=": GameBuilder"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
-            Id="2af09702-5bb6-47fb-b6cf-1aa403b38eac"
-            name="MessageOccurrenceSpecification48">
-            <covered>
-              <lifelineMoniker
-                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
-                LastKnownName="unit : Unit"
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification
-            Id="17ab2783-c87a-41f7-8814-98b9c635572d"
-            name="ExecutionOccurrenceSpecification30">
+            Id="6385395a-5d69-4ccb-9f1e-54ddd4036dfe"
+            name="ExecutionOccurrenceSpecification48">
             <event>
               <executionOccurrenceSpecificationReferencesEvent>
                 <executionEventMoniker
-                  Id="49137e47-1204-40f5-bbc1-1a2f08f4f009"
+                  Id="bf754881-9f52-476e-8b3d-925610930516"
                   LastKnownName="ExecutionEvent"
                   LastKnownLocation="Winnie.uml.uml" />
               </executionOccurrenceSpecificationReferencesEvent>
             </event>
             <covered>
               <lifelineMoniker
-                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
-                LastKnownName="unit : Unit"
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </executionOccurrenceSpecification>
           <executionOccurrenceSpecification
-            Id="acc4aed5-a335-49a3-b761-19c95f754451"
-            name="ExecutionOccurrenceSpecification32">
+            Id="9ee21b90-e929-4ca6-8b17-0b639b2e9269"
+            name="ExecutionOccurrenceSpecification52">
             <event>
               <executionOccurrenceSpecificationReferencesEvent>
                 <executionEventMoniker
-                  Id="a94e8fc6-4196-4537-a047-2df1d8eaeb44"
+                  Id="d04f29bc-620f-45a4-94bc-1894e5a728ad"
                   LastKnownName="ExecutionEvent"
                   LastKnownLocation="Winnie.uml.uml" />
               </executionOccurrenceSpecificationReferencesEvent>
@@ -5750,28 +5904,8 @@ second : player = beta</body>
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="df4c11f7-b243-44a7-b9b4-cec2cfdd5e77"
-            name="OperandOccurrenceSpecification24">
-            <covered>
-              <lifelineMoniker
-                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
-                LastKnownName="unit : Unit"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="514fa4b6-e188-49c5-bd5d-9f6a21e6740d"
-            name="OperandOccurrenceSpecification30">
-            <covered>
-              <lifelineMoniker
-                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
-                LastKnownName="map : Map"
-                LastKnownLocation="Winnie.uml.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
-            Id="b50a092f-c7cd-4133-a43e-69fe4e05b354"
-            name="OperandOccurrenceSpecification28">
+            Id="0b45a9e0-12f2-4779-8154-814713be01f7"
+            name="OperandOccurrenceSpecification68">
             <covered>
               <lifelineMoniker
                 Id="7c5575d9-586b-488c-900c-108a51237aeb"
@@ -5790,8 +5924,48 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="a26f3d9d-038e-4929-b600-9cfcb928147d"
-            name="OperandOccurrenceSpecification16">
+            Id="fea86237-a02d-44c2-8139-7d34cb3f5907"
+            name="OperandOccurrenceSpecification64">
+            <covered>
+              <lifelineMoniker
+                Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
+                LastKnownName="unit : Unit"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="607c003b-3c00-42e2-aedd-8a277f7fae78"
+            name="OperandOccurrenceSpecification60">
+            <covered>
+              <lifelineMoniker
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="514fa4b6-e188-49c5-bd5d-9f6a21e6740d"
+            name="OperandOccurrenceSpecification30">
+            <covered>
+              <lifelineMoniker
+                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
+                LastKnownName="map : Map"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="a38308f9-acb3-4cae-9bc4-f291fc0de8b5"
+            name="OperandOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
+                LastKnownName="map : Map"
+                LastKnownLocation="Winnie.uml.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="a7f15be8-877f-4bd2-a14a-d12d8a9ae2c1"
+            name="OperandOccurrenceSpecification66">
             <covered>
               <lifelineMoniker
                 Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
@@ -5810,22 +5984,22 @@ second : player = beta</body>
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="f7e19ee8-41dc-429c-b10b-7777a7647f17"
-            name="OperandOccurrenceSpecification20">
+            Id="acfd932c-9b1d-4454-9cd6-97f492cbe2f9"
+            name="OperandOccurrenceSpecification62">
             <covered>
               <lifelineMoniker
-                Id="7c5575d9-586b-488c-900c-108a51237aeb"
-                LastKnownName=": Tile"
+                Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+                LastKnownName=": UnitFactory"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="a38308f9-acb3-4cae-9bc4-f291fc0de8b5"
-            name="OperandOccurrenceSpecification22">
+            Id="93aa08f3-f8de-4055-bba7-3bec13eea785"
+            name="OperandOccurrenceSpecification70">
             <covered>
               <lifelineMoniker
-                Id="9ef698c2-8cd4-4f43-8721-ad0a99493348"
-                LastKnownName="map : Map"
+                Id="7c5575d9-586b-488c-900c-108a51237aeb"
+                LastKnownName=": Tile"
                 LastKnownLocation="Winnie.uml.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -6014,12 +6188,8 @@ second : player = beta</body>
                 LastKnownName="MessageOccurrenceSpecification57"
                 LastKnownLocation="Winnie.uml.uml" />
               <messageOccurrenceSpecificationMoniker
-                Id="7ced2efc-0390-4670-9e9a-b241821778c2"
-                LastKnownName="MessageOccurrenceSpecification46"
-                LastKnownLocation="Winnie.uml.uml" />
-              <messageOccurrenceSpecificationMoniker
-                Id="60ad39e1-de90-43f1-aeab-7122dead5cf2"
-                LastKnownName="MessageOccurrenceSpecification49"
+                Id="9f07322f-899a-4ee2-ba3f-6b49f40db4e5"
+                LastKnownName="MessageOccurrenceSpecification68"
                 LastKnownLocation="Winnie.uml.uml" />
               <operandOccurrenceSpecificationMoniker
                 Id="3591d2d0-e067-4308-9a4c-7fdecd187e18"
@@ -6218,28 +6388,28 @@ second : player = beta</body>
                 LastKnownName="OperandOccurrenceSpecification48"
                 LastKnownLocation="Winnie.uml.uml" />
               <operandOccurrenceSpecificationMoniker
-                Id="f0d05cf1-4033-46bf-bdf9-58cf07a7250b"
-                LastKnownName="OperandOccurrenceSpecification19"
+                Id="958e5609-91b5-419e-9229-bb143e5eb74c"
+                LastKnownName="OperandOccurrenceSpecification69"
                 LastKnownLocation="Winnie.uml.uml" />
               <operandOccurrenceSpecificationMoniker
-                Id="887b3c27-d543-4b84-902c-ab1b846c16ee"
-                LastKnownName="OperandOccurrenceSpecification27"
+                Id="ee9d74cf-eae4-4012-8d96-1dae02699022"
+                LastKnownName="OperandOccurrenceSpecification67"
                 LastKnownLocation="Winnie.uml.uml" />
               <executionOccurrenceSpecificationMoniker
-                Id="81856632-84da-4951-848b-fcce3e2a64b1"
-                LastKnownName="ExecutionOccurrenceSpecification31"
+                Id="f69044fc-939a-498e-be3f-955562aefd0d"
+                LastKnownName="ExecutionOccurrenceSpecification51"
                 LastKnownLocation="Winnie.uml.uml" />
               <executionOccurrenceSpecificationMoniker
-                Id="acc4aed5-a335-49a3-b761-19c95f754451"
-                LastKnownName="ExecutionOccurrenceSpecification32"
+                Id="9ee21b90-e929-4ca6-8b17-0b639b2e9269"
+                LastKnownName="ExecutionOccurrenceSpecification52"
                 LastKnownLocation="Winnie.uml.uml" />
               <operandOccurrenceSpecificationMoniker
-                Id="b50a092f-c7cd-4133-a43e-69fe4e05b354"
-                LastKnownName="OperandOccurrenceSpecification28"
+                Id="0b45a9e0-12f2-4779-8154-814713be01f7"
+                LastKnownName="OperandOccurrenceSpecification68"
                 LastKnownLocation="Winnie.uml.uml" />
               <operandOccurrenceSpecificationMoniker
-                Id="f7e19ee8-41dc-429c-b10b-7777a7647f17"
-                LastKnownName="OperandOccurrenceSpecification20"
+                Id="93aa08f3-f8de-4055-bba7-3bec13eea785"
+                LastKnownName="OperandOccurrenceSpecification70"
                 LastKnownLocation="Winnie.uml.uml" />
             </topLevelOccurrences>
           </lifeline>
@@ -6332,34 +6502,66 @@ second : player = beta</body>
             </topLevelOccurrences>
           </lifeline>
           <lifeline
+            Id="4ca88fe4-b303-4cef-993b-496ea0503a93"
+            name=": UnitFactory"
+            isActor="false"
+            lifelineDisplayName=": UnitFactory">
+            <topLevelOccurrences>
+              <operandOccurrenceSpecificationMoniker
+                Id="a844b5d4-02f8-41ed-abb0-d81708336210"
+                LastKnownName="OperandOccurrenceSpecification61"
+                LastKnownLocation="Winnie.uml.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="f1539709-5e25-4f3c-bba1-d67c289bfeb9"
+                LastKnownName="OperandOccurrenceSpecification59"
+                LastKnownLocation="Winnie.uml.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="4761db05-4f97-4280-942e-626914a16058"
+                LastKnownName="ExecutionOccurrenceSpecification47"
+                LastKnownLocation="Winnie.uml.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="6385395a-5d69-4ccb-9f1e-54ddd4036dfe"
+                LastKnownName="ExecutionOccurrenceSpecification48"
+                LastKnownLocation="Winnie.uml.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="607c003b-3c00-42e2-aedd-8a277f7fae78"
+                LastKnownName="OperandOccurrenceSpecification60"
+                LastKnownLocation="Winnie.uml.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="acfd932c-9b1d-4454-9cd6-97f492cbe2f9"
+                LastKnownName="OperandOccurrenceSpecification62"
+                LastKnownLocation="Winnie.uml.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
             Id="2a993830-df9b-436f-b70c-05b568bbcdfe"
             name="unit : Unit"
             isActor="false"
             lifelineDisplayName="unit : Unit">
             <topLevelOccurrences>
               <operandOccurrenceSpecificationMoniker
-                Id="7719115f-5d23-43c7-b007-f712d0dd2ce0"
-                LastKnownName="OperandOccurrenceSpecification15"
+                Id="aeba95b5-926d-49a9-97de-f85231f7db3b"
+                LastKnownName="OperandOccurrenceSpecification65"
                 LastKnownLocation="Winnie.uml.uml" />
               <operandOccurrenceSpecificationMoniker
-                Id="e57b1078-1ce9-404c-aceb-d22163ba1043"
-                LastKnownName="OperandOccurrenceSpecification23"
+                Id="cb52882b-f1ac-464f-8079-4f3e509f5501"
+                LastKnownName="OperandOccurrenceSpecification63"
                 LastKnownLocation="Winnie.uml.uml" />
               <executionOccurrenceSpecificationMoniker
-                Id="45841131-bad6-4cb8-876f-32857b18d12d"
-                LastKnownName="ExecutionOccurrenceSpecification29"
+                Id="767870b7-e005-4467-b796-e73c670c3aa3"
+                LastKnownName="ExecutionOccurrenceSpecification49"
                 LastKnownLocation="Winnie.uml.uml" />
               <executionOccurrenceSpecificationMoniker
-                Id="17ab2783-c87a-41f7-8814-98b9c635572d"
-                LastKnownName="ExecutionOccurrenceSpecification30"
+                Id="362c79a9-9cee-4ad0-a846-cf776dd0d855"
+                LastKnownName="ExecutionOccurrenceSpecification50"
                 LastKnownLocation="Winnie.uml.uml" />
               <operandOccurrenceSpecificationMoniker
-                Id="df4c11f7-b243-44a7-b9b4-cec2cfdd5e77"
-                LastKnownName="OperandOccurrenceSpecification24"
+                Id="fea86237-a02d-44c2-8139-7d34cb3f5907"
+                LastKnownName="OperandOccurrenceSpecification64"
                 LastKnownLocation="Winnie.uml.uml" />
               <operandOccurrenceSpecificationMoniker
-                Id="a26f3d9d-038e-4929-b600-9cfcb928147d"
-                LastKnownName="OperandOccurrenceSpecification16"
+                Id="a7f15be8-877f-4bd2-a14a-d12d8a9ae2c1"
+                LastKnownName="OperandOccurrenceSpecification66"
                 LastKnownLocation="Winnie.uml.uml" />
             </topLevelOccurrences>
           </lifeline>
@@ -6784,59 +6986,78 @@ second : player = beta</body>
             </receiveEvent>
           </message>
           <message
-            Id="c1a10bc2-771f-4feb-8772-9e360a6ba8bb"
-            name="&lt;&lt;create&gt;&gt;(player, tile)"
-            messageKind="Complete"
-            messageSort="CreateMessage"
-            createSelfMessage="false">
-            <sendEvent>
-              <messageOccurrenceSpecificationMoniker
-                Id="7ced2efc-0390-4670-9e9a-b241821778c2"
-                LastKnownName="MessageOccurrenceSpecification46"
-                LastKnownLocation="Winnie.uml.uml" />
-            </sendEvent>
-            <receiveEvent>
-              <messageOccurrenceSpecificationMoniker
-                Id="09e24ccd-f510-482b-b743-def92468eb2f"
-                LastKnownName="MessageOccurrenceSpecification47"
-                LastKnownLocation="Winnie.uml.uml" />
-            </receiveEvent>
-          </message>
-          <message
-            Id="9e83c49f-9c7f-4221-97b8-12e43ab07b7e"
-            name="AddUnit(unit)"
+            Id="8cc45947-28e8-400c-b322-6bd986fa9e07"
+            name="Build(player, tile)"
             messageKind="Complete"
             messageSort="AsynchCall"
             createSelfMessage="false">
             <sendEvent>
               <messageOccurrenceSpecificationMoniker
-                Id="ba44adbd-4fca-4311-9700-ba9e91a86c0c"
-                LastKnownName="MessageOccurrenceSpecification50"
+                Id="9f07322f-899a-4ee2-ba3f-6b49f40db4e5"
+                LastKnownName="MessageOccurrenceSpecification68"
                 LastKnownLocation="Winnie.uml.uml" />
             </sendEvent>
             <receiveEvent>
               <messageOccurrenceSpecificationMoniker
-                Id="fe35bbb9-03e8-4f6f-b829-0730f33e7a5f"
-                LastKnownName="MessageOccurrenceSpecification51"
+                Id="48b9af64-6b6e-4276-8fa9-343b06738af8"
+                LastKnownName="MessageOccurrenceSpecification69"
                 LastKnownLocation="Winnie.uml.uml" />
             </receiveEvent>
           </message>
           <message
-            Id="0620b48e-b4ad-4fd1-8e75-b1c17221626c"
+            Id="aa6c50f1-b22a-44ca-a4d1-8d4a31179d95"
+            name="&lt;&lt;create&gt;&gt;"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="147e3fff-1391-410b-a344-b732bb145912"
+                LastKnownName="MessageOccurrenceSpecification70"
+                LastKnownLocation="Winnie.uml.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="759379a4-88a9-427c-b742-cea159713d82"
+                LastKnownName="MessageOccurrenceSpecification71"
+                LastKnownLocation="Winnie.uml.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="94011147-8435-4246-8fca-368957e63e61"
             name="&lt;&lt;return&gt;&gt;"
             messageKind="Complete"
             messageSort="Reply"
             createSelfMessage="false">
             <sendEvent>
               <messageOccurrenceSpecificationMoniker
-                Id="2af09702-5bb6-47fb-b6cf-1aa403b38eac"
-                LastKnownName="MessageOccurrenceSpecification48"
+                Id="d34c1883-994e-420b-82a9-3a74e29640c8"
+                LastKnownName="MessageOccurrenceSpecification72"
                 LastKnownLocation="Winnie.uml.uml" />
             </sendEvent>
             <receiveEvent>
               <messageOccurrenceSpecificationMoniker
-                Id="60ad39e1-de90-43f1-aeab-7122dead5cf2"
-                LastKnownName="MessageOccurrenceSpecification49"
+                Id="fbc0d35b-169b-465a-a34b-2a6336e18282"
+                LastKnownName="MessageOccurrenceSpecification73"
+                LastKnownLocation="Winnie.uml.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="cf3c769f-eff7-47ad-9301-878aed26787e"
+            name="AddUnit(unit)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8a668800-7c8c-4fdc-946f-d567c582a774"
+                LastKnownName="MessageOccurrenceSpecification74"
+                LastKnownLocation="Winnie.uml.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="c1fab09c-58ad-4070-940a-e839cc1db5ff"
+                LastKnownName="MessageOccurrenceSpecification75"
                 LastKnownLocation="Winnie.uml.uml" />
             </receiveEvent>
           </message>
@@ -6964,26 +7185,6 @@ second : player = beta</body>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <executionEvent
-        Id="1f814c29-8ac1-43fc-82ed-4e759cbc7aa3"
-        name="ExecutionEvent" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <executionEvent
-        Id="49137e47-1204-40f5-bbc1-1a2f08f4f009"
-        name="ExecutionEvent" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <executionEvent
-        Id="aa784d17-c7f3-4678-b6cd-84238301483d"
-        name="ExecutionEvent" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <executionEvent
-        Id="a94e8fc6-4196-4537-a047-2df1d8eaeb44"
-        name="ExecutionEvent" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <executionEvent
         Id="f1f32c9f-ab21-426e-80a1-e02d1fa9f9e1"
         name="ExecutionEvent" />
     </packageHasNamedElement>
@@ -7020,6 +7221,36 @@ second : player = beta</body>
     <packageHasNamedElement>
       <executionEvent
         Id="8b0d6d66-2ef9-4ac6-886b-88757f2640e0"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="dbf88dd9-55eb-44ee-bd7c-4060fb482388"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="bf754881-9f52-476e-8b3d-925610930516"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d97b77d3-e970-4019-8bbe-4be315fb6095"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="7554d6b1-a79a-46ca-b715-9e71607dba8c"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="75df28ac-d48d-47f6-af10-07ee5dedc327"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d04f29bc-620f-45a4-94bc-1894e5a728ad"
         name="ExecutionEvent" />
     </packageHasNamedElement>
   </packagedElements>
