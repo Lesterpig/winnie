@@ -1,0 +1,42 @@
+\section{Présentation du jeu}
+
+\subsection{Concepts}
+
+\paragraph{}
+Le jeu Small World oppose deux joueurs de deux races différentes aux choix parmi les \textbf{Humains}, les \textbf{Elfes} et les \textbf{Orcs}.
+Chaque joueur possède un certain nombre d'unités ayant les mêmes caractéristiques. Chaque unité possède un certain nombre de \textbf{points de vie}, de \textbf{points d'attaque} et de \textbf{points de défense} en fonction de sa race.
+Le tableau \ref{fig:caracteristiques} présente ces caractéristiques.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|l|l|l|l|}
+    \hline
+    Race&Points de vie&Attaque&Défense\\
+    \hline
+    Humain&15&6&3\\
+    \hline
+    Elfe&12&4&3\\
+    \hline
+    Orc&17&5&2\\
+    \hline
+  \end{tabular}
+  \caption{Caractéristiques de base des différentes races du jeu}
+  \label{fig:caracteristiques}
+\end{table}
+
+\paragraph{}
+Le nombre de points d'attaque et de défense sont altérés par le \textbf{ratio de points de vie restants} : plus une unité est blessée, et plus ses points d'attaque et de défense diminuent. Les formules utilisées sont les suivantes :
+
+\begin{displaymath}
+  PointsAttaque = \lceil \frac{PointsDeVie}{VieMax} AttaqueMax \rceil
+\end{displaymath}
+\begin{displaymath}
+  PointsDefense = \lceil \frac{PointsDeVie}{VieMax} DefenseMax \rceil
+\end{displaymath}
+
+En aucun cas une unité ne peut regagner des points de vie, d'attaque ou de défense. Les unités ayant moins de 1 point de vie sont éliminées de la partie.
+
+\paragraph{}
+Les unités peuvent se déplacer sur une carte en deux dimensions composés de blocs carrés.
+Il existe quatre types de blocs : \textbf{eau, plaine, forêt et montagne}. Le nombre de \textbf{points de victoire} obtenus par une unité dépend de sa race et du type de bloc sur lequel elle est positionnée. % TODO tableau
+ % TODO points de mouvement

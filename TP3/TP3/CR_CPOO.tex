@@ -1,0 +1,76 @@
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[french]{babel}
+
+\pagestyle{plain}
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\DeclareGraphicsExtensions{.pdf,.eps,.jpg,.png,.gif}
+
+\usepackage{color}
+\definecolor{grey}{rgb}{0.9,0.9,0.9}
+\definecolor{teal}{rgb}{0.0,0.5,0.5}
+\definecolor{violet}{rgb}{0.5,0,0.5}
+
+\usepackage{listings}
+\usepackage{listingsutf8}
+\lstloadlanguages{[Visual]C++}
+\lstdefinestyle{listing}{
+  language=Java,
+  captionpos=t,
+  inputencoding=utf8/latin1,
+  extendedchars=true,
+  resetmargins=true,
+  xleftmargin=-60pt,
+  xrightmargin=-70pt,
+%  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=5pt,
+  breaklines=true,
+  breakatwhitespace=true,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,
+  basicstyle=\footnotesize\ttfamily,
+  backgroundcolor=\color{grey},
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{teal},
+  identifierstyle=\color{black},
+  stringstyle=\color{red},
+  numberstyle=\color{violet},
+}
+\lstset{style=listing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{
+  Loick \textsc{Bonniot}, Quentin \textsc{Dufour} \\ \\
+  INSA Rennes \\
+  4INFO, groupe 1.2
+}
+
+\title{Compte Rendu TP3 CPOO}
+
+\begin{document}
+\maketitle
+
+\paragraph{}
+
+Nous n'avons pas eu le temps de terminer le TP, nous nous sommes par contre concentré sur le premier exercice.
+
+\lstinputlisting[caption=Le fichier principal]{main.cpp}
+\lstinputlisting[caption=Les en-têtes de Fraction]{Fraction.h}
+\lstinputlisting[caption=La logique de Fraction]{Fraction.cpp}
+\lstinputlisting[caption=Les en-têtes de séquence]{sequences.h}
+\lstinputlisting[caption=La logique de séquence]{sequences.cpp}
+
+\end{document}

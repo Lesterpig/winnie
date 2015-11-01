@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="e909f15a-362b-4099-880a-70c12a2cf04a"
   name="Winnie.uml" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -7252,6 +7252,261 @@ second : player = beta</body>
       <executionEvent
         Id="d04f29bc-620f-45a4-94bc-1894e5a728ad"
         name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="6e380d57-6f45-4c31-972d-8b344403eb33"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="7beb6d07-97dd-41e7-89e6-79c1b17dca70"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Load Game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="937c004d-3162-44d2-a13b-f78798a087ec"
+              LastKnownName="Load Game"
+              LastKnownLocation="Winnie.uml.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5dd4e00b-7126-420c-9c59-5bf69cea789d"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="767f79b7-4f3d-4a0d-9a9b-c6ddb090a96c"
+                  name="Load Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b3cb0550-795b-4fc1-9bf3-566d1de43a4a"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Create Game"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2dcd6e0e-1076-4ce1-a187-19fc939ae2f3"
+              LastKnownName="Create Game"
+              LastKnownLocation="Winnie.uml.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="14d67947-e63e-4b47-951a-7e2ebdc566b5"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bfcf1bbf-2763-49db-a752-6fdded065209"
+                  name="Create Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="ebf5cba6-f3f5-43bd-b766-18f81107b28e"
+        name="Player 1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="46a86c5c-7880-4acd-9220-d51838d478d3"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="6e380d57-6f45-4c31-972d-8b344403eb33"
+              LastKnownName="Player"
+              LastKnownLocation="Winnie.uml.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="f69746c0-181d-44d1-9326-015f764f8f26"
+        name="Player 2"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="30562b97-6d73-45ff-9076-fbf8fb7cd9e2"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="6e380d57-6f45-4c31-972d-8b344403eb33"
+              LastKnownName="Player"
+              LastKnownLocation="Winnie.uml.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="366603f7-e278-474e-93f9-b378897e24fc"
+        name="Artifact1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="b54112cf-0f07-4697-849a-270db859b6bd"
+        name="Small World Game"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2dcd6e0e-1076-4ce1-a187-19fc939ae2f3"
+        name="Create Game"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="5d0a141a-2234-44c5-9aa0-cf81726369a9">
+            <useCaseMoniker
+              Id="dbb5b928-6e41-4a63-8c07-d96c9200f940"
+              LastKnownName="Choose name"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+          <include
+            Id="c51132d4-e2dc-4674-bc7f-e712fe436386">
+            <useCaseMoniker
+              Id="eb0c43aa-bb26-436e-862f-12e4c9be1191"
+              LastKnownName="Choose map size"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+          <include
+            Id="e86a5026-e70f-403b-982e-4f6c572a7bcf">
+            <useCaseMoniker
+              Id="2172c18b-43a8-45b3-a02b-15af37eeb6d5"
+              LastKnownName="Choose race"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="b54112cf-0f07-4697-849a-270db859b6bd"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="937c004d-3162-44d2-a13b-f78798a087ec"
+        name="Load Game"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="23cbddbe-0a9f-4e8c-b355-67b056451fcc">
+            <useCaseMoniker
+              Id="92307659-a7e6-46c3-bc9e-7ff8d93eaf10"
+              LastKnownName="Choose save"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="b54112cf-0f07-4697-849a-270db859b6bd"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="92307659-a7e6-46c3-bc9e-7ff8d93eaf10"
+        name="Choose save"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="b54112cf-0f07-4697-849a-270db859b6bd"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="dbb5b928-6e41-4a63-8c07-d96c9200f940"
+        name="Choose name"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="b54112cf-0f07-4697-849a-270db859b6bd"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2172c18b-43a8-45b3-a02b-15af37eeb6d5"
+        name="Choose race"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="b54112cf-0f07-4697-849a-270db859b6bd"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="eb0c43aa-bb26-436e-862f-12e4c9be1191"
+        name="Choose map size"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="b54112cf-0f07-4697-849a-270db859b6bd"
+            LastKnownName="Small World Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
