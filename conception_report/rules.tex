@@ -37,9 +37,26 @@ Le nombre de points d'attaque et de défense sont altérés par le \textbf{ratio
 En aucun cas une unité ne peut regagner des points de vie, d'attaque ou de défense. Les unités ayant moins de 1 point de vie sont éliminées de la partie.
 
 \paragraph{}
-Les unités peuvent se déplacer sur une carte en deux dimensions composés de blocs carrés.
-Il existe quatre types de blocs : \textbf{eau, plaine, forêt et montagne}. Le nombre de \textbf{points de victoire} obtenus par une unité dépend de sa race et du type de bloc sur lequel elle est positionnée.
+Les unités peuvent se déplacer sur une carte en deux dimensions composés de blocs carrés. La table \ref{fig:map_types} présente les différentes cartes disponibles.
+Il existe quatre types de blocs : \textbf{eau, plaine, forêt et montagne}, de même nombre sur la carte. Le nombre de \textbf{points de victoire} obtenus par une unité dépend de sa race et du type de bloc sur lequel elle est positionnée.
 La table \ref{fig:victory_points} présente l'attribution des points de victoire. On remarquera que les Elfes et les Orcs ne sont pas autorisés à se placer sur une case aquatique.
+
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{|l|l|l|l|}
+    \hline
+    Type de carte&Dimensions&Tours&Unités par joueur\\
+    \hline
+    Demo&6 x 6 cases&5&4\\
+    \hline
+    Petite&10 x 10 cases&20&6\\
+    \hline
+    Standard&14 x 14 cases&30&8\\
+    \hline
+  \end{tabular}
+  \caption{Caractéristiques des cartes disponibles}
+  \label{fig:map_types}
+\end{table}
 
 \begin{table}[h!]
   \centering
