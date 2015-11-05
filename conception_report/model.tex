@@ -1,27 +1,105 @@
 \section{Modèle}
 
-\subsection{Diagramme de classe}
+\subsection{Diagramme de classes}
+
+\paragraph{}
+La figure \ref{fig:class} présente le diagramme de classe général élaboré pour le projet.
+Nous avons fait nos choix de modélisation de façon à avoir le moins de classes possibles, tout en restant dans la simplicité.
+Certains choix ont été effectués de façon à introduire les patrons de conception requis pour le projet. Ces choix seront présentés dans la partie suivante.
+
+\paragraph{}
+Le diagramme présenté va subir inévitablement des changements lors du développement du projet. Cependant, la structure générale ne devrait pas être amenée à changer. Des diagrammes de séquence seront présentés en partie \ref{diagSequence} afin de conforter nos choix de modélisations.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=13cm]{schemas/ClassDiagram.png}
-  \caption{Diagramme de séquence de l'initialisation du jeu}
-  \label{sd_init}
+  \caption{Diagramme de classes général}
+  \label{fig:class}
 \end{figure}
 
 \subsection{Patrons de conception}
+
+\paragraph{}
+Les différents patrons de conception utilisés dans le projet vont être présentés dans cette partie.
+
 \subsubsection{Génération de carte : Stratégie}
-\subsubsection{Annulation d'une action : Commande}
+
+\paragraph{}
+Nous avons choisi d'implémenter une Stratégie pour la \textbf{génération de la carte}.
+En effet, nous prévoyons d'implémenter plusieurs algorithmes de génération, choisis aléatoirement ou par choix utilisateur parmi la liste non exhaustive suivante :
+
+\begin{itemize}
+  \item Génération naïve : il s'agit d'une génération parfaitement aléatoire
+  \item Génération d'une île
+  \item Génération d'un cratère de volcan
+\end{itemize}
+
+Ces algorithmes seront probablement développés en C++ pour acroître la rapidité de leur exécution.
+Leur nombre sera défini par le temps restant pour les développer.
+
+\paragraph{}
+Le patron Stratégie, présenté dans la figure \ref{fig:strategy}, a été choisi pour sa capaciter à exécuter une action de plusieurs façon différentes.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm]{schemas/dp_strategy.png}
+  \caption{Patron de conception Stratégie}
+  \label{fig:strategy}
+\end{figure}
+
+\subsubsection{Gestion des types de case : Poids-Mouche}
+
+\paragraph{}
+Chaque case de la carte étant d'un type parmi 4, nous avons choisi de modéliser les classes représentant les types de cases via un Poids-Mouche.
+En effet, beaucoup de cases feront référence au même type, il n'est donc pas nécessaire d'instancier plusieurs fois le même type, ayant à chaque fois les mêmes caractéristiques.
+Ce cas de figure correspond parfaitement au Poids-Mouche, bien que le nombre de cases à gérer soit relativement faible. Il est présenté dans la figure \ref{fig:flyweight}.
+L'obtention d'un type de case se fait via la classe \emph{TileTypeFactory} (méthode \emph{Get(String type)}). Si une instance du type demandé existe, elle est retournée directement.
+Sinon, elle est créée puis retournée.
+
+\paragraph{}
+Nous aurions pu également utiliser des classes comportant des informations statiques, ou bien des énumérations pour gagner en simplicité et rapidité.
+L'utilisation d'un Poids-Mouche est donc principalement choisie dans un objectif pédagogique.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm]{schemas/dp_flyweight.png}
+  \caption{Patron de conception Poids-Mouche}
+  \label{fig:flyweight}
+\end{figure}
+
+\subsubsection{Création d'une unité : Fabrique}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm]{schemas/dp_factory.png}
+  \caption{Patron de conception Fabrique}
+  \label{fig:factory}
+\end{figure}
+
+\subsubsection{Initialisation d'une partie : Constructeur}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm]{schemas/dp_builder.png}
+  \caption{Patron de conception : Constructeur}
+  \label{fig:builder}
+\end{figure}
+
+\subsubsection{Annulation d'une action : Commande / Memento}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm]{schemas/dp_command.png}
+  \caption{Patron de conception : Commande / Memento}
+  \label{fig:command}
+\end{figure}
 
 \subsection{Diagramme de séquence}
-
+\label{diagSequence}
 \subsubsection{Initialisation}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=13cm]{schemas/sd_init.png}
   \caption{Diagramme de séquence de l'initialisation du jeu}
-  \label{sd_init}
+  \label{fig:sd_init}
 \end{figure}
 
 \subsubsection{Bataille}
@@ -30,5 +108,5 @@
   \centering
   \includegraphics[width=13cm]{schemas/sd_battle.png}
   \caption{Diagramme de séquence d'une bataille}
-  \label{sd_battle}
+  \label{fig:sd_battle}
 \end{figure}
