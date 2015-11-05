@@ -38,7 +38,7 @@ Ces algorithmes seront probablement développés en C++ pour acroître la rapidi
 Leur nombre sera défini par le temps restant pour les développer.
 
 \paragraph{}
-Le patron Stratégie, présenté dans la figure \ref{fig:strategy}, a été choisi pour sa capaciter à exécuter une action de plusieurs façon différentes.
+Le patron Stratégie, présenté dans la figure \ref{fig:strategy}, a été choisi pour sa capacité à exécuter une action de plusieurs façon différentes.
 
 \begin{figure}[h]
   \centering
@@ -68,22 +68,47 @@ L'utilisation d'un Poids-Mouche est donc principalement choisie dans un objectif
 \end{figure}
 
 \subsubsection{Création d'une unité : Fabrique}
+
+\paragraph{}
+La création d'une unité pouvant se révéler fastidieuse, nous avons décidé de réaliser une Fabrique d'unités, nommée \emph{Unit Factory}.
+Dans la pratique, cette fabrique sera chargée d'initialiser correctement les points de vie d'une unité en fonction de sa race et de mettre à jour sa position sur la carte.
+La figure \ref{fig:factory} présente cette fabrique simple.
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=13cm]{schemas/dp_factory.png}
+  \includegraphics[width=8cm]{schemas/dp_factory.png}
   \caption{Patron de conception Fabrique}
   \label{fig:factory}
 \end{figure}
 
 \subsubsection{Initialisation d'une partie : Constructeur}
+
+\paragraph{}
+De manière similaire à la fabrique présentée, il est complexe d'initialiser une partie.
+Nous avons donc mis en place le patron Constructeur pour gérer cette initialisation, en plusieurs étapes.
+Ce constructeur est chargé d'initialiser la carte, de créer les unités et de préparer le démarrage du jeu.
+
+\paragraph{}
+Il sera possible de créer une nouvelle partie, ou d'utiliser un fichier de sauvegarde pour relancer une partie interrompue, et ce via les méthodes \emph{New} et \emph{Load} du Constructeur \emph{GameBuilder}.
+Le fonctionnement détaillé de l'initialisation d'une partie est détaillé dans la figure \ref{fig:sd_init}, et le schéma du Constructeur est disponible en tant que figure \ref{fig:builder}.
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=13cm]{schemas/dp_builder.png}
+  \includegraphics[width=8cm]{schemas/dp_builder.png}
   \caption{Patron de conception : Constructeur}
   \label{fig:builder}
 \end{figure}
 
 \subsubsection{Annulation d'une action : Commande / Memento}
+
+\paragraph{}
+Enfin, nous avons utilisé le patron Commande, associé au patron Memento et présenté dans la figure \ref{fig:command}.
+L'objectif de cette structure est la \textbf{conservation des actions effectuées} par les joueurs au cours de la partie, afin d'être capable d'inverser ces actions (quand un mode triche est activé).
+Les deux actions possibles (attaque et mouvement) contiennent les informations nécessaires à leur inversion, et la liste des actions effectuées sera stockée dans la classe \emph{Game}.
+
+\paragraph{}
+Le fonctionnement de ce patron étant assez subtil, un diagramme de séquence est disponible dans le cas d'une bataille en figure \ref{fig:sd_battle}.
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=13cm]{schemas/dp_command.png}
@@ -91,9 +116,9 @@ L'utilisation d'un Poids-Mouche est donc principalement choisie dans un objectif
   \label{fig:command}
 \end{figure}
 
-\subsection{Diagramme de séquence}
+\subsection{Diagrammes de séquence}
 \label{diagSequence}
-\subsubsection{Initialisation}
+\subsubsection{Initialisation d'une nouvelle partie}
 
 \begin{figure}[h]
   \centering
