@@ -101,6 +101,8 @@ Le fonctionnement détaillé de l'initialisation d'une partie est détaillé dan
 
 \subsubsection{Annulation d'une action : Commande / Memento}
 
+\label{command}
+
 \paragraph{}
 Enfin, nous avons utilisé le patron Commande, associé au patron Memento et présenté dans la figure \ref{fig:command}.
 L'objectif de cette structure est la \textbf{conservation des actions effectuées} par les joueurs au cours de la partie, afin d'être capable d'inverser ces actions (quand un mode triche est activé).
@@ -120,6 +122,12 @@ Le fonctionnement de ce patron étant assez subtil, un diagramme de séquence es
 \label{diagSequence}
 \subsubsection{Initialisation d'une nouvelle partie}
 
+\paragraph{}
+Le diagramme \ref{fig:sd_init} présente l'initialisation du jeu dans le cas d'une nouvelle partie.
+Dans un premier temps, les deux joueurs définissent leur race (instantiations de la classe \emph{Player}).
+Ensuite, le \emph{GameBuider} est appelé et provoque la génération de la carte et l'initialisation des différentes classes utilisées.
+Les unités sont également instanciées et positionnées sur la carte.
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=13cm]{schemas/sd_init.png}
@@ -128,6 +136,16 @@ Le fonctionnement de ce patron étant assez subtil, un diagramme de séquence es
 \end{figure}
 
 \subsubsection{Bataille}
+
+\paragraph{}
+L'exécution d'une bataille est présentée dans le diagramme de séquence \ref{fig:sd_battle}.
+Dans un premier temps, le joueur courant sélectionne une unité qu'il souhaite actionner (ici, \emph{unitA}).
+Une liste \textbf{d'actions possibles} est alors générée. Ces actions sont soit des mouvements, soit des attaques en fonction des unités adverses présentes (ou pas) sur les cases voisines.
+Le joueur peut alors choisir une action à exécuter dans la liste renvoyée.
+
+\paragraph{}
+Une fois l'action exécutée via le patron de conception Commande présenté en \ref{command}, la classe \emph{Game} enregistre l'action effectuée dans une pile et vérifie que le jeu n'est pas encore terminé.
+Par la suite, dans le cas où il n'y a plus aucun défenseur sur la case ciblée, une action \emph{Move} est automatiquement créée, exécutée et ajoutée à la pile pour déplacer l'unité victorieuse sur la carte sans consommation de points de mouvement.
 
 \begin{figure}[h]
   \centering
