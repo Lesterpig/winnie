@@ -1,5 +1,23 @@
 \section{Modèle}
 
+\subsection*{}
+
+\paragraph{}
+Nous avons choisi de modéliser le coeur du projet en trois grands packages, comme présenté sur la figure \ref{fig:packages}.
+
+\begin{itemize}
+  \item \textbf{World} : contient les éléments nécessaires à la génération et la gestion du monde (carte, cases...)
+  \item \textbf{Players} : permet la gestion des joueurs et de leurs unités
+  \item \textbf{Engine} : gère l'avancement de la partie et l'enregistrement des actions effectuées par les joueurs. Ce package gère les deux précédents.
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm]{schemas/packages.png}
+  \caption{Diagramme de packages}
+  \label{fig:packages}
+\end{figure}
+
 \subsection{Diagramme de classes}
 
 \paragraph{}
@@ -8,7 +26,7 @@ Nous avons fait nos choix de modélisation de façon à avoir le moins de classe
 Certains choix ont été effectués de façon à introduire les patrons de conception requis pour le projet. Ces choix seront présentés dans la partie suivante.
 
 \paragraph{}
-Le diagramme présenté va subir inévitablement des changements lors du développement du projet. Cependant, la structure générale ne devrait pas être amenée à changer. Des diagrammes de séquence seront présentés en partie \ref{diagSequence} afin de conforter nos choix de modélisations.
+Le diagramme présenté va subir inévitablement des changements lors du développement du projet. Cependant, la structure générale ne devrait pas être amenée à changer. Des diagrammes de séquence seront présentés en partie \ref{diagSequence} afin de conforter nos choix de modélisations. Par soucis de simplicité, les packages ne sont pas représentés.
 
 \begin{figure}[h]
   \centering
