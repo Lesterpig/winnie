@@ -13,7 +13,7 @@ Nous avons choisi de modéliser le coeur du projet en trois grands packages, com
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=13cm]{schemas/packages.png}
+  \includegraphics[width=8cm]{schemas/packages.png}
   \caption{Diagramme de packages}
   \label{fig:packages}
 \end{figure}
@@ -58,9 +58,9 @@ Leur nombre sera défini par le temps restant pour les développer.
 \paragraph{}
 Le patron Stratégie, présenté dans la figure \ref{fig:strategy}, a été choisi pour sa capacité à exécuter une action de plusieurs façon différentes.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
-  \includegraphics[width=13cm]{schemas/dp_strategy.png}
+  \includegraphics[width=8cm]{schemas/dp_strategy.png}
   \caption{Patron de conception Stratégie}
   \label{fig:strategy}
 \end{figure}
@@ -78,7 +78,7 @@ Sinon, elle est créée puis retournée.
 Nous aurions pu également utiliser des classes comportant des informations statiques, ou bien des énumérations pour gagner en simplicité et rapidité.
 L'utilisation d'un Poids-Mouche est donc principalement choisie dans un objectif pédagogique.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics[width=13cm]{schemas/dp_flyweight.png}
   \caption{Patron de conception Poids-Mouche}
@@ -92,9 +92,9 @@ La création d'une unité pouvant se révéler fastidieuse, nous avons décidé 
 Dans la pratique, cette fabrique sera chargée d'initialiser correctement les points de vie d'une unité en fonction de sa race et de mettre à jour sa position sur la carte.
 La figure \ref{fig:factory} présente cette fabrique simple.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
-  \includegraphics[width=8cm]{schemas/dp_factory.png}
+  \includegraphics[width=5cm]{schemas/dp_factory.png}
   \caption{Patron de conception Fabrique}
   \label{fig:factory}
 \end{figure}
@@ -110,7 +110,7 @@ Ce constructeur est chargé d'initialiser la carte, de créer les unités et de 
 Il sera possible de créer une nouvelle partie, ou d'utiliser un fichier de sauvegarde pour relancer une partie interrompue, et ce via les méthodes \emph{New} et \emph{Load} du Constructeur \emph{GameBuilder}.
 Le fonctionnement détaillé de l'initialisation d'une partie est détaillé dans la figure \ref{fig:sd_init}, et le schéma du Constructeur est disponible en tant que figure \ref{fig:builder}.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics[width=8cm]{schemas/dp_builder.png}
   \caption{Patron de conception : Constructeur}
@@ -129,7 +129,7 @@ Les deux actions possibles (attaque et mouvement) contiennent les informations n
 \paragraph{}
 Le fonctionnement de ce patron étant assez subtil, un diagramme de séquence est disponible dans le cas d'une bataille en figure \ref{fig:sd_battle}.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics[width=13cm]{schemas/dp_command.png}
   \caption{Patron de conception : Commande / Memento}
@@ -146,7 +146,7 @@ Dans un premier temps, les deux joueurs définissent leur race (instantiations d
 Ensuite, le \emph{GameBuider} est appelé et provoque la génération de la carte et l'initialisation des différentes classes utilisées.
 Les unités sont également instanciées et positionnées sur la carte.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics[width=13cm]{schemas/sd_init.png}
   \caption{Diagramme de séquence de l'initialisation du jeu}
@@ -165,7 +165,7 @@ Le joueur peut alors choisir une action à exécuter dans la liste renvoyée.
 Une fois l'action exécutée via le patron de conception Commande présenté en \ref{command}, la classe \emph{Game} enregistre l'action effectuée dans une pile et vérifie que le jeu n'est pas encore terminé.
 Par la suite, dans le cas où il n'y a plus aucun défenseur sur la case ciblée, une action \emph{Move} est automatiquement créée, exécutée et ajoutée à la pile pour déplacer l'unité victorieuse sur la carte sans consommation de points de mouvement.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics[width=13cm]{schemas/sd_battle.png}
   \caption{Diagramme de séquence d'une bataille}
