@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>GameCreation.usecasediagram</DependentUpon>
     </Content>
+    <Content Include="GameRound.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="GameRound.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>GameRound.usecasediagram</DependentUpon>
+    </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="battle.sequencediagram">
       <SubType>Content</SubType>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="e909f15a-362b-4099-880a-70c12a2cf04a"
   name="Winnie.uml" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -7507,6 +7507,347 @@ second : player = beta</body>
             LastKnownLocation="Winnie.uml.uml" />
         </subjects>
       </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="9d934ec4-d795-48af-94d5-31155286e861"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="ecc0c3ce-1aa5-45cd-a671-72e8e5a1c3be"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Attack an ennemy"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="de7e2c05-860f-4a83-9070-68f040f8f847"
+              LastKnownName="Attack an ennemy"
+              LastKnownLocation="Winnie.uml.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="250e6c25-9d76-4dc2-92f2-0ff5a1b851b5"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a44d7905-8b7c-4dd1-84e1-fc64e9fb21f2"
+                  name="Attack an ennemy"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="514e08ca-abcc-4432-9d1e-03841a063dbd"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Move my unit"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0c991f3e-7e97-4533-aae3-cae070f29ca7"
+              LastKnownName="Move my unit"
+              LastKnownLocation="Winnie.uml.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="33dd6166-1214-4063-b274-d7b941671bba"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6cf677b1-b102-4d69-a29f-9534580009bc"
+                  name="Move my unit"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3b04a96a-b603-4713-8cec-a7d005a94cf0"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Skip turn"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f70a17b4-f3f6-417e-9ae2-dcfa9a199b44"
+              LastKnownName="Skip turn"
+              LastKnownLocation="Winnie.uml.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="11ef06b5-0013-43a6-9575-1bf4917971d1"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0f6579fb-5cf3-4bc1-86a0-629a2b1ca9b4"
+                  name="Skip turn"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="e02f7970-ce2d-40db-a0aa-ad20c194842c"
+        name="Player 1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="2b707812-2c02-4f0a-bb7f-2d0e58440266"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="9d934ec4-d795-48af-94d5-31155286e861"
+              LastKnownName="Player"
+              LastKnownLocation="Winnie.uml.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="ea30b66f-193c-41a1-afd1-ab3e3f252c77"
+        name="Player 2"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="cdada026-556b-49f1-83de-a8dd1d900592"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="9d934ec4-d795-48af-94d5-31155286e861"
+              LastKnownName="Player"
+              LastKnownLocation="Winnie.uml.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="9ec6a808-502c-45c4-beeb-1bb59e10139d"
+        name="SmallWorld Game"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b0c2659c-aacb-4256-9da9-ad03bf45fabc"
+        name="Select a unit"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="9ec6a808-502c-45c4-beeb-1bb59e10139d"
+            LastKnownName="SmallWorld Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f70a17b4-f3f6-417e-9ae2-dcfa9a199b44"
+        name="Skip turn"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="9ec6a808-502c-45c4-beeb-1bb59e10139d"
+            LastKnownName="SmallWorld Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="de7e2c05-860f-4a83-9070-68f040f8f847"
+        name="Attack an ennemy"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="47813697-fc35-4dfb-91a0-57750cc976f7">
+            <useCaseMoniker
+              Id="d31c503b-671e-4dc9-b4b4-f8b790e75577"
+              LastKnownName="Move unit to ennemy tile"
+              LastKnownLocation="Winnie.uml.uml" />
+          </extend>
+        </extendedCases>
+        <additions>
+          <include
+            Id="b85b8c41-95ee-4d7f-84cf-a2b3632b499f">
+            <useCaseMoniker
+              Id="b0c2659c-aacb-4256-9da9-ad03bf45fabc"
+              LastKnownName="Select a unit"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="9ec6a808-502c-45c4-beeb-1bb59e10139d"
+            LastKnownName="SmallWorld Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0c991f3e-7e97-4533-aae3-cae070f29ca7"
+        name="Move my unit"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="245f29d0-7741-4590-a18e-f34e90eb8038">
+            <useCaseMoniker
+              Id="b0c2659c-aacb-4256-9da9-ad03bf45fabc"
+              LastKnownName="Select a unit"
+              LastKnownLocation="Winnie.uml.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="9ec6a808-502c-45c4-beeb-1bb59e10139d"
+            LastKnownName="SmallWorld Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d31c503b-671e-4dc9-b4b4-f8b790e75577"
+        name="Move unit to ennemy tile"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="9ec6a808-502c-45c4-beeb-1bb59e10139d"
+            LastKnownName="SmallWorld Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6266ab1a-e824-4905-96c4-2f11af399116"
+        name="Cancel action"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="9ec6a808-502c-45c4-beeb-1bb59e10139d"
+            LastKnownName="SmallWorld Game"
+            LastKnownLocation="Winnie.uml.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="e1358be0-a2a6-4b57-85fd-1606499a48d3"
+        name="Cheater"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="cd544f56-073e-4f78-901a-27b9088f310a"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="9d934ec4-d795-48af-94d5-31155286e861"
+              LastKnownName="Player"
+              LastKnownLocation="Winnie.uml.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="20da0715-edcb-414e-a685-6372ec976442"
+            isDerived="false"
+            sourceEndRoleName="Cheater"
+            targetEndRoleName="Cancel action"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6266ab1a-e824-4905-96c4-2f11af399116"
+              LastKnownName="Cancel action"
+              LastKnownLocation="Winnie.uml.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9a2e3bb2-7851-412b-bbf5-c9e9eeba7bbc"
+                  name="Cheater"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f457d2f1-b141-492f-bc2e-0154853e77ef"
+                  name="Cancel action"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
