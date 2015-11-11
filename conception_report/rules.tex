@@ -38,7 +38,7 @@ En aucun cas une unité ne peut regagner des points de vie, d'attaque ou de déf
 
 \paragraph{}
 Les unités peuvent se déplacer sur une carte en deux dimensions composés de blocs carrés. La table \ref{fig:map_types} présente les différentes cartes disponibles.
-Il existe quatre types de blocs : \textbf{eau, plaine, forêt et montagne}, de même nombre sur la carte. Le nombre de \textbf{points de victoire} obtenus par une unité dépend de sa race et du type de bloc sur lequel elle est positionnée.
+Il existe quatre types de blocs : \textbf{eau, plaine, forêt et montagne}. Le nombre de \textbf{points de victoire} obtenus par une unité dépend de sa race et du type de bloc sur lequel elle est positionnée.
 La table \ref{fig:victory_points} présente l'attribution des points de victoire. On remarquera que les Elfes et les Orcs ne sont pas autorisés à se placer sur une case aquatique.
 
 \begin{table}[h!]
@@ -112,7 +112,7 @@ Une attaque \textbf{rapprochée} se déroule de la façon suivante :
   \item L'unité ayant le plus de points de défense sur la case ciblée est choisie pour défendre sa case
   \item Le rapport de force entre les points d'attaque de l'attaquant, et les points de défense du défenseur permet de déterminer le gagnant du combat via un tirage aléatoire
   \item Le perdant du combat perd un nombre aléatoire de points de vie, supérieur ou égal à 1
-  \item Si le défenseur n'a plus de points de vie et qu'il n'y a aucune autre unité sur la case cible, le défenseur se déplace automatiquement sur la case cible sans dépenser un point de mouvement supplémentaire
+  \item Si le défenseur n'a plus de points de vie et qu'il n'y a aucune autre unité sur la case cible, l'attaquant se déplace automatiquement sur la case cible sans dépenser un point de mouvement supplémentaire
 \end{enumerate}
 
 \paragraph{}
