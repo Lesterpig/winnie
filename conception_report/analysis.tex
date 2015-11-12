@@ -1,5 +1,7 @@
 \section{Analyse}
 
+Dans cette partie, nous nous attachons à analyser plus profondément les règles et l'implémentation de ces dernières dans notre jeu. Pour celà, nous nous aidons des diagrammes d'activités, de cas d'utilisation et d'états. Ils permettent d'avoir une idée du comportement général de l'application, et des fonctionnalités nécessaires à certains stades de l'application. Nous avons identifié deux usages principaux : la création/chargement de partie et le déroulement d'un tour de jeu.
+
 \subsection{Fonctionnement général}
 
 \paragraph{}
@@ -12,13 +14,10 @@ Au lancement du jeu, le joueur peut choisir de lancer une nouvelle partie, une p
   \label{activity}
 \end{figure}
 
-
-
-
 \subsection{Créer ou charger une partie}
 
 \paragraph{}
-Lorsque le joueur veut lancer une partie, il peut au choix en charger une existante ou en créer une nouvelle. Dans le cas d'une partie existante, la configuration des joueurs, la carte et les unités seront chargées afin de reprendre la partie là où elle en était. Par contre, si le joueur décide de créer une nouvelle partie, alors il devra pouvoir définir tous les paramètres nécessaires.
+Lorsque les joueurs veulent lancer une partie, ils peuvent au choix en charger une existante ou en créer une nouvelle. Dans le cas d'une partie existante, la configuration des joueurs, la carte et les unités seront chargées afin de reprendre la partie là où elle en était. Par contre, si les joueurs décident de créer une nouvelle partie, alors ils devront pouvoir définir tous les paramètres nécessaires. Chacun leur tour, ils choisiront un nom, une race et s'accorderont sur une taille de carte. L'ensemble de ces usages sont présentés dans le diagramme de cas d'usage en Figure \ref{uc_game_creation}.
 
 \begin{figure}[h]
   \centering
@@ -31,7 +30,14 @@ Lorsque le joueur veut lancer une partie, il peut au choix en charger une exista
 \subsection{Déroulement d'un tour de jeu}
 
 \paragraph{}
-Lors d'un tour de jeu, le joueur pourra sélectionner ses unités, afin de leur demander de se déplacer ou d'attaquer. Chacune des unités aura 2 points d'action, et pourra donc potentiellement se déplacer et/ou attaquer dans la limite de ses points d'action disponibles.
+Lors d'un tour de jeu, le joueur pourra sélectionner ses unités, afin de leur demander de se déplacer ou d'attaquer. Chacune des unités aura 2 points d'action, et pourra donc potentiellement se déplacer et/ou attaquer dans la limite de ses points d'action disponibles. Les différentes actions possibles sont présentées dans la Figure \ref{uc_game_round}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8cm]{schemas/uc_game_round.png}
+  \caption{Actions possibles lors d'un tour de jeu}
+  \label{uc_game_round}
+\end{figure}
 
 
 \subsection{Cycle de vie d'une unité}
