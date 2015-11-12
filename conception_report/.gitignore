@@ -1,4 +1,6 @@
 *.aux
 *.log
 *.toc
+*.lof
+*.lot
 rapport.pdf
