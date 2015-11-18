@@ -5,57 +5,27 @@ using System.Text;
 
 namespace winnie
 {
-    public abstract class Race
+    public interface Race
     {
-        public static int Life
+        int Life
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            get;
         }
 
-        public static int Armor
+        int Armor
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            get;
         }
 
-        public static int Attack
+        int Attack
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            get;
         }
 
-        public static float GetRequiredMovePoints(Tile tileType)
-        {
-            throw new System.NotImplementedException();
-        }
+        float GetRequiredMovePoints(TileType tileType);
 
-        public static float GetVictoryPoints(Tile tileType)
-        {
-            throw new System.NotImplementedException();
-        }
+        float GetVictoryPoints(TileType tileType);
 
-        public static bool CanMove()
-        {
-            throw new System.NotImplementedException();
-        }
+        bool CanMove(TileType tileType);
     }
 }

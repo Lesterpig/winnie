@@ -19,10 +19,10 @@
     <Position X="7" Y="4.5" Width="1.5" />
     <AssociationLine Name="Players" Type="winnie.Player" FixedToPoint="true">
       <Path>
-        <Point X="8.5" Y="5.343" />
-        <Point X="9.292" Y="5.343" Type="JumpStart" />
-        <Point X="9.521" Y="5.343" Type="JumpEnd" />
-        <Point X="11" Y="5.343" />
+        <Point X="8.5" Y="5.259" />
+        <Point X="9.292" Y="5.259" Type="JumpStart" />
+        <Point X="9.521" Y="5.259" Type="JumpEnd" />
+        <Point X="11" Y="5.259" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="CurrentUnit" Type="winnie.Unit" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -49,14 +49,6 @@
   </Class>
   <Class Name="winnie.Player">
     <Position X="11" Y="4.5" Width="1.5" />
-    <AssociationLine Name="Race" Type="winnie.Race" FixedToPoint="true">
-      <Path>
-        <Point X="12.5" Y="5.227" />
-        <Point X="13.89" Y="5.227" Type="JumpStart" />
-        <Point X="14.348" Y="5.227" Type="JumpEnd" />
-        <Point X="16" Y="5.227" />
-      </Path>
-    </AssociationLine>
     <AssociationLine Name="Units" Type="winnie.Unit">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="0.087" Y="0.02" />
@@ -72,13 +64,6 @@
     <ShowAsCollectionAssociation>
       <Property Name="Units" />
     </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="winnie.Race">
-    <Position X="16" Y="4.25" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAABQAg=</HashCode>
-      <FileName>Race.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="winnie.Map">
     <Position X="7" Y="8" Width="1.5" />
@@ -150,13 +135,6 @@
       <Property Name="Units" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="winnie.Orc" Collapsed="true">
-    <Position X="16.5" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Orc.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="winnie.Action">
     <Position X="9.5" Y="0.5" Width="1.75" />
     <AssociationLine Name="TileFrom" Type="winnie.Tile" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -196,21 +174,23 @@
   <Class Name="winnie.Human" Collapsed="true">
     <Position X="18.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAIAAAAAAUAAAAAABQAg=</HashCode>
       <FileName>Human.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="winnie.Elf" Collapsed="true">
     <Position X="14.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAIAAAAAAUAAAAAABQAg=</HashCode>
       <FileName>Elf.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="winnie.GameBuilder">
     <Position X="4.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgIAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameBuilder.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -231,7 +211,7 @@
   <Class Name="winnie.IslandMap" Collapsed="true">
     <Position X="5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>IslandMap.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -271,7 +251,7 @@
   <Class Name="winnie.NaiveMap" Collapsed="true">
     <Position X="3" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>NaiveMap.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -311,11 +291,26 @@
       <FileName>TileType.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="winnie.Orc" Collapsed="true">
+    <Position X="16.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAIAAAAAAUAAAAAABQAg=</HashCode>
+      <FileName>Orc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="winnie.MapGeneration">
     <Position X="4" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>MapGeneration.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="winnie.Race">
+    <Position X="16.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAIAAAAAAEAAAAAABQAg=</HashCode>
+      <FileName>Race.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

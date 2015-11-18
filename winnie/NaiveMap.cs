@@ -7,5 +7,9 @@ namespace winnie
 {
     public class NaiveMap : MapGeneration
     {
+        public void generate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

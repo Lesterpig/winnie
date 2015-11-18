@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{f32dc5ac-79a2-4004-a765-bbe387574156}</ProjectGuid>
     <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
-    <Name>Winnie.uml</Name>
+    <Name>Uml</Name>
     <RootNamespace>Winnie.uml</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

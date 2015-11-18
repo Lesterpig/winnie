@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winnie.core", "winnie\Winnie.core.csproj", "{B5830874-7DA8-4C00-B2EB-DD3C4889BED9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "winnie\Core.csproj", "{B5830874-7DA8-4C00-B2EB-DD3C4889BED9}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Winnie.uml", "Winnie.uml\Winnie.uml.modelproj", "{F32DC5AC-79A2-4004-A765-BBE387574156}"
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Uml", "Winnie.uml\Uml.modelproj", "{F32DC5AC-79A2-4004-A765-BBE387574156}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Winnie.test\Test.csproj", "{96655A8F-CF94-45F9-A84A-8456457A5E7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F32DC5AC-79A2-4004-A765-BBE387574156}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F32DC5AC-79A2-4004-A765-BBE387574156}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F32DC5AC-79A2-4004-A765-BBE387574156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96655A8F-CF94-45F9-A84A-8456457A5E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96655A8F-CF94-45F9-A84A-8456457A5E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96655A8F-CF94-45F9-A84A-8456457A5E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96655A8F-CF94-45F9-A84A-8456457A5E7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

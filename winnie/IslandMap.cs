@@ -7,6 +7,10 @@ namespace winnie
 {
     public class IslandMap : MapGeneration
     {
+        public void generate()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
