@@ -156,3 +156,5 @@ $RECYCLE.BIN/
 .DS_Store
 
 TestResult.xml
+Winnie/packages/
+*.userprefs
