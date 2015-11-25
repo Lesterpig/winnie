@@ -15,8 +15,8 @@ namespace Test
 
 			Assert.IsNotNull(plainA);
 			Assert.IsNotNull(plainB);
-			Assert.AreEqual(plainA.Height, 1);
-			Assert.AreEqual(plainA.Type, "Plain");
+			Assert.AreEqual(1, plainA.Height);
+			Assert.AreEqual("Plain", plainA.Type);
 			Assert.AreSame(plainA, plainB); // Flyweight test here
 		}
 
@@ -34,13 +34,13 @@ namespace Test
 			TileType forest = TileTypeFactory.Get("Forest");
 			TileType mountain = TileTypeFactory.Get("Mountain");
 
-			Assert.AreEqual(water.Height, 0);
-			Assert.AreEqual(forest.Height, 2);
-			Assert.AreEqual(mountain.Height, 3);
+            Assert.AreEqual(0, water.Height);
+			Assert.AreEqual(2, forest.Height);
+			Assert.AreEqual(3, mountain.Height);
 
-			Assert.AreEqual(water.Type, "Water");
-			Assert.AreEqual(forest.Type, "Forest");
-			Assert.AreEqual(mountain.Type, "Mountain");
+			Assert.AreEqual("Water", water.Type);
+			Assert.AreEqual("Forest", forest.Type);
+            Assert.AreEqual("Mountain", mountain.Type);
 		}
 	}
 }

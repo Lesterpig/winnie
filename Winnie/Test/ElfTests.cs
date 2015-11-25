@@ -19,19 +19,19 @@ namespace Test
 		[Test()]
 		public void GetRequiredMovePointsTest()
 		{
-			Assert.AreEqual(Elf.Instance.GetRequiredMovePoints(new WaterTileType()), 1);
-			Assert.AreEqual(Elf.Instance.GetRequiredMovePoints(new PlainTileType()), 1);
-			Assert.AreEqual(Elf.Instance.GetRequiredMovePoints(new ForestTileType()), 1);
-			Assert.AreEqual(Elf.Instance.GetRequiredMovePoints(new MountainTileType()), 2);
+			Assert.AreEqual(1, Elf.Instance.GetRequiredMovePoints(new WaterTileType()));
+			Assert.AreEqual(1, Elf.Instance.GetRequiredMovePoints(new PlainTileType()));
+			Assert.AreEqual(1, Elf.Instance.GetRequiredMovePoints(new ForestTileType()));
+			Assert.AreEqual(2, Elf.Instance.GetRequiredMovePoints(new MountainTileType()));
 		}
 
 		[Test()]
 		public void GetVictoryPointsTest()
 		{
-			Assert.AreEqual(Elf.Instance.GetVictoryPoints(new WaterTileType()), 0);
-			Assert.AreEqual(Elf.Instance.GetVictoryPoints(new PlainTileType()), 1);
-			Assert.AreEqual(Elf.Instance.GetVictoryPoints(new ForestTileType()), 3);
-			Assert.AreEqual(Elf.Instance.GetVictoryPoints(new MountainTileType()), 0);
+			Assert.AreEqual(0, Elf.Instance.GetVictoryPoints(new WaterTileType()));
+            Assert.AreEqual(1, Elf.Instance.GetVictoryPoints(new PlainTileType()));
+			Assert.AreEqual(3, Elf.Instance.GetVictoryPoints(new ForestTileType()));
+			Assert.AreEqual(0, Elf.Instance.GetVictoryPoints(new MountainTileType()));
 		}
 	}
 }

@@ -7,58 +7,56 @@ namespace Core
 {
     public class Player
     {
+    
+        public Player(string name, Race race)
+        {
+            this._name = name;
+            this._race = race;
+            this._units = new HashSet<Unit>();
+        }
 
+
+        private Race _race;
         public Race Race
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _race; }
+        }
 
-            set
-            {
-            }
+        private string _name;
+        public string Name
+        {
+            get { return _name; }
         }
 
         public int Score
         {
             get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
+            {   
+                int score = 0;
+                foreach (Unit unit in this.Units) {
+                    score += unit.VictoryPoints;
+                }
+                return score;
             }
         }
-
-        public List<Core.Unit> Units
+            
+        private ISet<Unit> _units;
+        public ISet<Unit> Units
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _units; }
+        }
 
-            set
-            {
-            }
+        public void AddUnit(Unit u)
+        {
+            this.Units.Add(u);
         }
 
         public void StartTurn()
         {
-            throw new System.NotImplementedException();
+            foreach (Unit unit in this.Units)
+            {
+                unit.MovePoints = 2;
+            }
         }
     }
 }

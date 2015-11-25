@@ -24,7 +24,7 @@ namespace Core
 
         float GetRequiredMovePoints(TileType tileType);
 
-        float GetVictoryPoints(TileType tileType);
+        int GetVictoryPoints(TileType tileType);
 
         bool CanMove(TileType tileType);
     }

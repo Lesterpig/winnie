@@ -1,5 +1,0 @@
-Name: Algo
-Description: 
-Version: 0.1
-Libs: -L"/home/qdufour/Documents/dev/winnie/Winnie/Algo/bin/Debug" -lAlgo
-Cflags: -I"/home/qdufour/Documents/dev/winnie/Winnie/Algo"

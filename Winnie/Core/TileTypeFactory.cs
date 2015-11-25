@@ -20,7 +20,7 @@ namespace Core
 
 			switch (type) {
 			case "Water":
-				newType = new WaterTileType();
+			    newType = new WaterTileType();
 				break;
 			case "Plain":
 				newType = new PlainTileType();

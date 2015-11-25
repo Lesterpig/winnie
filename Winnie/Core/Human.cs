@@ -46,7 +46,7 @@ namespace Core
             return 1;
         }
 
-        public float GetVictoryPoints(TileType tileType)
+        public int GetVictoryPoints(TileType tileType)
         {
             if (tileType is WaterTileType) { return 0; }
             else if (tileType is PlainTileType) { return 2; }

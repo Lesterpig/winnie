@@ -19,19 +19,19 @@ namespace Test
 		[Test()]
 		public void GetRequiredMovePointsTest()
 		{
-			Assert.AreEqual(Human.Instance.GetRequiredMovePoints(new WaterTileType()), 1);
-			Assert.AreEqual(Human.Instance.GetRequiredMovePoints(new PlainTileType()), 1);
-			Assert.AreEqual(Human.Instance.GetRequiredMovePoints(new ForestTileType()), 1);
-			Assert.AreEqual(Human.Instance.GetRequiredMovePoints(new MountainTileType()), 1);
+			Assert.AreEqual(1, Human.Instance.GetRequiredMovePoints(new WaterTileType()));
+            Assert.AreEqual(1, Human.Instance.GetRequiredMovePoints(new PlainTileType()));
+			Assert.AreEqual(1, Human.Instance.GetRequiredMovePoints(new ForestTileType()));
+			Assert.AreEqual(1, Human.Instance.GetRequiredMovePoints(new MountainTileType()));
 		}
 
 		[Test()]
 		public void GetVictoryPointsTest()
 		{
-			Assert.AreEqual(Human.Instance.GetVictoryPoints(new WaterTileType()), 0);
-			Assert.AreEqual(Human.Instance.GetVictoryPoints(new PlainTileType()), 2);
-			Assert.AreEqual(Human.Instance.GetVictoryPoints(new ForestTileType()), 1);
-			Assert.AreEqual(Human.Instance.GetVictoryPoints(new MountainTileType()), 1);
+			Assert.AreEqual(0, Human.Instance.GetVictoryPoints(new WaterTileType()));
+			Assert.AreEqual(2, Human.Instance.GetVictoryPoints(new PlainTileType()));
+			Assert.AreEqual(1, Human.Instance.GetVictoryPoints(new ForestTileType()));
+			Assert.AreEqual(1, Human.Instance.GetVictoryPoints(new MountainTileType()));
 		}
 	}
 }

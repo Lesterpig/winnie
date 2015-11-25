@@ -45,7 +45,7 @@ namespace Core
             else { return 1; }
         }
 
-        public float GetVictoryPoints(TileType tileType)
+        public int GetVictoryPoints(TileType tileType)
         {
             if (tileType is PlainTileType) { return 1; }
             else if (tileType is ForestTileType) { return 3; }

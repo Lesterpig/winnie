@@ -6,17 +6,17 @@ using System.Text;
 namespace Core
 {
     public class Tile
-    {
+    {   
+
+        private TileType _tiletype;
+        public Tile(TileType t)
+        {
+            this._tiletype = t;
+        }
+
         public TileType TileType
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            get { return this._tiletype; }
         }
 
         public List<Tile> Neighbours
