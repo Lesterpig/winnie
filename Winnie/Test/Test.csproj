@@ -49,6 +49,7 @@
     <Compile Include="HumanTests.cs" />
     <Compile Include="OrcTests.cs" />
     <Compile Include="ElfTests.cs" />
+    <Compile Include="TileTypeFactoryTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
