@@ -39,7 +39,7 @@ namespace Core
             return !(tileType is WaterTileType);
         }
 
-        public float GetRequiredMovePoints(TileType tileType)
+        public double GetRequiredMovePoints(TileType tileType)
         {
             if (tileType is PlainTileType) { return (float) 0.5; }
             else { return 1; }

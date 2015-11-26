@@ -42,10 +42,9 @@ namespace Test
             Tile plain = new Tile(TileTypeFactory.Get("Plain"));
             Tile mountain = new Tile(TileTypeFactory.Get("Mountain"));
 
-            p.AddUnit(new Unit(p, water));
-            p.AddUnit(new Unit(p, mountain));
+            new Unit(p, water);
+            new Unit(p, mountain);
             Unit a = new Unit(p, plain);
-            p.AddUnit(a);
             p.AddUnit(a); // should not be added twice
         }
     }

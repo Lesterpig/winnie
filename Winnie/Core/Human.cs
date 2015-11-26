@@ -41,7 +41,7 @@ namespace Core
             return true;
         }
 
-        public float GetRequiredMovePoints(TileType tileType)
+        public double GetRequiredMovePoints(TileType tileType)
         {
             return 1;
         }

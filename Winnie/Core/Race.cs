@@ -22,7 +22,7 @@ namespace Core
             get;
         }
 
-        float GetRequiredMovePoints(TileType tileType);
+        double GetRequiredMovePoints(TileType tileType);
 
         int GetVictoryPoints(TileType tileType);
 
