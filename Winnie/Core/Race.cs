@@ -27,5 +27,7 @@ namespace Core
         int GetVictoryPoints(TileType tileType);
 
         bool CanMove(TileType tileType);
+
+        bool CanDoRangedAttack(TileType tileType);
     }
 }

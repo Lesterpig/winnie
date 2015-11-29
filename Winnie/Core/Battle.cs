@@ -43,12 +43,12 @@ namespace Core
             }
         }
 
-        public void Execute()
+        public new void Execute()
         {
             throw new System.NotImplementedException();
         }
 
-        public Battle ReverseExecute()
+        public new Battle ReverseExecute()
         {
             throw new System.NotImplementedException();
         }

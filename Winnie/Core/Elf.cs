@@ -51,5 +51,10 @@ namespace Core
             else if (tileType is ForestTileType) { return 3; }
             else { return 0; }
         }
+
+        public bool CanDoRangedAttack(TileType tileType)
+        {
+            return true;
+        }
     }
 }

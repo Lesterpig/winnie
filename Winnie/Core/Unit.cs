@@ -85,18 +85,65 @@ namespace Core
 
         public void Move(Tile to, bool reverse = false)
         {   
+            CheckActionAllowed(to, false, reverse);
+            this.Tile.RemoveUnit(this);
+            this._tile = to;
+            this.Tile.AddUnit(this);
+        }
 
+        public class AttackResult
+        {
+            public Unit Winner;
+            public Unit Loser;
+            public int Dmg;
+            public bool Killed;
+
+            public AttackResult(Unit w, Unit l, int dmg) {
+                this.Winner = w;
+                this.Loser = l;
+                this.Dmg = dmg;
+                this.Killed = l.Life <= 0;
+            }
+        }
+
+        public AttackResult Attack(Unit target, bool ranged = false)
+        {   
+            if (this.Race == target.Race)
+            {
+                throw new SameRaceAttackException();
+            }
+
+            CheckActionAllowed(target.Tile, true, false, ranged);
+
+            bool won = true;
+
+            if (!ranged)
+            {
+                int chances = 100 * this.AttackPoints / (this.AttackPoints + target.AttackPoints);
+                won = Game.Random.Next(100) < chances;
+            }
+
+            Unit winner = won ? this : target;
+            Unit loser = won ? target : this;
+            int dmg = Game.Random.Next(ranged ? 0 : 1, 6);
+
+            loser.Life -= dmg;
+
+            return new AttackResult(winner, loser, dmg);
+        }
+
+        private void CheckActionAllowed(Tile to, bool attack, bool reverse, bool ranged = false) {
             if (to == this.Tile)
             {
-                return;
+                return; // Dumb case, silently do nothing.
             }
 
-            if (!this.Race.CanMove(to.TileType))
-            {
+            if (!this.Race.CanMove(to.TileType) && !ranged)
+            {   
                 throw new Unit.MovementNotAllowedException();
             }
-                
-            if (to.MasterRace != this.Race && to.MasterRace != null)
+
+            if (!attack && to.MasterRace != this.Race && to.MasterRace != null)
             {
                 throw new Unit.EnnemiesRemainingException();
             }
@@ -115,15 +162,6 @@ namespace Core
             {
                 this.MovePoints += requiredPoints; // TODO check what to do during nextTurns actions for reverse operation
             }
-
-            this.Tile.RemoveUnit(this);
-            this._tile = to;
-            this.Tile.AddUnit(this);
-        }
-
-        public void Attack()
-        {
-            throw new System.NotImplementedException();
         }
 
         // Exceptions
@@ -131,5 +169,6 @@ namespace Core
         public class MovementNotAllowedException : Exception {}
         public class NotEnoughMovePointsException : Unit.MovementNotAllowedException {}
         public class EnnemiesRemainingException : Unit.MovementNotAllowedException {}
+        public class SameRaceAttackException : Unit.MovementNotAllowedException {}
     }
 }

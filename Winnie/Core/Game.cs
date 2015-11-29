@@ -7,6 +7,9 @@ namespace Core
 {
     public class Game
     {
+    
+        public static Random Random = new Random(); // TODO customize random per game?
+
         public Map Map
         {
             get

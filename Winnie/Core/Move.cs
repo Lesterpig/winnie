@@ -7,12 +7,12 @@ namespace Core
 {
     public class Move : Action
     {
-        public void Execute()
+        public new void Execute()
         {
             throw new System.NotImplementedException();
         }
 
-        public Move ReverseExecute()
+        public new Move ReverseExecute()
         {
             throw new System.NotImplementedException();
         }

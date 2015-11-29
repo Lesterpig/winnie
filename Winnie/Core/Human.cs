@@ -52,5 +52,10 @@ namespace Core
             else if (tileType is PlainTileType) { return 2; }
             else { return 1; }
         }
+
+        public bool CanDoRangedAttack(TileType tileType)
+        {
+            return false;
+        }
     }
 }

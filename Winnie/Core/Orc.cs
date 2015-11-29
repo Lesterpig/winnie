@@ -51,5 +51,10 @@ namespace Core
             else if (tileType is MountainTileType) { return 2; }
             else { return 0; }
         }
+
+        public bool CanDoRangedAttack(TileType tileType)
+        {
+            return tileType is MountainTileType;
+        }
     }
 }

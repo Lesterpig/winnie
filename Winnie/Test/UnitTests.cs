@@ -171,6 +171,157 @@ namespace Test
             Assert.IsTrue(a.Units.Contains(me));
             Assert.IsTrue(b.Units.Contains(enemy));
         }
+
+        [Test()]
+        public void RandomTest()
+        {
+            Game.Random = new Random(0);
+            Assert.AreEqual(56, Game.Random.Next(100));
+            Assert.AreEqual(1, Game.Random.Next(1, 6));
+
+            Game.Random = new Random(1);
+            Assert.AreEqual(25, Game.Random.Next(100));
+            Assert.AreEqual(3, Game.Random.Next(1, 6));
+
+            Game.Random = new Random(2);
+            Assert.AreEqual(94, Game.Random.Next(100));
+            Assert.AreEqual(5, Game.Random.Next(1, 6));
+
+            Game.Random = new Random(0);
+            Assert.AreEqual(4, Game.Random.Next(0, 6));
+        }
+
+        [Test()]
+        public void AttackNotAllowedTest()
+        {
+            Tile a = _t;
+            Tile b = new Tile(TileTypeFactory.Get("Water"));
+            Unit me = new Unit(new Player("Me", Orc.Instance), a); // Orcs cannot attack on water
+            Unit enemy = new Unit(_p, b);
+
+            me.Player.StartTurn();
+
+            Assert.Throws<Unit.MovementNotAllowedException>(delegate()
+                {
+                    me.Attack(enemy);
+                });
+        }
+
+        [Test()]
+        public void AttackMovementPointsTest()
+        {
+            Tile a = _t;
+            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Unit me = new Unit(_p, a);
+            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+
+            Assert.Throws<Unit.NotEnoughMovePointsException>(delegate()
+                {
+                    me.Attack(enemy);
+                });
+        }
+
+        [Test()]
+        public void AttackSameRaceTest()
+        {
+            Tile a = _t;
+            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Unit me = new Unit(_p, a);
+            Unit ally = new Unit(new Player("Ally", Human.Instance), b);
+
+            me.Player.StartTurn();
+            Assert.Throws<Unit.SameRaceAttackException>(delegate()
+                {
+                    me.Attack(ally);
+                });
+        }
+
+        [Test()]
+        public void AttackWinTest()
+        {
+            Tile a = _t;
+            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Unit me = new Unit(_p, a);
+            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+
+            me.Player.StartTurn();
+            Game.Random = new Random(1);
+            Unit.AttackResult result = me.Attack(enemy);
+
+            Assert.AreSame(me, result.Winner);
+            Assert.AreSame(enemy, result.Loser);
+            Assert.AreEqual(3, result.Dmg);
+            Assert.IsFalse(result.Killed);
+
+            Assert.AreEqual(me.Race.Life, me.Life);
+            Assert.AreEqual(enemy.Race.Life - 3, enemy.Life);
+        }
+
+        [Test()]
+        public void AttackLoseTest()
+        {
+            Tile a = _t;
+            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Unit me = new Unit(_p, a);
+            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+
+            me.Player.StartTurn();
+            Game.Random = new Random(2);
+            Unit.AttackResult result = me.Attack(enemy);
+
+            Assert.AreSame(enemy, result.Winner);
+            Assert.AreSame(me, result.Loser);
+            Assert.AreEqual(5, result.Dmg);
+            Assert.IsFalse(result.Killed);
+
+            Assert.AreEqual(me.Race.Life - 5, me.Life);
+            Assert.AreEqual(enemy.Race.Life, enemy.Life);
+        }
+
+        [Test()]
+        public void AttackKillTest()
+        {
+            Tile a = _t;
+            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Unit me = new Unit(_p, a);
+            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+            enemy.Life = 3;
+
+            me.Player.StartTurn();
+            Game.Random = new Random(1);
+            Unit.AttackResult result = me.Attack(enemy);
+
+            Assert.AreSame(me, result.Winner);
+            Assert.AreSame(enemy, result.Loser);
+            Assert.AreEqual(3, result.Dmg);
+            Assert.IsTrue(result.Killed);
+
+            Assert.AreEqual(me.Race.Life, me.Life);
+            Assert.AreEqual(0, enemy.Life);
+        }
+
+        [Test()]
+        public void RangedAttackTest()
+        {
+            Tile a = _t;
+            Tile b = new Tile(TileTypeFactory.Get("Water"));
+            Unit me = new Unit(new Player("Me", Elf.Instance), a);
+            Unit enemy = new Unit(_p, b);
+
+            me.Player.StartTurn();
+            Game.Random = new Random(0);
+            Unit.AttackResult result = me.Attack(enemy, true);
+
+            Assert.AreSame(me, result.Winner);
+            Assert.AreSame(enemy, result.Loser);
+            Assert.AreEqual(4, result.Dmg);
+            Assert.IsFalse(result.Killed);
+
+            Assert.AreEqual(me.Race.Life, me.Life);
+            Assert.AreEqual(enemy.Race.Life - 4, enemy.Life);
+        }
+
+
     }
 }
 

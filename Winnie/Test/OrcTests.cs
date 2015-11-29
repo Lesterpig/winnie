@@ -33,6 +33,15 @@ namespace Test
 			Assert.AreEqual(1, Orc.Instance.GetVictoryPoints(new ForestTileType()));
 			Assert.AreEqual(2, Orc.Instance.GetVictoryPoints(new MountainTileType()));
 		}
+
+        [Test()]
+        public void CanDoRangedAttackTest()
+        {
+            Assert.IsFalse(Orc.Instance.CanDoRangedAttack(new WaterTileType()));
+            Assert.IsFalse(Orc.Instance.CanDoRangedAttack(new PlainTileType()));
+            Assert.IsFalse(Orc.Instance.CanDoRangedAttack(new ForestTileType()));
+            Assert.IsTrue(Orc.Instance.CanDoRangedAttack(new MountainTileType()));
+        }
 	}
 }
 
