@@ -6,15 +6,24 @@ using System.Text;
 namespace Core
 {
     public class Move : Action
-    {
-        public new void Execute()
+    {   
+
+        public Move(Unit unit, Tile to)
         {
-            throw new System.NotImplementedException();
+            this._unit = unit;
+            this._tileFrom = unit.Tile;
+            this._tileTo = to;
         }
 
-        public new Move ReverseExecute()
+        public override void Execute()
         {
-            throw new System.NotImplementedException();
+            this._unit.Move(this._tileTo);
+        }
+
+        public override void ReverseExecute()
+        {
+            this._unit.Move(this._tileFrom, true);
+            this.reversePoints();
         }
     }
 }

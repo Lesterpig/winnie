@@ -93,13 +93,13 @@ namespace Test
         }
 
         [Test()]
-        public void ReverseMoveTest()
+        public void FreeMoveTest()
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get("Forest"));
             Unit u = new Unit(_p, a);
             u.Move(b, true);
-            Assert.AreEqual(1, u.MovePoints);
+            Assert.AreEqual(0, u.MovePoints);
             Assert.AreSame(b, u.Tile);
             Assert.IsFalse(a.Units.Contains(u));
             Assert.IsTrue(b.Units.Contains(u));
@@ -251,7 +251,6 @@ namespace Test
             Assert.AreSame(me, result.Winner);
             Assert.AreSame(enemy, result.Loser);
             Assert.AreEqual(3, result.Dmg);
-            Assert.IsFalse(result.Killed);
 
             Assert.AreEqual(me.Race.Life, me.Life);
             Assert.AreEqual(enemy.Race.Life - 3, enemy.Life);
@@ -272,7 +271,6 @@ namespace Test
             Assert.AreSame(enemy, result.Winner);
             Assert.AreSame(me, result.Loser);
             Assert.AreEqual(5, result.Dmg);
-            Assert.IsFalse(result.Killed);
 
             Assert.AreEqual(me.Race.Life - 5, me.Life);
             Assert.AreEqual(enemy.Race.Life, enemy.Life);
@@ -294,8 +292,7 @@ namespace Test
             Assert.AreSame(me, result.Winner);
             Assert.AreSame(enemy, result.Loser);
             Assert.AreEqual(3, result.Dmg);
-            Assert.IsTrue(result.Killed);
-
+        
             Assert.AreEqual(me.Race.Life, me.Life);
             Assert.AreEqual(0, enemy.Life);
         }
@@ -315,7 +312,6 @@ namespace Test
             Assert.AreSame(me, result.Winner);
             Assert.AreSame(enemy, result.Loser);
             Assert.AreEqual(4, result.Dmg);
-            Assert.IsFalse(result.Killed);
 
             Assert.AreEqual(me.Race.Life, me.Life);
             Assert.AreEqual(enemy.Race.Life - 4, enemy.Life);

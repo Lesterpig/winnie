@@ -83,9 +83,9 @@ namespace Core
             }
         }
 
-        public void Move(Tile to, bool reverse = false)
+        public void Move(Tile to, bool free = false)
         {   
-            CheckActionAllowed(to, false, reverse);
+            CheckActionAllowed(to, false, false, free);
             this.Tile.RemoveUnit(this);
             this._tile = to;
             this.Tile.AddUnit(this);
@@ -96,13 +96,11 @@ namespace Core
             public Unit Winner;
             public Unit Loser;
             public int Dmg;
-            public bool Killed;
 
             public AttackResult(Unit w, Unit l, int dmg) {
                 this.Winner = w;
                 this.Loser = l;
                 this.Dmg = dmg;
-                this.Killed = l.Life <= 0;
             }
         }
 
@@ -113,7 +111,7 @@ namespace Core
                 throw new SameRaceAttackException();
             }
 
-            CheckActionAllowed(target.Tile, true, false, ranged);
+            CheckActionAllowed(target.Tile, true, ranged, false);
 
             bool won = true;
 
@@ -132,7 +130,7 @@ namespace Core
             return new AttackResult(winner, loser, dmg);
         }
 
-        private void CheckActionAllowed(Tile to, bool attack, bool reverse, bool ranged = false) {
+        private void CheckActionAllowed(Tile to, bool attack, bool ranged = false, bool free = false) {
             if (to == this.Tile)
             {
                 return; // Dumb case, silently do nothing.
@@ -150,17 +148,13 @@ namespace Core
 
             double requiredPoints = this.Race.GetRequiredMovePoints(to.TileType);
 
-            if (!reverse)
+            if (!free)
             {
                 if (requiredPoints > this.MovePoints)
                 {
                     throw new Unit.NotEnoughMovePointsException();
                 }
                 this.MovePoints -= requiredPoints;
-            }
-            else
-            {
-                this.MovePoints += requiredPoints; // TODO check what to do during nextTurns actions for reverse operation
             }
         }
 

@@ -6,51 +6,16 @@ using System.Text;
 namespace Core
 {
     public abstract class Action
-    {
-        public Tile TileFrom
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+    {   
+        protected Tile _tileFrom;
+        protected Tile _tileTo;
+        protected Unit _unit;
 
-            set
-            {
-            }
-        }
+        public abstract void Execute();
+        public abstract void ReverseExecute();
 
-        public Unit Unit
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public Tile TileTo
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public void Execute()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void ReverseExecute()
-        {
-            throw new System.NotImplementedException();
+        protected void reversePoints() {
+            this._unit.MovePoints += this._unit.Race.GetRequiredMovePoints(this._tileTo.TileType);
         }
     }
 

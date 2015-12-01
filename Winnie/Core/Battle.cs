@@ -6,51 +6,47 @@ using System.Text;
 namespace Core
 {
     public class Battle : Action
-    {
-        public Unit Target
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+    {   
+        private Unit _target;
+        private Unit.AttackResult _result;
+        private bool _ranged;
+        private bool _moved;
 
-            set
+        public Battle(Unit attacker, Unit target, bool ranged)
+        {
+            this._tileFrom = attacker.Tile;
+            this._tileTo = target.Tile;
+            this._unit = attacker;
+            this._target = target;
+            this._ranged = ranged;
+        }
+
+        public override void Execute()
+        {
+            this._result = this._unit.Attack(this._target, this._ranged);
+            if (!this._ranged && this._result.Winner == this._unit && this._tileTo.MasterRace == null)
             {
+                this._unit.Move(this._tileTo, true);
+                this._moved = true;
             }
         }
 
-        public Unit Winner
-        {
-            get
+        public override void ReverseExecute()
+        {   
+            if (this._result == null)
             {
-                throw new System.NotImplementedException();
+                throw new NotReadyException();
             }
 
-            set
+            if (this._moved)
             {
-            }
-        }
-
-        public int LifeLost
-        {
-            get
-            {
-                throw new System.NotImplementedException();
+                this._unit.Move(this._tileFrom, true);
             }
 
-            set
-            {
-            }
+            this._result.Loser.Life += this._result.Dmg;
+            this.reversePoints();
         }
 
-        public new void Execute()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public new Battle ReverseExecute()
-        {
-            throw new System.NotImplementedException();
-        }
+        public class NotReadyException : Exception {}
     }
 }
