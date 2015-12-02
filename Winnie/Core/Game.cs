@@ -6,105 +6,30 @@ using System.Text;
 namespace Core
 {
     public class Game
-    {
+    {   
+        public Game(Player[] players, Map map, int turns, bool cheatMode)
+        {
+            this.Players = players;
+            this.Map = map;
+            this.Turns = turns;
+            this.CheatMode = cheatMode;
+        }
     
         public static CustomRandom Random = new CustomRandom(CustomRandom.Mode.NORMAL); // TODO customize random per game?
 
-        public Map Map
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public Map Map { get; set; }
 
-            set
-            {
-            }
-        }
+        public Player[] Players { get; private set; }
 
-        public List<Core.Player> Players
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public Stack<Action> Actions { get; private set; }
 
-            set
-            {
-            }
-        }
+        public int Turns { get; private set; }
 
-        public List<Action> Actions
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public int CurrentTurn { get; set; }
 
-            set
-            {
-            }
-        }
+        public bool CheatMode { get; set; }
 
-        public int Turns
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int CurrentTurn
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public bool CheatMode
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public Player CurrentPlayer
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public Unit CurrentUnit
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        public int CurrentPlayerIndex { get; set; }
 
         public void NextTurn()
         {

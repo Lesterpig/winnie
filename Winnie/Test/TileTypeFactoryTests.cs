@@ -16,7 +16,7 @@ namespace Test
 			Assert.IsNotNull(plainA);
 			Assert.IsNotNull(plainB);
 			Assert.AreEqual(1, plainA.Height);
-			Assert.AreEqual("Plain", plainA.Type);
+            Assert.AreEqual(TileTypeFactory.Identifier.PLAIN, plainA.Type);
 			Assert.AreSame(plainA, plainB); // Flyweight test here
 		}
 
@@ -38,9 +38,9 @@ namespace Test
 			Assert.AreEqual(2, forest.Height);
 			Assert.AreEqual(3, mountain.Height);
 
-			Assert.AreEqual("Water", water.Type);
-			Assert.AreEqual("Forest", forest.Type);
-            Assert.AreEqual("Mountain", mountain.Type);
+            Assert.AreEqual(TileTypeFactory.Identifier.WATER, water.Type);
+            Assert.AreEqual(TileTypeFactory.Identifier.FOREST, forest.Type);
+            Assert.AreEqual(TileTypeFactory.Identifier.MOUNTAIN, mountain.Type);
 		}
 	}
 }

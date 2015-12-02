@@ -19,10 +19,10 @@ namespace Test
             Map m = new Map(tiles);
 
             Assert.AreEqual(4, m.Tiles.Length);
-            Assert.AreEqual("Water", m.Tiles[0, 0].TileType.Type);
-            Assert.AreEqual("Plain", m.Tiles[0, 1].TileType.Type);
-            Assert.AreEqual("Forest", m.Tiles[1, 0].TileType.Type);
-            Assert.AreEqual("Mountain", m.Tiles[1, 1].TileType.Type);
+            Assert.AreEqual(TileTypeFactory.Identifier.WATER, m.Tiles[0, 0].TileType.Type);
+            Assert.AreEqual(TileTypeFactory.Identifier.PLAIN, m.Tiles[0, 1].TileType.Type);
+            Assert.AreEqual(TileTypeFactory.Identifier.FOREST, m.Tiles[1, 0].TileType.Type);
+            Assert.AreEqual(TileTypeFactory.Identifier.MOUNTAIN, m.Tiles[1, 1].TileType.Type);
         }
     }
 }
