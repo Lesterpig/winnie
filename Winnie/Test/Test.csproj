@@ -55,6 +55,7 @@
     <Compile Include="ActionTests.cs" />
     <Compile Include="AlgoTests.cs" />
     <Compile Include="CustomRandomTest.cs" />
+    <Compile Include="MapTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

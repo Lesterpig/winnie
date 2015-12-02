@@ -7,15 +7,20 @@ namespace Core
 {
     public class Map
     {
-		//@TODO REFACTOR, this is a hotfix in order to test C++ implementation
-		//We should not use TileTypes directly but instead use a Tile.
-        //private Core.Tile[][] Tiles;
-		public TileTypeFactory.Identifier[] Tiles { get; private set; }
-		//@ENDTODO
+        public Tile[,] Tiles { get; private set; }
 
         public Map(TileTypeFactory.Identifier[] tiles)
-		{
-			Tiles = tiles;
+		{   
+            int size = (int) Math.Sqrt(tiles.Length);
+            this.Tiles = new Tile[size,size];
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    this.Tiles[i,j] = new Tile(TileTypeFactory.Get(tiles[i*size+j]));
+                }
+            }
 		}
 
     }

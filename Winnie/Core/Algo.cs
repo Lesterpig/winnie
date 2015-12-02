@@ -13,11 +13,11 @@ namespace Core
 		bool disposed = false;
 		IntPtr nativeAlgo;
 
-		public Map CreateMap(int nbTiles)
+        public TileTypeFactory.Identifier[] CreateMap(int nbTiles)
 		{
             var tiles = new TileTypeFactory.Identifier[nbTiles];
 			Algo_fillMap(nativeAlgo, tiles, nbTiles);
-			return new Map(tiles);
+            return tiles;
 		}
 
 		public Algo()

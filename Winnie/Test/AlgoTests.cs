@@ -12,11 +12,11 @@ namespace Test
 		public void CreateMapTest()
 		{
             Algo a = new Algo();
-            Map m = a.CreateMap(5);
-            Assert.AreEqual(5, m.Tiles.Length);
-            foreach (TileTypeFactory.Identifier ti in m.Tiles)
+            TileTypeFactory.Identifier[] identifiers = a.CreateMap(5);
+            Assert.AreEqual(5, identifiers.Length);
+            foreach (TileTypeFactory.Identifier id in identifiers)
             {
-                Assert.IsInstanceOf<TileTypeFactory.Identifier>(ti);
+                Assert.IsInstanceOf<TileTypeFactory.Identifier>(id);
             }
 		}
 	}
