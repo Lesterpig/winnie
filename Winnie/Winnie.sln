@@ -52,7 +52,6 @@ Global
 		{F32DC5AC-79A2-4004-A765-BBE387574156}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Core\Core.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
 		$1.inheritsSet = VisualStudio
@@ -96,7 +95,8 @@ Global
 		$4.inheritsSet = null
 		$4.scope = text/x-chdr
 		$0.TextStylePolicy = $5
-		$5.inheritsSet = null
+		$5.inheritsSet = VisualStudio
+		$5.inheritsScope = text/plain
 		$5.scope = text/x-c++src
 		$0.StandardHeader = $6
 		$6.Text = 

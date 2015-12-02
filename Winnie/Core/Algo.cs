@@ -16,7 +16,7 @@ namespace Core
 		public Map CreateMap(int nbTiles)
 		{
 			var tiles = new string[nbTiles];
-			Algo_fillMap(nativeAlgo, tiles, nbTiles);
+			//Algo_fillMap(nativeAlgo, tiles, nbTiles);
 			return new Map(tiles);
 		}
 

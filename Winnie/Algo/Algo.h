@@ -1,10 +1,10 @@
 ﻿#pragma once
 
 enum TileType {
-	Plain = 0,
-	Moutain = 1,
-	Forest = 2,
-	Water = 3
+	WATER = 0,
+	PLAIN = 1,
+	FOREST = 2,
+	MOUNTAIN = 3
 };
 
 class Algo {
