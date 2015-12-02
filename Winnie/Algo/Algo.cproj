@@ -27,9 +27,9 @@
     <SourceDirectory>.</SourceDirectory>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="main.h" />
+    <None Include="Algo.h" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="main.cpp" />
+    <Compile Include="Algo.cpp" />
   </ItemGroup>
 </Project>
