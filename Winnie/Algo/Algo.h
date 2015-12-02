@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include <iostream>
+#include <random>
 
 enum TileType {
 	WATER = 0,
@@ -7,14 +9,22 @@ enum TileType {
 	MOUNTAIN = 3
 };
 
+//We'll use the Mersenne Twister which is a popular random number generator
+typedef std::mt19937 MyRNG;
+
 class Algo {
 
 public:
-	Algo() {}
+	Algo(); 
 	~Algo() {}
 
 	// You can change the return type and the parameters according to your needs.
 	void fillMap(TileType map[], int size);
+
+private:
+	MyRNG rng;
+	std::vector<TileType> map;
+	TileType RandomTile();
 };
 
 
