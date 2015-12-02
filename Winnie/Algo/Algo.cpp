@@ -12,7 +12,7 @@ Algo::Algo() {
 }
 
 TileType Algo::RandomTile() {
-    return (TileType) std::uniform_int_distribution<MyRNG::result_type>{1, 4}(rng);
+    return (TileType) std::uniform_int_distribution<MyRNG::result_type>{0, 3}(rng);
 }
 
 void Algo::fillMap(TileType map[], int size)
