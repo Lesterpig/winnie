@@ -10,10 +10,10 @@ namespace Core
 		//@TODO REFACTOR, this is a hotfix in order to test C++ implementation
 		//We should not use TileTypes directly but instead use a Tile.
         //private Core.Tile[][] Tiles;
-		public TileType[] Tiles { get; private set; }
+		public TileTypeFactory.Identifier[] Tiles { get; private set; }
 		//@ENDTODO
 
-		public Map(TileType[] tiles)
+        public Map(TileTypeFactory.Identifier[] tiles)
 		{
 			Tiles = tiles;
 		}

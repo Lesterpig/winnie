@@ -15,8 +15,8 @@ namespace Core
 
 		public Map CreateMap(int nbTiles)
 		{
-			var tiles = new string[nbTiles];
-			//Algo_fillMap(nativeAlgo, tiles, nbTiles);
+            var tiles = new TileTypeFactory.Identifier[nbTiles];
+			Algo_fillMap(nativeAlgo, tiles, nbTiles);
 			return new Map(tiles);
 		}
 
@@ -51,7 +51,7 @@ namespace Core
 
 
 		[DllImport("libAlgo.dll", CallingConvention= CallingConvention.Cdecl)]
-		extern static void Algo_fillMap(IntPtr algo, TileType[] tiles, int nbTiles);
+        extern static void Algo_fillMap(IntPtr algo, TileTypeFactory.Identifier[] tiles, int nbTiles);
 
 		[DllImport("libAlgo.dll", CallingConvention = CallingConvention.Cdecl)]
 		extern static IntPtr Algo_new();
