@@ -53,7 +53,6 @@
     <Compile Include="UnitTests.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="ActionTests.cs" />
-    <Compile Include="ElfTests.cs" />
     <Compile Include="AlgoTests.cs" />
     <Compile Include="CustomRandomTest.cs" />
   </ItemGroup>
