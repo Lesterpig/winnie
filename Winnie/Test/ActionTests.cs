@@ -25,9 +25,9 @@ namespace Test
             _a = new Player("PlayerA", Elf.Instance);
             _b = new Player("PlayerB", Human.Instance);
 
-            _from = new Tile(TileTypeFactory.Get("Plain"));
-            _toEnemy = new Tile(TileTypeFactory.Get("Mountain"));
-            _toFree = new Tile(TileTypeFactory.Get("Mountain"));
+            _from = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
+            _toEnemy = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.MOUNTAIN));
+            _toFree = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.MOUNTAIN));
 
             _attacker = new Unit(_a, _from);
             _defender = new Unit(_b, _toEnemy);

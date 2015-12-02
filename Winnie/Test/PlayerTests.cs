@@ -38,9 +38,9 @@ namespace Test
         }
 
         private void addUnitsToPlayer(Player p) {
-            Tile water = new Tile(TileTypeFactory.Get("Water"));
-            Tile plain = new Tile(TileTypeFactory.Get("Plain"));
-            Tile mountain = new Tile(TileTypeFactory.Get("Mountain"));
+            Tile water = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.WATER));
+            Tile plain = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
+            Tile mountain = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.MOUNTAIN));
 
             new Unit(p, water);
             new Unit(p, mountain);

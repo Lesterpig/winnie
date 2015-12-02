@@ -10,8 +10,8 @@ namespace Test
 		[Test()]
 		public void GetSimpleTest()
 		{
-			TileType plainA = TileTypeFactory.Get("Plain");
-			TileType plainB = TileTypeFactory.Get("Plain");
+            TileType plainA = TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN);
+            TileType plainB = TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN);
 
 			Assert.IsNotNull(plainA);
 			Assert.IsNotNull(plainB);
@@ -23,16 +23,16 @@ namespace Test
 		[Test()]
 		public void GetWrongTest()
 		{
-			TileType wrong = TileTypeFactory.Get("Wrong");
+            TileType wrong = TileTypeFactory.Get((TileTypeFactory.Identifier) 5);
 			Assert.IsNull(wrong);
 		}
 
 		[Test()]
 		public void GetFullTest()
 		{
-			TileType water = TileTypeFactory.Get("Water");
-			TileType forest = TileTypeFactory.Get("Forest");
-			TileType mountain = TileTypeFactory.Get("Mountain");
+            TileType water = TileTypeFactory.Get(TileTypeFactory.Identifier.WATER);
+            TileType forest = TileTypeFactory.Get(TileTypeFactory.Identifier.FOREST);
+            TileType mountain = TileTypeFactory.Get(TileTypeFactory.Identifier.MOUNTAIN);
 
             Assert.AreEqual(0, water.Height);
 			Assert.AreEqual(2, forest.Height);

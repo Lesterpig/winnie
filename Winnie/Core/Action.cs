@@ -11,6 +11,8 @@ namespace Core
         protected Tile _tileTo;
         protected Unit _unit;
 
+        public Tile TileTo { get { return this._tileTo; } }
+
         public abstract void Execute();
         public abstract void ReverseExecute();
 

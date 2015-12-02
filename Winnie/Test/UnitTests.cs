@@ -13,7 +13,7 @@ namespace Test
         [SetUp]
         public void Init()
         {
-            _t = new Tile(TileTypeFactory.Get("Plain"));
+            _t = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             _p = new Player("Tester", Human.Instance);
         }
 
@@ -70,7 +70,7 @@ namespace Test
         public void MoveTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Forest"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.FOREST));
             Unit u = new Unit(_p, a);
 
             Assert.AreEqual(0, u.MovePoints);
@@ -96,7 +96,7 @@ namespace Test
         public void FreeMoveTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Forest"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.FOREST));
             Unit u = new Unit(_p, a);
             u.Move(b, true);
             Assert.AreEqual(0, u.MovePoints);
@@ -109,7 +109,7 @@ namespace Test
         public void MovementNotAllowedTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Water"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.WATER));
             Unit u = new Unit(new Player("Elf", Elf.Instance), a);
             Assert.Throws<Unit.MovementNotAllowedException>(delegate()
                 {
@@ -121,7 +121,7 @@ namespace Test
         public void MoveToAllyTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             Unit me = new Unit(_p, a);
             Unit ally = new Unit(new Player("Ally", Human.Instance), b);
 
@@ -138,7 +138,7 @@ namespace Test
         public void MoveToDeadEnemyTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             Unit me = new Unit(_p, a);
             Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
             enemy.Life = 0;
@@ -156,7 +156,7 @@ namespace Test
         public void MoveToAliveEnemyTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             Unit me = new Unit(_p, a);
             Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
 
@@ -195,7 +195,7 @@ namespace Test
         public void AttackNotAllowedTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Water"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.WATER));
             Unit me = new Unit(new Player("Me", Orc.Instance), a); // Orcs cannot attack on water
             Unit enemy = new Unit(_p, b);
 
@@ -211,7 +211,7 @@ namespace Test
         public void AttackMovementPointsTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             Unit me = new Unit(_p, a);
             Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
 
@@ -225,7 +225,7 @@ namespace Test
         public void AttackSameRaceTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             Unit me = new Unit(_p, a);
             Unit ally = new Unit(new Player("Ally", Human.Instance), b);
 
@@ -240,7 +240,7 @@ namespace Test
         public void AttackWinTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             Unit me = new Unit(_p, a);
             Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
 
@@ -260,7 +260,7 @@ namespace Test
         public void AttackLoseTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             Unit me = new Unit(_p, a);
             Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
 
@@ -280,7 +280,7 @@ namespace Test
         public void AttackKillTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Plain"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             Unit me = new Unit(_p, a);
             Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
             enemy.Life = 3;
@@ -301,7 +301,7 @@ namespace Test
         public void RangedAttackTest()
         {
             Tile a = _t;
-            Tile b = new Tile(TileTypeFactory.Get("Water"));
+            Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.WATER));
             Unit me = new Unit(new Player("Me", Elf.Instance), a);
             Unit enemy = new Unit(_p, b);
 

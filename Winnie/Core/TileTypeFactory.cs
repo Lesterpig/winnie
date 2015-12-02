@@ -8,27 +8,31 @@ namespace Core
     public class TileTypeFactory
     {	
 
-		private static Dictionary<string, TileType> types = new Dictionary<string, TileType>();
+		private static Dictionary<Identifier, TileType> types = new Dictionary<Identifier, TileType>();
 
-		public static TileType Get(string type)
+        // Used for tile creation from C++ wrapper
+        public enum Identifier { WATER = 0, PLAIN = 1, FOREST = 2, MOUNTAIN = 3 }
+
+		public static TileType Get(Identifier type)
         {
-			if (types.ContainsKey(type)) {
+			if (types.ContainsKey(type))
+            {
 				return types[type];
 			}
 
 			TileType newType;
 
 			switch (type) {
-			case "Water":
+			case Identifier.WATER:
 			    newType = new WaterTileType();
 				break;
-			case "Plain":
+			case Identifier.PLAIN:
 				newType = new PlainTileType();
 				break;
-			case "Forest":
+            case Identifier.FOREST:
 				newType = new ForestTileType();
 				break;
-			case "Mountain":
+			case Identifier.MOUNTAIN:
 				newType = new MountainTileType();
 				break;
 			default:
