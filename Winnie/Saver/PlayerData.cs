@@ -5,6 +5,7 @@ namespace Saver
 {
     public class PlayerData
     {
+        public UnitData[] Units;
         public string Name;
         public int Race;
 
@@ -20,6 +21,8 @@ namespace Saver
             {
                 this.Race = 2;
             }
+
+            // TODO units
         }
     }
 }

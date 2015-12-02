@@ -7,8 +7,7 @@ namespace Saver
     {
         public int Life;
         public double MovePoints;
-        public PlayerData Player;
-        public TileData Position;
+        public int Position;
     }
 }
 
