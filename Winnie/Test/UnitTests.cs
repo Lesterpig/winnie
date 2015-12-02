@@ -173,25 +173,6 @@ namespace Test
         }
 
         [Test()]
-        public void RandomTest()
-        {
-            Game.Random = new Random(0);
-            Assert.AreEqual(56, Game.Random.Next(100));
-            Assert.AreEqual(1, Game.Random.Next(1, 6));
-
-            Game.Random = new Random(1);
-            Assert.AreEqual(25, Game.Random.Next(100));
-            Assert.AreEqual(3, Game.Random.Next(1, 6));
-
-            Game.Random = new Random(2);
-            Assert.AreEqual(94, Game.Random.Next(100));
-            Assert.AreEqual(5, Game.Random.Next(1, 6));
-
-            Game.Random = new Random(0);
-            Assert.AreEqual(4, Game.Random.Next(0, 6));
-        }
-
-        [Test()]
         public void AttackNotAllowedTest()
         {
             Tile a = _t;
@@ -245,15 +226,15 @@ namespace Test
             Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
 
             me.Player.StartTurn();
-            Game.Random = new Random(1);
+            Game.Random = new CustomRandom(CustomRandom.Mode.LOW);
             Unit.AttackResult result = me.Attack(enemy);
 
             Assert.AreSame(me, result.Winner);
             Assert.AreSame(enemy, result.Loser);
-            Assert.AreEqual(3, result.Dmg);
+            Assert.AreEqual(2, result.Dmg);
 
             Assert.AreEqual(me.Race.Life, me.Life);
-            Assert.AreEqual(enemy.Race.Life - 3, enemy.Life);
+            Assert.AreEqual(enemy.Race.Life - 2, enemy.Life);
         }
 
         [Test()]
@@ -265,7 +246,7 @@ namespace Test
             Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
 
             me.Player.StartTurn();
-            Game.Random = new Random(2);
+            Game.Random = new CustomRandom(CustomRandom.Mode.HIGH);
             Unit.AttackResult result = me.Attack(enemy);
 
             Assert.AreSame(enemy, result.Winner);
@@ -283,18 +264,18 @@ namespace Test
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
             Unit me = new Unit(_p, a);
             Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
-            enemy.Life = 3;
+            enemy.Life = 1;
 
             me.Player.StartTurn();
-            Game.Random = new Random(1);
+            Game.Random = new CustomRandom(CustomRandom.Mode.LOW);
             Unit.AttackResult result = me.Attack(enemy);
 
             Assert.AreSame(me, result.Winner);
             Assert.AreSame(enemy, result.Loser);
-            Assert.AreEqual(3, result.Dmg);
+            Assert.AreEqual(2, result.Dmg);
         
             Assert.AreEqual(me.Race.Life, me.Life);
-            Assert.AreEqual(0, enemy.Life);
+            Assert.AreEqual(-1, enemy.Life);
         }
 
         [Test()]
@@ -306,15 +287,15 @@ namespace Test
             Unit enemy = new Unit(_p, b);
 
             me.Player.StartTurn();
-            Game.Random = new Random(0);
+            Game.Random = new CustomRandom(CustomRandom.Mode.HIGH);
             Unit.AttackResult result = me.Attack(enemy, true);
 
             Assert.AreSame(me, result.Winner);
             Assert.AreSame(enemy, result.Loser);
-            Assert.AreEqual(4, result.Dmg);
+            Assert.AreEqual(5, result.Dmg);
 
             Assert.AreEqual(me.Race.Life, me.Life);
-            Assert.AreEqual(enemy.Race.Life - 4, enemy.Life);
+            Assert.AreEqual(enemy.Race.Life - 5, enemy.Life);
         }
 
 

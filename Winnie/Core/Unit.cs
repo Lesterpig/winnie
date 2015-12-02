@@ -118,7 +118,7 @@ namespace Core
             if (!ranged)
             {
                 int chances = 100 * this.AttackPoints / (this.AttackPoints + target.AttackPoints);
-                won = Game.Random.Next(100) < chances;
+                won = Game.Random.Next(0, 100) < chances;
             }
 
             Unit winner = won ? this : target;

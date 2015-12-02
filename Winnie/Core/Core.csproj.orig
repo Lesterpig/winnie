@@ -59,8 +59,11 @@
     <Compile Include="TileTypeFactory.cs" />
     <Compile Include="Unit.cs" />
     <Compile Include="UnitFactory.cs" />
+<<<<<<< 446683a46231c605cd8d6a2e3be8b7e1f330c74d
     <Compile Include="Algo.cs" />
+=======
     <Compile Include="CustomRandom.cs" />
+>>>>>>> Add class CustomRandom to satisfy Fedora
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -58,12 +58,12 @@ namespace Test
         {
             Battle action = new Battle(_attacker, _defender, false);
 
-            Game.Random = new Random(1);
+            Game.Random = new CustomRandom(CustomRandom.Mode.LOW);
 
             action.Execute();
             Assert.AreSame(_from, _attacker.Tile);
             Assert.AreEqual(0, _attacker.MovePoints);
-            Assert.AreEqual(_defender.Race.Life - 3, _defender.Life);
+            Assert.AreEqual(_defender.Race.Life - 2, _defender.Life);
             Assert.AreEqual(_attacker.Race.Life, _attacker.Life);
 
             action.ReverseExecute();
@@ -77,20 +77,20 @@ namespace Test
         public void NearBattleKillTest()
         {
             Battle action = new Battle(_attacker, _defender, false);
-            _defender.Life = 2;
+            _defender.Life = 1;
 
-            Game.Random = new Random(1);
+            Game.Random = new CustomRandom(CustomRandom.Mode.LOW);
 
             action.Execute();
             Assert.AreSame(_toEnemy, _attacker.Tile);
             Assert.AreEqual(0, _attacker.MovePoints);
-            Assert.AreEqual(2 - 3, _defender.Life);
+            Assert.AreEqual(1 - 2, _defender.Life);
             Assert.AreEqual(_attacker.Race.Life, _attacker.Life);
 
             action.ReverseExecute();
             Assert.AreSame(_from, _attacker.Tile);
             Assert.AreEqual(2, _attacker.MovePoints);
-            Assert.AreEqual(2, _defender.Life);
+            Assert.AreEqual(1, _defender.Life);
             Assert.AreEqual(_attacker.Race.Life, _attacker.Life);
         }
 
@@ -99,7 +99,7 @@ namespace Test
         {
             Battle action = new Battle(_attacker, _defender, false);
 
-            Game.Random = new Random(2);
+            Game.Random = new CustomRandom(CustomRandom.Mode.HIGH);
 
             action.Execute();
             Assert.AreSame(_from, _attacker.Tile);
@@ -119,12 +119,12 @@ namespace Test
         {
             Battle action = new Battle(_attacker, _defender, true);
 
-            Game.Random = new Random(0);
+            Game.Random = new CustomRandom(CustomRandom.Mode.HIGH);
 
             action.Execute();
             Assert.AreSame(_from, _attacker.Tile);
             Assert.AreEqual(0, _attacker.MovePoints);
-            Assert.AreEqual(_defender.Race.Life - 4, _defender.Life);
+            Assert.AreEqual(_defender.Race.Life - 5, _defender.Life);
             Assert.AreEqual(_attacker.Race.Life, _attacker.Life);
 
             action.ReverseExecute();
@@ -140,12 +140,12 @@ namespace Test
             Battle action = new Battle(_attacker, _defender, true);
             _defender.Life = 2;
 
-            Game.Random = new Random(0);
+            Game.Random = new CustomRandom(CustomRandom.Mode.HIGH);
 
             action.Execute();
             Assert.AreSame(_from, _attacker.Tile);
             Assert.AreEqual(0, _attacker.MovePoints);
-            Assert.AreEqual(2 - 4, _defender.Life);
+            Assert.AreEqual(2 - 5, _defender.Life);
             Assert.AreEqual(_attacker.Race.Life, _attacker.Life);
 
             action.ReverseExecute();

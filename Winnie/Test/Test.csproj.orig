@@ -48,14 +48,16 @@
   <ItemGroup>
     <Compile Include="HumanTests.cs" />
     <Compile Include="OrcTests.cs" />
-    <Compile Include="ElfTests.cs" />
     <Compile Include="TileTypeFactoryTests.cs" />
     <Compile Include="UnitTests.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="ActionTests.cs" />
+<<<<<<< 446683a46231c605cd8d6a2e3be8b7e1f330c74d
     <Compile Include="ElfTests.cs" />
     <Compile Include="AlgoTests.cs" />
+=======
     <Compile Include="CustomRandomTest.cs" />
+>>>>>>> Add class CustomRandom to satisfy Fedora
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
