@@ -9,7 +9,7 @@ namespace Saver
 
         public enum RaceEnum { HUMAN, ELF, ORC }
 
-        public ISet<UnitData> Units;
+        public HashSet<UnitData> Units;
         public string Name;
         public RaceEnum Race;
 
