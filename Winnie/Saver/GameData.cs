@@ -25,15 +25,9 @@ namespace Saver
 
             this.Tiles = new TileData[g.Map.Tiles.Length];
 
-            int size = g.Map.Tiles.GetUpperBound(0) + 1;
-
-            for (int i = 0; i < size; i++)
-            {   
-                for (int j = 0; j < size; j++)
-                {   
-                    int position = i * size + j;
-                    this.Tiles[position] = new TileData((Tile)g.Map.Tiles[i, j], position);
-                }
+            for (int i = 0; i < g.Map.Tiles.Length; i++)
+            {
+                this.Tiles[i] = new TileData((Tile)g.Map.Tiles[i], i);
             }
 
             this.Players = new PlayerData[g.Players.Length];
