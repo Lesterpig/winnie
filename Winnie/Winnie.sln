@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2857B73E-F847-4B02-9238-064979017E93}") = "Algo", "Algo\Algo.cproj", "{47749C59-634F-4D43-8C5E-4CE3FF7FF299}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlgoWin", "AlgoWin\AlgoWin.vcxproj", "{7657A911-845A-43BD-99C2-DDD673D8332E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B5830874-7DA8-4C00-B2EB-DD3C4889BED9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{E60AE756-18DE-4AF2-9E28-8D764886CB5D}"
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Uml", "Uml\Uml.modelproj", "{F32DC5AC-79A2-4004-A765-BBE387574156}"
 EndProject
-Project("{2857B73E-F847-4B02-9238-064979017E93}") = "Algo", "Algo\Algo.cproj", "{47749C59-634F-4D43-8C5E-4CE3FF7FF299}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saver", "Saver\Saver.csproj", "{D99E4DC6-05AA-4FD6-8359-20C5F01168D2}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlgoWin", "AlgoWin\AlgoWin.vcxproj", "{7657A911-845A-43BD-99C2-DDD673D8332E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
