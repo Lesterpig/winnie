@@ -18,7 +18,7 @@ namespace Core
             {
                 for (int j = 0; j < size; j++)
                 {
-                    this.Tiles[i,j] = new Tile(TileTypeFactory.Get(tiles[i*size+j]));
+                    this.Tiles[i,j] = new Tile(TileTypeFactory.Get(tiles[i*size+j]), i*size+j);
                 }
             }
 		}

@@ -8,6 +8,10 @@ namespace Saver
         public TileTypeFactory.Identifier Type;
         public int Position;
 
+        public TileData()
+        {
+        }
+
         public TileData(Tile t, int i)
         {
             this.Position = i;

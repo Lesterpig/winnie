@@ -1,28 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
 using Core;
 
 namespace Saver
 {
     public class PlayerData
-    {
-        public UnitData[] Units;
+    {   
+
+        public enum RaceEnum { HUMAN, ELF, ORC }
+
+        public ISet<UnitData> Units;
         public string Name;
-        public int Race;
+        public RaceEnum Race;
+
+        public PlayerData()
+        {
+        }
 
         public PlayerData(Player p)
         {
             this.Name = p.Name;
-            this.Race = 0;
+            this.Race = RaceEnum.HUMAN;
             if (p.Race is Elf)
             {
-                this.Race = 1;
+                this.Race = RaceEnum.ELF;
             }
             else if (p.Race is Orc)
             {
-                this.Race = 2;
+                this.Race = RaceEnum.ORC;
             }
 
-            // TODO units
+            this.Units = new HashSet<UnitData>();
+
+            foreach (Unit u in p.Units)
+            {
+                this.Units.Add(new UnitData(u));
+            }
+
         }
     }
 }

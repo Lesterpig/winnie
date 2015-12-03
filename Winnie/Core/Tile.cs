@@ -17,12 +17,15 @@ namespace Core
             public Tile W;
         }
             
-        public Tile(TileType t)
+        public Tile(TileType t, int position = -1)
         {
             this._tiletype = t;
             this._neighbors = new Neighborhood();
             this._units = new HashSet<Unit>();
+            this.Position = position;
         }
+
+        public int Position { get; private set; }
 
         private TileType _tiletype;
         public TileType TileType

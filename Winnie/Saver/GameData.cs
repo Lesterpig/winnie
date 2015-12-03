@@ -12,6 +12,10 @@ namespace Saver
         public int CurrentPlayerIndex;
         public bool CheatMode;
 
+        public GameData()
+        {
+        }
+
         public GameData(Game g)
         {   
             this.Turns = g.Turns;
@@ -20,9 +24,16 @@ namespace Saver
             this.CheatMode = g.CheatMode;
 
             this.Tiles = new TileData[g.Map.Tiles.Length];
-            for (int i = 0; i < g.Map.Tiles.Length; i++)
-            {
-                this.Tiles[i] = new TileData((Tile) g.Map.Tiles.GetValue(i), i);
+
+            int size = g.Map.Tiles.GetUpperBound(0) + 1;
+
+            for (int i = 0; i < size; i++)
+            {   
+                for (int j = 0; j < size; j++)
+                {   
+                    int position = i * size + j;
+                    this.Tiles[position] = new TileData((Tile)g.Map.Tiles[i, j], position);
+                }
             }
 
             this.Players = new PlayerData[g.Players.Length];

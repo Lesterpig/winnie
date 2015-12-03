@@ -56,6 +56,7 @@
     <Compile Include="AlgoTests.cs" />
     <Compile Include="CustomRandomTest.cs" />
     <Compile Include="MapTest.cs" />
+    <Compile Include="XmlTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -63,11 +64,19 @@
       <Project>{B5830874-7DA8-4C00-B2EB-DD3C4889BED9}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Saver\Saver.csproj">
+      <Project>{D99E4DC6-05AA-4FD6-8359-20C5F01168D2}</Project>
+      <Name>Saver</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="fixtures\save0.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="fixtures\" />
   </ItemGroup>
 </Project>
