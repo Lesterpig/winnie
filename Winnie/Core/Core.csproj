@@ -77,10 +77,9 @@
   </Target>
   -->
   <ItemGroup>
-    <ProjectReference Include="..\Algo\Algo.cproj">
-      <Project>{47749C59-634F-4D43-8C5E-4CE3FF7FF299}</Project>
-      <Name>Algo</Name>
-      <Private>False</Private>
-    </ProjectReference>
+    <Content Include="..\Debug\libAlgo.dll">
+      <Link>libAlgo.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
