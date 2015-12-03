@@ -12,13 +12,18 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug</OutputPath>
-    <OutputName>Algo</OutputName>
+    <OutputPath>..\Debug</OutputPath>
+    <OutputName>libAlgo</OutputName>
     <CompileTarget>SharedLibrary</CompileTarget>
     <DefineSymbols>DEBUG MONODEVELOP</DefineSymbols>
     <SourceDirectory>.</SourceDirectory>
     <Commandlineparameters>-std=c++11</Commandlineparameters>
     <ExtraCompilerArguments>-std=c++11</ExtraCompilerArguments>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="mv ${SolutionDir}/Debug/libAlgo.so ${SolutionDir}/Debug/libAlgo.dll" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release</OutputPath>
