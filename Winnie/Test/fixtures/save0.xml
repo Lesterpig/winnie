@@ -3,19 +3,15 @@
   <Tiles>
     <TileData>
       <Type>WATER</Type>
-      <Position>0</Position>
     </TileData>
     <TileData>
       <Type>PLAIN</Type>
-      <Position>1</Position>
     </TileData>
     <TileData>
       <Type>FOREST</Type>
-      <Position>2</Position>
     </TileData>
     <TileData>
       <Type>MOUNTAIN</Type>
-      <Position>3</Position>
     </TileData>
   </Tiles>
   <Players>

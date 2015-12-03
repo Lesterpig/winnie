@@ -6,15 +6,13 @@ namespace Saver
     public class TileData
     {
         public TileTypeFactory.Identifier Type;
-        public int Position;
 
         public TileData()
         {
         }
 
-        public TileData(Tile t, int i)
+        public TileData(Tile t)
         {
-            this.Position = i;
             this.Type = t.TileType.Type;
         }
     }

@@ -36,7 +36,28 @@ namespace Saver
             {
                 this.Units.Add(new UnitData(u));
             }
+        }
 
+        public Player Rebuild(Map map)
+        {
+            Race race = Human.Instance;
+            if (this.Race == RaceEnum.ELF)
+            {
+                race = Elf.Instance;
+            }
+            else if (this.Race == RaceEnum.ORC)
+            {
+                race = Orc.Instance;
+            }
+
+            var player = new Player(this.Name, race);
+
+            foreach (UnitData unit in this.Units)
+            {
+                unit.Rebuild(player, map);
+            }
+
+            return player;
         }
     }
 }

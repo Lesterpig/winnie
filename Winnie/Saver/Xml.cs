@@ -9,14 +9,17 @@ namespace Saver
     {
         public static void GameToXml(Game g, Stream output)
         {
-            GameData game = new GameData(g);
+            GameData data = new GameData(g);
             XmlSerializer serializer = new XmlSerializer(typeof(GameData));
-            serializer.Serialize(output, game);
+            serializer.Serialize(output, data);
         }
 
-        public static Game XmlToGame()
+        public static Game XmlToGame(Stream input)
         {
-            return null;
+            XmlSerializer serializer = new XmlSerializer(typeof(GameData));
+            GameData data = (GameData) serializer.Deserialize(input);
+
+            return data.Rebuild();
         }
     }
 }
