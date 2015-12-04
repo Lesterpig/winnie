@@ -58,6 +58,7 @@
     <Compile Include="CustomRandomTest.cs" />
     <Compile Include="MapTest.cs" />
     <Compile Include="XmlTest.cs" />
+    <Compile Include="PerlinTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

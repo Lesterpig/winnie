@@ -1,9 +1,12 @@
 ﻿#include "Perlin.h"
+#include <math.h>
 
-Perlin::Perlin(int seed, int sx, int sy, int st, int oc, int pers) : sizeX(sx), sizeY(sy), step(st), octaves(oc), persistence(pers) 
+Perlin::Perlin(int seed, int sx, int sy, int st, int oc, double pers) : sizeX(sx), sizeY(sy), step(st), octaves(oc), persistence(pers) 
 {
 	auto g = Generator(seed);
-	v = g.randomDouble(0, 4, sizeX * sizeY);
+	int maxWidth = (int) ceil(sizeX * pow(2, octaves - 1) / step);
+	int maxHeight = (int) ceil(sizeY * pow(2, octaves - 1) / step);
+	v = g.randomDouble(0, 4, maxWidth * maxHeight);
 }
 
 Perlin::~Perlin() 
@@ -28,6 +31,7 @@ double Perlin::cosinusInterpolation2D(double a1, double b1, double a2, double b2
 	double x1 = cosinusInterpolation(a1, b1, x);
 	double x2 = cosinusInterpolation(a2, b2, x);
 	return cosinusInterpolation(x1, x2, y);
+	return 2.2;
 }
 
 double Perlin::noise2D(double x, double y) {
@@ -49,7 +53,8 @@ double Perlin::coherentNoise2D(double x, double y) {
 	double p = 1;
 	int f = 1;
 
-	for(int i = 0 ; i < octaves ; i++) {
+	int i = 0;
+	for(; i < octaves ; i++) {
 		sum += p * noise2D(x * f, y * f);
 		p *= persistence;
 		f *= 2;
