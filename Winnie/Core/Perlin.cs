@@ -13,9 +13,9 @@ namespace Core
 		bool disposed = false;
 		IntPtr nativePerlin;
 
-		public Perlin(int seed, int sx, int sy, int st, int oc, double pers)
+		public Perlin(int seed, int sx, int sy, int min, int max, int st, int oc, double pers)
 		{
-			nativePerlin = Perlin_new(seed,sx,sy,st,oc,pers);
+			nativePerlin = Perlin_new(seed,sx,sy,min,max,st,oc,pers);
 		}
 
 		~Perlin()
@@ -50,7 +50,7 @@ namespace Core
 		extern static double Perlin_coherentNoise2D(IntPtr perlin, double x, double y);
 
 		[DllImport("libAlgo.dll", CallingConvention = CallingConvention.Cdecl)]
-		extern static IntPtr Perlin_new(int seed, int sx, int sy, int st, int oc, double pers);
+		extern static IntPtr Perlin_new(int seed, int sx, int sy, int min, int max, int st, int oc, double pers);
 
 		[DllImport("libAlgo.dll", CallingConvention = CallingConvention.Cdecl)]
 		extern static IntPtr Perlin_delete(IntPtr perlin);

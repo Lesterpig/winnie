@@ -1,12 +1,12 @@
 ﻿#include "Perlin.h"
 #include <math.h>
 
-Perlin::Perlin(int seed, int sx, int sy, int st, int oc, double pers) : sizeX(sx), sizeY(sy), step(st), octaves(oc), persistence(pers) 
+Perlin::Perlin(int seed, int sx, int sy, int min, int max, int st, int oc, double pers) : sizeX(sx), sizeY(sy), step(st), octaves(oc), persistence(pers) 
 {
 	auto g = Generator(seed);
 	int maxWidth = (int) ceil(sizeX * pow(2, octaves - 1) / step);
 	int maxHeight = (int) ceil(sizeY * pow(2, octaves - 1) / step);
-	v = g.randomDouble(0, 4, maxWidth * maxHeight);
+	v = g.randomDouble(min, max, maxWidth * maxHeight);
 }
 
 Perlin::~Perlin() 
