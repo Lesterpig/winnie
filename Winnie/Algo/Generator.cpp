@@ -4,8 +4,12 @@
 
 Generator::Generator() 
 {
-    //Could be replaced here by a int, which could be our seed
     rng.seed(std::random_device()());
+}
+
+Generator::Generator(int seed) 
+{
+    rng.seed(seed);
 }
 
 Generator::~Generator()

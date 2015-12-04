@@ -10,6 +10,7 @@ typedef std::mt19937 MyRNG;
 class Generator {
 public:
 	Generator(); 
+	Generator(int seed); 
 	~Generator();
 	TileType randomTile();
 
