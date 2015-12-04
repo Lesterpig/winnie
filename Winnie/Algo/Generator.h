@@ -12,7 +12,7 @@ public:
 	Generator(); 
 	Generator(int seed); 
 	~Generator();
-	TileType randomTile();
+	std::vector<double>* randomDouble(int min, int max, int length);
 
 private:
 	MyRNG rng;

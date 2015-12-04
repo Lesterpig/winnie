@@ -37,10 +37,13 @@
     <None Include="Algo.h" />
     <None Include="Map.h" />
     <None Include="Generator.h" />
+    <None Include="Perlin.h" />
+    <None Include="Export.h" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algo.cpp" />
     <Compile Include="Map.cpp" />
     <Compile Include="Generator.cpp" />
+    <Compile Include="Perlin.cpp" />
   </ItemGroup>
 </Project>

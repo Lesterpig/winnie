@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <iostream>
 #include "Generator.h"
+#include "Export.h"
 
 class Algo {
 
@@ -12,15 +13,6 @@ public:
 
 private:
 };
-
-#if defined(_MSC_VER)
-	#define EXPORTCDECL extern "C" __declspec(dllexport)
-#else
-	#define EXPORTCDECL extern "C"
-#endif
-//
-// export all C++ class/methods as friendly C functions to be consumed by external component in a portable way
-///
 
 EXPORTCDECL void Algo_fillMap(Algo* algo, TileType map[], int sizeX, int sizeY) {
 	return algo->fillMap(map, sizeX, sizeY);

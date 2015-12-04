@@ -17,7 +17,16 @@ Generator::~Generator()
 
 }
 
-TileType Generator::randomTile() 
+std::vector<double>* Generator::randomDouble(int min, int max, int length) 
 {
-    return (TileType) std::uniform_int_distribution<MyRNG::result_type>{0, 3}(rng);
+    auto v = new std::vector<double>();
+    std::uniform_real_distribution<double> gen(min,max);
+    v->reserve(length);
+
+    int i = 0;
+    for (; i < length; i++) {
+    	double j = gen(rng);
+    }
+
+    return v;
 }
