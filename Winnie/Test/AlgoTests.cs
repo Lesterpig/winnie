@@ -12,9 +12,9 @@ namespace Test
 		public void CreateMapTest()
 		{
             Algo a = new Algo();
-            TileTypeFactory.Identifier[] identifiers = a.CreateMap(5);
+            TileTypeFactory.Identifier[] identifiers = a.CreateMap(5,6);
 
-            Assert.AreEqual(5, identifiers.Length);
+            Assert.AreEqual(30, identifiers.Length);
 
             string GeneratedMap = "map: ";
             foreach (TileTypeFactory.Identifier id in identifiers)

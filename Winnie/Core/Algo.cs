@@ -13,10 +13,10 @@ namespace Core
 		bool disposed = false;
 		IntPtr nativeAlgo;
 
-        public TileTypeFactory.Identifier[] CreateMap(int nbTiles)
+		public TileTypeFactory.Identifier[] CreateMap(int sizeX, int sizeY)
 		{
-            var tiles = new TileTypeFactory.Identifier[nbTiles];
-			Algo_fillMap(nativeAlgo, tiles, nbTiles);
+			var tiles = new TileTypeFactory.Identifier[sizeX * sizeY];
+			Algo_fillMap(nativeAlgo, tiles, sizeX, sizeY);
             return tiles;
 		}
 
@@ -51,7 +51,7 @@ namespace Core
 
 
 		[DllImport("libAlgo.dll", CallingConvention= CallingConvention.Cdecl)]
-        extern static void Algo_fillMap(IntPtr algo, TileTypeFactory.Identifier[] tiles, int nbTiles);
+		extern static void Algo_fillMap(IntPtr algo, TileTypeFactory.Identifier[] tiles, int sizeX, int sizeY);
 
 		[DllImport("libAlgo.dll", CallingConvention = CallingConvention.Cdecl)]
 		extern static IntPtr Algo_new();

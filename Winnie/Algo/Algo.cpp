@@ -6,18 +6,21 @@
 
 using namespace std;
 
-Algo::Algo() {
-    //Could be replaced here by a int, which could be our seed
-    rng.seed(std::random_device()());
-}
-
-TileType Algo::RandomTile() {
-    return (TileType) std::uniform_int_distribution<MyRNG::result_type>{0, 3}(rng);
-}
-
-void Algo::fillMap(TileType map[], int size)
+Algo::Algo() 
 {
-	for (int i = 0; i < size; i++) {
-		map[i] = Algo::RandomTile();
-    }
+}
+
+Algo::~Algo()
+{
+}
+
+void Algo::fillMap(TileType map[], int size_x, int size_y)
+{
+	Map m = Map(size_x, size_y, map);
+
+	for (int i; i < size_x; i++) {
+		for (int j; j < size_y; j++) {
+			m.setPoint(i,j,(TileType)0);
+		}
+	}
 }

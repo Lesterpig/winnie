@@ -35,8 +35,12 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="Algo.h" />
+    <None Include="Map.h" />
+    <None Include="Generator.h" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algo.cpp" />
+    <Compile Include="Map.cpp" />
+    <Compile Include="Generator.cpp" />
   </ItemGroup>
 </Project>
