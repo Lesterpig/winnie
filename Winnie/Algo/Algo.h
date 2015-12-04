@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Generator.h"
 #include "Export.h"
+#include "Perlin.h"
 
 class Algo {
 
@@ -24,4 +25,16 @@ EXPORTCDECL Algo* Algo_new() {
 
 EXPORTCDECL void Algo_delete(Algo* algo) {
 	delete algo;
+}
+
+EXPORTCDECL Perlin* Perlin_new(int seed, int sx, int sy, int min, int max, int st, int oc, double pers) {
+	return new Perlin(seed, sx, sy, min, max, st, oc, pers);
+}
+
+EXPORTCDECL void Perlin_delete(Perlin* perlin) {
+	delete perlin;
+}
+
+EXPORTCDECL double Perlin_coherentNoise2D(Perlin* perlin, double x, double y) {
+	return perlin->coherentNoise2D(x,y);
 }

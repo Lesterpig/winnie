@@ -26,14 +26,3 @@ private:
 	double noise2D(double x, double y);
 };
 
-EXPORTCDECL Perlin* Perlin_new(int seed, int sx, int sy, int min, int max, int st, int oc, double pers) {
-	return new Perlin(seed, sx, sy, min, max, st, oc, pers);
-}
-
-EXPORTCDECL void Perlin_delete(Perlin* perlin) {
-	delete perlin;
-}
-
-EXPORTCDECL double Perlin_coherentNoise2D(Perlin* perlin, double x, double y) {
-	return perlin->coherentNoise2D(x,y);
-}

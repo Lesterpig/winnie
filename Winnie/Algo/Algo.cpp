@@ -1,8 +1,8 @@
-﻿#include "Algo.h"
-#include <iostream>
+﻿#include <iostream>
 #include <algorithm>
 #include <time.h>
 #include <math.h> 
+#include "Algo.h"
 
 using namespace std;
 
@@ -16,19 +16,14 @@ Algo::~Algo()
 
 void Algo::fillMap(TileType map[], int size_x, int size_y)
 {
-	// --> Perlin Algorithm <--
 	Map m = Map(size_x, size_y, map);
-	Generator g = Generator();
+	Perlin p = Perlin(1, size_x, size_y, 0, 4, 1, 3, 0.25);
 
 	//Generate some random noise
-	int i = 0;
-	for (; i < m.getTilesNumber(); i++) {
-		m.setRawPoint(i,(TileType) 0);
+	for (int i = 0; i < size_x; i++) {
+		for (int j = 0; j < size_y; j++) {
+			m.setPoint(i, j, (TileType) p.coherentNoise2D(i,j));
+		}
 	}
 
-	//We choose an interpolation between linear, cos and cub
-
-	//We choose a step and interpolate
-
-	//We're summing this noises to have a coherent noise by choosing persistancy and octaves
 }
