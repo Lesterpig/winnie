@@ -25,7 +25,7 @@ namespace Test
 					double v = p.coherentNoise2D (i, j);
 					Assert.GreaterOrEqual (v, min);
 					Assert.Less (v,max);
-					Console.WriteLine (v);
+					//Console.WriteLine (v);
 				}
 			}
 		}

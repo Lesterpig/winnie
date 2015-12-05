@@ -13,8 +13,10 @@ namespace Core
             this._name = name;
             this._race = race;
             this._units = new HashSet<Unit>();
+			this.InitialPosition = new Point ();
         }
 
+		public Point InitialPosition { get; set; }
 
         private Race _race;
         public Race Race

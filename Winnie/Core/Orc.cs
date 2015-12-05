@@ -34,6 +34,14 @@ namespace Core
             }
         }
 
+		public int Identifier
+		{
+			get 
+			{
+				return 2;
+			}
+		}
+
         public bool CanMove(TileType tileType)
         {
             return !(tileType is WaterTileType);

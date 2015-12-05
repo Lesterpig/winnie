@@ -62,6 +62,7 @@
     <Compile Include="Algo.cs" />
     <Compile Include="CustomRandom.cs" />
     <Compile Include="Perlin.cs" />
+    <Compile Include="Point.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

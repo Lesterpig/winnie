@@ -22,6 +22,11 @@ namespace Core
             get;
         }
 
+		//Used for C++ wrapper
+		int Identifier {
+			get;
+		}
+
         double GetRequiredMovePoints(TileType tileType);
 
         int GetVictoryPoints(TileType tileType);

@@ -19,7 +19,7 @@ namespace Test
                     TileTypeFactory.Identifier.FOREST,
                     TileTypeFactory.Identifier.MOUNTAIN };
 
-            Map map = new Map(tiles);
+            Map map = new Map(tiles, 2, 2);
             Player[] players = { new Player("A", Human.Instance), new Player("B", Orc.Instance) };
 
             Game game = new Game(players, map, 10, true);

@@ -7,18 +7,10 @@ using System.Threading.Tasks;
 
 namespace Core
 {
-
 	public class Algo : IDisposable
 	{
 		bool disposed = false;
 		IntPtr nativeAlgo;
-
-		public TileTypeFactory.Identifier[] CreateMap(int sizeX, int sizeY)
-		{
-			var tiles = new TileTypeFactory.Identifier[sizeX * sizeY];
-			Algo_fillMap(nativeAlgo, tiles, sizeX, sizeY);
-            return tiles;
-		}
 
 		public Algo()
 		{
@@ -31,6 +23,17 @@ namespace Core
 			Algo_delete(nativeAlgo);
 		}
 
+		public TileTypeFactory.Identifier[] CreateMap(int seed, int sizeX, int sizeY)
+		{
+			var tiles = new TileTypeFactory.Identifier[sizeX * sizeY];
+			Algo_fillMap(nativeAlgo, tiles, seed, sizeX, sizeY);
+			return tiles;
+		}
+
+		public void FindBestStartPosition(Player p1, Player p2, Map m)
+		{
+			Algo_findBestStartPosition (nativeAlgo, m.RawTiles, m.SizeX, m.SizeY, p1.Race.Identifier, p2.Race.Identifier, p1.InitialPosition, p2.InitialPosition);
+		}
 
 		public void Dispose()
 		{
@@ -49,14 +52,18 @@ namespace Core
 			disposed = true;
 		}
 
-
-		[DllImport("libAlgo.dll", CallingConvention= CallingConvention.Cdecl)]
-		extern static void Algo_fillMap(IntPtr algo, TileTypeFactory.Identifier[] tiles, int sizeX, int sizeY);
-
 		[DllImport("libAlgo.dll", CallingConvention = CallingConvention.Cdecl)]
 		extern static IntPtr Algo_new();
 
 		[DllImport("libAlgo.dll", CallingConvention = CallingConvention.Cdecl)]
 		extern static IntPtr Algo_delete(IntPtr algo);
+
+
+		[DllImport("libAlgo.dll", CallingConvention= CallingConvention.Cdecl)]
+		extern static void Algo_fillMap(IntPtr algo, TileTypeFactory.Identifier[] tiles, int seed, int sizeX, int sizeY);
+
+
+		[DllImport("libAlgo.dll", CallingConvention= CallingConvention.Cdecl)]
+		extern static void Algo_findBestStartPosition(IntPtr algo, TileTypeFactory.Identifier[] tiles, int sizeX, int sizeY, int pl1, int pl2, Point p1, Point p2);
 	}
 }

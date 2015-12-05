@@ -57,7 +57,7 @@ namespace Saver
                 tiles[i] = this.Tiles[i].Type;
             }
 
-            return new Map(tiles);
+			return new Map(tiles, (int)Math.Sqrt(tiles.Length), (int)Math.Sqrt(tiles.Length));
         }
 
         private Player[] RebuildPlayers(Map map)

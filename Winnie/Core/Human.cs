@@ -36,6 +36,14 @@ namespace Core
             }
         }
 
+		public int Identifier
+		{
+			get 
+			{
+				return 0;
+			}
+		}
+
         public bool CanMove(TileType tileType)
         {
             return true;

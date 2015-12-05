@@ -16,7 +16,7 @@ namespace Test
                   TileTypeFactory.Identifier.FOREST,
                   TileTypeFactory.Identifier.MOUNTAIN };
 
-            Map m = new Map(tiles);
+            Map m = new Map(tiles, 2, 2);
 
             Assert.AreEqual(4, m.Tiles.Length);
             Assert.AreEqual(TileTypeFactory.Identifier.WATER, m.Tiles[0].TileType.Type);
