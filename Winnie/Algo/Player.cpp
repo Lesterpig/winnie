@@ -71,27 +71,4 @@ void Player::setAsFarAsPossible(Player &p1, Player &p2, Map &m)
 			}
 		}
 	}
-
-	/*
-	for (int i = 0; i < size_x; i++) {
-		for (int j = 0; j < size_y; j++) {
-			if (player1.authorized(m.getPoint(i,j))) {
-
-				for (int k = 0; i < size_x; k++) {
-					for (int l = 0; l < size_y; l++) {
-						if (player2.authorized(m.getPoint(k,l))) {
-							int d = m.distance(Point{i,j}, Point{k,l});
-							if (d > bestDistance) {
-								bestDistance = d;
-								p1->x = i; p1->y = j;
-								p2->x = k; p2->y = l;
-							}
-						}
-					}
-				}
-
-			}
-		}
-	}
-	*/
 }
