@@ -12,7 +12,7 @@ namespace Test
 		public void CreateMapTest()
 		{
             Algo a = new Algo();
-            TileTypeFactory.Identifier[] identifiers = a.CreateMap(1, 5, 6);
+            TileTypeFactory.Identifier[] identifiers = a.CreateMap(0, 5, 6);
 
             Assert.AreEqual(30, identifiers.Length);
 
@@ -28,7 +28,7 @@ namespace Test
                 );
             }
 
-            //Console.WriteLine(GeneratedMap);
+            Console.WriteLine(GeneratedMap);
 		}
 
 		[Test()]

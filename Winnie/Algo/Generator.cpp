@@ -17,7 +17,7 @@ Generator::~Generator()
 
 }
 
-std::vector<double>* Generator::randomDouble(int min, int max, int length) 
+std::vector<double>* Generator::randomDouble(double min, double max, int length) 
 {
     auto v = new std::vector<double>();
     std::uniform_real_distribution<double> gen(min,max);

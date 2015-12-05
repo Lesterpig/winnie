@@ -27,5 +27,9 @@ namespace Core
             }
 		}
 
+		public Tile getTile(int x, int y) {
+			return Tiles [x + SizeX * y];
+		}
+
     }
 }

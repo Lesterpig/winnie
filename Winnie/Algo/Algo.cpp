@@ -16,14 +16,15 @@ Algo::~Algo()
 
 void Algo::fillMap(TileType map[], int seed, int size_x, int size_y)
 {
-	int min = 0, max = 4, step = 1, octaves = 3, persistance = 0.25;
+	double min = 0.0, max = 5;
+	int step = 5, octaves = 5, persistance = 0.1;
 
 	Map m = Map(size_x, size_y, map);
 	Perlin p = Perlin(seed, size_x, size_y, min, max, step, octaves, persistance);
 
 	for (int i = 0; i < size_x; i++) {
 		for (int j = 0; j < size_y; j++) {
-			m.setPoint(i, j, (TileType) p.coherentNoise2D(i,j));
+			m.setPoint(i, j, (TileType) (p.coherentNoise2D(i,j)));
 		}
 	}
 

@@ -1,9 +1,9 @@
 ﻿#include "Perlin.h"
 #include <math.h>
 
-Perlin::Perlin(int seed, int sx, int sy, int min, int max, int st, int oc, double pers) : sizeX(sx), sizeY(sy), step(st), octaves(oc), persistence(pers) 
+Perlin::Perlin(int seed, int sx, int sy, double min, double max, int st, int oc, double pers) : sizeX(sx), sizeY(sy), step(st), octaves(oc), persistence(pers) 
 {
-	auto g = Generator(seed);
+	auto g = seed == 0 ? Generator() : Generator(seed);
 	int maxWidth = (int) ceil(sizeX * pow(2, octaves - 1) / step);
 	int maxHeight = (int) ceil(sizeY * pow(2, octaves - 1) / step);
 	v = g.randomDouble(min, max, maxWidth * maxHeight);
@@ -43,8 +43,8 @@ double Perlin::noise2D(double x, double y) {
    		getPoint(i + 1, j), 
    		getPoint(i, j + 1), 
    		getPoint(i + 1, j + 1), 
-   		i, 
-   		j
+   		fmod(x / step, 1), 
+   		fmod(y / step, 1)
 	);
 }
 

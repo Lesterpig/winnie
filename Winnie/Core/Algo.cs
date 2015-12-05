@@ -27,6 +27,7 @@ namespace Core
 		{
 			var tiles = new TileTypeFactory.Identifier[sizeX * sizeY];
 			Algo_fillMap(nativeAlgo, tiles, seed, sizeX, sizeY);
+
 			return tiles;
 		}
 

@@ -12,7 +12,7 @@ public:
 	Generator(); 
 	Generator(int seed); 
 	~Generator();
-	std::vector<double>* randomDouble(int min, int max, int length);
+	std::vector<double>* randomDouble(double min, double max, int length);
 
 private:
 	MyRNG rng;

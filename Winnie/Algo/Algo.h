@@ -36,7 +36,7 @@ EXPORTCDECL void Algo_findBestStartPosition(Algo* algo, TileType map[], int size
 }
 
 //Export Perlin
-EXPORTCDECL Perlin* Perlin_new(int seed, int sx, int sy, int min, int max, int st, int oc, double pers) {
+EXPORTCDECL Perlin* Perlin_new(int seed, int sx, int sy, double min, double max, int st, int oc, double pers) {
 	return new Perlin(seed, sx, sy, min, max, st, oc, pers);
 }
 

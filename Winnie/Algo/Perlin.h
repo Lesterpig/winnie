@@ -7,7 +7,7 @@ const double pi = 3.14159265;
 
 class Perlin {
 public:
-	Perlin(int seed, int sx, int sy, int min, int max, int st, int oc, double pers);
+	Perlin(int seed, int sx, int sy, double min, double max, int st, int oc, double pers);
 	~Perlin();
 	double coherentNoise2D(double x, double y);
 

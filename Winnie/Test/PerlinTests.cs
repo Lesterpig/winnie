@@ -7,11 +7,11 @@ namespace Test
 	[TestFixture ()]
 	public class PerlinTests
 	{
-		const int seed = 1337;
+		const int seed = 12;
 		const int sizeX = 6;
 		const int sizeY = 5;
-		const int min = 0;
-		const int max = 100;
+		const double min = 0.0;
+		const double max = 1.0;
 		const int step = 1;
 		const int octaves = 3;
 		const double persistence = 0.25;
@@ -25,7 +25,7 @@ namespace Test
 					double v = p.coherentNoise2D (i, j);
 					Assert.GreaterOrEqual (v, min);
 					Assert.Less (v,max);
-					//Console.WriteLine (v);
+					Console.WriteLine (v);
 				}
 			}
 		}
