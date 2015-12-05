@@ -69,4 +69,10 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="sprites\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sprites\overworld.png" />
+  </ItemGroup>
 </Project>
