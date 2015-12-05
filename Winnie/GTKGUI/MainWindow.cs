@@ -9,7 +9,7 @@ public partial class MainWindow: Gtk.Window
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
-		SetDefaultSize(900, 900);
+		SetDefaultSize(420, 420);
 		SetPosition(WindowPosition.Center);
 		DeleteEvent += delegate { Application.Quit(); };
 
