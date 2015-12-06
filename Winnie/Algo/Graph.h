@@ -7,12 +7,14 @@
 class Graph 
 {
 public:
-	Graph(std::vector<double> data, int sx, int sy);
+	Graph(double data[], int sx, int sy, Point *startPoint);
 	~Graph();
 
 	Node* getNode(const Point* p);
 	Node* getNode(int x, int y);
-	bool unknownNeighbourg(const Node* c, Node* n);
+	int getSizeX() const;
+	int getSizeY() const;
+	Node* unknownNeighbourg(const Node* c);
 
 private:
 	int sizeX;

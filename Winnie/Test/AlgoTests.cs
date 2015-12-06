@@ -28,7 +28,7 @@ namespace Test
                 );
             }
 
-            Console.WriteLine(GeneratedMap);
+            //Console.WriteLine(GeneratedMap);
 		}
 
 		[Test()]

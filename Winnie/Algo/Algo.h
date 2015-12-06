@@ -5,6 +5,7 @@
 #include "Perlin.h"
 #include "Player.h"
 #include "Map.h"
+#include "Dijkstra.h"
 
 class Algo {
 
@@ -33,6 +34,19 @@ EXPORTCDECL void Algo_fillMap(Algo* algo, TileType map[], int seed, int sizeX, i
 
 EXPORTCDECL void Algo_findBestStartPosition(Algo* algo, TileType map[], int sizeX, int sizeY, RaceType pl1, RaceType pl2, Point *p1, Point *p2) {
 	return algo->findBestStartPosition(map, sizeX, sizeY, pl1, pl2, p1, p2);
+}
+
+//Export Dijkstra
+EXPORTCDECL Dijkstra* Dijkstra_new(double data[], int sx, int sy, Point *start) {
+	return new Dijkstra(data,sx,sy, start);
+}
+
+EXPORTCDECL void Dijkstra_delete(Dijkstra* dijkstra) {
+	delete dijkstra;
+}
+
+EXPORTCDECL double Dijkstra_getDistance(Dijkstra* dijkstra, Point *dest) {
+	return dijkstra->getDistance(dest);
 }
 
 //Export Perlin

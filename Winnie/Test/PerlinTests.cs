@@ -11,9 +11,9 @@ namespace Test
 		const int sizeX = 6;
 		const int sizeY = 5;
 		const double min = 0.0;
-		const double max = 1.0;
-		const int step = 1;
-		const int octaves = 3;
+		const double max = 5.0;
+		const int step = 4;
+		const int octaves = 5;
 		const double persistence = 0.25;
 
 		[Test()]
@@ -25,7 +25,7 @@ namespace Test
 					double v = p.coherentNoise2D (i, j);
 					Assert.GreaterOrEqual (v, min);
 					Assert.Less (v,max);
-					Console.WriteLine (v);
+					//Console.WriteLine (v);
 				}
 			}
 		}

@@ -1,29 +1,27 @@
 ﻿#include "Dijkstra.h"
+#include <iostream>
 
-Dijkstra::Dijkstra(std::vector<double> data, int sx, int sy, Point *start, Point *goal) : found(false)
+Dijkstra::Dijkstra(double data[], int sx, int sy, Point *start) : graph(data,sx,sy,start)
 {
-	Graph g = Graph(data,sx,sy);
 	std::priority_queue<Node*, std::vector<Node*>, NodeCompare> frontier;
-	Node* startNode = g.getNode(start);
+	Node* startNode = graph.getNode(start);
 	Node* currentNode = nullptr;
 	Node* neighbourgNode = nullptr;
 	frontier.push(startNode);
+	//std::cout << "init" << std::endl;
 
 	while (!frontier.empty()) {
 		currentNode = frontier.top();
 		frontier.pop();
-
-		if (startNode->equals(currentNode)) {
-			found = true;
-			break;
-		}
+		//std::cout << "current node: " << currentNode->getX() << "," << currentNode->getY() << "," << currentNode->getCostSoFar() << std::endl;
 			
-		while(g.unknownNeighbourg(currentNode,neighbourgNode)) {
+		while((neighbourgNode = graph.unknownNeighbourg(currentNode)) != nullptr) {
+			//std::cout << "neighbourg node: " << neighbourgNode->getX() << "," << neighbourgNode->getY() << std::endl;
 			if (neighbourgNode->getCost() < 0) break;
 
 			double newCost = currentNode->getCostSoFar() + neighbourgNode->getCost();
 
-			if (neighbourgNode->getCostSoFar() == -1 || newCost < neighbourgNode->getCostSoFar()) {
+			if (neighbourgNode->getCostSoFar() == 0 || newCost < neighbourgNode->getCostSoFar()) {
 				neighbourgNode->setCostSoFar(newCost);
 				neighbourgNode->setCameFrom(currentNode);
 
@@ -37,12 +35,16 @@ Dijkstra::~Dijkstra()
 {
 }
 
-double* Dijkstra::getDistance(Point *p)
+double Dijkstra::getDistance(Point *dest)
 {
-
+	return graph.getNode(dest)->getCostSoFar();
 }
 
-Point* Dijkstra::getPath(Point* p)
+void Dijkstra::getPath(Point* dest, Point* path)
 {
-
+	auto currentNode = graph.getNode(dest);
+	int i = 0;
+	while (currentNode->getCameFrom() != nullptr) {
+		path[i++] = currentNode->getCameFrom()->getPoint();
+	}
 }

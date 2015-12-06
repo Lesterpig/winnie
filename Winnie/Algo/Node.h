@@ -1,33 +1,35 @@
 ﻿#pragma once
-
+#include "Point.h"
 class Node
 {
 public:
-	Node(int _x, int _y, int _cost);
+	Node(int _x, int _y, double _cost);
 	~Node();
 
-	int getPriority() const;
+	double getPriority() const;
 
 	int getX() const;
 	int getY() const;
-	int getCost() const;
+	double getCost() const;
 
 	Node* getCameFrom();
 	void setCameFrom(Node *c);
 
-	int getCostSoFar();
-	void setCostSoFar(int csf);
+	double getCostSoFar();
+	void setCostSoFar(double csf);
 
 	int getHeuristic();
 	void setHeuristic(int h);
 
 	bool equals(Node* n);
 
+	Point getPoint();
+
 private:
 	int x;
 	int y;
-	int cost;
-	int costSoFar;
+	double cost;
+	double costSoFar;
 	int heuristic;
 	Node* cameFrom;
 };

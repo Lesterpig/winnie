@@ -63,6 +63,7 @@
     <Compile Include="CustomRandom.cs" />
     <Compile Include="Perlin.cs" />
     <Compile Include="Point.cs" />
+    <Compile Include="Dijkstra.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

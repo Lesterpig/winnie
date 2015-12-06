@@ -8,10 +8,11 @@
 
 class Dijkstra {
 public:
-	Dijkstra(std::vector<double> data, int sx, int sy, Point *start, Point *goal);
+	Dijkstra(double data[], int sx, int sy, Point *start);
 	~Dijkstra();
-	double* getDistance(Point *p);
-	Point* getPath(Point *p);
+	double getDistance(Point *dest);
+	void getPath(Point* dest, Point* path);
 private:
-	bool found;
+	Graph graph;
+
 };
