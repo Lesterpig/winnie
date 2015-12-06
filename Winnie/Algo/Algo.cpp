@@ -24,7 +24,14 @@ void Algo::fillMap(TileType map[], int seed, int size_x, int size_y)
 
 	for (int i = 0; i < size_x; i++) {
 		for (int j = 0; j < size_y; j++) {
-			m.setPoint(i, j, (TileType) (p.coherentNoise2D(i,j)));
+			TileType t; 
+			double n = p.coherentNoise2D(i,j);
+			if (n < 1.0) t = WATER;
+			else if (n < 2.0) t = PLAIN;
+			else if (n < 3.0) t = FOREST;
+			else t = MOUNTAIN;
+
+			m.setPoint(i, j, t);
 		}
 	}
 

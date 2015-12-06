@@ -1,11 +1,6 @@
 ﻿#pragma once
 #include <cmath>
-#include "Map.h"
-
-typedef struct {
-	int x;
-	int y;
-} Point;
+#include "Point.h"
 
 enum TileType {
 	WATER = 0,

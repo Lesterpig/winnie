@@ -40,6 +40,10 @@
     <None Include="Perlin.h" />
     <None Include="Export.h" />
     <None Include="Player.h" />
+    <None Include="Point.h" />
+    <None Include="Node.h" />
+    <None Include="Graph.h" />
+    <None Include="Dijkstra.h" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algo.cpp" />
@@ -47,5 +51,8 @@
     <Compile Include="Generator.cpp" />
     <Compile Include="Perlin.cpp" />
     <Compile Include="Player.cpp" />
+    <Compile Include="Node.cpp" />
+    <Compile Include="Graph.cpp" />
+    <Compile Include="Dijkstra.cpp" />
   </ItemGroup>
 </Project>
