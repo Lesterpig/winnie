@@ -31,6 +31,8 @@ namespace Core
 
         public int CurrentPlayerIndex { get; set; }
 
+        public Player CurrentPlayer { get { return this.Players[this.CurrentPlayerIndex]; } }
+
         public void NextTurn()
         {
             throw new System.NotImplementedException();

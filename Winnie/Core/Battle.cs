@@ -21,6 +21,10 @@ namespace Core
             this._ranged = ranged;
         }
 
+        protected override void reversePoints() {
+            this._unit.MovePoints += this._ranged ? 1 : this._unit.Race.GetRequiredMovePoints(this._tileTo.TileType);
+        }
+
         public override void Execute()
         {
             this._result = this._unit.Attack(this._target, this._ranged);

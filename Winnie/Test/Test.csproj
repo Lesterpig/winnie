@@ -61,6 +61,7 @@
     <Compile Include="PerlinTests.cs" />
     <Compile Include="DijkstraTests.cs" />
     <Compile Include="GameBuilderTest.cs" />
+    <Compile Include="TileTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

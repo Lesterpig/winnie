@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using Core;
+using System.Linq;
 
 namespace Test
 {
@@ -294,11 +295,281 @@ namespace Test
             Assert.AreSame(enemy, result.Loser);
             Assert.AreEqual(5, result.Dmg);
 
+            Assert.AreEqual(1, me.MovePoints);
             Assert.AreEqual(me.Race.Life, me.Life);
             Assert.AreEqual(enemy.Race.Life - 5, enemy.Life);
         }
 
+        [Test()]
+        public void MovePossibilitiesTest()
+        {   
+            /*
+             * A o o - - -
+             * o o - - - -
+             * o - - - - -
+             * - - - - - -
+             * - - - - - -
+             * - - - - - B
+             */
 
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+
+            Unit u = p1.Units.First();
+            var possibilities = u.MovePossibilites;
+
+            Assert.AreSame(u.Tile, g.Map.getTile(0, 0));
+            Assert.IsFalse(possibilities.ContainsKey(g.Map.getTile(0, 0)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(0, 1)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 0)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 1)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(0, 2)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(2, 0)));
+            Assert.AreEqual(5, possibilities.Count());
+        }
+
+        [Test()]
+        public void MovePossibilitiesRaceTest()
+        {   
+
+            /* Map configuration (seed 1)
+             * 
+             * M M M M M M
+             * M M M M M M
+             * F F F M M M
+             * P P P F M M
+             * P P P F M M
+             * P P P P F F
+             * 
+             *
+             * A - - - - -
+             * - - - - - -
+             * - - - - - -
+             * - - - - - o
+             * - - - - o o
+             * - - o o o B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            Unit u = p2.Units.First();
+            var possibilities = u.MovePossibilites;
+
+            Assert.AreSame(u.Tile, g.Map.getTile(5, 5));
+            Assert.IsFalse(possibilities.ContainsKey(g.Map.getTile(5, 5)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(5, 4)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(5, 3)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(4, 4)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(4, 5)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(3, 5)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(2, 5)));
+            Assert.AreEqual(6, possibilities.Count());
+        }
+
+        [Test()]
+        public void MovePossibilitiesEnemyTest()
+        {
+            /*
+             *  A A - - - -
+             *  o B A - - -
+             *  o o o - - -
+             *  o o o - - -
+             *  - o - - - -
+             *  - - - - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 0), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 1), true);
+            g.Map.getTile(5, 5).Units.First().Move(g.Map.getTile(1, 1), true);
+
+            Unit u = g.Map.getTile(1, 1).Units.First();
+            var possibilities = u.MovePossibilites;
+
+            Assert.AreEqual(2, u.MovePoints);
+            Assert.AreEqual(Orc.Instance, u.Race);
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(0, 1)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(0, 2)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 2)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(2, 2)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(0, 3)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 3)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(2, 3)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 4)));
+            Assert.AreEqual(8, possibilities.Count());
+        }
+
+        [Test()]
+        public void ExecuteMovePossibilitiesEnemyTest()
+        {
+            /*
+             *  A A - - - -
+             *  o B A - - -
+             *  o o o - - -
+             *  o o o - - -
+             *  - o - - - -
+             *  - - - - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 0), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 1), true);
+            g.Map.getTile(5, 5).Units.First().Move(g.Map.getTile(1, 1), true);
+
+            Unit u = g.Map.getTile(1, 1).Units.First();
+            var possibilities = u.MovePossibilites;
+
+            var destination = g.Map.getTile(1, 4);
+
+            foreach (Move m in possibilities[destination])
+            {
+                m.Execute();
+            }
+
+            Assert.AreEqual(0, u.MovePoints);
+            Assert.AreSame(g.Map.getTile(1, 4), u.Tile);
+
+            possibilities[destination].Reverse();
+
+            foreach (Move m in possibilities[destination])
+            {
+                m.ReverseExecute();
+            }
+
+            Assert.AreEqual(2, u.MovePoints);
+            Assert.AreSame(g.Map.getTile(1, 1), u.Tile);
+        }
+
+        [Test()]
+        public void BattlePossibilitiesBoundsTest()
+        {   
+            /*
+             * A - - - - -
+             * - - - - - -
+             * - - - - - -
+             * - - - - - -
+             * - - - - - -
+             * - - - - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+
+            Unit u = p1.Units.First();
+            var possibilities = u.BattlePossibilities;
+
+            Assert.AreEqual(0, possibilities.Count);
+        }
+
+        [Test()]
+        public void BattlePossibilitiesNearTest()
+        {
+            /*
+             *  A A - - - -
+             *  - B A - - -
+             *  - - - - - -
+             *  - - - - - -
+             *  - - - - - -
+             *  - - - - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 0), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 1), true);
+            g.Map.getTile(5, 5).Units.First().Move(g.Map.getTile(1, 1), true);
+
+            Unit u = g.Map.getTile(1, 1).Units.First();
+            var possibilities = u.BattlePossibilities;
+
+            Assert.AreEqual(2, possibilities.Count);
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 0)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(2, 1)));
+        }
+
+        [Test()]
+        public void BattlePossibilitiesRangedTest()
+        {
+            /*
+             *  A - - - - -
+             *  - B - A - -
+             *  - - - - - -
+             *  - A - - - -
+             *  - - - - - -
+             *  - - - - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 3), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(3, 1), true);
+            g.Map.getTile(5, 5).Units.First().Move(g.Map.getTile(1, 1), true);
+
+            Unit u = g.Map.getTile(1, 1).Units.First();
+            var possibilities = u.BattlePossibilities;
+
+            Assert.AreEqual(1, possibilities.Count);
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(3, 1)));
+        }
+
+        [Test()]
+        public void BattlePossibilitiesMixedTest()
+        {
+            /*
+             *  - A - - - -
+             *  - B A A - -
+             *  - - - - - -
+             *  - A - - - -
+             *  - - - - - -
+             *  - - - - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 0), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 1), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 3), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(3, 1), true);
+            g.Map.getTile(5, 5).Units.First().Move(g.Map.getTile(1, 1), true);
+
+            Unit u = g.Map.getTile(1, 1).Units.First();
+            var possibilities = u.BattlePossibilities;
+
+            Assert.AreEqual(3, possibilities.Count);
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 0)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(2, 1)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(3, 1)));
+        }
     }
 }
 

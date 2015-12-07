@@ -30,7 +30,10 @@ namespace Core
 
             Player[] players = { p1, p2 };
 
-            return new Game(players, map, t.Turns, cheatMode);
+            var g = new Game(players, map, t.Turns, cheatMode);
+            g.CurrentPlayerIndex = 0;
+            g.CurrentPlayer.StartTurn();
+            return g;
         }
 
         public class SameRaceException : Exception {}

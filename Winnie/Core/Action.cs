@@ -16,7 +16,7 @@ namespace Core
         public abstract void Execute();
         public abstract void ReverseExecute();
 
-        protected void reversePoints() {
+        protected virtual void reversePoints() {
             this._unit.MovePoints += this._unit.Race.GetRequiredMovePoints(this._tileTo.TileType);
         }
     }

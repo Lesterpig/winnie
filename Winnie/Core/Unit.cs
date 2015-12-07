@@ -83,6 +83,78 @@ namespace Core
             }
         }
 
+        public IDictionary<Tile, List<Move>> MovePossibilites
+        {
+            get
+            {
+                var map = this.Tile.Map;
+                var dijkstra = new Dijkstra(map.GetMoveMap(this), map.SizeX, map.SizeY, this.Tile.Point);
+                var possibilities = new Dictionary<Tile, List<Move>>();
+
+                foreach (Tile t in map.Tiles)
+                {
+                    var score = dijkstra.getDistance(t.Point);
+                    System.Console.WriteLine(t.Point.x + " " + t.Point.y + " " + score);
+                    if (score > 0 && score <= this.MovePoints && t != this.Tile)
+                    {
+                        var steps = dijkstra.getPath(t.Point);
+                        steps.Reverse();
+                        var actions = new List<Move>();
+                        for (int i = 1; i < steps.Count; i++)
+                        {   
+                            var fr = steps[i-1];
+                            var to = steps[i];
+                            actions.Add(new Move(this, map.getTile(fr.x, fr.y), map.getTile(to.x, to.y)));
+                        }
+                        possibilities.Add(t, actions);
+                    }
+                }
+
+                return possibilities;
+            }
+        }
+
+        public IDictionary<Tile, Battle> BattlePossibilities
+        {
+            get
+            {
+                var d = new Dictionary<Tile, Battle>();
+
+                // Near attacks
+
+                AddToBattlePossibilitiesOrNot(d, this.Tile.GetNeighbor(new Tile.Diff(0, -1)));
+                AddToBattlePossibilitiesOrNot(d, this.Tile.GetNeighbor(new Tile.Diff(0, 1)));
+                AddToBattlePossibilitiesOrNot(d, this.Tile.GetNeighbor(new Tile.Diff(-1, 0)));
+                AddToBattlePossibilitiesOrNot(d, this.Tile.GetNeighbor(new Tile.Diff(1, 0)));
+
+                // Ranged attack
+
+                AddToBattlePossibilitiesOrNot(d, this.Tile.GetNeighbor(new Tile.Diff(0, -2)), true);
+                AddToBattlePossibilitiesOrNot(d, this.Tile.GetNeighbor(new Tile.Diff(0, 2)), true);
+                AddToBattlePossibilitiesOrNot(d, this.Tile.GetNeighbor(new Tile.Diff(-2, 0)), true);
+                AddToBattlePossibilitiesOrNot(d, this.Tile.GetNeighbor(new Tile.Diff(2, 0)), true);
+
+
+                return d;
+            }
+        }
+
+        private void AddToBattlePossibilitiesOrNot(IDictionary<Tile, Battle> d, Tile t, bool ranged = false)
+        {
+            if (t != null)
+            {   
+                if (!ranged || ranged && this.Race.CanDoRangedAttack(t.TileType))
+                {
+                    var required = ranged ? 1 : this.Race.GetRequiredMovePoints(t.TileType);
+                    Unit strongest = t.StrongestUnit;
+                    if (strongest != null && strongest.Race != this.Race && this.MovePoints >= required)
+                    {
+                        d.Add(t, new Battle(this, strongest, ranged));
+                    }
+                }
+            }
+        }
+
         public void Move(Tile to, bool free = false)
         {   
             CheckActionAllowed(to, false, false, free);
@@ -146,7 +218,7 @@ namespace Core
                 throw new Unit.EnnemiesRemainingException();
             }
 
-            double requiredPoints = this.Race.GetRequiredMovePoints(to.TileType);
+            double requiredPoints = ranged ? 1 : this.Race.GetRequiredMovePoints(to.TileType);
 
             if (!free)
             {

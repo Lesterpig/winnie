@@ -123,7 +123,7 @@ namespace Test
 
             action.Execute();
             Assert.AreSame(_from, _attacker.Tile);
-            Assert.AreEqual(0, _attacker.MovePoints);
+            Assert.AreEqual(1, _attacker.MovePoints);
             Assert.AreEqual(_defender.Race.Life - 5, _defender.Life);
             Assert.AreEqual(_attacker.Race.Life, _attacker.Life);
 
@@ -144,7 +144,7 @@ namespace Test
 
             action.Execute();
             Assert.AreSame(_from, _attacker.Tile);
-            Assert.AreEqual(0, _attacker.MovePoints);
+            Assert.AreEqual(1, _attacker.MovePoints);
             Assert.AreEqual(2 - 5, _defender.Life);
             Assert.AreEqual(_attacker.Race.Life, _attacker.Life);
 

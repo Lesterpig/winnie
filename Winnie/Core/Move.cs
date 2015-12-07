@@ -15,6 +15,13 @@ namespace Core
             this._tileTo = to;
         }
 
+        public Move(Unit unit, Tile fr, Tile to)
+        {
+            this._unit = unit;
+            this._tileFrom = fr;
+            this._tileTo = to;
+        }
+
         public override void Execute()
         {
             this._unit.Move(this._tileTo);
