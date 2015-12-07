@@ -75,21 +75,20 @@ namespace Core
             }
         }
 
-        public List<Action> Possibilities
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-        }
-
         public IDictionary<Tile, List<Move>> MovePossibilites
         {
             get
-            {
+            {   
+                var possibilities = new Dictionary<Tile, List<Move>>();
+
+                if (!this.Alive)
+                {
+                    return possibilities;
+                }
+
                 var map = this.Tile.Map;
                 var dijkstra = new Dijkstra(map.GetMoveMap(this), map.SizeX, map.SizeY, this.Tile.Point);
-                var possibilities = new Dictionary<Tile, List<Move>>();
+
 
                 foreach (Tile t in map.Tiles)
                 {
@@ -141,9 +140,9 @@ namespace Core
 
         private void AddToBattlePossibilitiesOrNot(IDictionary<Tile, Battle> d, Tile t, bool ranged = false)
         {
-            if (t != null)
+            if (t != null && this.Alive)
             {   
-                if (!ranged || ranged && this.Race.CanDoRangedAttack(t.TileType))
+                if (!ranged || ranged && this.Race.CanDoRangedAttack(this.Tile.TileType))
                 {
                     var required = ranged ? 1 : this.Race.GetRequiredMovePoints(t.TileType);
                     Unit strongest = t.StrongestUnit;

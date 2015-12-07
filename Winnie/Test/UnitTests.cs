@@ -301,6 +301,20 @@ namespace Test
         }
 
         [Test()]
+        public void MovePossibilitiesDeadTest()
+        {   
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+
+            Unit u = p1.Units.First();
+            u.Life = 0;
+            var possibilities = u.MovePossibilites;
+            Assert.AreEqual(0, possibilities.Count);
+        }
+
+        [Test()]
         public void MovePossibilitiesTest()
         {   
             /*
@@ -534,8 +548,9 @@ namespace Test
             Unit u = g.Map.getTile(1, 1).Units.First();
             var possibilities = u.BattlePossibilities;
 
-            Assert.AreEqual(1, possibilities.Count);
+            Assert.AreEqual(2, possibilities.Count);
             Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(3, 1)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 3)));
         }
 
         [Test()]
@@ -565,11 +580,112 @@ namespace Test
             Unit u = g.Map.getTile(1, 1).Units.First();
             var possibilities = u.BattlePossibilities;
 
-            Assert.AreEqual(3, possibilities.Count);
+            Assert.AreEqual(4, possibilities.Count);
             Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 0)));
             Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(2, 1)));
             Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(3, 1)));
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(1, 3)));
         }
+
+        [Test()]
+        public void BattlePossibilitiesMovementPointsTest()
+        {
+            /*
+             *  - - - - - -
+             *  - - A - - -
+             *  - - A - - -
+             *  - - B - - -
+             *  - - A - - -
+             *  - - A - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 1), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 2), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 4), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 5), true);
+            g.Map.getTile(5, 5).Units.First().Move(g.Map.getTile(2, 3), true);
+
+            Unit u = g.Map.getTile(2, 3).Units.First();
+            u.MovePoints = 0.5;
+            var possibilities = u.BattlePossibilities;
+
+            Assert.AreEqual(1, possibilities.Count);
+            Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(2, 4)));
+        }
+
+        [Test()]
+        public void ExecuteBattlePossibilitiesTest()
+        {
+            /*
+             *  A - - - - -
+             *  - - - - - -
+             *  - - A - - -
+             *  - - B - - -
+             *  - - A - - -
+             *  - - - - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 2), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 4), true);
+            g.Map.getTile(5, 5).Units.First().Move(g.Map.getTile(2, 3), true);
+
+            Unit u = g.Map.getTile(2, 3).Units.First();
+            u.MovePoints = 1;
+            var possibilities = u.BattlePossibilities;
+
+            possibilities[g.Map.getTile(2, 4)].Execute();
+            Assert.AreEqual(0.5, u.MovePoints);
+            possibilities[g.Map.getTile(2, 4)].ReverseExecute();
+            Assert.AreEqual(1, u.MovePoints);
+            possibilities[g.Map.getTile(2, 2)].Execute();
+            Assert.AreEqual(0, u.MovePoints);
+            possibilities[g.Map.getTile(2, 2)].ReverseExecute();
+            Assert.AreEqual(1, u.MovePoints);
+            Assert.AreEqual(Orc.Instance.Life, u.Life);
+        }
+
+        [Test()]
+        public void BattlePossibilitiesDeadTest()
+        {
+            /*
+             *  A - - - - -
+             *  - - - - - -
+             *  - - A - - -
+             *  - - B - - -
+             *  - - A - - -
+             *  - - - - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 2), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 4), true);
+            g.Map.getTile(5, 5).Units.First().Move(g.Map.getTile(2, 3), true);
+
+            Unit u = g.Map.getTile(2, 3).Units.First();
+            u.MovePoints = 1;
+            u.Life = 0;
+            var possibilities = u.BattlePossibilities;
+
+            Assert.AreEqual(0, possibilities.Count);
+        }
+
     }
 }
 
