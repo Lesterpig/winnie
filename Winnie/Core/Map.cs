@@ -8,9 +8,9 @@ namespace Core
     public class Map
     {
         public Tile[] Tiles { get; private set; }
-		public TileTypeFactory.Identifier[] RawTiles { get; } //Only used for c++
-		public int SizeX { get; }
-		public int SizeY { get; }
+        public TileTypeFactory.Identifier[] RawTiles { get; private set; } //Only used for c++
+        public int SizeX { get; private set; }
+        public int SizeY { get; private set; }
 
 		public Map(TileTypeFactory.Identifier[] tiles, int sx, int sy)
 		{   

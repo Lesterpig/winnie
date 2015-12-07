@@ -7,9 +7,9 @@ namespace Core
 {
     public class UnitFactory
     {
-        public void Build()
+        public static void Build(Player p, Tile t)
         {
-            throw new System.NotImplementedException();
+            new Unit(p, t); // TODO upgrade this factory :(
         }
     }
 }
