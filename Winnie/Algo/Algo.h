@@ -49,6 +49,11 @@ EXPORTCDECL double Dijkstra_getDistance(Dijkstra* dijkstra, Point *dest) {
 	return dijkstra->getDistance(dest);
 }
 
+EXPORTCDECL int Dijkstra_getPath(Dijkstra* dijkstra, Point* dest, int* path) {
+	return dijkstra->getPath(dest, path);
+}
+
+
 //Export Perlin
 EXPORTCDECL Perlin* Perlin_new(int seed, int sx, int sy, double min, double max, int st, int oc, double pers) {
 	return new Perlin(seed, sx, sy, min, max, st, oc, pers);

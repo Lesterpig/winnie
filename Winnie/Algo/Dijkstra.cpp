@@ -40,11 +40,17 @@ double Dijkstra::getDistance(Point *dest)
 	return graph.getNode(dest)->getCostSoFar();
 }
 
-void Dijkstra::getPath(Point* dest, Point* path)
+int Dijkstra::getPath(Point* dest, int* path)
 {
+	//std::cout << "getPath" << std::endl;
 	auto currentNode = graph.getNode(dest);
 	int i = 0;
-	while (currentNode->getCameFrom() != nullptr) {
-		path[i++] = currentNode->getCameFrom()->getPoint();
+	//std::cout << "beforeLoop" << std::endl;
+	while (currentNode != nullptr) {
+		//std::cout << "looping" << currentNode->getPoint().x << std::endl;
+		path[i++] = currentNode->getPoint().x + graph.getSizeX() * currentNode->getPoint().y;
+		currentNode = currentNode->getCameFrom();
 	}
+
+	return i;
 }

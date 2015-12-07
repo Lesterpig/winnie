@@ -51,5 +51,5 @@ Node* Graph::unknownNeighbourg(const Node* c)
 	return nullptr;
 }
 
-inline int Graph::getSizeX() const {return sizeX; }
-inline int Graph::getSizeY() const {return sizeY; }
+int Graph::getSizeX() const {return sizeX; }
+int Graph::getSizeY() const {return sizeY; }

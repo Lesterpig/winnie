@@ -11,7 +11,7 @@ public:
 	Dijkstra(double data[], int sx, int sy, Point *start);
 	~Dijkstra();
 	double getDistance(Point *dest);
-	void getPath(Point* dest, Point* path);
+	int getPath(Point* dest, int* path);
 private:
 	Graph graph;
 
