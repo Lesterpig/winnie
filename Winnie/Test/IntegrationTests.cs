@@ -243,16 +243,25 @@ namespace Test
             Assert.AreEqual(3 + 3 + 3 + 1, p2.Score);
             Assert.IsNull(game.Winner);
 
-            // End of game simulation
+            game.NextTurn();
 
-            try
-            {
-                game.NextTurn();
-            }
-            catch (Game.EndOfGameException)
-            {
-                Assert.AreSame(p2, game.Winner);
-            }
+            ////////////// PLAYER 2
+
+            game.NextTurn();
+
+            ///////////////////// TURN 5
+            ////////////// PLAYER 1
+
+            game.NextTurn();
+
+            ////////////// PLAYER 2
+
+            Assert.Throws<Game.EndOfGameException>(delegate()
+                {
+                    game.NextTurn();
+                });
+
+            Assert.AreSame(p2, game.Winner);
         }
 
         /// <summary>
