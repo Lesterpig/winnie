@@ -37,6 +37,23 @@ namespace Test
             Assert.AreEqual(3, p.Score);
         }
 
+        [Test()]
+        public void StartTurnTest()
+        {   
+            Player p = new Player("Tester", Human.Instance);
+            Tile t = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.WATER));
+            Unit a = UnitFactory.Build(p, t);
+            Unit b = UnitFactory.Build(p, t);
+
+            Assert.AreEqual(0, a.MovePoints);
+            Assert.AreEqual(0, b.MovePoints);
+
+            p.StartTurn();
+
+            Assert.AreEqual(2, a.MovePoints);
+            Assert.AreEqual(2, b.MovePoints);
+        }
+
         private void addUnitsToPlayer(Player p) {
             Tile water = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.WATER));
             Tile plain = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));

@@ -15,9 +15,9 @@ namespace Core
             this._algo = new Algo();
         }
 
-        public Map Generate(int size, int seed = 0)
+        public Map Generate(uint size, int seed = 0)
         {
-            return this._map = new Map(this._algo.CreateMap(seed, size, size), size, size);
+            return this._map = new Map(this._algo.CreateMap(seed, (int) size, (int) size), size, size);
         }
 
         public void PlacePlayers(Player p1, Player p2)

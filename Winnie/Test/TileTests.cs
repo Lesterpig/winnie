@@ -249,9 +249,9 @@ namespace Test
         {
             Assert.IsNull(g.Map.Tiles[0].GetNeighbor(new Tile.Diff(-1, 0)));
             Assert.IsNull(g.Map.Tiles[0].GetNeighbor(new Tile.Diff(0, -1)));
-            Assert.IsNull(g.Map.Tiles[0].GetNeighbor(new Tile.Diff(g.Map.SizeX, 0)));
+            Assert.IsNull(g.Map.Tiles[0].GetNeighbor(new Tile.Diff((int) g.Map.SizeX, 0)));
             Assert.IsNull(g.Map.Tiles[g.Map.SizeX-1].GetNeighbor(new Tile.Diff(1, 0)));
-            Assert.IsNull(g.Map.Tiles[0].GetNeighbor(new Tile.Diff(0, g.Map.SizeY)));
+            Assert.IsNull(g.Map.Tiles[0].GetNeighbor(new Tile.Diff(0, (int) g.Map.SizeY)));
             Assert.IsNull(g.Map.Tiles[g.Map.SizeX * (g.Map.SizeY-1)].GetNeighbor(new Tile.Diff(0, 1)));
         }
     }

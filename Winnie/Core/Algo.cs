@@ -33,7 +33,7 @@ namespace Core
 
 		public void FindBestStartPosition(Player p1, Player p2, Map m)
 		{
-			Algo_findBestStartPosition (nativeAlgo, m.RawTiles, m.SizeX, m.SizeY, p1.Race.Identifier, p2.Race.Identifier, p1.InitialPosition, p2.InitialPosition);
+            Algo_findBestStartPosition (nativeAlgo, m.RawTiles, (int)m.SizeX, (int)m.SizeY, p1.Race.Identifier, p2.Race.Identifier, p1.InitialPosition, p2.InitialPosition);
 		}
 
 		public void Dispose()

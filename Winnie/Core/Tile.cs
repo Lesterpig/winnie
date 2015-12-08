@@ -33,7 +33,7 @@ namespace Core
                 this._map = value;
                 if (this._map != null && this.Position >= 0)
                 {
-                    this.Point = new Point(this.Position % this.Map.SizeX, (int)this.Position / this.Map.SizeX);
+                    this.Point = new Point((int) (this.Position % this.Map.SizeX), (int) ((int)this.Position / this.Map.SizeX));
                 }
                 else
                 {

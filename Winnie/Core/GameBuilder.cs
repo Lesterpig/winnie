@@ -43,30 +43,30 @@ namespace Core
 
     public interface GameType
     {   
-        int Size { get; } // Not static because would not be understood by c# generics
-        int UnitQty { get ; }
-        int Turns { get ; }
+        uint Size { get; } // Not static because would not be understood by c# generics
+        uint UnitQty { get ; }
+        uint Turns { get ; }
     }
         
     public class DemoGameType : GameType
     {   
-        public int Size { get { return 6; } }
-        public int UnitQty { get { return 4; } }
-        public int Turns { get { return 5; } }
+        public uint Size { get { return 6; } }
+        public uint UnitQty { get { return 4; } }
+        public uint Turns { get { return 5; } }
     }
 
     public class SmallGameType : GameType
     {   
-        public int Size { get { return 10; } }
-        public int UnitQty { get { return 6; } }
-        public int Turns { get { return 20; } }
+        public uint Size { get { return 10; } }
+        public uint UnitQty { get { return 6; } }
+        public uint Turns { get { return 20; } }
     }
 
     public class StandardGameType : GameType
     {   
-        public int Size { get { return 14; } }
-        public int UnitQty { get { return 8; } }
-        public int Turns { get { return 30; } }
+        public uint Size { get { return 14; } }
+        public uint UnitQty { get { return 8; } }
+        public uint Turns { get { return 30; } }
     }
         
 }

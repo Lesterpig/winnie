@@ -7,7 +7,7 @@ namespace Core
 {
     public class NaiveMap : MapGeneration
     {
-        public Map Generate(int size, int seed = 0)
+        public Map Generate(uint size, int seed = 0)
         {
             throw new NotImplementedException();
         }

@@ -7,9 +7,9 @@ namespace Saver
     {
         public TileData[] Tiles;
         public PlayerData[] Players;
-        public int CurrentTurn;
-        public int Turns;
-        public int CurrentPlayerIndex;
+        public uint CurrentTurn;
+        public uint Turns;
+        public uint CurrentPlayerIndex;
         public bool CheatMode;
 
         public GameData()
@@ -57,7 +57,7 @@ namespace Saver
                 tiles[i] = this.Tiles[i].Type;
             }
 
-			return new Map(tiles, (int)Math.Sqrt(tiles.Length), (int)Math.Sqrt(tiles.Length));
+			return new Map(tiles, (uint)Math.Sqrt(tiles.Length), (uint)Math.Sqrt(tiles.Length));
         }
 
         private Player[] RebuildPlayers(Map map)

@@ -9,7 +9,7 @@ namespace GTKGUI
 		{
 			int seed = 0, mapX = 14, mapY = 14;
 			Core.Algo a = new Core.Algo ();
-			Core.Map m = new Core.Map (a.CreateMap (seed, mapX, mapY), mapX, mapY);
+            Core.Map m = new Core.Map (a.CreateMap (seed, mapX, mapY), (uint) mapX, (uint) mapY);
 
 			Application.Init ();
 			MainWindow win = new MainWindow ();

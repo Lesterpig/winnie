@@ -56,8 +56,7 @@ namespace Core
                 }
 
                 var map = this.Tile.Map;
-                var dijkstra = new Dijkstra(map.GetMoveMap(this), map.SizeX, map.SizeY, this.Tile.Point);
-
+                var dijkstra = new Dijkstra(map.GetMoveMap(this), (int) map.SizeX, (int) map.SizeY, this.Tile.Point);
 
                 foreach (Tile t in map.Tiles)
                 {
