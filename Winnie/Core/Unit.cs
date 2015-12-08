@@ -62,7 +62,7 @@ namespace Core
                 foreach (Tile t in map.Tiles)
                 {
                     var score = dijkstra.getDistance(t.Point);
-                    System.Console.WriteLine(t.Point.x + " " + t.Point.y + " " + score);
+
                     if (score > 0 && score <= this.MovePoints && t != this.Tile)
                     {
                         var steps = dijkstra.getPath(t.Point);

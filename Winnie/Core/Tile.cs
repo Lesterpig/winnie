@@ -5,7 +5,6 @@ using System.Text;
 
 namespace Core
 {   
-    // TODO tests
     public class Tile
     {   
 
@@ -18,9 +17,30 @@ namespace Core
         }
 
         public int Position { get; private set; }
-        public Map Map { get; set; }
         public TileType TileType { get; private set; }
         public ISet<Unit> Units { get; private set; }
+        public Point Point { get; private set; }
+
+        private Map _map;
+        public Map Map
+        {
+            get
+            {
+                return this._map;
+            }
+            set
+            {   
+                this._map = value;
+                if (this._map != null && this.Position >= 0)
+                {
+                    this.Point = new Point(this.Position % this.Map.SizeX, (int)this.Position / this.Map.SizeX);
+                }
+                else
+                {
+                    this.Point = null;
+                }
+            }
+        }
 
         public void AddUnit(Unit u) {
             this.Units.Add(u);
@@ -46,16 +66,7 @@ namespace Core
                 return firstAlive == null ? null : firstAlive.Race;
             }
         }
-
-        public Point Point // TODO set during construction
-        {
-            get
-            {
-                return new Point(this.Position % this.Map.SizeX, (int)this.Position / this.Map.SizeX);
-            }
-        }
-
-
+            
         /*
          * Neighbor management
          * 
@@ -72,9 +83,18 @@ namespace Core
                 this.Dy = dy;
             }
 
-            public bool Equals(Diff b)
-            {
+            public override bool Equals(Object obj)
+            {   
+                if (obj == null || GetType() != obj.GetType()) 
+                    return false;
+
+                Diff b = (Diff)obj;
                 return this.Dx == b.Dx && this.Dy == b.Dy;
+            }
+
+            public override int GetHashCode() 
+            {
+                return this.Dx ^ this.Dy;
             }
         }
 
