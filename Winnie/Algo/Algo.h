@@ -22,7 +22,7 @@ public:
 	void findBestStartPosition(TileType map[], int sizeX, int sizeY, RaceType pl1, RaceType pl2, Point *p1, Point *p2);
 	void findBestActions(TileType map[], int sx, int sy, int allies[], int nallies, int ennemies[], int nennemies, RaceType pl, Action* a1, Action* a2, Action* a3);
 private:
-	void affect(ActionQueue &actions, Action *a);
+	void affect(ActionQueue* actions, Action *a);
 };
 
 //Export Algo
@@ -40,6 +40,10 @@ EXPORTCDECL void Algo_fillMap(Algo* algo, TileType map[], int seed, int sizeX, i
 
 EXPORTCDECL void Algo_findBestStartPosition(Algo* algo, TileType map[], int sizeX, int sizeY, RaceType pl1, RaceType pl2, Point *p1, Point *p2) {
 	return algo->findBestStartPosition(map, sizeX, sizeY, pl1, pl2, p1, p2);
+}
+
+EXPORTCDECL void Algo_findBestActions(Algo* algo, TileType map[], int sx, int sy, int allies[], int nallies, int ennemies[], int nennemies, RaceType pl, Action* a1, Action* a2, Action* a3) {
+	return algo->findBestActions(map,sx,sy,allies,nallies,ennemies,nennemies,pl,a1,a2,a3);
 }
 
 //Export Dijkstra

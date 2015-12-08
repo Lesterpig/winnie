@@ -22,8 +22,10 @@ public:
 	void addEnnemies(int* ennemies, int nennemies);
 	void getDistanceMap(double* arr, RaceType pl);
 	Point getAllie(int i);
-	Action bestPosition(Dijkstra &pf, int maxStep);
+	Action bestPosition(Dijkstra &pf, double maxStep, RaceType pl, int allieIdentifier);
 	TileType getPoint(int x, int y);
+	double getCost(TileType t, RaceType r);
+	int getVictory(TileType t, RaceType r);
 	int getTilesNumber();
 	int distance(Point p1, Point p2);
 	int getSizeX();

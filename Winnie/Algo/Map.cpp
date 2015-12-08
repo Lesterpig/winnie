@@ -46,8 +46,8 @@ int Map::getSizeY()
 void Map::addAllies(int* al, int nallies)
 {
 	allies.reserve(nallies);
-	while (nallies-- > 0) {
-		allies[nallies] = Point{al[nallies] % map_x, al[nallies] / map_x};
+	for(int i = 0; i<nallies; i++) {
+			allies[i] = Point{al[i] % map_x, al[i] / map_x};
 	}
 }
 
@@ -61,15 +61,63 @@ void Map::addEnnemies(int* en, int nennemies)
 
 void Map::getDistanceMap(double* arr, RaceType pl) 
 {
-	//@TODO
+	//Set cost for each case according to race
+	for (int i = 0; i < map_x*map_y; i++) {
+		arr[i] = getCost(map[i], pl);
+	}
+
+	//Remove ennemy units from accessible cases
+	for (int j = 0; j < ennemies.size(); j++) {
+		Point e = ennemies[j];
+		arr[e.x + map_x * e.y] = -1;
+	}
 }
 
-Point getAllie(int i) 
+Point Map::getAllie(int i) 
 {
-	//@TODO
+	return allies[i];
 }
 
-Action bestPosition(Dijkstra &pf, int maxStep)
+Action Map::bestPosition(Dijkstra &pf, double maxStep, RaceType pl, int allieIdentifier)
 {
-	//@TODO
+	// @TODO If after me in allie vector, there is my point with the same position as me, 
+	// I should set stayingCaseBonus to 0 and not my case value 
+	// (because this unit can stay on case and keep the bonus)
+
+	Point startPosition = getAllie(allieIdentifier);
+	Action best = Action{startPosition,startPosition,0};
+	int stayingCaseBonus = getVictory(getPoint(startPosition.x, startPosition.y), pl);
+
+	for (int i = 0; i < map_x; i++) {
+		for (int j = 0; j < map_y; j++) {
+			Point selectedPoint = Point{i,j};
+
+			if(pf.getDistance(&selectedPoint) <= maxStep) {
+				int vict = getVictory(getPoint(i,j), pl) - stayingCaseBonus;
+				if (vict > best.bonus) {
+					best.goal = selectedPoint;
+					best.bonus = vict;
+				}
+			}
+		}
+	}
+	return best;
+}
+
+double Map::getCost(TileType t, RaceType r)
+{
+	if (t == WATER    && (r == ELF || r == ORC)) return -1;
+	if (t == PLAIN    && r == ORC) return 0.5;
+	if (t == MOUNTAIN && r == ELF) return 2; 
+	return 1;
+}
+
+int Map::getVictory(TileType t, RaceType r)
+{
+	if (t == WATER) return 0;
+	if (t == PLAIN && r == HUMAN) return 2;
+	if (t == FOREST && r == ELF) return 3;
+	if (t == MOUNTAIN && r == ELF) return 0;
+	if (t == MOUNTAIN && r == ORC) return 2; 
+	return 1;
 }
