@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Core
 {
     public class GameBuilder
-    {
+    {   
         public static Game New<Type, Strategy>(Player p1, Player p2, bool cheatMode = false, int seed = 0) where Type : GameType, new() where Strategy : MapGeneration, new()
         {   
 
