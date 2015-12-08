@@ -21,7 +21,7 @@ namespace Test
         [Test()]
         public void CreateTest()
         {
-            Unit a = new Unit(_p, _t);
+            Unit a = UnitFactory.Build(_p, _t);
             Assert.AreSame(a.Tile, _t);
             Assert.AreSame(a.Player, _p);
             Assert.AreSame(a.Race, Human.Instance);
@@ -31,14 +31,14 @@ namespace Test
         [Test()]
         public void VictoryPointsTest()
         {
-            Unit a = new Unit(_p, _t);
+            Unit a = UnitFactory.Build(_p, _t);
             Assert.AreEqual(a.VictoryPoints, 2);
         }
 
         [Test()]
         public void AliveTest()
         {
-            Unit a = new Unit(_p, _t);
+            Unit a = UnitFactory.Build(_p, _t);
             Assert.AreEqual(15, a.Life);
             Assert.IsTrue(a.Alive);
             a.Life = 0;
@@ -50,7 +50,7 @@ namespace Test
         [Test()]
         public void AttackPointsTest()
         {
-            Unit a = new Unit(_p, _t);
+            Unit a = UnitFactory.Build(_p, _t);
             Assert.AreEqual(6, a.AttackPoints);
             a.Life = 7;
             Assert.AreEqual(3, a.AttackPoints);
@@ -59,7 +59,7 @@ namespace Test
         [Test()]
         public void DefensePointsTest()
         {
-            Unit a = new Unit(_p, _t);
+            Unit a = UnitFactory.Build(_p, _t);
             Assert.AreEqual(3, a.DefensePoints);
             a.Life = 7;
             Assert.AreEqual(2, a.DefensePoints);
@@ -72,7 +72,7 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.FOREST));
-            Unit u = new Unit(_p, a);
+            Unit u = UnitFactory.Build(_p, a);
 
             Assert.AreEqual(0, u.MovePoints);
             Assert.AreSame(a, u.Tile);
@@ -98,7 +98,7 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.FOREST));
-            Unit u = new Unit(_p, a);
+            Unit u = UnitFactory.Build(_p, a);
             u.Move(b, true);
             Assert.AreEqual(0, u.MovePoints);
             Assert.AreSame(b, u.Tile);
@@ -111,7 +111,7 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.WATER));
-            Unit u = new Unit(new Player("Elf", Elf.Instance), a);
+            Unit u = UnitFactory.Build(new Player("Elf", Elf.Instance), a);
             Assert.Throws<Unit.MovementNotAllowedException>(delegate()
                 {
                     u.Move(b);
@@ -123,8 +123,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
-            Unit me = new Unit(_p, a);
-            Unit ally = new Unit(new Player("Ally", Human.Instance), b);
+            Unit me = UnitFactory.Build(_p, a);
+            Unit ally = UnitFactory.Build(new Player("Ally", Human.Instance), b);
 
             me.Player.StartTurn();
             me.Move(b);
@@ -140,8 +140,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
-            Unit me = new Unit(_p, a);
-            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+            Unit me = UnitFactory.Build(_p, a);
+            Unit enemy = UnitFactory.Build(new Player("Enemy", Orc.Instance), b);
             enemy.Life = 0;
 
             me.Player.StartTurn();
@@ -158,8 +158,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
-            Unit me = new Unit(_p, a);
-            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+            Unit me = UnitFactory.Build(_p, a);
+            Unit enemy = UnitFactory.Build(new Player("Enemy", Orc.Instance), b);
 
             me.Player.StartTurn();
             Assert.Throws<Unit.EnnemiesRemainingException>(delegate()
@@ -178,8 +178,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.WATER));
-            Unit me = new Unit(new Player("Me", Orc.Instance), a); // Orcs cannot attack on water
-            Unit enemy = new Unit(_p, b);
+            Unit me = UnitFactory.Build(new Player("Me", Orc.Instance), a); // Orcs cannot attack on water
+            Unit enemy = UnitFactory.Build(_p, b);
 
             me.Player.StartTurn();
 
@@ -194,8 +194,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
-            Unit me = new Unit(_p, a);
-            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+            Unit me = UnitFactory.Build(_p, a);
+            Unit enemy = UnitFactory.Build(new Player("Enemy", Orc.Instance), b);
 
             Assert.Throws<Unit.NotEnoughMovePointsException>(delegate()
                 {
@@ -208,8 +208,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
-            Unit me = new Unit(_p, a);
-            Unit ally = new Unit(new Player("Ally", Human.Instance), b);
+            Unit me = UnitFactory.Build(_p, a);
+            Unit ally = UnitFactory.Build(new Player("Ally", Human.Instance), b);
 
             me.Player.StartTurn();
             Assert.Throws<Unit.SameRaceAttackException>(delegate()
@@ -223,8 +223,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
-            Unit me = new Unit(_p, a);
-            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+            Unit me = UnitFactory.Build(_p, a);
+            Unit enemy = UnitFactory.Build(new Player("Enemy", Orc.Instance), b);
 
             me.Player.StartTurn();
             Game.Random = new CustomRandom(CustomRandom.Mode.LOW);
@@ -243,8 +243,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
-            Unit me = new Unit(_p, a);
-            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+            Unit me = UnitFactory.Build(_p, a);
+            Unit enemy = UnitFactory.Build(new Player("Enemy", Orc.Instance), b);
 
             me.Player.StartTurn();
             Game.Random = new CustomRandom(CustomRandom.Mode.HIGH);
@@ -263,8 +263,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.PLAIN));
-            Unit me = new Unit(_p, a);
-            Unit enemy = new Unit(new Player("Enemy", Orc.Instance), b);
+            Unit me = UnitFactory.Build(_p, a);
+            Unit enemy = UnitFactory.Build(new Player("Enemy", Orc.Instance), b);
             enemy.Life = 1;
 
             me.Player.StartTurn();
@@ -284,8 +284,8 @@ namespace Test
         {
             Tile a = _t;
             Tile b = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.WATER));
-            Unit me = new Unit(new Player("Me", Elf.Instance), a);
-            Unit enemy = new Unit(_p, b);
+            Unit me = UnitFactory.Build(new Player("Me", Elf.Instance), a);
+            Unit enemy = UnitFactory.Build(_p, b);
 
             me.Player.StartTurn();
             Game.Random = new CustomRandom(CustomRandom.Mode.HIGH);

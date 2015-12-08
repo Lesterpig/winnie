@@ -11,10 +11,7 @@ namespace Core
         public Unit(Player player, Tile t)
         {
             this.Player = player;
-            this.Player.AddUnit(this);
             this.Tile = t;
-            this.Tile.AddUnit(this);
-            this.Life = this.Race.Life;
         }
             
         public Player Player { get; private set; }

@@ -29,8 +29,8 @@ namespace Test
             _toEnemy = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.MOUNTAIN));
             _toFree = new Tile(TileTypeFactory.Get(TileTypeFactory.Identifier.MOUNTAIN));
 
-            _attacker = new Unit(_a, _from);
-            _defender = new Unit(_b, _toEnemy);
+            _attacker = UnitFactory.Build(_a, _from);
+            _defender = UnitFactory.Build(_b, _toEnemy);
 
             _a.StartTurn();
         }

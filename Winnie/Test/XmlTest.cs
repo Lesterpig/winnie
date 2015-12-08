@@ -28,10 +28,10 @@ namespace Test
             game.CurrentTurn = 4;
 
             // Add some units
-            Unit a = new Unit(players[0], map.Tiles[0]);
-            Unit b = new Unit(players[0], map.Tiles[1]);
-            Unit c = new Unit(players[1], map.Tiles[2]);
-            Unit d = new Unit(players[1], map.Tiles[3]);
+            Unit a = UnitFactory.Build(players[0], map.Tiles[0]);
+            Unit b = UnitFactory.Build(players[0], map.Tiles[1]);
+            Unit c = UnitFactory.Build(players[1], map.Tiles[2]);
+            Unit d = UnitFactory.Build(players[1], map.Tiles[3]);
 
             a.MovePoints = 1;
             b.MovePoints = 2;

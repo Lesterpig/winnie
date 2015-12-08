@@ -7,9 +7,13 @@ namespace Core
 {
     public class UnitFactory
     {
-        public static void Build(Player p, Tile t)
+        public static Unit Build(Player p, Tile t)
         {
-            new Unit(p, t); // TODO upgrade this factory :(
+            Unit u = new Unit(p, t);
+            p.AddUnit(u);
+            t.AddUnit(u);
+            u.Life = p.Race.Life;
+            return u;
         }
     }
 }
