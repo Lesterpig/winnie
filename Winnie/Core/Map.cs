@@ -42,7 +42,6 @@ namespace Core
                 {
                     map[i] = 100;
                 }
-                System.Console.Write(map[i] + " ");
             }
             return map;
         }

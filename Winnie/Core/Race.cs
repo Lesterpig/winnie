@@ -28,11 +28,8 @@ namespace Core
 		}
 
         double GetRequiredMovePoints(TileType tileType);
-
         int GetVictoryPoints(TileType tileType);
-
         bool CanMove(TileType tileType);
-
         bool CanDoRangedAttack(TileType tileType);
     }
 }

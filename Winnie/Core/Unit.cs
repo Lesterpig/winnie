@@ -10,45 +10,23 @@ namespace Core
 
         public Unit(Player player, Tile t)
         {
-            this._player = player;
-            this._player.AddUnit(this);
-            this._tile = t;
-            this._tile.AddUnit(this);
-            this._life = this.Race.Life;
+            this.Player = player;
+            this.Player.AddUnit(this);
+            this.Tile = t;
+            this.Tile.AddUnit(this);
+            this.Life = this.Race.Life;
         }
-
-        private Player _player;
-        public Player Player
-        {
-            get { return this._player; }
-        }
-
-        public Race Race
-        {
-            get { return this._player.Race; }
-        }
-
-        private Tile _tile;
-        public Tile Tile
-        {
-            get { return this._tile; }
-        }
-
-        private int _life;
-        public int Life
-        {
-            get { return this._life; }
-            set { this._life = value; }
-        }
-
-        public bool Alive
-        {
-            get { return this._life > 0; }
-        }
+            
+        public Player Player { get; private set; }
+        public Race Race { get { return this.Player.Race; } }
+        public Tile Tile { get; private set; }
+        public int Life { get; set; }
+        public bool Alive { get { return this.Life > 0; } }
+        public double MovePoints { get; set; }
 
         public double LifeRatio
         {
-            get { return (double)this._life / this.Race.Life; }
+            get { return (double)this.Life / this.Race.Life; }
         }
 
         public int AttackPoints
@@ -59,12 +37,6 @@ namespace Core
         public int DefensePoints
         {
             get { return this.Alive ? (int)Math.Ceiling(this.Race.Armor * LifeRatio) : 0; }
-        }
-
-        public double MovePoints
-        {
-            get;
-            set;
         }
 
         public int VictoryPoints
@@ -158,7 +130,7 @@ namespace Core
         {   
             CheckActionAllowed(to, false, false, free);
             this.Tile.RemoveUnit(this);
-            this._tile = to;
+            this.Tile = to;
             this.Tile.AddUnit(this);
         }
 

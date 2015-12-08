@@ -11,48 +11,30 @@ namespace Core
 
         public Tile(TileType t, int position = -1)
         {
-            this._tiletype = t;
+            this.TileType = t;
             this.Neighbors = new Dictionary<Diff, Tile>();
-            this._units = new HashSet<Unit>();
+            this.Units = new HashSet<Unit>();
             this.Position = position;
         }
 
         public int Position { get; private set; }
         public Map Map { get; set; }
-
-        private TileType _tiletype;
-        public TileType TileType
-        {
-            get { return this._tiletype; }
-        }
-
-        private ISet<Unit> _units;
-        public ISet<Unit> Units
-        {
-            get { return this._units; }
-        }
+        public TileType TileType { get; private set; }
+        public ISet<Unit> Units { get; private set; }
 
         public void AddUnit(Unit u) {
-            this._units.Add(u);
+            this.Units.Add(u);
         }
 
         public void RemoveUnit(Unit u) {
-            this._units.Remove(u);
+            this.Units.Remove(u);
         }
 
         public Unit StrongestUnit
         {
             get
             { 
-                Unit best = null;
-                foreach (Unit u in this._units) // TODO improve code style?
-                {
-                    if (u.Alive && (best == null || best.DefensePoints < u.DefensePoints))
-                    {
-                        best = u;
-                    }
-                }
-                return best;
+                return this.Units.Where(u => u.Alive).OrderByDescending(u => u.DefensePoints).FirstOrDefault();
             }  
         }
 
@@ -60,14 +42,8 @@ namespace Core
         {
             get
             {
-                foreach (Unit u in this._units) // TODO improve code style?
-                {
-                    if (u.Alive)
-                    {
-                        return u.Race;
-                    }
-                }
-                return null;
+                var firstAlive = this.Units.FirstOrDefault(u => u.Alive);
+                return firstAlive == null ? null : firstAlive.Race;
             }
         }
 

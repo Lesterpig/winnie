@@ -686,6 +686,36 @@ namespace Test
             Assert.AreEqual(0, possibilities.Count);
         }
 
+        [Test()]
+        public void BattlePossibilitiesEnemyDeadTest()
+        {
+            /*
+             *  A - - - - -
+             *  - - - - - -
+             *  - - A - - -
+             *  - - B - - -
+             *  - - A - - -
+             *  - - - - - B
+             */
+
+            var p1 = new Player("A", Human.Instance);
+            var p2 = new Player("B", Orc.Instance);
+
+            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            p2.StartTurn();
+
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 2), true);
+            g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 4), true);
+            g.Map.getTile(5, 5).Units.First().Move(g.Map.getTile(2, 3), true);
+
+            g.Map.getTile(2, 2).Units.First().Life = 0;
+            g.Map.getTile(2, 4).Units.First().Life = 0;
+
+            Unit u = g.Map.getTile(2, 3).Units.First();
+            var possibilities = u.BattlePossibilities;
+
+            Assert.AreEqual(0, possibilities.Count);
+        }
     }
 }
 
