@@ -7,6 +7,7 @@ namespace Core
 {
     public interface MapGeneration
     {
-        void generate();
+        Map Generate(int size, int seed = 0);
+        void PlacePlayers(Player p1, Player p2);
     }
 }

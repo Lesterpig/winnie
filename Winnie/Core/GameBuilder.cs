@@ -5,7 +5,7 @@ namespace Core
 {
     public class GameBuilder
     {
-        public static Game New<T>(Player p1, Player p2, bool cheatMode = false, int seed = 0) where T : GameType, new()
+        public static Game New<Type, Strategy>(Player p1, Player p2, bool cheatMode = false, int seed = 0) where Type : GameType, new() where Strategy : MapGeneration, new()
         {   
 
             if (p1.Race.Identifier == p2.Race.Identifier)
@@ -13,12 +13,11 @@ namespace Core
                 throw new SameRaceException();
             }
 
-            var t = new T();
+            var t = new Type();
+            var s = new Strategy();
 
-            Algo a = new Algo();
-            var s = t.Size;
-            var map = new Map(a.CreateMap(seed, s, s), s, s);
-            a.FindBestStartPosition(p1, p2, map);
+            var map = s.Generate(t.Size, seed);
+            s.PlacePlayers(p1, p2);
 
             // Build units
 

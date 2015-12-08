@@ -7,7 +7,12 @@ namespace Core
 {
     public class NaiveMap : MapGeneration
     {
-        public void generate()
+        public Map Generate(int size, int seed = 0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PlacePlayers(Player p1, Player p2)
         {
             throw new NotImplementedException();
         }

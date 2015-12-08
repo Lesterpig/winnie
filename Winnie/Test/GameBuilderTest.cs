@@ -13,7 +13,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2);
 
             Assert.AreEqual(6*6, g.Map.Tiles.Length);
             Assert.AreEqual(4, g.Players[0].Units.Count);
@@ -26,7 +26,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<SmallGameType>(p1, p2);
+            Game g = GameBuilder.New<SmallGameType,PerlinMap>(p1, p2);
 
             Assert.AreEqual(10*10, g.Map.Tiles.Length);
             Assert.AreEqual(6, g.Players[0].Units.Count);
@@ -39,7 +39,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<StandardGameType>(p1, p2);
+            Game g = GameBuilder.New<StandardGameType,PerlinMap>(p1, p2);
 
             Assert.AreEqual(14*14, g.Map.Tiles.Length);
             Assert.AreEqual(8, g.Players[0].Units.Count);
@@ -52,8 +52,8 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g1 = GameBuilder.New<StandardGameType>(p1, p2, true);
-            Game g2 = GameBuilder.New<StandardGameType>(p1, p2, false);
+            Game g1 = GameBuilder.New<StandardGameType,PerlinMap>(p1, p2, true);
+            Game g2 = GameBuilder.New<StandardGameType,PerlinMap>(p1, p2, false);
 
             Assert.IsTrue(g1.CheatMode);
             Assert.IsFalse(g2.CheatMode);
@@ -65,7 +65,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
 
             Assert.AreEqual(TileTypeFactory.Identifier.MOUNTAIN, g.Map.Tiles[0].TileType.Type);
             Assert.AreEqual(TileTypeFactory.Identifier.MOUNTAIN, g.Map.Tiles[10].TileType.Type);
@@ -81,7 +81,7 @@ namespace Test
 
             Assert.Throws<GameBuilder.SameRaceException>(delegate()
                 {
-                    GameBuilder.New<DemoGameType>(p1, p2);
+                    GameBuilder.New<DemoGameType,PerlinMap>(p1, p2);
                 });
         }
     }

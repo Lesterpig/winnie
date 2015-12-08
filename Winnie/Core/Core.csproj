@@ -45,7 +45,6 @@
     <Compile Include="Game.cs" />
     <Compile Include="GameBuilder.cs" />
     <Compile Include="Human.cs" />
-    <Compile Include="IslandMap.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapGeneration.cs" />
     <Compile Include="Move.cs" />
@@ -64,6 +63,7 @@
     <Compile Include="Perlin.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Dijkstra.cs" />
+    <Compile Include="PerlinMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

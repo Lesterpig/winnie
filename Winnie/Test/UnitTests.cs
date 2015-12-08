@@ -306,7 +306,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
 
             Unit u = p1.Units.First();
             u.Life = 0;
@@ -329,7 +329,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
 
             Unit u = p1.Units.First();
             var possibilities = u.MovePossibilites;
@@ -369,7 +369,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             Unit u = p2.Units.First();
@@ -401,7 +401,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 0), true);
@@ -439,7 +439,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 0), true);
@@ -485,7 +485,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
 
             Unit u = p1.Units.First();
             var possibilities = u.BattlePossibilities;
@@ -508,7 +508,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 0), true);
@@ -538,7 +538,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 3), true);
@@ -568,7 +568,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(1, 0), true);
@@ -602,7 +602,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 1), true);
@@ -634,7 +634,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 2), true);
@@ -671,7 +671,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 2), true);
@@ -701,7 +701,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            Game g = GameBuilder.New<DemoGameType>(p1, p2, false, 1);
+            Game g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2, false, 1);
             p2.StartTurn();
 
             g.Map.getTile(0, 0).Units.First().Move(g.Map.getTile(2, 2), true);

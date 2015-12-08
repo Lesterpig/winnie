@@ -16,7 +16,7 @@ namespace Test
             var p1 = new Player("A", Human.Instance);
             var p2 = new Player("B", Orc.Instance);
 
-            g = GameBuilder.New<DemoGameType>(p1, p2);
+            g = GameBuilder.New<DemoGameType,PerlinMap>(p1, p2);
         }
 
         [Test()]
