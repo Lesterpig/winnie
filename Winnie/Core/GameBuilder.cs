@@ -2,9 +2,22 @@
 using System.Collections.Generic;
 
 namespace Core
-{
+{   
+    /// <summary>
+    /// A builder to simplify game creation.
+    /// It is the starting point of the library.
+    /// </summary>
     public class GameBuilder
     {   
+        /// <summary>
+        /// Build a new Game
+        /// </summary>
+        /// <param name="p1">First player.</param>
+        /// <param name="p2">Second player.</param>
+        /// <param name="cheatMode">If set to <c>true</c>, enable cheat mode.</param>
+        /// <param name="seed">Random seed configuration. Used for tests.</param>
+        /// <typeparam name="Type">Kind of game to generate (DemoGameType, SmallGameType or StandardGameType).</typeparam>
+        /// <typeparam name="Strategy">The procedural generation algorithm to use for map creation (NaiveMap or PerlinMap).</typeparam>
         public static Game New<Type, Strategy>(Player p1, Player p2, bool cheatMode = false, int seed = 0) where Type : GameType, new() where Strategy : MapGeneration, new()
         {   
 
@@ -29,6 +42,8 @@ namespace Core
 
             Player[] players = { p1, p2 };
 
+            // Ignition!
+
             var g = new Game(players, map, t.Turns, cheatMode);
             g.CurrentPlayerIndex = 0;
             g.CurrentPlayer.StartTurn();
@@ -39,15 +54,35 @@ namespace Core
     }
 
     // This kind of things because enums are "deprecated"
-    // TODO upgrade this
 
+    /// <summary>
+    /// Contains useful information for game generation.
+    /// </summary>
     public interface GameType
     {   
-        uint Size { get; } // Not static because would not be understood by c# generics
+        /// <summary>
+        /// Size of the map (the result will be a square map of size * size tiles).
+        /// Not static because would not be understood by c# generics.
+        /// </summary>
+        /// <value>The size.</value>
+        uint Size { get; }
+
+        /// <summary>
+        /// Number of units by player.
+        /// </summary>
+        /// <value>The unit qty.</value>
         uint UnitQty { get ; }
+
+        /// <summary>
+        /// Number of turns before automatic game end.
+        /// </summary>
+        /// <value>The number of turns.</value>
         uint Turns { get ; }
     }
-        
+
+    /// <summary>
+    /// Demo game type.
+    /// </summary>
     public class DemoGameType : GameType
     {   
         public uint Size { get { return 6; } }
@@ -55,6 +90,9 @@ namespace Core
         public uint Turns { get { return 5; } }
     }
 
+    /// <summary>
+    /// Small game type.
+    /// </summary>
     public class SmallGameType : GameType
     {   
         public uint Size { get { return 10; } }
@@ -62,6 +100,9 @@ namespace Core
         public uint Turns { get { return 20; } }
     }
 
+    /// <summary>
+    /// Standard game type.
+    /// </summary>
     public class StandardGameType : GameType
     {   
         public uint Size { get { return 14; } }

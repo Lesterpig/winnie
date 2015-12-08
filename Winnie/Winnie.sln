@@ -108,12 +108,14 @@ Global
 		{F32DC5AC-79A2-4004-A765-BBE387574156}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Algo\Algo.cproj
 		Policies = $0
 		$0.TextStylePolicy = $1
 		$1.FileWidth = 120
 		$1.TabsToSpaces = False
 		$1.inheritsSet = VisualStudio
 		$1.inheritsScope = text/plain
+		description = Winnie is a SmallWorld clone, built for educational purposes.
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
