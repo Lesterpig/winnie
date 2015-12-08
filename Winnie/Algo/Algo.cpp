@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <algorithm>
-#include <time.h>
 #include <math.h> 
+#include "Action.h"
 #include "Algo.h"
 
 using namespace std;
@@ -49,6 +49,33 @@ void Algo::findBestStartPosition(TileType map[], int size_x, int size_y, RaceTyp
 	Player::setAsFarAsPossible(player1, player2, m);
 }
 
-void Algo::findBestActions(TileType map[], int units[]) 
+void Algo::findBestActions(TileType map[], int sx, int sy, int allies[], int nallies, int ennemies[], int nennemies, RaceType pl, Action* a1, Action* a2, Action* a3) 
 {
+	Map m = Map(sx, sy, map);
+	m.addAllies(allies, nallies);
+	m.addEnnemies(ennemies, nennemies);
+
+	ActionQueue actions;
+
+	double* dist = new double[sx*sy];
+	m.getDistanceMap(dist, pl);
+
+	for (int i = 0; i < nallies; i++) {
+		Point selectedAllie = m.getAllie(i);
+		Dijkstra pf = Dijkstra(dist, sx, sy, &selectedAllie);
+		Action a = m.bestPosition(pf,MAX_STEP);
+		actions.push(&a);
+	}
+	affect(actions, a1);
+	affect(actions, a2);
+	affect(actions, a3);
+}
+
+void Algo::affect(ActionQueue &actions, Action* a) 
+{
+	Action* tmp = actions.top();
+	actions.pop();
+	a->start = tmp->start;
+	a->goal = tmp->goal;
+	a->deltaVictory = tmp->deltaVictory;
 }

@@ -33,10 +33,43 @@ int Map::distance(Point p1, Point p2)
 	return std::abs(p1.x - p2.x) + std::abs(p1.y - p2.y);
 }
 
-int Map::getSizeX() {
+int Map::getSizeX() 
+{
 	return map_x;
 }
 
-int Map::getSizeY() {
+int Map::getSizeY()
+{
 	return map_y;
+}
+
+void Map::addAllies(int* al, int nallies)
+{
+	allies.reserve(nallies);
+	while (nallies-- > 0) {
+		allies[nallies] = Point{al[nallies] % map_x, al[nallies] / map_x};
+	}
+}
+
+void Map::addEnnemies(int* en, int nennemies) 
+{
+	ennemies.reserve(nennemies);
+	while (nennemies-- > 0) {
+		ennemies[nennemies] = Point{en[nennemies] % map_x, en[nennemies] / map_x};
+	}
+}
+
+void Map::getDistanceMap(double* arr, RaceType pl) 
+{
+	//@TODO
+}
+
+Point getAllie(int i) 
+{
+	//@TODO
+}
+
+Action bestPosition(Dijkstra &pf, int maxStep)
+{
+	//@TODO
 }

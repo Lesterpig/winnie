@@ -1,11 +1,6 @@
 ﻿#pragma once
 #include "Map.h"
-
-enum RaceType {
-	HUMAN = 0,
-	ELF = 1,
-	ORC = 2
-};
+#include "Race.h"
 
 class Player {
 public:

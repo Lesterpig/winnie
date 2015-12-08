@@ -44,6 +44,8 @@
     <None Include="Node.h" />
     <None Include="Graph.h" />
     <None Include="Dijkstra.h" />
+    <None Include="Action.h" />
+    <None Include="Race.h" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algo.cpp" />

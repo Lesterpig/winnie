@@ -1,11 +1,16 @@
 ﻿#pragma once
 #include <iostream>
+#include <queue>
 #include "Generator.h"
 #include "Export.h"
 #include "Perlin.h"
 #include "Player.h"
 #include "Map.h"
 #include "Dijkstra.h"
+
+#define MAX_STEP 2
+
+typedef std::priority_queue<Action*, std::vector<Action*>, ActionCompare> ActionQueue;
 
 class Algo {
 
@@ -15,8 +20,9 @@ public:
 
 	void fillMap(TileType map[], int seed, int sizeX, int sizeY);
 	void findBestStartPosition(TileType map[], int sizeX, int sizeY, RaceType pl1, RaceType pl2, Point *p1, Point *p2);
-	void findBestActions(TileType map[], int units[]);
+	void findBestActions(TileType map[], int sx, int sy, int allies[], int nallies, int ennemies[], int nennemies, RaceType pl, Action* a1, Action* a2, Action* a3);
 private:
+	void affect(ActionQueue &actions, Action *a);
 };
 
 //Export Algo
