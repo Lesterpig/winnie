@@ -10,11 +10,24 @@ namespace Core
 
         /// <summary>
         /// Random mode.
-        /// Normal: just the default system random.
-        /// High: always return highest value.
-        /// Low: always return lowest value + 1.
         /// </summary>
-        public enum Mode { NORMAL, HIGH, LOW }
+        public enum Mode
+        { 
+            /// <summary>
+            /// Just the default system random.
+            /// </summary>
+            NORMAL,
+
+            /// <summary>
+            /// Always return the highest value.
+            /// </summary>
+            HIGH,
+
+            /// <summary>
+            /// Always return the lowest value.
+            /// </summary>
+            LOW
+        }
 
         private Mode _mode;
         private System.Random _random;
@@ -34,6 +47,8 @@ namespace Core
         /// </summary>
         /// <param name="a">a.</param>
         /// <param name="b">b.</param>
+        /// <returns>An integer i where <c>i >= a</c> and <c>i < b</c>.</returns>
+        /// <seealso cref="System.Random.Next"/>
         public int Next(int a, int b)
         {
             switch (this._mode)
