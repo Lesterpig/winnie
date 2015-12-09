@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace Core
-{
+{   
+    // TODO documentation
     public class UnitFactory
     {
         public static Unit Build(Player p, Tile t)

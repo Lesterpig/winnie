@@ -2,7 +2,8 @@
 using System.Runtime.InteropServices;
 
 namespace Core
-{
+{   
+    // TODO documentation
 	[StructLayout(LayoutKind.Sequential)]
 	public class Point {
 		public int x;

@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Core
-{
+{   
+    // TODO documentation
 	public class Dijkstra : IDisposable
 	{
 		bool disposed = false;

@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Core
 {   
+    // TODO documentation
     public class Tile
     {   
 

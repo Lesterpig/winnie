@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace Core
-{
+{   
+    // TODO documentation
     public class PerlinMap : MapGeneration
     {   
         private Map _map;

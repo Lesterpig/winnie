@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Core
-{
+{   
+    // TODO documentation
 	[StructLayout(LayoutKind.Sequential)]
 	public class Proposition {
 		public Point start;

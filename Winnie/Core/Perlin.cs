@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 
 namespace Core
-{
+{   
+    // TODO documentation
 	public class Perlin : IDisposable
 	{
 		bool disposed = false;

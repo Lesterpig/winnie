@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace Core
-{
+{   
+    // TODO documentation
     public interface MapGeneration
     {
         Map Generate(uint size, int seed = 0);

@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Core
 {   
+    // TODO documentation
     public class NaiveMap : MapGeneration
     {   
         public Map Generate(uint size, int seed = 0)

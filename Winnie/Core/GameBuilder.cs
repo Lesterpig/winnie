@@ -53,10 +53,9 @@ namespace Core
         public class SameRaceException : Exception {}
     }
 
-    // This kind of things because enums are "deprecated"
-
     /// <summary>
     /// Contains useful information for game generation.
+    /// This kind of things because enums are "deprecated".
     /// </summary>
     public interface GameType
     {   

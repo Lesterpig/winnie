@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 
 namespace Core
-{
+{   
+    // TODO documentation
     public abstract class TileType
     {
 		public abstract int Height { get; }
