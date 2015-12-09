@@ -3,9 +3,10 @@
 
 Graph::Graph(double data[], int sx, int sy, Point* startPoint) : sizeX(sx), sizeY(sy)
 {
+	allNodes.assign(sx*sy, nullptr);
 	for (int i = 0; i < sx; i++) {
 		for (int j = 0; j < sy; j++) {
-			allNodes.push_back(new Node(i, j, data[i + sx * j]));
+			allNodes[i + sx * j] = new Node(i, j, data[i + sx * j]);
 		}
 	}
 }

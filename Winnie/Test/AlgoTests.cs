@@ -91,7 +91,7 @@ namespace Test
 			p2.AddUnit (new Unit (p2, m.getTile (1, 1)));
             
 			List<Proposition> props = a.FindBestActions (p1,p2,m);
-            /*
+            
 			// Goal: x=3, y=0
 			Assert.AreEqual (2, props [0].bonus);
 			Assert.AreEqual (3, props [0].start.x);
@@ -111,7 +111,7 @@ namespace Test
 			Assert.AreEqual (3, props [1].start.y);
 			Assert.AreEqual (0, props[1].goal.x);
 			Assert.AreEqual (1, props[1].goal.y);
-            */
+            
 
 
 		}
