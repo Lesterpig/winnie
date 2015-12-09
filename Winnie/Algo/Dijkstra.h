@@ -14,5 +14,4 @@ public:
 	int getPath(Point* dest, int* path);
 private:
 	Graph graph;
-
 };

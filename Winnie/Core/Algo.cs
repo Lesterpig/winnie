@@ -60,7 +60,7 @@ namespace Core
 			Proposition a1 = new Proposition ();
 			Proposition a2 = new Proposition ();
 			Proposition a3 = new Proposition ();
-			Algo_findBestActions (nativeAlgo, m.RawTiles, m.SizeX, m.SizeY, myUnits, myUnits.Length, opponentUnits, opponentUnits.Length, me.Race.Identifier,a1,a2,a3);
+			Algo_findBestActions (nativeAlgo, m.RawTiles, (int)m.SizeX, (int)m.SizeY, myUnits, myUnits.Length, opponentUnits, opponentUnits.Length, me.Race.Identifier,a1,a2,a3);
 			props.Add (a1);
 			props.Add (a2);
 			props.Add (a3);

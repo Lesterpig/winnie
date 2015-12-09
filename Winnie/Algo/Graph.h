@@ -15,6 +15,7 @@ public:
 	int getSizeX() const;
 	int getSizeY() const;
 	Node* unknownNeighbourg(const Node* c);
+	Node* getNeighbourg(const Node* c, int i);
 
 private:
 	int sizeX;

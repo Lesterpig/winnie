@@ -59,22 +59,20 @@ void Algo::findBestActions(TileType map[], int sx, int sy, int allies[], int nal
 
 	double* dist = new double[sx*sy];
 	m.getDistanceMap(dist, pl);
+	Action listActions[nallies];
 
 	for (int i = 0; i < nallies; i++) {
 		Point selectedAllie = m.getAllie(i);
-		std::cout << "selected allie " << selectedAllie.x << "," << selectedAllie.y << std::endl;
+		//std::cout << "selected allie " << selectedAllie.x << "," << selectedAllie.y << std::endl;
 		Dijkstra pf = Dijkstra(dist, sx, sy, &selectedAllie);
-		Action a = m.bestPosition(pf,MAX_STEP,pl,i);
-		std::cout << a.start.x << "," <<a.start.y << ";" << a.goal.x << "," << a.goal.y << std::endl;
+		listActions[i] = m.bestPosition(pf,MAX_STEP,pl,i);
+		//std::cout << a.start.x << "," <<a.start.y << ";" << a.goal.x << "," << a.goal.y << std::endl;
 
-		actions.push(&a);
+		actions.push(&(listActions[i]));
 	}
 	affect(&actions, a1);
 	affect(&actions, a2);
 	affect(&actions, a3);
-	std::cout << a1->start.x << "," <<a1->start.y << ";" << a1->goal.x << "," << a1->goal.y << std::endl;
-	std::cout << a2->start.x << "," <<a2->start.y << ";" << a2->goal.x << "," << a2->goal.y << std::endl;
-	std::cout << a3->start.x << "," <<a3->start.y << ";" << a3->goal.x << "," << a3->goal.y << std::endl;
 
 }
 

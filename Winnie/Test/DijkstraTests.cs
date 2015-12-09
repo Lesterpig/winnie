@@ -69,6 +69,7 @@ namespace Test
 			Assert.AreEqual (0, path[6].x);
 			Assert.AreEqual (0, path[6].y);
 		}
+
 	}
 }
 

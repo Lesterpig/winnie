@@ -1,5 +1,6 @@
 ﻿#include "Graph.h"
 #include <iostream>
+
 Graph::Graph(double data[], int sx, int sy, Point* startPoint) : sizeX(sx), sizeY(sy)
 {
 	allNodes.assign(sx*sy, nullptr);
@@ -49,6 +50,19 @@ Node* Graph::unknownNeighbourg(const Node* c)
 		return getNode(c->getX() + 1, c->getY());
 	}
 	return nullptr;
+}
+
+Node* Graph::getNeighbourg(const Node*c, int i)
+{
+	int deltax[] = {0, 1, 0, -1};
+	int deltay[] = {1, 0, -1, 0};
+	//std::cout << "DELTA " << deltax[i] << "," << deltay[i] << std::endl;
+
+	int newX = c->getX() + deltax[i];
+	int newY = c->getY() + deltay[i];
+
+	if (newX < 0 || newX >= sizeX || newY < 0 || newY >= sizeY) return nullptr;
+	return getNode(newX, newY);
 }
 
 int Graph::getSizeX() const {return sizeX; }

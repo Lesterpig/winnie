@@ -96,21 +96,21 @@ namespace Test
 			Assert.AreEqual (2, props [0].bonus);
 			Assert.AreEqual (3, props [0].start.x);
 			Assert.AreEqual (1, props [0].start.y);
-			//Assert.AreEqual (3, props[0].goal.x);
-			//Assert.AreEqual (0, props[0].goal.y);
+			Assert.AreEqual (3, props[0].goal.x);
+			Assert.AreEqual (0, props[0].goal.y);
 
 			// Goal: x=
 			Assert.AreEqual (2, props[2].bonus);
 			Assert.AreEqual (1, props [2].start.x);
 			Assert.AreEqual (3, props [2].start.y);
-			//Assert.AreEqual (3, props[2].goal.x);
-			//Assert.AreEqual (3, props[2].goal.y);
+			Assert.AreEqual (3, props[2].goal.x);
+			Assert.AreEqual (3, props[2].goal.y);
 
 			Assert.AreEqual (2, props[1].bonus);
 			Assert.AreEqual (0, props [1].start.x);
 			Assert.AreEqual (3, props [1].start.y);
-			//Assert.AreEqual (0, props[1].goal.x);
-			//Assert.AreEqual (1, props[1].goal.y);
+			Assert.AreEqual (0, props[1].goal.x);
+			Assert.AreEqual (1, props[1].goal.y);
 
 
 

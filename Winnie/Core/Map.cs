@@ -40,7 +40,7 @@ namespace Core
                 }
                 else
                 {
-                    map[i] = 100;
+                    map[i] = -1;
                 }
             }
             return map;

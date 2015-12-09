@@ -92,9 +92,11 @@ Action Map::bestPosition(Dijkstra &pf, double maxStep, RaceType pl, int allieIde
 		for (int j = 0; j < map_y; j++) {
 			Point selectedPoint = Point{i,j};
 
-			if(pf.getDistance(&selectedPoint) <= maxStep) {
+			double costSoFar = pf.getDistance(&selectedPoint);
+			if(costSoFar <= maxStep && costSoFar > 0) {
 				int vict = getVictory(getPoint(i,j), pl) - stayingCaseBonus;
 				if (vict > best.bonus) {
+					//std::cout << "selectedPoint " << i << "," << j << std::endl;
 					best.goal = selectedPoint;
 					best.bonus = vict;
 				}

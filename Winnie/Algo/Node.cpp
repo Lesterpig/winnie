@@ -2,6 +2,9 @@
 
 Node::Node(int _x, int _y, double _cost) : x(_x), y(_y), cost(_cost), costSoFar(0), heuristic(0), cameFrom(nullptr)
 {
+	if (_cost < 0) {
+		costSoFar = _cost;
+	}
 }
 
 Node::~Node() 
