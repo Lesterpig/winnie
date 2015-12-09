@@ -5,7 +5,10 @@ using System.Text;
 
 namespace Core
 {   
-    // TODO documentation
+    /// <summary>
+    /// Battle encapsulates movements for units.
+    /// </summary>
+    /// <seealso cref="Action"/>
     public class Move : Action
     {   
         /// <summary>

@@ -16,7 +16,7 @@ namespace Core
         /// <remarks>
         /// Currently, only 2 players are allowed.
         /// </remarks>
-        /// <exception cref="Game.NotSupportedException">When the length of <c>players</c> is not 2.</exception>
+        /// <exception cref="System.NotSupportedException">When the length of <c>players</c> is not 2.</exception>
         /// <param name="players">Players.</param>
         /// <param name="map">Map.</param>
         /// <param name="turns">Number of turns.</param>
