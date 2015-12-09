@@ -31,7 +31,6 @@ double Perlin::cosinusInterpolation2D(double a1, double b1, double a2, double b2
 	double x1 = cosinusInterpolation(a1, b1, x);
 	double x2 = cosinusInterpolation(a2, b2, x);
 	return cosinusInterpolation(x1, x2, y);
-	return 2.2;
 }
 
 double Perlin::noise2D(double x, double y) {

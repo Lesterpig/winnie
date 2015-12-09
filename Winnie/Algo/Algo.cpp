@@ -17,7 +17,8 @@ Algo::~Algo()
 void Algo::fillMap(TileType map[], int seed, int size_x, int size_y)
 {
 	double min = 0.0, max = 5;
-	int step = 4, octaves = 5, persistance = 0.1;
+	int step = 4, octaves = 5;
+	double persistance = 0.1;
 
 	Map m = Map(size_x, size_y, map);
 	Perlin p = Perlin(seed, size_x, size_y, min, max, step, octaves, persistance);
@@ -51,6 +52,7 @@ void Algo::findBestStartPosition(TileType map[], int size_x, int size_y, RaceTyp
 
 void Algo::findBestActions(TileType map[], int sx, int sy, int allies[], int nallies, int ennemies[], int nennemies, RaceType pl, Action* a1, Action* a2, Action* a3) 
 {
+	
 	Map m = Map(sx, sy, map);
 	m.addAllies(allies, nallies);
 	m.addEnnemies(ennemies, nennemies);
@@ -59,8 +61,8 @@ void Algo::findBestActions(TileType map[], int sx, int sy, int allies[], int nal
 
 	double* dist = new double[sx*sy];
 	m.getDistanceMap(dist, pl);
-	Action listActions[nallies];
-
+	Action* listActions = new Action[nallies];
+	
 	for (int i = 0; i < nallies; i++) {
 		Point selectedAllie = m.getAllie(i);
 		//std::cout << "selected allie " << selectedAllie.x << "," << selectedAllie.y << std::endl;
@@ -70,14 +72,17 @@ void Algo::findBestActions(TileType map[], int sx, int sy, int allies[], int nal
 
 		actions.push(&(listActions[i]));
 	}
+	
 	affect(&actions, a1);
 	affect(&actions, a2);
 	affect(&actions, a3);
+	delete listActions;
 
 }
 
 void Algo::affect(ActionQueue *actions, Action* a) 
 {
+	//if (actions->empty()) return;
 	Action* tmp = actions->top();
 	actions->pop();
 	a->start = tmp->start;

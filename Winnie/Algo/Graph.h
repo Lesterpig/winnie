@@ -14,13 +14,10 @@ public:
 	Node* getNode(int x, int y);
 	int getSizeX() const;
 	int getSizeY() const;
-	Node* unknownNeighbourg(const Node* c);
 	Node* getNeighbourg(const Node* c, int i);
 
 private:
 	int sizeX;
 	int sizeY;
 	std::vector<Node*> allNodes;
-	std::vector<Node*> dirtyNodes;
-	bool pristine(Node* n);
 };

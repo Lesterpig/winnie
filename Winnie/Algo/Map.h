@@ -14,7 +14,7 @@ enum TileType {
 
 class Map {
 public:
-	Map(int x, int y, TileType *m);
+	Map(int x, int y, enum TileType *m);
 	~Map();
 	void setPoint(int x, int y, TileType p);
 	void setRawPoint(int i, TileType p);

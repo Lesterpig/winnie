@@ -383,7 +383,7 @@ namespace Test
             Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(4, 5)));
             Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(3, 5)));
             Assert.IsTrue(possibilities.ContainsKey(g.Map.getTile(2, 5)));
-            Assert.AreEqual(6, possibilities.Count());
+            Assert.AreEqual(7, possibilities.Count());
         }
 
         [Test()]

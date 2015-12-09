@@ -3,6 +3,7 @@
 
 Dijkstra::Dijkstra(double data[], int sx, int sy, Point *start) : graph(data,sx,sy,start)
 {
+	
 	std::priority_queue<Node*, std::vector<Node*>, NodeCompare> frontier;
 	Node* startNode = graph.getNode(start);
 	Node* currentNode = nullptr;

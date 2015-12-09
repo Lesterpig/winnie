@@ -1,6 +1,6 @@
 ﻿#include "Map.h"
 
-Map::Map(int x, int y, TileType *m) : map_x(x), map_y(y), map(m)
+Map::Map(int x, int y, enum TileType *m) : map_x(x), map_y(y), map(m)
 {
 }
 
