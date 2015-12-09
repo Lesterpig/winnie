@@ -24,7 +24,7 @@ namespace Core
             HIGH,
 
             /// <summary>
-            /// Always return the lowest value.
+            /// Always return the lowest value + 1.
             /// </summary>
             LOW
         }
@@ -47,7 +47,7 @@ namespace Core
         /// </summary>
         /// <param name="a">a.</param>
         /// <param name="b">b.</param>
-        /// <returns>An integer i where <c>i >= a</c> and <c>i < b</c>.</returns>
+        /// <returns>A random int in the interval [a,b[</returns>
         /// <seealso cref="System.Random.Next"/>
         public int Next(int a, int b)
         {
