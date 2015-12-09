@@ -12,6 +12,7 @@ namespace Core
         /// <summary>
         /// Build a new Game
         /// </summary>
+        /// <exception cref="SameRaceException">When <c>p1</c> has the same race as <c>p2</c>.</exception>
         /// <param name="p1">First player.</param>
         /// <param name="p2">Second player.</param>
         /// <param name="cheatMode">If set to <c>true</c>, enable cheat mode.</param>

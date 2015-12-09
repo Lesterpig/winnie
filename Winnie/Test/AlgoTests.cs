@@ -36,8 +36,8 @@ namespace Test
 		public void findBestStartPositionTest() 
 		{
 			Algo a = new Algo();
-			Player p1 = new Player ("Agathe", new Elf());
-			Player p2 = new Player ("Bob", new Orc());
+            Player p1 = new Player ("Agathe", Elf.Instance);
+            Player p2 = new Player ("Bob", Orc.Instance);
 
 			TileTypeFactory.Identifier w = TileTypeFactory.Identifier.WATER;
 			TileTypeFactory.Identifier p = TileTypeFactory.Identifier.PLAIN;
@@ -66,8 +66,8 @@ namespace Test
 		public void findBestActionsTest() 
 		{
 			Algo a = new Algo();
-			Player p1 = new Player ("Agathe", new Elf());
-			Player p2 = new Player ("Bob", new Orc());
+            Player p1 = new Player ("Agathe", Elf.Instance);
+            Player p2 = new Player ("Bob", Orc.Instance);
 
 			TileTypeFactory.Identifier w = TileTypeFactory.Identifier.WATER;
 			TileTypeFactory.Identifier p = TileTypeFactory.Identifier.PLAIN;
