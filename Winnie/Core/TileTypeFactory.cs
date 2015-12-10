@@ -5,23 +5,36 @@ using System.Text;
 
 namespace Core
 {   
-    // TODO documentation
+    /// <summary>
+    /// Flyweight design pattern to obtain TileType instances.
+    /// </summary>
     public class TileTypeFactory
     {	
+        /// <summary>
+        /// Tile types instances cache.
+        /// </summary>
+		private static IDictionary<Identifier, TileType> types = new Dictionary<Identifier, TileType>();
 
-		private static Dictionary<Identifier, TileType> types = new Dictionary<Identifier, TileType>();
-
-        // Used for tile creation from C++ wrapper
+        /// <summary>
+        /// Identifiers.
+        /// </summary>
+        /// <remarks>
+        /// Used for tile creation from C++.
+        /// </remarks>
         public enum Identifier { WATER = 0, PLAIN = 1, FOREST = 2, MOUNTAIN = 3 }
 
+        /// <summary>
+        /// Get the specified type (Flyweight).
+        /// </summary>
+        /// <param name="type">Type.</param>
 		public static TileType Get(Identifier type)
         {
 			if (types.ContainsKey(type))
             {
-				return types[type];
+				return types[type]; // use cache
 			}
 
-			TileType newType;
+			TileType newType = null;
 
 			switch (type) {
 			case Identifier.WATER:
@@ -35,9 +48,6 @@ namespace Core
 				break;
 			case Identifier.MOUNTAIN:
 				newType = new MountainTileType();
-				break;
-			default:
-				newType = null;
 				break;
 			}
 

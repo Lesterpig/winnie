@@ -18,7 +18,7 @@ void Algo::fillMap(TileType map[], int seed, int size_x, int size_y)
 {
 	double min = 0.0, max = 5;
 	int step = 4, octaves = 5;
-	double persistance = 0.1;
+	double persistance = 0.0;
 
 	Map m = Map(size_x, size_y, map);
 	Perlin p = Perlin(seed, size_x, size_y, min, max, step, octaves, persistance);
