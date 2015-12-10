@@ -88,7 +88,8 @@ namespace Test
 			p1.AddUnit (new Unit (p1, m.getTile (0, 3)));
 			p1.AddUnit (new Unit (p1, m.getTile (1, 3)));
 
-			p2.AddUnit (new Unit (p2, m.getTile (1, 1)));
+
+            p2.AddUnit (new Unit (p2, m.getTile (1, 1)));
             
 			List<Proposition> props = a.FindBestActions (p1,p2,m);
             

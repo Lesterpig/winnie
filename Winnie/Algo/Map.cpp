@@ -46,6 +46,7 @@ int Map::getSizeY()
 void Map::addAllies(int* al, int nallies)
 {
 	allies.reserve(nallies);
+	allies.assign(nallies, Point{});
 	for(int i = 0; i<nallies; i++) {
 			allies[i] = Point{al[i] % map_x, al[i] / map_x};
 	}
@@ -54,6 +55,7 @@ void Map::addAllies(int* al, int nallies)
 void Map::addEnnemies(int* en, int nennemies) 
 {
 	ennemies.reserve(nennemies);
+	ennemies.assign(nennemies, Point{});
 	while (nennemies-- > 0) {
 		ennemies[nennemies] = Point{en[nennemies] % map_x, en[nennemies] / map_x};
 	}

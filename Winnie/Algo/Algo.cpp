@@ -52,7 +52,6 @@ void Algo::findBestStartPosition(TileType map[], int size_x, int size_y, RaceTyp
 
 void Algo::findBestActions(TileType map[], int sx, int sy, int allies[], int nallies, int ennemies[], int nennemies, RaceType pl, Action* a1, Action* a2, Action* a3) 
 {
-	
 	Map m = Map(sx, sy, map);
 	m.addAllies(allies, nallies);
 	m.addEnnemies(ennemies, nennemies);
