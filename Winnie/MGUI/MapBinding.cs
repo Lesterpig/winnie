@@ -68,6 +68,14 @@ namespace MGUI
 			{"TreeUp6", new Vector2(1,10)},
 			{"TreeBottom6", new Vector2(1,11)},
 
+			/* DECORATION */
+			{"Chest1", new Vector2(8,9)},
+			{"Chest2", new Vector2(9,9)},
+			{"Barrel1", new Vector2(8,10)},
+			{"Barrel2", new Vector2(9,10)},
+			{"Barrel3", new Vector2(8,12)},
+			{"Barrel4", new Vector2(9,12)},
+
 		};
 
 		private MapBinding ()
