@@ -1,6 +1,7 @@
 ﻿#region Using Statements
 using System;
 
+using Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Storage;
@@ -13,10 +14,12 @@ namespace MGUI
 	/// <summary>
 	/// This is the main type for your game.
 	/// </summary>
-	public class Game1 : Game
+	public class Game1 : Microsoft.Xna.Framework.Game
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
+		Texture2D map;
+		Core.Game gameModel;
 
 		public Game1 ()
 		{
@@ -33,6 +36,10 @@ namespace MGUI
 		/// </summary>
 		protected override void Initialize ()
 		{
+			var p1 = new Player("Player A", Human.Instance);
+			var p2 = new Player("Player B", Elf.Instance);
+			gameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true);
+
 			// TODO: Add your initialization logic here
 			base.Initialize ();
 				
@@ -46,6 +53,7 @@ namespace MGUI
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch (GraphicsDevice);
+			map = Content.Load<Texture2D> ("map");
 
 			//TODO: use this.Content to load your game content here 
 		}
@@ -76,9 +84,30 @@ namespace MGUI
 		protected override void Draw (GameTime gameTime)
 		{
 			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
+			int zoom = 128;
+
 		
 			//TODO: Add your drawing code here
-            
+			spriteBatch.Begin();
+
+			//RAW MAP
+			for (int i = 0; i < gameModel.Map.SizeX; i++) {
+				for (int j = 0; j < gameModel.Map.SizeY; j++) {
+					Rectangle texture = MapBinding.Grass1;
+
+					TileType t = gameModel.Map.getTile(i,j).TileType;
+					if (t is WaterTileType)
+						texture = MapBinding.Water;
+					else if (t is MountainTileType)
+						texture = MapBinding.Dirt;
+					
+					spriteBatch.Draw (map, new Rectangle (i*zoom, j*zoom, zoom, zoom), texture, Color.White);
+				}
+			}
+
+
+			spriteBatch.End();
+
 			base.Draw (gameTime);
 		}
 	}
