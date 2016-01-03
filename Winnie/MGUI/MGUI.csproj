@@ -48,6 +48,7 @@
     <Compile Include="MapBinding.cs" />
     <Compile Include="ForestGenerator.cs" />
     <Compile Include="MapShow.cs" />
+    <Compile Include="Camera2D.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

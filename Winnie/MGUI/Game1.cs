@@ -22,6 +22,10 @@ namespace MGUI
 		public int Seed { get; private set;}
 		public int SquareSize { get; private set;}
 
+		private const int cameraAcceleration = 350;
+		private const float controllerMinMovement = 0.2f;
+
+		Camera2D camera;
 		MapShow ms;
 		GraphicsDeviceManager graphics;
 
@@ -42,12 +46,13 @@ namespace MGUI
 		protected override void Initialize ()
 		{
 			Seed = 1341;
-			SquareSize = 50;
+			SquareSize = 64;
 
 			var p1 = new Player("Player A", Human.Instance);
 			var p2 = new Player("Player B", Elf.Instance);
 			GameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true, Seed);
 			this.IsMouseVisible = true;
+			camera = new Camera2D(GraphicsDevice.Viewport);
 
 			ms = new MapShow (this);
 
@@ -76,14 +81,42 @@ namespace MGUI
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update (GameTime gameTime)
 		{
+			var deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
+
+			var gamepadState = GamePad.GetState (PlayerIndex.One);
+			var keyboardState = Keyboard.GetState();
+
+			// Camera Movement
+			if (keyboardState.IsKeyDown (Keys.Up) || gamepadState.ThumbSticks.Right.X < -controllerMinMovement) {
+				camera.Position -= new Vector2 (0, cameraAcceleration) * deltaTime;
+			}
+
+			if (keyboardState.IsKeyDown(Keys.Down) || gamepadState.ThumbSticks.Right.X > controllerMinMovement)
+				camera.Position += new Vector2(0, cameraAcceleration) * deltaTime;
+
+			if (keyboardState.IsKeyDown(Keys.Left) || gamepadState.ThumbSticks.Right.Y > controllerMinMovement)
+				camera.Position -= new Vector2(cameraAcceleration, 0) * deltaTime;
+
+			if (keyboardState.IsKeyDown(Keys.Right) || gamepadState.ThumbSticks.Right.Y < -controllerMinMovement)
+				camera.Position += new Vector2(cameraAcceleration, 0) * deltaTime;
+
+			// Camera Zoom
+			if (keyboardState.IsKeyDown (Keys.W) || gamepadState.Buttons.LeftShoulder == ButtonState.Pressed)
+				camera.Zoom += deltaTime;
+
+			if (keyboardState.IsKeyDown (Keys.S) || gamepadState.Buttons.RightShoulder == ButtonState.Pressed)
+				camera.Zoom -= deltaTime;
+
 			// For Mobile devices, this logic will close the Game when the Back button is pressed
 			// Exit() is obsolete on iOS
 			#if !__IOS__
 			if (GamePad.GetState (PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-			    Keyboard.GetState ().IsKeyDown (Keys.Escape)) {
+				Keyboard.GetState ().IsKeyDown (Keys.Escape)) {
 				Exit ();
 			}
 			#endif
+
+
 			// TODO: Add your update logic here			
 			base.Update (gameTime);
 		}
@@ -97,7 +130,7 @@ namespace MGUI
 			graphics.GraphicsDevice.Clear (Color.Black);
 
 			//TODO: Add your drawing code here
-			MapBatch.Begin();
+			MapBatch.Begin(transformMatrix: camera.GetViewMatrix());
 			ms.BlitMap ();
 			MapBatch.End();
 
