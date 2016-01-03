@@ -22,7 +22,7 @@ namespace MGUI
 		public int Seed { get; private set;}
 		public int SquareSize { get; private set;}
 
-		private const int cameraAcceleration = 350;
+		private const int cameraAcceleration = 600;
 		private const float controllerMinMovement = 0.2f;
 
 		Camera2D camera;
@@ -88,24 +88,24 @@ namespace MGUI
 
 			// Camera Movement
 			if (keyboardState.IsKeyDown (Keys.Up) || gamepadState.ThumbSticks.Right.X < -controllerMinMovement) {
-				camera.Position -= new Vector2 (0, cameraAcceleration) * deltaTime;
+				camera.Position -= new Vector2 (0, cameraAcceleration * 1/camera.Zoom) * deltaTime;
 			}
 
 			if (keyboardState.IsKeyDown(Keys.Down) || gamepadState.ThumbSticks.Right.X > controllerMinMovement)
-				camera.Position += new Vector2(0, cameraAcceleration) * deltaTime;
+				camera.Position += new Vector2(0, cameraAcceleration * 1/camera.Zoom) * deltaTime;
 
 			if (keyboardState.IsKeyDown(Keys.Left) || gamepadState.ThumbSticks.Right.Y > controllerMinMovement)
-				camera.Position -= new Vector2(cameraAcceleration, 0) * deltaTime;
+				camera.Position -= new Vector2(cameraAcceleration * 1/camera.Zoom, 0) * deltaTime;
 
 			if (keyboardState.IsKeyDown(Keys.Right) || gamepadState.ThumbSticks.Right.Y < -controllerMinMovement)
-				camera.Position += new Vector2(cameraAcceleration, 0) * deltaTime;
+				camera.Position += new Vector2(cameraAcceleration * 1/camera.Zoom, 0) * deltaTime;
 
 			// Camera Zoom
 			if (keyboardState.IsKeyDown (Keys.W) || gamepadState.Buttons.LeftShoulder == ButtonState.Pressed)
-				camera.Zoom += deltaTime;
+				camera.Zoom += deltaTime * camera.Zoom;
 
 			if (keyboardState.IsKeyDown (Keys.S) || gamepadState.Buttons.RightShoulder == ButtonState.Pressed)
-				camera.Zoom -= deltaTime;
+				camera.Zoom -= deltaTime * camera.Zoom;
 
 			// For Mobile devices, this logic will close the Game when the Back button is pressed
 			// Exit() is obsolete on iOS
