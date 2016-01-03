@@ -51,6 +51,7 @@
     <Compile Include="MapBinding.cs" />
     <Compile Include="ForestGenerator.cs" />
     <Compile Include="MapShow.cs" />
+    <Compile Include="Camera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

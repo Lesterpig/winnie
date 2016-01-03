@@ -26,7 +26,7 @@ namespace MGUI
 		private const int cameraAcceleration = 600;
 		private const float controllerMinMovement = 0.2f;
 
-		Camera2D camera;
+		Camera camera;
 		MapShow ms;
 		GraphicsDeviceManager graphics;
 
@@ -53,7 +53,7 @@ namespace MGUI
 			var p2 = new Player("Player B", Elf.Instance);
 			GameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true, Seed);
 			this.IsMouseVisible = true;
-			camera = new Camera2D(graphics.GraphicsDevice);
+			camera = new Camera(graphics.GraphicsDevice);
 			camera.MaximumZoom = 2f;
 			camera.MinimumZoom = 0.7f;
 
@@ -91,16 +91,16 @@ namespace MGUI
 
 			// Camera Movement
 			if (keyboardState.IsKeyDown (Keys.Up) || gamepadState.ThumbSticks.Right.X < -controllerMinMovement)
-				camera.Move (new Vector2(0, -deltaTime*cameraAcceleration));
+				camera.MoveUp (deltaTime);
 
 			if (keyboardState.IsKeyDown (Keys.Down) || gamepadState.ThumbSticks.Right.X > controllerMinMovement)
-				camera.Move (new Vector2(0, deltaTime*cameraAcceleration));
+				camera.MoveDown (deltaTime);
 
 			if (keyboardState.IsKeyDown (Keys.Left) || gamepadState.ThumbSticks.Right.Y > controllerMinMovement)
-				camera.Move (new Vector2(-deltaTime*cameraAcceleration, 0));
+				camera.MoveLeft (deltaTime);
 
 			if (keyboardState.IsKeyDown (Keys.Right) || gamepadState.ThumbSticks.Right.Y < -controllerMinMovement)
-				camera.Move (new Vector2(deltaTime*cameraAcceleration, 0));
+				camera.MoveRight (deltaTime);
 
 			// Camera Zoom
 			if (keyboardState.IsKeyDown (Keys.W) || gamepadState.DPad.Up == ButtonState.Pressed)
