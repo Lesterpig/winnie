@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MapBinding.cs" />
+    <Compile Include="ForestGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

@@ -20,6 +20,7 @@ namespace MGUI
 		SpriteBatch spriteBatch;
 		Texture2D map;
 		Core.Game gameModel;
+		int seed = 1341;
 
 		public Game1 ()
 		{
@@ -38,7 +39,7 @@ namespace MGUI
 		{
 			var p1 = new Player("Player A", Human.Instance);
 			var p2 = new Player("Player B", Elf.Instance);
-			gameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true,1341);
+			gameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true,seed);
 			this.IsMouseVisible = true;
 
 			// TODO: Add your initialization logic here
@@ -85,20 +86,25 @@ namespace MGUI
 		protected override void Draw (GameTime gameTime)
 		{
 			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
-			int zoom = 64;
+			int squareSize = 50;
 		
 			//TODO: Add your drawing code here
 			spriteBatch.Begin();
 
 			//DRAW MAP
 			MapBinding mb = new MapBinding (gameModel.Map);
+			ForestGenerator fg = new ForestGenerator (spriteBatch, map, squareSize, seed);
 
 			for (int i = 0; i < gameModel.Map.SizeX; i++) {
 				for (int j = 0; j < gameModel.Map.SizeY; j++) {
 					for (int dx = 0; dx < 3; dx++) {
 						for (int dy = 0; dy < 3; dy++) {
-							spriteBatch.Draw (map, new Rectangle ((i * 3 + dx) * zoom, (j * 3 + dy) * zoom, zoom, zoom), mb.GetTexture (i, j, dx, dy), Color.White);
+							spriteBatch.Draw (map, new Rectangle ((i * 3 + dx) * squareSize, (j * 3 + dy) * squareSize, squareSize, squareSize), mb.GetTexture (i, j, dx, dy), Color.White);
 						}
+					}
+
+					if (gameModel.Map.getTile (i, j).TileType is ForestTileType) {
+						fg.BlitRandomForest (i,j);
 					}
 				}
 			}
