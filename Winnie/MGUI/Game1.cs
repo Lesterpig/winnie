@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended;
 
 #endregion
 
@@ -52,7 +53,9 @@ namespace MGUI
 			var p2 = new Player("Player B", Elf.Instance);
 			GameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true, Seed);
 			this.IsMouseVisible = true;
-			camera = new Camera2D(GraphicsDevice.Viewport);
+			camera = new Camera2D(graphics.GraphicsDevice);
+			camera.MaximumZoom = 2f;
+			camera.MinimumZoom = 0.7f;
 
 			ms = new MapShow (this);
 
@@ -87,26 +90,25 @@ namespace MGUI
 			var keyboardState = Keyboard.GetState();
 
 			// Camera Movement
-			if (keyboardState.IsKeyDown (Keys.Up) || gamepadState.ThumbSticks.Right.X < -controllerMinMovement) {
-				camera.Position -= new Vector2 (0, cameraAcceleration * 1/camera.Zoom) * deltaTime;
-			}
+			if (keyboardState.IsKeyDown (Keys.Up) || gamepadState.ThumbSticks.Right.X < -controllerMinMovement)
+				camera.Move (new Vector2(0, -deltaTime*cameraAcceleration));
 
-			if (keyboardState.IsKeyDown(Keys.Down) || gamepadState.ThumbSticks.Right.X > controllerMinMovement)
-				camera.Position += new Vector2(0, cameraAcceleration * 1/camera.Zoom) * deltaTime;
+			if (keyboardState.IsKeyDown (Keys.Down) || gamepadState.ThumbSticks.Right.X > controllerMinMovement)
+				camera.Move (new Vector2(0, deltaTime*cameraAcceleration));
 
-			if (keyboardState.IsKeyDown(Keys.Left) || gamepadState.ThumbSticks.Right.Y > controllerMinMovement)
-				camera.Position -= new Vector2(cameraAcceleration * 1/camera.Zoom, 0) * deltaTime;
+			if (keyboardState.IsKeyDown (Keys.Left) || gamepadState.ThumbSticks.Right.Y > controllerMinMovement)
+				camera.Move (new Vector2(-deltaTime*cameraAcceleration, 0));
 
-			if (keyboardState.IsKeyDown(Keys.Right) || gamepadState.ThumbSticks.Right.Y < -controllerMinMovement)
-				camera.Position += new Vector2(cameraAcceleration * 1/camera.Zoom, 0) * deltaTime;
+			if (keyboardState.IsKeyDown (Keys.Right) || gamepadState.ThumbSticks.Right.Y < -controllerMinMovement)
+				camera.Move (new Vector2(deltaTime*cameraAcceleration, 0));
 
 			// Camera Zoom
-			if (keyboardState.IsKeyDown (Keys.W) || gamepadState.Buttons.LeftShoulder == ButtonState.Pressed)
-				camera.Zoom += deltaTime * camera.Zoom;
+			if (keyboardState.IsKeyDown (Keys.W) || gamepadState.DPad.Up == ButtonState.Pressed)
+				camera.ZoomIn(deltaTime * camera.Zoom);
 
-			if (keyboardState.IsKeyDown (Keys.S) || gamepadState.Buttons.RightShoulder == ButtonState.Pressed)
-				camera.Zoom -= deltaTime * camera.Zoom;
-
+			if (keyboardState.IsKeyDown (Keys.S) || gamepadState.DPad.Down == ButtonState.Pressed)
+				camera.ZoomOut(deltaTime * camera.Zoom);
+				
 			// For Mobile devices, this logic will close the Game when the Back button is pressed
 			// Exit() is obsolete on iOS
 			#if !__IOS__
