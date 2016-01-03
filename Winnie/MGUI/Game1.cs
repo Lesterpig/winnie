@@ -38,7 +38,8 @@ namespace MGUI
 		{
 			var p1 = new Player("Player A", Human.Instance);
 			var p2 = new Player("Player B", Elf.Instance);
-			gameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true);
+			gameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true,1341);
+			this.IsMouseVisible = true;
 
 			// TODO: Add your initialization logic here
 			base.Initialize ();
@@ -84,27 +85,23 @@ namespace MGUI
 		protected override void Draw (GameTime gameTime)
 		{
 			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
-			int zoom = 128;
-
+			int zoom = 64;
 		
 			//TODO: Add your drawing code here
 			spriteBatch.Begin();
 
-			//RAW MAP
+			//DRAW MAP
+			MapBinding mb = new MapBinding (gameModel.Map);
+
 			for (int i = 0; i < gameModel.Map.SizeX; i++) {
 				for (int j = 0; j < gameModel.Map.SizeY; j++) {
-					Rectangle texture = MapBinding.Grass1;
-
-					TileType t = gameModel.Map.getTile(i,j).TileType;
-					if (t is WaterTileType)
-						texture = MapBinding.Water;
-					else if (t is MountainTileType)
-						texture = MapBinding.Dirt;
-					
-					spriteBatch.Draw (map, new Rectangle (i*zoom, j*zoom, zoom, zoom), texture, Color.White);
+					for (int dx = 0; dx < 3; dx++) {
+						for (int dy = 0; dy < 3; dy++) {
+							spriteBatch.Draw (map, new Rectangle ((i * 3 + dx) * zoom, (j * 3 + dy) * zoom, zoom, zoom), mb.GetTexture (i, j, dx, dy), Color.White);
+						}
+					}
 				}
 			}
-
 
 			spriteBatch.End();
 
