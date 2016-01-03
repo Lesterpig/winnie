@@ -16,11 +16,15 @@ namespace MGUI
 	/// </summary>
 	public class Game1 : Microsoft.Xna.Framework.Game
 	{
+		public SpriteBatch MapBatch { get; private set; }
+		public Texture2D Map { get; private set;}
+		public Core.Game GameModel { get; private set;}
+		public int Seed { get; private set;}
+		public int SquareSize { get; private set;}
+
+		MapShow ms;
 		GraphicsDeviceManager graphics;
-		SpriteBatch spriteBatch;
-		Texture2D map;
-		Core.Game gameModel;
-		int seed = 1341;
+
 
 		public Game1 ()
 		{
@@ -37,10 +41,15 @@ namespace MGUI
 		/// </summary>
 		protected override void Initialize ()
 		{
+			Seed = 1341;
+			SquareSize = 50;
+
 			var p1 = new Player("Player A", Human.Instance);
 			var p2 = new Player("Player B", Elf.Instance);
-			gameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true,seed);
+			GameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true, Seed);
 			this.IsMouseVisible = true;
+
+			ms = new MapShow (this);
 
 			// TODO: Add your initialization logic here
 			base.Initialize ();
@@ -54,8 +63,8 @@ namespace MGUI
 		protected override void LoadContent ()
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
-			spriteBatch = new SpriteBatch (GraphicsDevice);
-			map = Content.Load<Texture2D> ("map");
+			MapBatch = new SpriteBatch (GraphicsDevice);
+			Map = Content.Load<Texture2D> ("map");
 
 			//TODO: use this.Content to load your game content here 
 		}
@@ -85,31 +94,12 @@ namespace MGUI
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw (GameTime gameTime)
 		{
-			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
-			int squareSize = 50;
-		
+			graphics.GraphicsDevice.Clear (Color.Black);
+
 			//TODO: Add your drawing code here
-			spriteBatch.Begin();
-
-			//DRAW MAP
-			MapBinding mb = new MapBinding (gameModel.Map);
-			ForestGenerator fg = new ForestGenerator (spriteBatch, map, squareSize, seed);
-
-			for (int i = 0; i < gameModel.Map.SizeX; i++) {
-				for (int j = 0; j < gameModel.Map.SizeY; j++) {
-					for (int dx = 0; dx < 3; dx++) {
-						for (int dy = 0; dy < 3; dy++) {
-							spriteBatch.Draw (map, new Rectangle ((i * 3 + dx) * squareSize, (j * 3 + dy) * squareSize, squareSize, squareSize), mb.GetTexture (i, j, dx, dy), Color.White);
-						}
-					}
-
-					if (gameModel.Map.getTile (i, j).TileType is ForestTileType) {
-						fg.BlitRandomForest (i,j);
-					}
-				}
-			}
-
-			spriteBatch.End();
+			MapBatch.Begin();
+			ms.BlitMap ();
+			MapBatch.End();
 
 			base.Draw (gameTime);
 		}

@@ -9,7 +9,6 @@ namespace MGUI
 	public class MapBinding
 	{
 		public static int Size = 128;
-		private Map map;
 		private static Dictionary<string, Vector2> binding = new Dictionary<string, Vector2>()
 		{
 			/* GRASS */
@@ -63,37 +62,8 @@ namespace MGUI
 
 		};
 
-		public MapBinding (Map m)
+		private MapBinding ()
 		{
-			map = m;
-		}
-
-		public Rectangle GetTexture(int x, int y, int dx, int dy) {
-			Tile currentTile = map.getTile (x, y);
-			string[] dyval = {"Up", "", "Bottom" };
-			string[] dxval = {"Left", "", "Right" };
-
-			string selectedTexture = "";
-			selectedTexture += MapBinding.GetTileTextureName (currentTile);
-
-			if (selectedTexture != "Grass") {
-				bool append = false;
-
-				Tile dyTile = currentTile.GetNeighbor (new Tile.Diff (0, dy-1));
-				if (dyTile != null && dyTile.TileType != currentTile.TileType) {
-					selectedTexture += dyval [dy];
-					append = true;
-				}
-
-				Tile dxTile = currentTile.GetNeighbor (new Tile.Diff (dx-1, 0));
-				if (dxTile != null && dxTile.TileType != currentTile.TileType) {
-					selectedTexture += dxval [dx];
-					append = true;
-				}
-
-				if (append) selectedTexture += "Grass";
-			}
-			return MapBinding.GetTexture (selectedTexture);
 		}
 
 		public static string GetTileTextureName(Tile t) {
