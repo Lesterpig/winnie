@@ -34,6 +34,10 @@ namespace MGUI
 			{"DirtLeftGrass", new Vector2(5,1)},
 			{"DirtUpLeftGrass", new Vector2(5,0)},
 			{"DirtUpGrass", new Vector2(6,0)},
+			{"DirtDiagonalUpLeftGrass", new Vector2(9,1)},
+			{"DirtDiagonalUpRightGrass", new Vector2(8,1)},
+			{"DirtDiagonalBottomRightGrass", new Vector2(8,0)},
+			{"DirtDiagonalBottomLeftGrass", new Vector2(9,0)},
 
 			/* WATER */
 			{"Water", new Vector2(11,1)},
@@ -45,6 +49,10 @@ namespace MGUI
 			{"WaterLeftGrass", new Vector2(10,1)},
 			{"WaterUpLeftGrass", new Vector2(10,0)},
 			{"WaterUpGrass", new Vector2(11,0)},
+			{"WaterDiagonalUpLeftGrass", new Vector2(14,1) },
+			{"WaterDiagonalUpRightGrass", new Vector2(13,1) },
+			{"WaterDiagonalBottomRightGrass", new Vector2(13,0) },
+			{"WaterDiagonalBottomLeftGrass", new Vector2(14,0) },
 
 			/* TREES */
 			{"TreeUp1", new Vector2(4,10)},

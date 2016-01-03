@@ -14,7 +14,12 @@ namespace MGUI
 			game = g;
 			fg = new ForestGenerator (game.SquareSize, game.Seed);
 		}
-
+			
+		/// <summary>
+		/// Each tile is represented by 9 64x64 texture block :
+		/// Up Left, Up, Up Right, Right, Bottom Right, Bottom, Bottom Left, Left and Center
+		/// By default, junction are done with grass
+		/// </summary>
 		private Rectangle TileToTexture(int x, int y, int dx, int dy) {
 			Tile currentTile = game.GameModel.Map.getTile (x, y);
 			string[] dyval = {"Up", "", "Bottom" };
@@ -24,21 +29,32 @@ namespace MGUI
 			selectedTexture += MapBinding.GetTileTextureName (currentTile);
 
 			if (selectedTexture != "Grass") {
-				bool append = false;
+				bool border = false;
 
+				//BOTTOM/UP
 				Tile dyTile = currentTile.GetNeighbor (new Tile.Diff (0, dy-1));
 				if (dyTile != null && dyTile.TileType != currentTile.TileType) {
 					selectedTexture += dyval [dy];
-					append = true;
+					border = true;
 				}
 
+				//LEFT/RIGHT
 				Tile dxTile = currentTile.GetNeighbor (new Tile.Diff (dx-1, 0));
 				if (dxTile != null && dxTile.TileType != currentTile.TileType) {
 					selectedTexture += dxval [dx];
-					append = true;
+					border = true;
 				}
 
-				if (append) selectedTexture += "Grass";
+				//DIAGONAL
+				if (!border && dx != 1 && dy != 1) {
+					Tile ddTile = currentTile.GetNeighbor (new Tile.Diff (dx - 1, dy - 1));
+					if (ddTile != null && ddTile.TileType != currentTile.TileType) {
+						selectedTexture += "Diagonal" + dyval [dy] + dxval [dx];
+						border = true;
+					}
+				}
+		
+				if (border) selectedTexture += "Grass";
 			}
 			return MapBinding.GetTexture (selectedTexture);
 		}
