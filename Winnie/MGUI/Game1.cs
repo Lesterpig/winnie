@@ -42,7 +42,7 @@ namespace MGUI
 		protected override void Initialize ()
 		{
 			Seed = 1341;
-			SquareSize = 50;
+			SquareSize = 32;
 
 			var p1 = new Player("Player A", Human.Instance);
 			var p2 = new Player("Player B", Elf.Instance);

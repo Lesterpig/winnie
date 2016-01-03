@@ -43,6 +43,10 @@ namespace MGUI
 			return MapBinding.GetTexture (selectedTexture);
 		}
 
+		private void Initialize() {
+			fg.ResetRandom ();
+		}
+
 		private void BlitTiles(int i, int j) {
 			for (int dx = 0; dx < 3; dx++) {
 				for (int dy = 0; dy < 3; dy++) {
@@ -63,6 +67,8 @@ namespace MGUI
 		}
 
 		public void BlitMap() {
+			Initialize ();
+
 			for (int i = 0; i < game.GameModel.Map.SizeX; i++) {
 				for (int j = 0; j < game.GameModel.Map.SizeY; j++) {
 					BlitTiles (i,j);
