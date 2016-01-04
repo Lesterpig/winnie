@@ -56,6 +56,8 @@
     <Compile Include="Unit.cs" />
     <Compile Include="ElfUnit.cs" />
     <Compile Include="GameCreator.cs" />
+    <Compile Include="OrcUnit.cs" />
+    <Compile Include="HumanUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

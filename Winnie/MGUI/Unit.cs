@@ -7,6 +7,7 @@ namespace MGUI
 {
 	public abstract class Unit
 	{
+		protected int gender;
 		protected Random rnd;
 		protected string body;
 		protected string pant;
@@ -18,17 +19,29 @@ namespace MGUI
 		protected string weapon;
 
 		public Unit(int seed) {
-			this.rnd = new Random(seed);
+			if (seed != 0)
+				this.rnd = new Random (seed);
+			else
+				this.rnd = new Random ();
+			gender = rnd.Next (0,2);
+			SetBody ();
+			SetPant ();
+			SetShirt ();
+			SetHair ();
+			SetWeapon ();
 		}
 
-		public void Blit(SpriteBatch spriteBatch, Texture2D character, int squareSize, int x, int y) {
-			spriteBatch.Draw(character, new Rectangle(x,y,squareSize,squareSize), UnitBinding.GetTexture(body), Color.White);
+		protected abstract void SetBody();
+		protected abstract void SetPant();
+		protected abstract void SetShirt();
+		protected abstract void SetHair ();
+		protected abstract void SetWeapon ();
 
-			int pantSizeX = 24 * squareSize / 128;
-			int pantSizeY = 104 * squareSize / 128;
-			int pantDx = 80 * squareSize / 128;
-			int pantDy = 24 * squareSize / 128;
-			spriteBatch.Draw(character, new Rectangle(x+pantSizeX, y+pantSizeY, pantDx, pantDy), UnitBinding.GetTexture(pant), Color.White);
+		public void Blit(SpriteBatch spriteBatch, Texture2D character, int squareSize, int x, int y) {
+			string[] parts = {body,pant,shirt,hair,weapon};
+			foreach (string part in parts) {
+				spriteBatch.Draw(character, new Rectangle(x,y,squareSize,squareSize), UnitBinding.GetTexture(part), Color.White);
+			}
 		}
 	}
 }

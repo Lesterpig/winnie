@@ -55,7 +55,7 @@ namespace MGUI
 			this.IsMouseVisible = true;
 			camera = new Camera(graphics.GraphicsDevice);
 			camera.MaximumZoom = 2f;
-			camera.MinimumZoom = 0.7f;
+			camera.MinimumZoom = 0.5f;
 
 			ms = new MapShow (this);
 			us = new UnitShow (this);

@@ -8,7 +8,7 @@ namespace Linux
 	{
 		public static void Main (string[] args)
 		{
-			int seed = 1341;
+			int seed = 0;
 
 			Console.WriteLine ("Launch MonoGame !");
 			var p1 = new Player("Player A", Human.Instance);
