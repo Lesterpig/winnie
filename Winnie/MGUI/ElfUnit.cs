@@ -17,7 +17,7 @@ namespace MGUI
 
 		protected void SetPant() {
 			string[] pants = {"BlackPant", "BrownPant", "WhitePant", "YellowPant", "RedPant", "BluePant", "PurplePant", "GreenPant"};
-			pant = pants [rnd.Next (0, 1)];
+			pant = pants [rnd.Next (0, 8)];
 		}
 	}
 }

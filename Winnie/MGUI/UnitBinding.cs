@@ -25,6 +25,13 @@ namespace MGUI
 			 * PANTS
 			 */
 			{"BlackPant", new Rectangle(440, 104, 80, 24)},
+			{"BrownPant", new Rectangle(440, 240, 80, 24)},
+			{"WhitePant", new Rectangle(440, 376, 80, 24)},
+			{"YellowPant", new Rectangle(440, 512, 80, 24)},
+			{"RedPant", new Rectangle(440, 648, 80, 24)},
+			{"BluePant", new Rectangle(440,784, 80, 24)},
+			{"PurplePant", new Rectangle(440, 920, 80, 24)},
+			{"GreenPant", new Rectangle(440, 1056, 80, 24)},
 
 		};
 
