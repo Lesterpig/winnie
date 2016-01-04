@@ -51,5 +51,8 @@
         <Label x:Name="mapLabel" Content="{Binding MapLabel}" HorizontalAlignment="Left" Margin="442,341,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square" FontWeight="Bold"/>
         <CheckBox x:Name="checkBox" Content="Cheat mode enabled" HorizontalAlignment="Left" Margin="281,399,0,0" VerticalAlignment="Top" Foreground="White" ToolTip="Enables &quot;undo&quot; actions ingame" FontFamily="/Windows;component/Media/#KenPixel Mini Square" IsChecked="{Binding CheatMode}"/>
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="115" Height="37" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
+        <Button x:Name="importButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="39" Height="37" FontSize="13.333" FontWeight="Bold" Margin="10,0,644.6,10" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Background="#FFDDDDDD" Click="import_Click">
+            <Image Source="Media/import.png" ToolTip="Import saved game" />
+        </Button>
     </Grid>
 </Window>

@@ -33,5 +33,22 @@ namespace Windows
             MainWindowViewModel vm = (MainWindowViewModel)this.DataContext;
             vm.SelectRace(index);
         }
+
+        private void import_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Multiselect = false;
+            dlg.Title = "Import a saved game";
+            dlg.DefaultExt = ".sw";
+            dlg.Filter = "Small World Files (*.sw)|*.sw|All Files|*.*";
+
+            Nullable<bool> result = dlg.ShowDialog();
+   
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                System.Console.WriteLine(filename);
+            }
+        }
     }
 }
