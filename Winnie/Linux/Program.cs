@@ -1,5 +1,6 @@
 ﻿using System;
 using MGUI;
+using Core;
 
 namespace Linux
 {
@@ -7,8 +8,13 @@ namespace Linux
 	{
 		public static void Main (string[] args)
 		{
+			int seed = 1341;
+
 			Console.WriteLine ("Launch MonoGame !");
-			GameCreator.New ();
+			var p1 = new Player("Player A", Human.Instance);
+			var p2 = new Player("Player B", Elf.Instance);
+			var GameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true, seed);
+			GameCreator.New (GameModel, seed);
 		}
 	}
 }
