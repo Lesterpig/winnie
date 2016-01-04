@@ -17,8 +17,9 @@ namespace MGUI
 	/// </summary>
 	public class Game1 : Microsoft.Xna.Framework.Game
 	{
-		public SpriteBatch MapBatch { get; private set; }
+		public SpriteBatch WorldBatch { get; private set; }
 		public Texture2D Map { get; private set;}
+		public Texture2D Character { get; private set;}
 		public Core.Game GameModel { get; private set;}
 		public int Seed { get; private set;}
 		public int SquareSize { get; private set;}
@@ -28,6 +29,7 @@ namespace MGUI
 
 		Camera camera;
 		MapShow ms;
+		UnitShow us;
 		GraphicsDeviceManager graphics;
 
 
@@ -58,6 +60,7 @@ namespace MGUI
 			camera.MinimumZoom = 0.7f;
 
 			ms = new MapShow (this);
+			us = new UnitShow (this);
 
 			// TODO: Add your initialization logic here
 			base.Initialize ();
@@ -71,8 +74,10 @@ namespace MGUI
 		protected override void LoadContent ()
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
-			MapBatch = new SpriteBatch (GraphicsDevice);
+			WorldBatch = new SpriteBatch (GraphicsDevice);
 			Map = Content.Load<Texture2D> ("map");
+			Character = Content.Load<Texture2D> ("character");
+
 
 			//TODO: use this.Content to load your game content here 
 		}
@@ -132,9 +137,11 @@ namespace MGUI
 			graphics.GraphicsDevice.Clear (Color.Black);
 
 			//TODO: Add your drawing code here
-			MapBatch.Begin(transformMatrix: camera.GetViewMatrix());
-			ms.BlitMap ();
-			MapBatch.End();
+			WorldBatch.Begin(transformMatrix: camera.GetViewMatrix());
+			//@TODO: Refactor with Observer Pattern
+			ms.Blit ();
+			us.Blit ();
+			WorldBatch.End();
 
 			base.Draw (gameTime);
 		}

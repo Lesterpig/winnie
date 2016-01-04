@@ -52,6 +52,10 @@
     <Compile Include="ForestGenerator.cs" />
     <Compile Include="MapShow.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="UnitBinding.cs" />
+    <Compile Include="UnitShow.cs" />
+    <Compile Include="Unit.cs" />
+    <Compile Include="ElfUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
@@ -66,6 +70,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\map.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\character.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
