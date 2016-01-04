@@ -4,8 +4,8 @@ namespace MGUI
 {
 	public class GameCreator
 	{
-		public static void New() {
-			var game = new Game1 ();
+		public static void New(Core.Game gameModel, int seed) {
+			var game = new Game1 (gameModel, seed);
 			game.Run ();
 		}
 	}

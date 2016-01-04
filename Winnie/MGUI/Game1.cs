@@ -33,8 +33,10 @@ namespace MGUI
 		GraphicsDeviceManager graphics;
 
 
-		public Game1 ()
+		public Game1 (Core.Game g, int seed)
 		{
+			GameModel = g;
+			this.Seed = seed;
 			graphics = new GraphicsDeviceManager (this);
 			Content.RootDirectory = "Content";	            
 			graphics.IsFullScreen = true;		
@@ -48,12 +50,8 @@ namespace MGUI
 		/// </summary>
 		protected override void Initialize ()
 		{
-			Seed = 1341;
 			SquareSize = 64;
 
-			var p1 = new Player("Player A", Human.Instance);
-			var p2 = new Player("Player B", Elf.Instance);
-			GameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true, Seed);
 			this.IsMouseVisible = true;
 			camera = new Camera(graphics.GraphicsDevice);
 			camera.MaximumZoom = 2f;

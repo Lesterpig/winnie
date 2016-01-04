@@ -40,5 +40,9 @@
       <Project>{4519A371-A691-4BFD-98FC-64DF6B779E5D}</Project>
       <Name>MGUI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{B5830874-7DA8-4C00-B2EB-DD3C4889BED9}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
