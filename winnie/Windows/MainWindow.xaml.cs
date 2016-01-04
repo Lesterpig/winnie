@@ -24,5 +24,14 @@ namespace Windows
         {
             InitializeComponent();
         }
+
+        private void race_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            Image im = (Image)sender;
+            int index = Int16.Parse(im.Tag.ToString());
+
+            MainWindowViewModel vm = (MainWindowViewModel)this.DataContext;
+            vm.SelectRace(index);
+        }
     }
 }

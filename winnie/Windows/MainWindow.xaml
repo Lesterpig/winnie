@@ -6,33 +6,50 @@
         xmlns:local="clr-namespace:Windows"
         mc:Ignorable="d"
         Title="Small World" Height="506" Width="700" ResizeMode="NoResize" Foreground="White">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Window.Background>
         <ImageBrush ImageSource="Media/background.png" Stretch="UniformToFill" Opacity="0.4"/>
     </Window.Background>
     <Grid>
         <Label x:Name="title" Content="Small World" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.776,-0.352" FontFamily="/Windows;component/Media/#KenVector Future" FontSize="56" Foreground="White"/>
-        <Grid Height="185" VerticalAlignment="Top" Width="565" Margin="0,100,0,0">
+        <Grid Height="223" VerticalAlignment="Top" Width="565" Margin="64,100,64.6,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="label1" Content="Player A:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
-            <TextBox x:Name="textBox" TextWrapping="Wrap" VerticalAlignment="Top" Margin="114,14,19.4,0" FontSize="18.667" ToolTip="Player's name" Background="#7F000000" Foreground="White" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
-            <Grid Height="80" VerticalAlignment="Bottom" Width="240" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <Label Content="Player A:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
+            <TextBox TextWrapping="Wrap" VerticalAlignment="Top" Margin="114,14,19.4,0" FontSize="18.667" ToolTip="Player's name" Background="#7F000000" Foreground="White" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Text="{Binding PlayerAName}"/>
+            <Grid Height="80" VerticalAlignment="Bottom" Width="240" HorizontalAlignment="Center" Margin="0,0,0,80">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="imageRace1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Cursor="Pen" Focusable="True" Panel.ZIndex="1"/>
-                <Image x:Name="imageRace2" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Grid.Column="1"/>
-                <Image x:Name="imageRace3" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Grid.Column="2"/>
+                <Image Tag="0" MouseUp="race_MouseUp" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Cursor="Hand" Focusable="True" Source="Media/human.png" Opacity="{Binding RacesOpacities[0]}"/>
+                <Image Tag="1" MouseUp="race_MouseUp" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Cursor="Hand" Focusable="True" Grid.Column="1" Source="Media/elf.png" Opacity="{Binding RacesOpacities[1]}"/>
+                <Image Tag="2" MouseUp="race_MouseUp" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Cursor="Hand" Focusable="True" Grid.Column="2" Source="Media/orc.png" Opacity="{Binding RacesOpacities[2]}"/>
             </Grid>
+            <Label Content="{Binding PlayerARaceStr, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="/Windows;component/Media/#KenPixel Mini Square" FontSize="18.667" Foreground="White" Margin="0,0,0,45"/>
+            <Label Content="Player B:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Grid.Column="1"/>
+            <TextBox TextWrapping="Wrap" VerticalAlignment="Top" Margin="114,14,19.4,0" FontSize="18.667" ToolTip="Player's name" Background="#7F000000" Foreground="White" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Grid.Column="1" Text="{Binding PlayerBName}" />
+            <Grid Height="80" VerticalAlignment="Bottom" Width="240" HorizontalAlignment="Center" Margin="0,0,0,80" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image Tag="3" MouseUp="race_MouseUp" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Cursor="Hand" Focusable="True" Source="Media/human.png" Opacity="{Binding RacesOpacities[3]}"/>
+                <Image Tag="4" MouseUp="race_MouseUp" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Cursor="Hand" Focusable="True" Grid.Column="1" Source="Media/elf.png" Opacity="{Binding RacesOpacities[4]}"/>
+                <Image Tag="5" MouseUp="race_MouseUp" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" Cursor="Hand" Focusable="True" Grid.Column="2" Source="Media/orc.png" Opacity="{Binding RacesOpacities[5]}"/>
+            </Grid>
+            <Label Content="{Binding PlayerBRaceStr, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="/Windows;component/Media/#KenPixel Mini Square" FontSize="18.667" Foreground="White" Margin="0,0,0,45" Grid.Column="1"/>
         </Grid>
-        <Slider x:Name="slider" HorizontalAlignment="Center" Margin="3,0,0,100" VerticalAlignment="Bottom" Width="134" RenderTransformOrigin="0.5,0.5" TickPlacement="TopLeft" Maximum="2" IsSnapToTickEnabled="True"/>
-        <Label x:Name="label" Content="Map type:" HorizontalAlignment="Left" Margin="163,341,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
-        <Label x:Name="label_Copy" Content="&lt;TODO&gt;" HorizontalAlignment="Left" Margin="442,341,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontStyle="Italic" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
-        <CheckBox x:Name="checkBox" Content="Cheat mode enabled" HorizontalAlignment="Left" Margin="281,399,0,0" VerticalAlignment="Top" Foreground="White" ToolTip="Enables &quot;undo&quot; actions ingame" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
+        <Slider x:Name="mapSlider" HorizontalAlignment="Center" Margin="3,0,0,100" VerticalAlignment="Bottom" Width="134" RenderTransformOrigin="0.5,0.5" TickPlacement="TopLeft" Maximum="2" IsSnapToTickEnabled="True" Value="{Binding MapType}"/>
+        <Label x:Name="mapIntro" Content="Map size:" HorizontalAlignment="Left" Margin="163,341,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
+        <Label x:Name="mapLabel" Content="{Binding MapLabel}" HorizontalAlignment="Left" Margin="442,341,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square" FontWeight="Bold"/>
+        <CheckBox x:Name="checkBox" Content="Cheat mode enabled" HorizontalAlignment="Left" Margin="281,399,0,0" VerticalAlignment="Top" Foreground="White" ToolTip="Enables &quot;undo&quot; actions ingame" FontFamily="/Windows;component/Media/#KenPixel Mini Square" IsChecked="{Binding CheatMode}"/>
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="115" Height="37" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
     </Grid>
 </Window>

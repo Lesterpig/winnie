@@ -71,13 +71,19 @@ namespace Core
         /// Number of units by player.
         /// </summary>
         /// <value>The unit qty.</value>
-        uint UnitQty { get ; }
+        uint UnitQty { get; }
 
         /// <summary>
         /// Number of turns before automatic game end.
         /// </summary>
         /// <value>The number of turns.</value>
-        uint Turns { get ; }
+        uint Turns { get; }
+
+        /// <summary>
+        /// Human-friendly name of the gametype.
+        /// </summary>
+        /// <value>A readable name.</value>
+        string Name { get; }
     }
 
     /// <summary>
@@ -88,6 +94,7 @@ namespace Core
         public uint Size { get { return 6; } }
         public uint UnitQty { get { return 4; } }
         public uint Turns { get { return 5; } }
+        public string Name { get { return "Demo"; } }
     }
 
     /// <summary>
@@ -98,6 +105,7 @@ namespace Core
         public uint Size { get { return 10; } }
         public uint UnitQty { get { return 6; } }
         public uint Turns { get { return 20; } }
+        public string Name { get { return "Small"; } }
     }
 
     /// <summary>
@@ -108,6 +116,7 @@ namespace Core
         public uint Size { get { return 14; } }
         public uint UnitQty { get { return 8; } }
         public uint Turns { get { return 30; } }
+        public string Name { get { return "Standard"; } }
     }
         
 }
