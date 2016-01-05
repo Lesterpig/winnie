@@ -18,11 +18,26 @@ namespace MGUI
 		protected string shield;
 		protected string weapon;
 
+		public static int Seed { get; set; }
+
+		public static Unit New(Core.Unit u) {
+			Seed++;
+			if (u.Race is Core.Elf)
+				return new ElfUnit (Seed);
+			if (u.Race is Core.Human)
+				return new HumanUnit (Seed);
+			if (u.Race is Core.Orc) {
+				return new OrcUnit (Seed);
+			}
+			return null;
+		}
+
 		public Unit(int seed) {
-			if (seed != 0)
-				this.rnd = new Random (seed);
-			else
-				this.rnd = new Random ();
+			this.rnd = new Random (seed);
+			generateCharacter ();
+		}
+
+		public void generateCharacter() {
 			gender = rnd.Next (0,2);
 			SetBody ();
 			SetPant ();

@@ -1,6 +1,6 @@
 ﻿#region Using Statements
 using System;
-
+using System.Collections.Generic;
 using Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -28,8 +28,7 @@ namespace MGUI
 		private const float controllerMinMovement = 0.2f;
 
 		Camera camera;
-		MapShow ms;
-		UnitShow us;
+		List<Blittable> WorldBlit;
 		GraphicsDeviceManager graphics;
 
 
@@ -57,8 +56,9 @@ namespace MGUI
 			camera.MaximumZoom = 2f;
 			camera.MinimumZoom = 0.5f;
 
-			ms = new MapShow (this);
-			us = new UnitShow (this);
+			WorldBlit = new List<Blittable> ();
+			WorldBlit.Add(new MapShow (this));
+			WorldBlit.Add(new UnitShow (this));
 
 			// TODO: Add your initialization logic here
 			base.Initialize ();
@@ -75,7 +75,6 @@ namespace MGUI
 			WorldBatch = new SpriteBatch (GraphicsDevice);
 			Map = Content.Load<Texture2D> ("map");
 			Character = Content.Load<Texture2D> ("character");
-
 
 			//TODO: use this.Content to load your game content here 
 		}
@@ -136,9 +135,9 @@ namespace MGUI
 
 			//TODO: Add your drawing code here
 			WorldBatch.Begin(transformMatrix: camera.GetViewMatrix());
-			//@TODO: Refactor with Observer Pattern
-			ms.Blit ();
-			us.Blit ();
+			foreach(Blittable b in WorldBlit) {
+				b.Blit ();
+			}
 			WorldBatch.End();
 
 			base.Draw (gameTime);

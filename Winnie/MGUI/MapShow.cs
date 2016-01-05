@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace MGUI
 {
-	public class MapShow
+	public class MapShow : Blittable
 	{
 		Game1 game;
 		ForestGenerator fg;
