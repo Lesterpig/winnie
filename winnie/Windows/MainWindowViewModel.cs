@@ -39,6 +39,15 @@ namespace Windows
             }
         }
 
+        public System.Type MapGameType
+        {
+            get
+            {
+                GameType g = gametypes[(int)MapType];
+                return g.GetType();
+            }
+        }
+
         private double _mapType = 1;
         public double MapType
         {
@@ -70,7 +79,7 @@ namespace Windows
             }
         }
 
-        private Race IntToRace(int i)
+        public Race IntToRace(int i)
         {
             switch(i)
             {

@@ -21,6 +21,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="Player A:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
             <TextBox TextWrapping="Wrap" VerticalAlignment="Top" Margin="114,14,19.4,0" FontSize="18.667" ToolTip="Player's name" Background="#7F000000" Foreground="White" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Text="{Binding PlayerAName}"/>
+            <TextBox TextWrapping="Wrap" VerticalAlignment="Top" Margin="114,14,19.4,0" FontSize="18.667" ToolTip="Player's name" Background="#7F000000" Foreground="White" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Grid.Column="1" Text="{Binding PlayerBName}" />
             <Grid Height="80" VerticalAlignment="Bottom" Width="240" HorizontalAlignment="Center" Margin="0,0,0,80">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -33,7 +34,6 @@
             </Grid>
             <Label Content="{Binding PlayerARaceStr, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="/Windows;component/Media/#KenPixel Mini Square" FontSize="18.667" Foreground="White" Margin="0,0,0,45"/>
             <Label Content="Player B:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Grid.Column="1"/>
-            <TextBox TextWrapping="Wrap" VerticalAlignment="Top" Margin="114,14,19.4,0" FontSize="18.667" ToolTip="Player's name" Background="#7F000000" Foreground="White" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Grid.Column="1" Text="{Binding PlayerBName}" />
             <Grid Height="80" VerticalAlignment="Bottom" Width="240" HorizontalAlignment="Center" Margin="0,0,0,80" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -50,9 +50,9 @@
         <Label x:Name="mapIntro" Content="Map size:" HorizontalAlignment="Left" Margin="163,341,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
         <Label x:Name="mapLabel" Content="{Binding MapLabel}" HorizontalAlignment="Left" Margin="442,341,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18.667" FontFamily="/Windows;component/Media/#KenPixel Mini Square" FontWeight="Bold"/>
         <CheckBox x:Name="checkBox" Content="Cheat mode enabled" HorizontalAlignment="Left" Margin="281,399,0,0" VerticalAlignment="Top" Foreground="White" ToolTip="Enables &quot;undo&quot; actions ingame" FontFamily="/Windows;component/Media/#KenPixel Mini Square" IsChecked="{Binding CheatMode}"/>
-        <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="115" Height="37" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" FontFamily="/Windows;component/Media/#KenPixel Mini Square"/>
         <Button x:Name="importButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="39" Height="37" FontSize="13.333" FontWeight="Bold" Margin="10,0,644.6,10" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Background="#FFDDDDDD" Click="import_Click">
             <Image Source="Media/import.png" ToolTip="Import saved game" />
         </Button>
+        <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="115" Height="37" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Click="start_Click"/>
     </Grid>
 </Window>
