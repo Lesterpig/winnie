@@ -18,22 +18,31 @@ namespace MGUI
 		protected string shield;
 		protected string weapon;
 
-		public static int Seed { get; set; }
+		public int UnitSeed { get; set; }
+		public Core.Unit UnitModel { get; set; }
+
+		public static int GeneratorSeed { get; set; }
 
 		public static Unit New(Core.Unit u) {
-			Seed++;
+
+			Unit gen; 
 			if (u.Race is Core.Elf)
-				return new ElfUnit (Seed);
-			if (u.Race is Core.Human)
-				return new HumanUnit (Seed);
-			if (u.Race is Core.Orc) 
-				return new OrcUnit (Seed);
+				gen = new ElfUnit ();
+			else if (u.Race is Core.Human)
+				gen = new HumanUnit ();
+			else if (u.Race is Core.Orc)
+				gen = new OrcUnit ();
+			else
+				return null;
+
+			gen.UnitSeed = GeneratorSeed++;
+			gen.UnitModel = u;
 			
-			return null;
+			return gen;
 		}
 
-		public Unit(int seed) {
-			this.rnd = new Random (seed);
+		public Unit() {
+			this.rnd = new Random (UnitSeed);
 			generateCharacter ();
 		}
 
@@ -52,10 +61,10 @@ namespace MGUI
 		protected abstract void SetHair ();
 		protected abstract void SetWeapon ();
 
-		public void Blit(SpriteBatch spriteBatch, Texture2D character, int squareSize, int x, int y) {
+		public void Blit(SpriteBatch spriteBatch, Texture2D character, int squareSize) {
 			string[] parts = {body,pant,shirt,hair,weapon};
 			foreach (string part in parts) {
-				spriteBatch.Draw(character, new Rectangle(x,y,squareSize,squareSize), UnitBinding.GetTexture(part), Color.White);
+				spriteBatch.Draw(character, new Rectangle(UnitModel.Tile.Point.x*squareSize*3+squareSize, UnitModel.Tile.Point.y*squareSize*3+squareSize, squareSize, squareSize), UnitBinding.GetTexture(part), Color.White);
 			}
 		}
 	}

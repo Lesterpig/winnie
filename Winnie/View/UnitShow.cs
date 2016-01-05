@@ -13,7 +13,7 @@ namespace MGUI
 		{
 			game = g;
 			listUnits = new List<Unit> ();
-			Unit.Seed = g.Seed;
+			Unit.GeneratorSeed = g.Seed;
 
 			foreach (Core.Player p in game.GameModel.Players) {
 				foreach (Core.Unit u in p.Units) {
@@ -25,11 +25,8 @@ namespace MGUI
 
 		public void Blit()
 		{
-
-			int posX = 0;
 			foreach (Unit elem in listUnits) {
-				posX -= 128;
-				elem.Blit (game.WorldBatch, game.Character, game.SquareSize, posX, 64);
+				elem.Blit (game.WorldBatch, game.Character, game.SquareSize);
 			}
 		}
 	}

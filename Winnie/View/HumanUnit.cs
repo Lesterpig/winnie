@@ -4,8 +4,6 @@ namespace MGUI
 {
 	public class HumanUnit : Unit
 	{
-		public HumanUnit(int seed) : base(seed) {}
-
 		protected override void SetBody() {
 			string[] skins = {"MaleMixedRace", "FemaleMixedRace"};
 			body = skins[gender];

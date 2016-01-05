@@ -4,8 +4,6 @@ namespace MGUI
 {
 	public class OrcUnit : Unit
 	{
-		public OrcUnit(int seed) : base(seed) {}
-
 		protected override void SetBody() {
 			string[] skins = {"MaleOrc", "FemaleOrc"};
 			body = skins[gender];

@@ -4,8 +4,6 @@ namespace MGUI
 {
 	public class ElfUnit : Unit
 	{
-		public ElfUnit(int seed) : base(seed) {}
-
 		protected override void SetBody() {
 			string[] skins = {"MaleCaucasian", "FemaleCaucasian"};
 			body = skins[gender];

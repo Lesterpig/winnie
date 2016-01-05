@@ -64,8 +64,6 @@
     <None Include="Icon.png" />
     <None Include="Content\Content.mgcb" />
     <None Include="packages.config" />
-    <None Include="OpenTK.dll.config" />
-    <None Include="Tao.Sdl.dll.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\map.png">
