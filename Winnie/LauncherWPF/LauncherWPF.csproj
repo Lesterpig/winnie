@@ -101,9 +101,9 @@
       <Project>{b5830874-7da8-4c00-b2eb-dd3c4889bed9}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MGUI\MGUI.csproj">
+    <ProjectReference Include="..\View\ViewWindows.csproj">
       <Project>{4519a371-a691-4bfd-98fc-64df6b779e5d}</Project>
-      <Name>MGUI</Name>
+      <Name>ViewWindows</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
