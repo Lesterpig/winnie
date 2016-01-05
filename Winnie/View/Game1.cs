@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
@@ -26,6 +28,9 @@ namespace MGUI
 
 		private const int cameraAcceleration = 600;
 		private const float controllerMinMovement = 0.2f;
+
+		private List<SoundEffectInstance> soundtracks;
+		private int selectedSong;
 
 		Camera camera;
 		List<Blittable> WorldBlit;
@@ -65,6 +70,11 @@ namespace MGUI
 				
 		}
 
+		protected override void BeginRun()
+		{
+			base.BeginRun();
+		}
+
 		/// <summary>
 		/// LoadContent will be called once per game and is the place to load
 		/// all of your content.
@@ -73,8 +83,17 @@ namespace MGUI
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			WorldBatch = new SpriteBatch (GraphicsDevice);
-			Map = Content.Load<Texture2D> ("map");
-			Character = Content.Load<Texture2D> ("character");
+			Map = Content.Load<Texture2D> ("sprites/map");
+			Character = Content.Load<Texture2D> ("sprites/character");
+
+			soundtracks = new List<SoundEffectInstance> ();
+			soundtracks.Add(Content.Load<SoundEffect> ("soundtracks/soundtrack1").CreateInstance());
+			soundtracks.Add(Content.Load<SoundEffect> ("soundtracks/soundtrack2").CreateInstance());
+			soundtracks.Add(Content.Load<SoundEffect> ("soundtracks/soundtrack3").CreateInstance());
+
+			Random rnd = new Random ();
+			selectedSong = rnd.Next (0, 3);
+
 
 			//TODO: use this.Content to load your game content here 
 		}
@@ -86,6 +105,9 @@ namespace MGUI
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update (GameTime gameTime)
 		{
+			soundtracks[selectedSong].IsLooped = true;
+			soundtracks [selectedSong].Play ();
+
 			var deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
 
 			var gamepadState = GamePad.GetState (PlayerIndex.One);
