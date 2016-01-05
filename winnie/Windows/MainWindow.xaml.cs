@@ -73,8 +73,9 @@ namespace Windows
                 .MakeGenericMethod(VM.MapGameType, typeof(PerlinMap))
                 .Invoke(null, arguments);
 
-            this.Close();
+            this.Hide();
             GameCreator.New(GameModel, seed);
+            this.Show();
         }
     }
 }
