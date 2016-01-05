@@ -26,9 +26,9 @@ namespace MGUI
 				return new ElfUnit (Seed);
 			if (u.Race is Core.Human)
 				return new HumanUnit (Seed);
-			if (u.Race is Core.Orc) {
+			if (u.Race is Core.Orc) 
 				return new OrcUnit (Seed);
-			}
+			
 			return null;
 		}
 
