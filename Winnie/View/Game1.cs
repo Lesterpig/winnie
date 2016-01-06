@@ -23,7 +23,7 @@ namespace MGUI
 		public SpriteBatch MapBatch { get; private set; }
 		public SpriteBatch OverlayBatch { get; private set; }
 		public SpriteBatch CharacterBatch { get; private set; }
-		public SpriteBatch UIBatch { get; private set; }
+		public SpriteBatch HUDBatch { get; private set; }
 
 		public Texture2D Map { get; private set;}
 		public Texture2D Character { get; private set;}
@@ -43,6 +43,7 @@ namespace MGUI
 		MapShow mapShow;
 		UnitShow unitShow;
 		OverlayShow overlayShow;
+        HudShow hudShow;
 
 		public Unit SelectedUnit { get; private set;}
 		public Core.Tile SelectedTile { get; private set; }
@@ -77,6 +78,7 @@ namespace MGUI
 			mapShow = new MapShow (this);
 			unitShow = new UnitShow (this);
 			overlayShow = new OverlayShow (this);
+            hudShow = new HudShow(this);
 
 			SelectedUnit = unitShow.ListUnits[1];
 			SelectedTile = GameModel.Map.Tiles [0];
@@ -104,6 +106,7 @@ namespace MGUI
 			MapBatch = new SpriteBatch (GraphicsDevice);
 			OverlayBatch = new SpriteBatch (GraphicsDevice);
 			CharacterBatch = new SpriteBatch (GraphicsDevice);
+            HUDBatch = new SpriteBatch(GraphicsDevice);
 
 			Map = Content.Load<Texture2D> ("map");
 			Character = Content.Load<Texture2D> ("character");
@@ -209,6 +212,10 @@ namespace MGUI
 			CharacterBatch.Begin (transformMatrix: camera.GetViewMatrix ());
 			unitShow.Blit ();
 			CharacterBatch.End ();
+
+            HUDBatch.Begin();
+            hudShow.Blit();
+            HUDBatch.End();
 
 		}
 	}

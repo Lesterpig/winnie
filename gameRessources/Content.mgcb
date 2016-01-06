@@ -67,3 +67,9 @@
 /processorParam:TextureFormat=Color
 /build:sprites/overlaytile.png
 
+#begin fonts/kenpixel_mini_square.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:fonts/kenpixel_mini_square.spritefont
+

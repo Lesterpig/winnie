@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
+    <Compile Include="HudShow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MapBinding.cs" />
     <Compile Include="ForestGenerator.cs" />
@@ -80,6 +81,9 @@
       <Link>Content\soundtrack3.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\..\gameRessources\bin\fonts\kenpixel_mini_square.xnb">
+      <Link>Content\kenpixel_mini_square.xnb</Link>
+    </None>
     <None Include="Icon.png" />
     <None Include="packages.config" />
   </ItemGroup>
