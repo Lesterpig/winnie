@@ -21,7 +21,7 @@ namespace MGUI
 			if (game.SelectedUnit == null)
 				return;
 
-			var AllPossibilities = game.SelectedUnit.UnitModel.MovePossibilites;
+			var AllPossibilities = game.SelectedUnit.MovePossibilites;
 
 			for (int i = 0; i < game.GameModel.Map.SizeX; i++) {
 				for (int j = 0; j < game.GameModel.Map.SizeY; j++) {

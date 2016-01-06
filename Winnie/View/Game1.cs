@@ -47,7 +47,7 @@ namespace MGUI
 		OverlayShow overlayShow;
         HudShow hudShow;
 
-		public Unit SelectedUnit { get; private set;}
+		public Core.Unit SelectedUnit { get; private set;}
 		public Core.Tile SelectedTile { get; private set; }
 
 		GraphicsDeviceManager graphics;
@@ -60,7 +60,7 @@ namespace MGUI
 			this.Seed = seed;
 			graphics = new GraphicsDeviceManager (this);
 			Content.RootDirectory = "Content";	            
-			graphics.IsFullScreen = false;		
+			graphics.IsFullScreen = true;		
 			Window.AllowUserResizing = true;
 		}
 
@@ -85,7 +85,7 @@ namespace MGUI
 			overlayShow = new OverlayShow (this);
             hudShow = new HudShow(this);
 
-			SelectedUnit = unitShow.ListUnits[1];
+			SelectedUnit = null;
 			SelectedTile = GameModel.Map.Tiles [0];
 
 			// TODO: Add your initialization logic here
@@ -173,6 +173,19 @@ namespace MGUI
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (1, 0));
 				TryToMove (NeighbourgTile);
 			}
+
+			//Move unit
+
+			//Change selected unit
+			if (currentKeyboardState.IsKeyDown (Keys.R) || currentGamepadState.Buttons.B == ButtonState.Pressed) {
+				SelectedUnit = null;
+			}
+			if (currentKeyboardState.IsKeyDown (Keys.E) || currentGamepadState.Buttons.A == ButtonState.Pressed) {
+				if (SelectedTile.Units.Count > 0) {
+					SelectedUnit = SelectedTile.Units.First();
+				}
+			}
+
 
 			//camera.LookAt (new Vector2(SelectedTile.Point.x * 3 * SquareSize, SelectedTile.Point.y * 3 * SquareSize));
 
