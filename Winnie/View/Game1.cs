@@ -51,7 +51,6 @@ namespace MGUI
 		public Core.Unit SelectedUnit { get; private set;}
 		public Core.Tile SelectedTile { get; private set; }
 		public IEnumerator<Core.Unit> EnumeratorUnit { get; private set;}
-		public Core.Player CurrentPlayer { get; private set;}
 
 		GraphicsDeviceManager graphics;
 		KeyboardState oldKeyboardState;
@@ -92,9 +91,8 @@ namespace MGUI
 
 			SelectedUnit = null;
 			SelectedTile = GameModel.Map.Tiles [0];
-			CurrentPlayer = GameModel.Players [0];
 
-			EnumeratorUnit = CurrentPlayer.Units.GetEnumerator ();
+			EnumeratorUnit = GameModel.CurrentPlayer.Units.GetEnumerator ();
 
 			// TODO: Add your initialization logic here
 			base.Initialize ();
@@ -219,7 +217,7 @@ namespace MGUI
 			}
 
             //Action: Next turn
-            if (oldKeyboardState.IsKeyUp(Keys.Enter) && currentKeyboardState.IsKeyDown(Keys.Enter))
+			if (oldKeyboardState.IsKeyUp(Keys.Enter) && currentKeyboardState.IsKeyDown(Keys.Enter) || oldGamepadState.Buttons.LeftShoulder == ButtonState.Released && currentGamepadState.Buttons.LeftShoulder == ButtonState.Pressed)
             {
                 NextTurn();
             }
@@ -306,6 +304,8 @@ namespace MGUI
             try
             {
                 GameModel.NextTurn();
+				EnumeratorUnit = GameModel.CurrentPlayer.Units.GetEnumerator ();
+				SelectedUnit = null;
             }
             catch (Core.Game.EndOfGameException e)
             {
