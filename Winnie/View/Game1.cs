@@ -202,8 +202,11 @@ namespace MGUI
 
 			//Action : Select or move unit
 			if (oldKeyboardState.IsKeyUp(Keys.E) && currentKeyboardState.IsKeyDown (Keys.E) || oldGamepadState.Buttons.A == ButtonState.Released && currentGamepadState.Buttons.A == ButtonState.Pressed) {
-				TryToMoveUnit ();
-				TryToSelectUnit ();
+				if (SelectedUnit != null) {
+					TryToMoveUnit ();
+				} else if (SelectedTile.Units.Count > 0) {
+					TryToSelectUnit ();
+				}
 			}
 
 			if (oldKeyboardState.IsKeyDown(Keys.F) && currentKeyboardState.IsKeyUp(Keys.F) 
@@ -276,23 +279,20 @@ namespace MGUI
 		}
 
 		protected void TryToMoveUnit() {
-			if (SelectedUnit != null) {
-				List<Core.Move> moves;
-				SelectedUnit.MovePossibilites.TryGetValue(SelectedTile, out moves);
-				if (moves != null) {
-					foreach (Move m in moves) {
-						m.Execute ();
-						GameModel.Actions.Push (m); // The stack will have to be managed by the GUI
-					}
-					SelectedTile = SelectedUnit.Tile;
+			List<Core.Move> moves;
+			SelectedUnit.MovePossibilites.TryGetValue(SelectedTile, out moves);
+			if (moves != null) {
+				foreach (Move m in moves) {
+					m.Execute ();
+					GameModel.Actions.Push (m); // The stack will have to be managed by the GUI
 				}
-		}
+				SelectedTile = SelectedUnit.Tile;
+				SelectedUnit = null;
+			}
 		}
 
 		protected void TryToSelectUnit() {
-			if (SelectedTile.Units.Count > 0) {
-				SelectedUnit = SelectedTile.Units.First();
-			}
+			SelectedUnit = SelectedTile.Units.First();
 		}
 		protected void TryToMoveSelectedTile(Core.Tile NeighbourgTile) {
 			if (NeighbourgTile != null) {
