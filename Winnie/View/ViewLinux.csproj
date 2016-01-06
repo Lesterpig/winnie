@@ -76,26 +76,30 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
-    <Folder Include="Content\sprites\" />
-    <Folder Include="Content\soundtracks\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\sprites\character.png">
+    <Content Include="..\..\gameRessources\bin\soundtracks\soundtrack1.xnb">
+      <Link>Content\soundtrack1.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\sprites\map.png">
+    <Content Include="..\..\gameRessources\bin\soundtracks\soundtrack2.xnb">
+      <Link>Content\soundtrack2.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\soundtracks\soundtrack1.wav">
+    <Content Include="..\..\gameRessources\bin\soundtracks\soundtrack3.xnb">
+      <Link>Content\soundtrack3.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\soundtracks\soundtrack3.wav">
+    <Content Include="..\..\gameRessources\bin\sprites\character.xnb">
+      <Link>Content\character.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\soundtracks\soundtrack2.wav">
+    <Content Include="..\..\gameRessources\bin\sprites\map.xnb">
+      <Link>Content\map.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\sprites\overlaytile.png">
+    <Content Include="..\..\gameRessources\bin\sprites\overlaytile.xnb">
+      <Link>Content\overlaytile.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
