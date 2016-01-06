@@ -8,13 +8,16 @@ namespace MGUI
 	public class OverlayShow : Blittable
 	{
 		Game1 game;
+		Color blueColor = new Color (20, 20, 250, 50);
+		Color greenColor = new Color (20, 250, 20, 50);
+
+
 		public OverlayShow (Game1 g)
 		{
 			game = g;
 		}
 
-		public void Blit()
-		{
+		public void BlitMovement() {
 			if (game.SelectedUnit == null)
 				return;
 
@@ -29,12 +32,27 @@ namespace MGUI
 								game.MapOverlay,
 								new Rectangle (i * 3 * game.SquareSize, j * 3 * game.SquareSize, game.SquareSize * 3, game.SquareSize * 3),
 								new Rectangle (0, 0, 128, 128),
-								new Color (20, 20, 255, 100)
+								blueColor
 							);
 						}
 					}
 				}
 			}
+		}
+
+		public void BlitSelectedTile () {
+			game.OverlayBatch.Draw (
+				game.MapOverlay,
+				new Rectangle (game.SelectedTile.Point.x * 3 * game.SquareSize, game.SelectedTile.Point.y * 3 * game.SquareSize, game.SquareSize * 3, game.SquareSize * 3),
+				new Rectangle (0, 0, 128, 128),
+				greenColor
+			);
+		}
+
+		public void Blit()
+		{
+			BlitMovement ();
+			BlitSelectedTile ();
 		}
 	}
 }

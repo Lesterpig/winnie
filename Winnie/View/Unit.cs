@@ -35,18 +35,18 @@ namespace MGUI
 			else
 				return null;
 
-			gen.UnitSeed = GeneratorSeed++;
+			gen.UnitSeed = Unit.GeneratorSeed++;
 			gen.UnitModel = u;
-			
+			gen.generateCharacter ();
+
 			return gen;
 		}
 
 		public Unit() {
-			this.rnd = new Random (UnitSeed);
-			generateCharacter ();
 		}
 
 		public void generateCharacter() {
+			this.rnd = new Random (UnitSeed);
 			gender = rnd.Next (0,2);
 			SetBody ();
 			SetPant ();

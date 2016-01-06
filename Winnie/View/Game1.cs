@@ -45,9 +45,10 @@ namespace MGUI
 		OverlayShow overlayShow;
 
 		public Unit SelectedUnit { get; private set;}
+		public Core.Tile SelectedTile { get; private set; }
 
 		GraphicsDeviceManager graphics;
-
+		KeyboardState oldKeyboardState;
 
 		public Game1 (Core.Game g, int seed)
 		{
@@ -78,6 +79,7 @@ namespace MGUI
 			overlayShow = new OverlayShow (this);
 
 			SelectedUnit = unitShow.ListUnits[1];
+			SelectedTile = GameModel.Map.Tiles [0];
 
 			// TODO: Add your initialization logic here
 			base.Initialize ();
@@ -88,6 +90,7 @@ namespace MGUI
 		{
 			soundtracks[selectedSong].IsLooped = true;
 			soundtracks [selectedSong].Play ();
+			oldKeyboardState = Keyboard.GetState ();
 			base.BeginRun();
 		}
 
@@ -129,28 +132,42 @@ namespace MGUI
 			var deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
 
 			var gamepadState = GamePad.GetState (PlayerIndex.One);
-			var keyboardState = Keyboard.GetState();
+
+			KeyboardState currentKeyboardState = Keyboard.GetState();
 
 			// Camera Movement
-			if (keyboardState.IsKeyDown (Keys.Up) || gamepadState.ThumbSticks.Right.X < -controllerMinMovement)
+			if (currentKeyboardState.IsKeyDown (Keys.Up) || gamepadState.ThumbSticks.Right.X < -controllerMinMovement)
 				camera.MoveUp (deltaTime);
 
-			if (keyboardState.IsKeyDown (Keys.Down) || gamepadState.ThumbSticks.Right.X > controllerMinMovement)
+			if (currentKeyboardState.IsKeyDown (Keys.Down) || gamepadState.ThumbSticks.Right.X > controllerMinMovement)
 				camera.MoveDown (deltaTime);
 
-			if (keyboardState.IsKeyDown (Keys.Left) || gamepadState.ThumbSticks.Right.Y > controllerMinMovement)
+			if (currentKeyboardState.IsKeyDown (Keys.Left) || gamepadState.ThumbSticks.Right.Y > controllerMinMovement)
 				camera.MoveLeft (deltaTime);
 
-			if (keyboardState.IsKeyDown (Keys.Right) || gamepadState.ThumbSticks.Right.Y < -controllerMinMovement)
+			if (currentKeyboardState.IsKeyDown (Keys.Right) || gamepadState.ThumbSticks.Right.Y < -controllerMinMovement)
 				camera.MoveRight (deltaTime);
 
 			// Camera Zoom
-			if (keyboardState.IsKeyDown (Keys.W) || gamepadState.DPad.Up == ButtonState.Pressed)
+			if (currentKeyboardState.IsKeyDown (Keys.Q) || gamepadState.DPad.Up == ButtonState.Pressed)
 				camera.ZoomIn(deltaTime * camera.Zoom);
 
-			if (keyboardState.IsKeyDown (Keys.S) || gamepadState.DPad.Down == ButtonState.Pressed)
+			if (currentKeyboardState.IsKeyDown (Keys.Z) || gamepadState.DPad.Down == ButtonState.Pressed)
 				camera.ZoomOut(deltaTime * camera.Zoom);
-				
+
+			//SelectedTile
+			if (oldKeyboardState.IsKeyUp(Keys.W) && currentKeyboardState.IsKeyDown (Keys.W) || gamepadState.DPad.Up == ButtonState.Pressed)
+				SelectedTile = SelectedTile.GetNeighbor (new Tile.Diff(0,-1));
+
+			if (oldKeyboardState.IsKeyUp(Keys.S) && currentKeyboardState.IsKeyDown(Keys.S) || gamepadState.DPad.Down == ButtonState.Pressed)
+				SelectedTile = SelectedTile.GetNeighbor (new Tile.Diff(0,1));
+
+			if (oldKeyboardState.IsKeyUp(Keys.A) && currentKeyboardState.IsKeyDown (Keys.A) || gamepadState.DPad.Up == ButtonState.Pressed)
+				SelectedTile = SelectedTile.GetNeighbor (new Tile.Diff(-1,0));
+
+			if (oldKeyboardState.IsKeyUp(Keys.D) && currentKeyboardState.IsKeyDown(Keys.D) || gamepadState.DPad.Down == ButtonState.Pressed)
+				SelectedTile = SelectedTile.GetNeighbor (new Tile.Diff(1,0));
+
 			// For Mobile devices, this logic will close the Game when the Back button is pressed
 			// Exit() is obsolete on iOS
 			#if !__IOS__
@@ -160,6 +177,7 @@ namespace MGUI
 			}
 			#endif
 
+			oldKeyboardState = currentKeyboardState;
 
 			// TODO: Add your update logic here			
 			base.Update (gameTime);
