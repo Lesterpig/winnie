@@ -1,6 +1,7 @@
 ﻿#region Using Statements
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -39,9 +40,11 @@ namespace MGUI
 
 		Camera camera;
 
-		Blittable mapShow;
-		Blittable unitShow;
-		Blittable overlayShow;
+		MapShow mapShow;
+		UnitShow unitShow;
+		OverlayShow overlayShow;
+
+		public Unit SelectedUnit { get; private set;}
 
 		GraphicsDeviceManager graphics;
 
@@ -73,6 +76,8 @@ namespace MGUI
 			mapShow = new MapShow (this);
 			unitShow = new UnitShow (this);
 			overlayShow = new OverlayShow (this);
+
+			SelectedUnit = unitShow.ListUnits[1];
 
 			// TODO: Add your initialization logic here
 			base.Initialize ();

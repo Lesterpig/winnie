@@ -7,25 +7,24 @@ namespace MGUI
 	public class UnitShow : Blittable
 	{
 		Game1 game;
-		List<Unit> listUnits;
+		public List<Unit> ListUnits { get; private set;}
 
 		public UnitShow (Game1 g)
 		{
 			game = g;
-			listUnits = new List<Unit> ();
+			ListUnits = new List<Unit> ();
 			Unit.GeneratorSeed = g.Seed;
 
 			foreach (Core.Player p in game.GameModel.Players) {
 				foreach (Core.Unit u in p.Units) {
-					listUnits.Add (Unit.New(u));
+					ListUnits.Add (Unit.New(u));
 				}
 			}
-
 		}
 
 		public void Blit()
 		{
-			foreach (Unit elem in listUnits) {
+			foreach (Unit elem in ListUnits) {
 				elem.Blit (game.CharacterBatch, game.Character, game.SquareSize);
 			}
 		}
