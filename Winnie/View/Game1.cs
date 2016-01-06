@@ -198,12 +198,12 @@ namespace MGUI
 			//Move unit
 
 			//Unselect Unit
-			if (currentKeyboardState.IsKeyDown (Keys.R) || currentGamepadState.Buttons.B == ButtonState.Pressed) {
+			if (oldKeyboardState.IsKeyUp(Keys.R) && currentKeyboardState.IsKeyDown (Keys.R) || oldGamepadState.Buttons.B == ButtonState.Released && currentGamepadState.Buttons.B == ButtonState.Pressed) {
 				SelectedUnit = null;
 			}
 
 			//Action : Select or move unit
-			if (currentKeyboardState.IsKeyDown (Keys.E) || currentGamepadState.Buttons.A == ButtonState.Pressed) {
+			if (oldKeyboardState.IsKeyUp(Keys.E) && currentKeyboardState.IsKeyDown (Keys.E) || oldGamepadState.Buttons.A == ButtonState.Released && currentGamepadState.Buttons.A == ButtonState.Pressed) {
 				TryToMoveUnit ();
 				TryToSelectUnit ();
 			}
