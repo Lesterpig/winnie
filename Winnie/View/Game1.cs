@@ -52,7 +52,7 @@ namespace MGUI
 			this.Seed = seed;
 			graphics = new GraphicsDeviceManager (this);
 			Content.RootDirectory = "Content";	            
-			graphics.IsFullScreen = true;		
+			graphics.IsFullScreen = false;		
 		}
 
 		/// <summary>
@@ -97,14 +97,14 @@ namespace MGUI
 			OverlayBatch = new SpriteBatch (GraphicsDevice);
 			CharacterBatch = new SpriteBatch (GraphicsDevice);
 
-			Map = Content.Load<Texture2D> ("sprites/map");
-			Character = Content.Load<Texture2D> ("sprites/character");
-			MapOverlay = Content.Load<Texture2D> ("sprites/overlaytile");
+			Map = Content.Load<Texture2D> ("map");
+			Character = Content.Load<Texture2D> ("character");
+			MapOverlay = Content.Load<Texture2D> ("overlaytile");
 
 			soundtracks = new List<SoundEffectInstance> ();
-			soundtracks.Add(Content.Load<SoundEffect> ("soundtracks/soundtrack1").CreateInstance());
-			soundtracks.Add(Content.Load<SoundEffect> ("soundtracks/soundtrack2").CreateInstance());
-			soundtracks.Add(Content.Load<SoundEffect> ("soundtracks/soundtrack3").CreateInstance());
+			soundtracks.Add(Content.Load<SoundEffect> ("soundtrack1").CreateInstance());
+			soundtracks.Add(Content.Load<SoundEffect> ("soundtrack2").CreateInstance());
+			soundtracks.Add(Content.Load<SoundEffect> ("soundtrack3").CreateInstance());
 
 			Random rnd = new Random ();
 			selectedSong = rnd.Next (0, 3);

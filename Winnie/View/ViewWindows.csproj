@@ -56,6 +56,30 @@
     <Compile Include="OverlayShow.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\gameRessources\bin\sprites\character.xnb">
+      <Link>Content\character.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\gameRessources\bin\sprites\map.xnb">
+      <Link>Content\map.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\gameRessources\bin\sprites\overlaytile.xnb">
+      <Link>Content\overlaytile.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\gameRessources\bin\soundtracks\soundtrack1.xnb">
+      <Link>Content\soundtrack1.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\gameRessources\bin\soundtracks\soundtrack2.xnb">
+      <Link>Content\soundtrack2.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\gameRessources\bin\soundtracks\soundtrack3.xnb">
+      <Link>Content\soundtrack3.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Icon.png" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -66,29 +90,5 @@
       <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\" />
-    <Folder Include="Content\soundtracks\" />
-    <Folder Include="Content\sprites\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\soundtracks\soundtrack1.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\soundtracks\soundtrack2.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\soundtracks\soundtrack3.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\sprites\character.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\sprites\map.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\sprites\overlaytile.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+  <ItemGroup />
 </Project>
