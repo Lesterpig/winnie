@@ -1,6 +1,7 @@
 ﻿using System;
 using Core;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace MGUI
 {
@@ -66,7 +67,7 @@ namespace MGUI
 		private void BlitTiles(int i, int j) {
 			for (int dx = 0; dx < 3; dx++) {
 				for (int dy = 0; dy < 3; dy++) {
-					game.WorldBatch.Draw (
+					game.MapBatch.Draw (
 						game.Map, 
 						new Rectangle ((i * 3 + dx) * game.SquareSize, (j * 3 + dy) * game.SquareSize, game.SquareSize, game.SquareSize), 
 						TileToTexture (i, j, dx, dy), 
@@ -78,7 +79,7 @@ namespace MGUI
 
 		private void BlitForest(int i, int j) {
 			if (game.GameModel.Map.getTile (i, j).TileType is ForestTileType) {
-				fg.BlitRandomForest (game.WorldBatch, game.Map, i, j);
+				fg.BlitRandomForest (game.MapBatch, game.Map, i, j);
 			}
 		}
 

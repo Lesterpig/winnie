@@ -26,7 +26,7 @@ namespace MGUI
 		public void Blit()
 		{
 			foreach (Unit elem in listUnits) {
-				elem.Blit (game.WorldBatch, game.Character, game.SquareSize);
+				elem.Blit (game.CharacterBatch, game.Character, game.SquareSize);
 			}
 		}
 	}

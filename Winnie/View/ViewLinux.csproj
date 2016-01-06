@@ -59,6 +59,7 @@
     <Compile Include="OrcUnit.cs" />
     <Compile Include="HumanUnit.cs" />
     <Compile Include="Blittable.cs" />
+    <Compile Include="OverlayShow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
@@ -92,6 +93,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\soundtracks\soundtrack2.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\sprites\overlaytile.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -19,9 +19,14 @@ namespace MGUI
 	/// </summary>
 	public class Game1 : Microsoft.Xna.Framework.Game
 	{
-		public SpriteBatch WorldBatch { get; private set; }
+		public SpriteBatch MapBatch { get; private set; }
+		public SpriteBatch OverlayBatch { get; private set; }
+		public SpriteBatch CharacterBatch { get; private set; }
+		public SpriteBatch UIBatch { get; private set; }
+
 		public Texture2D Map { get; private set;}
 		public Texture2D Character { get; private set;}
+		public Texture2D MapOverlay { get; private set; }
 		public Core.Game GameModel { get; private set;}
 		public int Seed { get; private set;}
 		public int SquareSize { get; private set;}
@@ -33,7 +38,11 @@ namespace MGUI
 		private int selectedSong;
 
 		Camera camera;
-		List<Blittable> WorldBlit;
+
+		Blittable mapShow;
+		Blittable unitShow;
+		Blittable overlayShow;
+
 		GraphicsDeviceManager graphics;
 
 
@@ -61,9 +70,9 @@ namespace MGUI
 			camera.MaximumZoom = 2f;
 			camera.MinimumZoom = 0.5f;
 
-			WorldBlit = new List<Blittable> ();
-			WorldBlit.Add(new MapShow (this));
-			WorldBlit.Add(new UnitShow (this));
+			mapShow = new MapShow (this);
+			unitShow = new UnitShow (this);
+			overlayShow = new OverlayShow (this);
 
 			// TODO: Add your initialization logic here
 			base.Initialize ();
@@ -84,9 +93,13 @@ namespace MGUI
 		protected override void LoadContent ()
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
-			WorldBatch = new SpriteBatch (GraphicsDevice);
+			MapBatch = new SpriteBatch (GraphicsDevice);
+			OverlayBatch = new SpriteBatch (GraphicsDevice);
+			CharacterBatch = new SpriteBatch (GraphicsDevice);
+
 			Map = Content.Load<Texture2D> ("sprites/map");
 			Character = Content.Load<Texture2D> ("sprites/character");
+			MapOverlay = Content.Load<Texture2D> ("sprites/overlaytile");
 
 			soundtracks = new List<SoundEffectInstance> ();
 			soundtracks.Add(Content.Load<SoundEffect> ("soundtracks/soundtrack1").CreateInstance());
@@ -153,16 +166,27 @@ namespace MGUI
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw (GameTime gameTime)
 		{
-			graphics.GraphicsDevice.Clear (Color.Black);
-
-			//TODO: Add your drawing code here
-			WorldBatch.Begin(transformMatrix: camera.GetViewMatrix());
-			foreach(Blittable b in WorldBlit) {
-				b.Blit ();
-			}
-			WorldBatch.End();
+			DrawGame ();
 
 			base.Draw (gameTime);
+		}
+
+		protected void DrawGame() 
+		{
+			graphics.GraphicsDevice.Clear (Color.Black);
+
+			MapBatch.Begin(transformMatrix: camera.GetViewMatrix());
+			mapShow.Blit ();
+			MapBatch.End ();
+
+			OverlayBatch.Begin (transformMatrix: camera.GetViewMatrix ());
+			overlayShow.Blit ();
+			OverlayBatch.End ();
+
+			CharacterBatch.Begin (transformMatrix: camera.GetViewMatrix ());
+			unitShow.Blit ();
+			CharacterBatch.End ();
+
 		}
 	}
 }
