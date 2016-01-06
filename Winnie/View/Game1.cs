@@ -72,6 +72,8 @@ namespace MGUI
 
 		protected override void BeginRun()
 		{
+			soundtracks[selectedSong].IsLooped = true;
+			soundtracks [selectedSong].Play ();
 			base.BeginRun();
 		}
 
@@ -105,8 +107,6 @@ namespace MGUI
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update (GameTime gameTime)
 		{
-			soundtracks[selectedSong].IsLooped = true;
-			soundtracks [selectedSong].Play ();
 
 			var deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
 
