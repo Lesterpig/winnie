@@ -176,22 +176,22 @@ namespace MGUI
 
 			if (oldKeyboardState.IsKeyUp (Keys.W) && currentKeyboardState.IsKeyDown (Keys.W) || oldStick.Y > -controllerMinMovement && currentStick.Y < -controllerMinMovement) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (0, -1));
-				TryToMove (NeighbourgTile);
+				TryToMoveSelectedTile (NeighbourgTile);
 			}
 
 			if (oldKeyboardState.IsKeyUp (Keys.S) && currentKeyboardState.IsKeyDown (Keys.S) || oldStick.Y < controllerMinMovement && currentStick.Y > controllerMinMovement) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (0, 1));
-				TryToMove (NeighbourgTile);
+				TryToMoveSelectedTile (NeighbourgTile);
 			}
 
 			if (oldKeyboardState.IsKeyUp (Keys.A) && currentKeyboardState.IsKeyDown (Keys.A) || oldStick.X > -controllerMinMovement && currentStick.X < -controllerMinMovement) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (-1, 0));
-				TryToMove (NeighbourgTile);
+				TryToMoveSelectedTile (NeighbourgTile);
 			}
 
 			if (oldKeyboardState.IsKeyUp (Keys.D) && currentKeyboardState.IsKeyDown (Keys.D) || oldStick.X < controllerMinMovement && currentStick.X > controllerMinMovement) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (1, 0));
-				TryToMove (NeighbourgTile);
+				TryToMoveSelectedTile (NeighbourgTile);
 			}
 
 			//Move unit
@@ -203,12 +203,8 @@ namespace MGUI
 
 			//Action : Select or move unit
 			if (currentKeyboardState.IsKeyDown (Keys.E) || currentGamepadState.Buttons.A == ButtonState.Pressed) {
-				if (SelectedUnit != null) {
-					SelectedUnit.Move (SelectedTile);
-				}
-				if (SelectedTile.Units.Count > 0) {
-					SelectedUnit = SelectedTile.Units.First();
-				}
+				TryToMoveUnit ();
+				TryToSelectUnit ();
 			}
 
 			if (oldKeyboardState.IsKeyDown(Keys.F) && currentKeyboardState.IsKeyUp(Keys.F) 
@@ -274,12 +270,30 @@ namespace MGUI
 
 		}
 
-		protected void TryToMove(Core.Tile NeighbourgTile) {
+		protected void TryToMoveUnit() {
+			if (SelectedUnit != null) {
+				List<Core.Move> moves;
+				SelectedUnit.MovePossibilites.TryGetValue(SelectedTile, out moves);
+				if (moves != null) {
+					foreach (Move m in moves) {
+						m.Execute ();
+						GameModel.Actions.Push (m); // The stack will have to be managed by the GUI
+					}
+					SelectedTile = SelectedUnit.Tile;
+				}
+			}
+		}
+
+		protected void TryToSelectUnit() {
+			if (SelectedTile.Units.Count > 0) {
+				SelectedUnit = SelectedTile.Units.First();
+			}
+		}
+		protected void TryToMoveSelectedTile(Core.Tile NeighbourgTile) {
 			if (NeighbourgTile != null) {
 				SelectedTile = NeighbourgTile;
 			}
 		}
-
 	}
 }
 
