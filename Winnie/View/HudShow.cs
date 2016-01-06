@@ -26,13 +26,9 @@ namespace MGUI
         public HudShow(Game1 g)
         {
             game = g;
-
-            var bounds = g.Window.ClientBounds;
-            sizeX = bounds.Right;
-            sizeY = bounds.Bottom;
-
             scores = new List<int>();
             RefreshDataCache();
+            RefreshWindowBounds();
         }
 
         /// <summary>
@@ -47,8 +43,16 @@ namespace MGUI
             }
         }
 
+        public void RefreshWindowBounds()
+        {
+            var bounds = game.Window.ClientBounds;
+            sizeX = bounds.Right;
+            sizeY = bounds.Bottom;
+        }
+
         public void Blit()
         {
+            RefreshWindowBounds();
             drawScores();
             drawRounds();
         }

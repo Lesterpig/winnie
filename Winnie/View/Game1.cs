@@ -65,15 +65,15 @@ namespace MGUI
 			Content.RootDirectory = "Content";	            
 			graphics.IsFullScreen = false;		
 			Window.AllowUserResizing = true;
-		}
+        }
 
-		/// <summary>
-		/// Allows the game to perform any initialization it needs to before starting to run.
-		/// This is where it can query for any required services and load any non-graphic
-		/// related content.  Calling base.Initialize will enumerate through any components
-		/// and initialize them as well.
-		/// </summary>
-		protected override void Initialize ()
+        /// <summary>
+        /// Allows the game to perform any initialization it needs to before starting to run.
+        /// This is where it can query for any required services and load any non-graphic
+        /// related content.  Calling base.Initialize will enumerate through any components
+        /// and initialize them as well.
+        /// </summary>
+        protected override void Initialize ()
 		{
 			SquareSize = 64;
 			TileSize = SquareSize * 3;
@@ -157,8 +157,7 @@ namespace MGUI
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update (GameTime gameTime)
 		{
-
-			var deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
+            var deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
 
 			GamePadState currentGamepadState = GamePad.GetState (PlayerIndex.One);
 			KeyboardState currentKeyboardState = Keyboard.GetState();
@@ -221,7 +220,13 @@ namespace MGUI
 				SelectedTile = SelectedUnit.Tile;
 			}
 
-			Vector2 TriggerMove = new Vector2 (TileSize, TileSize);
+            //Action: Next turn
+            if (oldKeyboardState.IsKeyUp(Keys.Enter) && currentKeyboardState.IsKeyDown(Keys.Enter))
+            {
+                NextTurn();
+            }
+
+            Vector2 TriggerMove = new Vector2 (TileSize, TileSize);
 			Vector2 StepMove = new Vector2 (TileSize, TileSize);
 			camera.Adjust (mapShow.MapToScreen (SelectedTile.Point), TriggerMove, StepMove);
 
@@ -239,7 +244,7 @@ namespace MGUI
 
 			// TODO: Add your update logic here			
 			base.Update (gameTime);
-		}
+        }
 
 		/// <summary>
 		/// This is called when the game should draw itself.
@@ -279,6 +284,20 @@ namespace MGUI
 				SelectedTile = NeighbourgTile;
 			}
 		}
+
+        protected void NextTurn()
+        {
+            try
+            {
+                GameModel.NextTurn();
+            }
+            catch (Core.Game.EndOfGameException e)
+            {
+                // TODO handle end of game
+                this.Exit();
+            }
+            hudShow.RefreshDataCache();
+        }
 
 	}
 }
