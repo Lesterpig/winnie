@@ -138,12 +138,24 @@ namespace MGUI
 			//TODO: use this.Content to load your game content here 
 		}
 
-		/// <summary>
-		/// Allows the game to run logic such as updating the world,
-		/// checking for collisions, gathering input, and playing audio.
-		/// </summary>
-		/// <param name="gameTime">Provides a snapshot of timing values.</param>
-		protected override void Update (GameTime gameTime)
+        protected override void UnloadContent()
+        {
+            base.UnloadContent();
+
+            foreach (SoundEffectInstance s in soundtracks)
+            {
+                s.Dispose();
+            }
+
+            Content.Unload();
+        }
+
+        /// <summary>
+        /// Allows the game to run logic such as updating the world,
+        /// checking for collisions, gathering input, and playing audio.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        protected override void Update (GameTime gameTime)
 		{
 
 			var deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
@@ -263,6 +275,7 @@ namespace MGUI
 				SelectedTile = NeighbourgTile;
 			}
 		}
+
 	}
 }
 
