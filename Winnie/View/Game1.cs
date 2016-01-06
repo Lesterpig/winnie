@@ -63,7 +63,7 @@ namespace MGUI
 			this.Seed = seed;
 			graphics = new GraphicsDeviceManager (this);
 			Content.RootDirectory = "Content";	            
-			graphics.IsFullScreen = true;		
+			graphics.IsFullScreen = false;		
 			Window.AllowUserResizing = true;
 		}
 
