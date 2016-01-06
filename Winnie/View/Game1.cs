@@ -196,12 +196,16 @@ namespace MGUI
 
 			//Move unit
 
-			//Change selected unit
+			//Unselect Unit
 			if (currentKeyboardState.IsKeyDown (Keys.R) || currentGamepadState.Buttons.B == ButtonState.Pressed) {
 				SelectedUnit = null;
 			}
 
+			//Action : Select or move unit
 			if (currentKeyboardState.IsKeyDown (Keys.E) || currentGamepadState.Buttons.A == ButtonState.Pressed) {
+				if (SelectedUnit != null) {
+					SelectedUnit.Move (SelectedTile);
+				}
 				if (SelectedTile.Units.Count > 0) {
 					SelectedUnit = SelectedTile.Units.First();
 				}
