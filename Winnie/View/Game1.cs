@@ -49,6 +49,8 @@ namespace MGUI
 
 		public Core.Unit SelectedUnit { get; private set;}
 		public Core.Tile SelectedTile { get; private set; }
+		public IEnumerator<Core.Unit> EnumeratorUnit { get; private set;}
+		public Core.Player CurrentPlayer { get; private set;}
 
 		GraphicsDeviceManager graphics;
 		KeyboardState oldKeyboardState;
@@ -87,6 +89,9 @@ namespace MGUI
 
 			SelectedUnit = null;
 			SelectedTile = GameModel.Map.Tiles [0];
+			CurrentPlayer = GameModel.Players [0];
+
+			EnumeratorUnit = CurrentPlayer.Units.GetEnumerator ();
 
 			// TODO: Add your initialization logic here
 			base.Initialize ();
@@ -180,14 +185,26 @@ namespace MGUI
 			if (currentKeyboardState.IsKeyDown (Keys.R) || currentGamepadState.Buttons.B == ButtonState.Pressed) {
 				SelectedUnit = null;
 			}
+
 			if (currentKeyboardState.IsKeyDown (Keys.E) || currentGamepadState.Buttons.A == ButtonState.Pressed) {
 				if (SelectedTile.Units.Count > 0) {
 					SelectedUnit = SelectedTile.Units.First();
 				}
 			}
 
+			if (oldKeyboardState.IsKeyDown(Keys.F) && currentKeyboardState.IsKeyUp(Keys.F) 
+				|| oldGamepadState.Buttons.RightShoulder == ButtonState.Released && currentGamepadState.Buttons.RightShoulder == ButtonState.Pressed) {
+				if (!EnumeratorUnit.MoveNext ()) {
+					EnumeratorUnit.Reset ();
+					EnumeratorUnit.MoveNext ();
+				}
+				SelectedUnit = EnumeratorUnit.Current;
+				SelectedTile = SelectedUnit.Tile;
+			}
 
-			//camera.LookAt (new Vector2(SelectedTile.Point.x * 3 * SquareSize, SelectedTile.Point.y * 3 * SquareSize));
+			Vector2 TriggerMove = new Vector2 (TileSize, TileSize);
+			Vector2 StepMove = new Vector2 (TileSize, TileSize);
+			camera.Adjust (mapShow.MapToScreen (SelectedTile.Point), TriggerMove, StepMove);
 
 			// For Mobile devices, this logic will close the Game when the Back button is pressed
 			// Exit() is obsolete on iOS
@@ -239,11 +256,8 @@ namespace MGUI
 		}
 
 		protected void TryToMove(Core.Tile NeighbourgTile) {
-			Vector2 TriggerMove = new Vector2 (TileSize, TileSize);
-			Vector2 StepMove = new Vector2 (TileSize, TileSize);
 			if (NeighbourgTile != null) {
 				SelectedTile = NeighbourgTile;
-				camera.Adjust (mapShow.MapToScreen (SelectedTile.Point), TriggerMove, StepMove);
 			}
 		}
 	}
