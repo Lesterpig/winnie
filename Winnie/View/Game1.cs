@@ -31,6 +31,8 @@ namespace MGUI
 		public Core.Game GameModel { get; private set;}
 		public int Seed { get; private set;}
 		public int SquareSize { get; private set;}
+		public int TileSize { get; private set;}
+
 
 		private const int cameraAcceleration = 600;
 		private const float controllerMinMovement = 0.2f;
@@ -57,6 +59,7 @@ namespace MGUI
 			graphics = new GraphicsDeviceManager (this);
 			Content.RootDirectory = "Content";	            
 			graphics.IsFullScreen = false;		
+			Window.AllowUserResizing = true;
 		}
 
 		/// <summary>
@@ -68,6 +71,7 @@ namespace MGUI
 		protected override void Initialize ()
 		{
 			SquareSize = 64;
+			TileSize = SquareSize * 3;
 
 			this.IsMouseVisible = true;
 			camera = new Camera(graphics.GraphicsDevice);
@@ -135,19 +139,6 @@ namespace MGUI
 
 			KeyboardState currentKeyboardState = Keyboard.GetState();
 
-			// Camera Movement
-			if (currentKeyboardState.IsKeyDown (Keys.Up) || gamepadState.ThumbSticks.Right.X < -controllerMinMovement)
-				camera.MoveUp (deltaTime);
-
-			if (currentKeyboardState.IsKeyDown (Keys.Down) || gamepadState.ThumbSticks.Right.X > controllerMinMovement)
-				camera.MoveDown (deltaTime);
-
-			if (currentKeyboardState.IsKeyDown (Keys.Left) || gamepadState.ThumbSticks.Right.Y > controllerMinMovement)
-				camera.MoveLeft (deltaTime);
-
-			if (currentKeyboardState.IsKeyDown (Keys.Right) || gamepadState.ThumbSticks.Right.Y < -controllerMinMovement)
-				camera.MoveRight (deltaTime);
-
 			// Camera Zoom
 			if (currentKeyboardState.IsKeyDown (Keys.Q) || gamepadState.DPad.Up == ButtonState.Pressed)
 				camera.ZoomIn(deltaTime * camera.Zoom);
@@ -156,17 +147,28 @@ namespace MGUI
 				camera.ZoomOut(deltaTime * camera.Zoom);
 
 			//SelectedTile
-			if (oldKeyboardState.IsKeyUp(Keys.W) && currentKeyboardState.IsKeyDown (Keys.W) || gamepadState.DPad.Up == ButtonState.Pressed)
-				SelectedTile = SelectedTile.GetNeighbor (new Tile.Diff(0,-1));
 
-			if (oldKeyboardState.IsKeyUp(Keys.S) && currentKeyboardState.IsKeyDown(Keys.S) || gamepadState.DPad.Down == ButtonState.Pressed)
-				SelectedTile = SelectedTile.GetNeighbor (new Tile.Diff(0,1));
+			if (oldKeyboardState.IsKeyUp (Keys.W) && currentKeyboardState.IsKeyDown (Keys.W) || gamepadState.DPad.Up == ButtonState.Pressed) {
+				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (0, -1));
+				TryToMove (NeighbourgTile);
+			}
 
-			if (oldKeyboardState.IsKeyUp(Keys.A) && currentKeyboardState.IsKeyDown (Keys.A) || gamepadState.DPad.Up == ButtonState.Pressed)
-				SelectedTile = SelectedTile.GetNeighbor (new Tile.Diff(-1,0));
+			if (oldKeyboardState.IsKeyUp (Keys.S) && currentKeyboardState.IsKeyDown (Keys.S) || gamepadState.DPad.Down == ButtonState.Pressed) {
+				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (0, 1));
+				TryToMove (NeighbourgTile);
+			}
 
-			if (oldKeyboardState.IsKeyUp(Keys.D) && currentKeyboardState.IsKeyDown(Keys.D) || gamepadState.DPad.Down == ButtonState.Pressed)
-				SelectedTile = SelectedTile.GetNeighbor (new Tile.Diff(1,0));
+			if (oldKeyboardState.IsKeyUp (Keys.A) && currentKeyboardState.IsKeyDown (Keys.A) || gamepadState.DPad.Up == ButtonState.Pressed) {
+				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (-1, 0));
+				TryToMove (NeighbourgTile);
+			}
+
+			if (oldKeyboardState.IsKeyUp (Keys.D) && currentKeyboardState.IsKeyDown (Keys.D) || gamepadState.DPad.Down == ButtonState.Pressed) {
+				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (1, 0));
+				TryToMove (NeighbourgTile);
+			}
+
+			//camera.LookAt (new Vector2(SelectedTile.Point.x * 3 * SquareSize, SelectedTile.Point.y * 3 * SquareSize));
 
 			// For Mobile devices, this logic will close the Game when the Back button is pressed
 			// Exit() is obsolete on iOS
@@ -210,6 +212,15 @@ namespace MGUI
 			unitShow.Blit ();
 			CharacterBatch.End ();
 
+		}
+
+		protected void TryToMove(Core.Tile NeighbourgTile) {
+			Vector2 TriggerMove = new Vector2 (TileSize, TileSize);
+			Vector2 StepMove = new Vector2 (TileSize, TileSize);
+			if (NeighbourgTile != null) {
+				SelectedTile = NeighbourgTile;
+				camera.Adjust (mapShow.MapToScreen (SelectedTile.Point), TriggerMove, StepMove);
+			}
 		}
 	}
 }

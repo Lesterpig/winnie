@@ -83,6 +83,14 @@ namespace MGUI
 			}
 		}
 
+		public Vector2 MapToScreen(Vector2 coord) {
+			return new Vector2 (coord.X * game.TileSize, coord.Y * game.TileSize);
+		}
+
+		public Vector2 MapToScreen(Core.Point coord) {
+			return MapToScreen (new Vector2(coord.x, coord.y));
+		}
+
 		public void Blit() {
 			Initialize ();
 
