@@ -81,9 +81,10 @@
       <Link>Content\soundtrack3.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="..\..\gameRessources\bin\fonts\kenpixel_mini_square.xnb">
+    <Content Include="..\..\gameRessources\bin\fonts\kenpixel_mini_square.xnb">
       <Link>Content\kenpixel_mini_square.xnb</Link>
-    </None>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Icon.png" />
     <None Include="packages.config" />
   </ItemGroup>

@@ -51,8 +51,11 @@ namespace Windows
         {
             int seed = 0;
 
-            var p1 = new Player(VM.PlayerAName, VM.IntToRace(VM.PlayerARace));
-            var p2 = new Player(VM.PlayerBName, VM.IntToRace(VM.PlayerBRace));
+            string a = VM.PlayerAName.Length == 0 ? "Player A" : VM.PlayerAName;
+            string b = VM.PlayerBName.Length == 0 ? "Player B" : VM.PlayerBName;
+
+            var p1 = new Player(a, VM.IntToRace(VM.PlayerARace));
+            var p2 = new Player(b, VM.IntToRace(VM.PlayerBRace));
 
             object[] arguments = { p1, p2, VM.CheatMode, seed };
 

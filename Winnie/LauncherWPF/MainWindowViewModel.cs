@@ -28,6 +28,8 @@ namespace Windows
         {
             PlayerARace = 0;
             PlayerBRace = 1;
+            PlayerAName = "";
+            PlayerBName = "";
         }
 
         public string MapLabel

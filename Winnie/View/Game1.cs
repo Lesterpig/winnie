@@ -28,6 +28,7 @@ namespace MGUI
 		public Texture2D Map { get; private set;}
 		public Texture2D Character { get; private set;}
 		public Texture2D MapOverlay { get; private set; }
+        public SpriteFont MainFont { get; private set; }
 		public Core.Game GameModel { get; private set;}
 		public int Seed { get; private set;}
 		public int SquareSize { get; private set;}
@@ -115,6 +116,8 @@ namespace MGUI
 			Map = Content.Load<Texture2D> ("map");
 			Character = Content.Load<Texture2D> ("character");
 			MapOverlay = Content.Load<Texture2D> ("overlaytile");
+
+            MainFont = Content.Load<SpriteFont>("kenpixel_mini_square");
 
 			soundtracks = new List<SoundEffectInstance> ();
 			soundtracks.Add(Content.Load<SoundEffect> ("soundtrack1").CreateInstance());
