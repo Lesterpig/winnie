@@ -60,6 +60,7 @@
     <Compile Include="HumanUnit.cs" />
     <Compile Include="Blittable.cs" />
     <Compile Include="OverlayShow.cs" />
+    <Compile Include="HudShow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />

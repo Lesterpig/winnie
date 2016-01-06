@@ -48,11 +48,12 @@ namespace MGUI
 		OverlayShow overlayShow;
         HudShow hudShow;
 
-		public Unit SelectedUnit { get; private set;}
+		public Core.Unit SelectedUnit { get; private set;}
 		public Core.Tile SelectedTile { get; private set; }
 
 		GraphicsDeviceManager graphics;
 		KeyboardState oldKeyboardState;
+		GamePadState oldGamepadState;
 
 		public Game1 (Core.Game g, int seed)
 		{
@@ -60,7 +61,7 @@ namespace MGUI
 			this.Seed = seed;
 			graphics = new GraphicsDeviceManager (this);
 			Content.RootDirectory = "Content";	            
-			graphics.IsFullScreen = false;		
+			graphics.IsFullScreen = true;		
 			Window.AllowUserResizing = true;
 		}
 
@@ -85,7 +86,7 @@ namespace MGUI
 			overlayShow = new OverlayShow (this);
             hudShow = new HudShow(this);
 
-			SelectedUnit = unitShow.ListUnits[1];
+			SelectedUnit = null;
 			SelectedTile = GameModel.Map.Tiles [0];
 
 			// TODO: Add your initialization logic here
@@ -98,6 +99,7 @@ namespace MGUI
 			soundtracks[selectedSong].IsLooped = true;
 			soundtracks [selectedSong].Play ();
 			oldKeyboardState = Keyboard.GetState ();
+			oldGamepadState = GamePad.GetState (PlayerIndex.One);
 			base.BeginRun();
 		}
 
@@ -141,38 +143,52 @@ namespace MGUI
 
 			var deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
 
-			var gamepadState = GamePad.GetState (PlayerIndex.One);
-
+			GamePadState currentGamepadState = GamePad.GetState (PlayerIndex.One);
 			KeyboardState currentKeyboardState = Keyboard.GetState();
 
 			// Camera Zoom
-			if (currentKeyboardState.IsKeyDown (Keys.Q) || gamepadState.DPad.Up == ButtonState.Pressed)
+			if (currentKeyboardState.IsKeyDown (Keys.Q) || currentGamepadState.Buttons.X == ButtonState.Pressed)
 				camera.ZoomIn(deltaTime * camera.Zoom);
 
-			if (currentKeyboardState.IsKeyDown (Keys.Z) || gamepadState.DPad.Down == ButtonState.Pressed)
+			if (currentKeyboardState.IsKeyDown (Keys.Z) || currentGamepadState.Buttons.Y == ButtonState.Pressed)
 				camera.ZoomOut(deltaTime * camera.Zoom);
 
 			//SelectedTile
+			Vector2 currentStick = currentGamepadState.ThumbSticks.Left;
+			Vector2 oldStick = oldGamepadState.ThumbSticks.Left;
 
-			if (oldKeyboardState.IsKeyUp (Keys.W) && currentKeyboardState.IsKeyDown (Keys.W) || gamepadState.DPad.Up == ButtonState.Pressed) {
+			if (oldKeyboardState.IsKeyUp (Keys.W) && currentKeyboardState.IsKeyDown (Keys.W) || oldStick.Y > -controllerMinMovement && currentStick.Y < -controllerMinMovement) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (0, -1));
 				TryToMove (NeighbourgTile);
 			}
 
-			if (oldKeyboardState.IsKeyUp (Keys.S) && currentKeyboardState.IsKeyDown (Keys.S) || gamepadState.DPad.Down == ButtonState.Pressed) {
+			if (oldKeyboardState.IsKeyUp (Keys.S) && currentKeyboardState.IsKeyDown (Keys.S) || oldStick.Y < controllerMinMovement && currentStick.Y > controllerMinMovement) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (0, 1));
 				TryToMove (NeighbourgTile);
 			}
 
-			if (oldKeyboardState.IsKeyUp (Keys.A) && currentKeyboardState.IsKeyDown (Keys.A) || gamepadState.DPad.Up == ButtonState.Pressed) {
+			if (oldKeyboardState.IsKeyUp (Keys.A) && currentKeyboardState.IsKeyDown (Keys.A) || oldStick.X > -controllerMinMovement && currentStick.X < -controllerMinMovement) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (-1, 0));
 				TryToMove (NeighbourgTile);
 			}
 
-			if (oldKeyboardState.IsKeyUp (Keys.D) && currentKeyboardState.IsKeyDown (Keys.D) || gamepadState.DPad.Down == ButtonState.Pressed) {
+			if (oldKeyboardState.IsKeyUp (Keys.D) && currentKeyboardState.IsKeyDown (Keys.D) || oldStick.X < controllerMinMovement && currentStick.X > controllerMinMovement) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (1, 0));
 				TryToMove (NeighbourgTile);
 			}
+
+			//Move unit
+
+			//Change selected unit
+			if (currentKeyboardState.IsKeyDown (Keys.R) || currentGamepadState.Buttons.B == ButtonState.Pressed) {
+				SelectedUnit = null;
+			}
+			if (currentKeyboardState.IsKeyDown (Keys.E) || currentGamepadState.Buttons.A == ButtonState.Pressed) {
+				if (SelectedTile.Units.Count > 0) {
+					SelectedUnit = SelectedTile.Units.First();
+				}
+			}
+
 
 			//camera.LookAt (new Vector2(SelectedTile.Point.x * 3 * SquareSize, SelectedTile.Point.y * 3 * SquareSize));
 
@@ -186,6 +202,7 @@ namespace MGUI
 			#endif
 
 			oldKeyboardState = currentKeyboardState;
+			oldGamepadState = currentGamepadState;
 
 			// TODO: Add your update logic here			
 			base.Update (gameTime);
