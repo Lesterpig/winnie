@@ -324,7 +324,7 @@ namespace MGUI
 		protected void TryToSelectUnit() {
 			if (SelectedTile.Units.Count <= 0)
 				return;
-			SelectedUnit = SelectedTile.Units.First();
+			SelectedUnit = SelectedTile.Units.Where(unit => unit.Player == GameModel.CurrentPlayer).FirstOrDefault();
 		}
 		protected void TryToMoveSelectedTile(Core.Tile NeighbourgTile) {
 			if (NeighbourgTile != null) {
