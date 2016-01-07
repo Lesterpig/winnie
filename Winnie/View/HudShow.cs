@@ -74,20 +74,27 @@ namespace MGUI
         {
             RefreshWindowBounds();
             blitScores();
-            blitRounds();
-            blitNotification();
 
-            if (game.SelectedUnit != null)
+            if (!gameEnded)
             {
-                blitUnitInfo();
+                blitRounds();
+                blitNotification();
+                if (game.SelectedUnit != null)
+                {
+                    blitUnitInfo();
+                }
+            }
+            else
+            {
+                blitEndInfo();
             }
         }
 
-        private void blitScores()
+        void blitScores()
         {
             for (int i = 0, y = 10; i < game.GameModel.Players.Length; i++, y += 40)
             {
-                bool playing = game.GameModel.CurrentPlayerIndex == i;
+                bool playing = game.GameModel.CurrentPlayerIndex == i || gameEnded;
                 blitString(
                     game.GameModel.Players[i].Name + " : " + scores[i],
                     10,
@@ -99,13 +106,13 @@ namespace MGUI
             }
         }
 
-        private void blitRounds()
+        void blitRounds()
         {
             string text = "Round " + (game.GameModel.CurrentTurn + 1) + "/" + game.GameModel.Turns;
             blitString(text, sizeX - 170, 10, 0.8f, 0, Color.White);
         }
 
-        private void blitNotification()
+        void blitNotification()
         {
             float textSize = game.MainFont.MeasureString(Notification).X;
             float alpha = (NOTIFICATION_DURATION - NotificationDuration) < NOTIFICATION_FADE_START
@@ -114,7 +121,7 @@ namespace MGUI
             blitString(Notification, sizeX - textSize - 10, 50, 1, 0, new Color(Color.Blue, alpha));
         }
 
-        private void blitUnitInfo()
+        void blitUnitInfo()
         {   
             int h = 58;
 
@@ -149,11 +156,45 @@ namespace MGUI
             blitString(game.SelectedUnit.VictoryPoints.ToString(), 70, sizeY - h * 2, 1, 0, Color.White);
         }
 
-        private void blitString(string text, float x, float y, float scale, float rotation, Color color)
+        void blitEndInfo()
+        {
+            string text = "Draw!";
+            Player winner = game.GameModel.Winner;
+            if (winner != null)
+            {
+                text = winner.Name + " won!";
+            }
+
+            Vector2 textSize = game.HugeFont.MeasureString(text);
+            float x = (sizeX - textSize.X) / 2;
+            float y = (sizeY - textSize.Y) / 2;
+            blitString(game.HugeFont, text, x, y, 1, 0, Color.White);
+
+            text = "Thank you for playing!";
+            textSize = game.MainFont.MeasureString(text);
+            x = (sizeX - textSize.X) / 2;
+            y += 100;
+            blitString(game.MainFont, text, x, y, 1, 0, Color.White);
+        }
+
+        void blitString(string text, float x, float y, float scale, float rotation, Color color)
+        {
+            blitString(game.MainFont, text, x, y, scale, rotation, color);
+        }
+
+        void blitString(SpriteFont font, string text, float x, float y, float scale, float rotation, Color color)
         {
             Vector2 position = new Vector2(x, y);
             Vector2 origin = new Vector2(0, 0);
-            game.HudBatch.DrawString(game.MainFont, text, position, color, rotation, origin, scale, SpriteEffects.None, 0);
+            game.HudBatch.DrawString(font, text, position, color, rotation, origin, scale, SpriteEffects.None, 0);
+        }
+
+        bool gameEnded
+        {
+            get
+            {
+                return game.GameModel.Winner != null || game.GameModel.CurrentTurn >= game.GameModel.Turns;
+            }
         }
     }
 }

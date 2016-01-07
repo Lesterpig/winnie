@@ -30,11 +30,11 @@ namespace MGUI
 		public Texture2D MapOverlay { get; private set; }
         public Texture2D HudElements { get; private set; }
         public SpriteFont MainFont { get; private set; }
+        public SpriteFont HugeFont { get; private set; }
 		public Core.Game GameModel { get; private set;}
 		public int Seed { get; private set;}
 		public int SquareSize { get; private set;}
 		public int TileSize { get; private set;}
-
 
 		private const int cameraAcceleration = 600;
 		private const float controllerMinMovement = 0.2f;
@@ -56,6 +56,7 @@ namespace MGUI
 		GraphicsDeviceManager graphics;
 		KeyboardState oldKeyboardState;
 		GamePadState oldGamepadState;
+        bool controlsFrozen = false;
 
 		public Game1 (Core.Game g, int seed)
 		{
@@ -65,6 +66,7 @@ namespace MGUI
 			Content.RootDirectory = "Content";	            
 			graphics.IsFullScreen = false;		
 			Window.AllowUserResizing = true;
+            Window.Title = "Small World";
 			graphics.PreferredBackBufferWidth = 1920;
 			graphics.PreferredBackBufferHeight = 1080;
 		}
@@ -127,6 +129,7 @@ namespace MGUI
             HudElements = Content.Load<Texture2D>("hud_elements");
 
             MainFont = Content.Load<SpriteFont>("kenpixel_mini_square");
+            HugeFont = Content.Load<SpriteFont>("kenpixel_mini_square_huge");
 
 			soundtracks = new List<SoundEffectInstance> ();
 			soundtracks.Add(Content.Load<SoundEffect> ("soundtrack1").CreateInstance());
@@ -196,44 +199,43 @@ namespace MGUI
 				TryToMoveSelectedTile (NeighbourgTile);
 			}
 
-			//Move unit
+			if (!controlsFrozen)
+			{
 
-			//Unselect Unit
-			if (oldKeyboardState.IsKeyUp(Keys.R) && currentKeyboardState.IsKeyDown (Keys.R) || oldGamepadState.Buttons.B == ButtonState.Released && currentGamepadState.Buttons.B == ButtonState.Pressed) {
-				SelectedUnit = null;
-			}
-
-			//Action : Select or move unit
-			if (oldKeyboardState.IsKeyUp(Keys.E) && currentKeyboardState.IsKeyDown (Keys.E) || oldGamepadState.Buttons.A == ButtonState.Released && currentGamepadState.Buttons.A == ButtonState.Pressed) {
-				TryToMoveUnit ();
-				TryToAttackUnit ();
-				TryToSelectUnit ();
-			}
-
-			if (oldKeyboardState.IsKeyDown(Keys.F) && currentKeyboardState.IsKeyUp(Keys.F) 
-				|| oldGamepadState.Buttons.RightShoulder == ButtonState.Released && currentGamepadState.Buttons.RightShoulder == ButtonState.Pressed) {
-				if (!EnumeratorUnit.MoveNext ()) {
-					EnumeratorUnit.Reset ();
-					EnumeratorUnit.MoveNext ();
+				//Unselect Unit
+				if (oldKeyboardState.IsKeyUp(Keys.R) && currentKeyboardState.IsKeyDown (Keys.R) || oldGamepadState.Buttons.B == ButtonState.Released && currentGamepadState.Buttons.B == ButtonState.Pressed) {
+					SelectedUnit = null;
 				}
-				SelectedUnit = EnumeratorUnit.Current;
-				SelectedTile = SelectedUnit.Tile;
-			}
 
-            //Action: Next turn
-			if (oldKeyboardState.IsKeyUp(Keys.Enter) && currentKeyboardState.IsKeyDown(Keys.Enter) || oldGamepadState.Buttons.LeftShoulder == ButtonState.Released && currentGamepadState.Buttons.LeftShoulder == ButtonState.Pressed)
-            {
-                NextTurn();
-            }
+				//Action : Select or move unit
+				if (oldKeyboardState.IsKeyUp(Keys.E) && currentKeyboardState.IsKeyDown (Keys.E) || oldGamepadState.Buttons.A == ButtonState.Released && currentGamepadState.Buttons.A == ButtonState.Pressed) {
+					TryToMoveUnit ();
+					TryToAttackUnit ();
+					TryToSelectUnit ();
+				}
 
-            //Action: Save game
-            if (oldKeyboardState.IsKeyUp(Keys.F5) && currentKeyboardState.IsKeyDown(Keys.F5))
-            {
-                string fileName = Saver.SaveGame(GameModel);
-                if (fileName != null)
-                    hudShow.Notification = "Saved game as " + fileName;
-                else
-                    hudShow.Notification = "Unable to save file!";
+				if (oldKeyboardState.IsKeyDown(Keys.F) && currentKeyboardState.IsKeyUp(Keys.F) 
+					|| oldGamepadState.Buttons.RightShoulder == ButtonState.Released && currentGamepadState.Buttons.RightShoulder == ButtonState.Pressed) {
+					if (!EnumeratorUnit.MoveNext ()) {
+						EnumeratorUnit.Reset ();
+						EnumeratorUnit.MoveNext ();
+					}
+					SelectedUnit = EnumeratorUnit.Current;
+					SelectedTile = SelectedUnit.Tile;
+				}
+
+	            //Action: Next turn
+				if (oldKeyboardState.IsKeyUp(Keys.Enter) && currentKeyboardState.IsKeyDown(Keys.Enter) || oldGamepadState.Buttons.LeftShoulder == ButtonState.Released && currentGamepadState.Buttons.LeftShoulder == ButtonState.Pressed)
+
+                //Action: Save game
+                if (oldKeyboardState.IsKeyUp(Keys.F5) && currentKeyboardState.IsKeyDown(Keys.F5))
+                {
+                    string fileName = Saver.SaveGame(GameModel);
+                    if (fileName != null)
+                        hudShow.Notification = "Saved game as " + fileName;
+                    else
+                        hudShow.Notification = "Unable to save file!";
+                }
             }
 
             Vector2 TriggerMove = new Vector2 (TileSize, TileSize);
@@ -341,8 +343,7 @@ namespace MGUI
             }
             catch (Core.Game.EndOfGameException e)
             {
-                // TODO handle end of game
-                this.Exit();
+                controlsFrozen = true;
             }
             hudShow.RefreshDataCache();
         }
