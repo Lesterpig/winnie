@@ -13,8 +13,8 @@ namespace MGUI
     {
 
         // Constants
-        static Color COLOR_CURRENT_PLAYER = Color.Black;
-        static Color COLOR_WAITING_PLAYER = new Color(0, 0, 0, 0.6f);
+        static Color COLOR_CURRENT_PLAYER = Color.White;
+        static Color COLOR_WAITING_PLAYER = new Color(220, 220, 220);
 
         Game1 game;
         int sizeX;
@@ -45,7 +45,7 @@ namespace MGUI
 
         public void RefreshWindowBounds()
         {
-            var bounds = game.Window.ClientBounds;
+            var bounds = game.GraphicsDevice.Viewport.Bounds;
             sizeX = bounds.Right;
             sizeY = bounds.Bottom;
         }

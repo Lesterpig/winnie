@@ -13,7 +13,11 @@
         <ImageBrush ImageSource="Media/background.png" Stretch="UniformToFill" Opacity="0.4"/>
     </Window.Background>
     <Grid>
-        <Label x:Name="title" Content="Small World" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.776,-0.352" FontFamily="/Windows;component/Media/#KenVector Future" FontSize="56" Foreground="White"/>
+        <Label x:Name="title" Content="Small World" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.776,-0.352" FontFamily="/Windows;component/Media/#KenVector Future" FontSize="56" Foreground="White">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
         <Grid Height="223" VerticalAlignment="Top" Width="565" Margin="64,100,64.6,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -54,5 +58,6 @@
             <Image Source="Media/import.png" ToolTip="Import saved game" />
         </Button>
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="115" Height="37" FontSize="24" FontWeight="Bold" Margin="0,0,0,10" FontFamily="/Windows;component/Media/#KenPixel Mini Square" Click="start_Click"/>
+        <Label x:Name="errorMsg" HorizontalAlignment="Center" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FFFF5324" FontFamily="/Windows;component/Media/#KenPixel Mini Square" FontSize="17.333" Margin="0,70,0,0" BorderThickness="0" Content="{Binding ErrorMsg}"/>
     </Grid>
 </Window>

@@ -1,6 +1,8 @@
 ﻿using Core;
 using MGUI;
+using Saver;
 using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -38,12 +40,22 @@ namespace Windows
             dlg.DefaultExt = ".sw";
             dlg.Filter = "Small World Files (*.sw)|*.sw|All Files|*.*";
 
-            Nullable<bool> result = dlg.ShowDialog();
+            bool? result = dlg.ShowDialog();
    
             if (result == true)
             {
                 string filename = dlg.FileName;
-                System.Console.WriteLine(filename);
+                Stream s = File.OpenRead(filename);
+                try
+                {
+                    Game model = Xml.XmlToGame(s);
+                    startGame(model, 0);
+                }
+                catch (Exception)
+                {
+                    VM.ErrorMsg = "Cannot use this file as a saved game!";
+                    VM.RaisePropertyChanged("ErrorMsg");
+                }
             }
         }
 
@@ -66,8 +78,13 @@ namespace Windows
                 .MakeGenericMethod(VM.MapGameType, typeof(PerlinMap))
                 .Invoke(null, arguments);
 
+            startGame(GameModel, seed);
+        }
+
+        private void startGame(Game model, int seed)
+        {
             this.Hide();
-            GameCreator.New(GameModel, seed);
+            GameCreator.New(model, seed);
             this.Show();
         }
     }

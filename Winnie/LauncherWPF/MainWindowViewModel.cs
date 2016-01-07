@@ -6,7 +6,7 @@ namespace Windows
     public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void RaisePropertyChanged(string prop)
+        public void RaisePropertyChanged(string prop)
         {
             if (PropertyChanged != null)
             {
@@ -30,7 +30,10 @@ namespace Windows
             PlayerBRace = 1;
             PlayerAName = "";
             PlayerBName = "";
+            ErrorMsg = "";
         }
+
+        public string ErrorMsg { get; set; }
 
         public string MapLabel
         {
@@ -107,22 +110,30 @@ namespace Windows
 
         public bool SelectRace(int race)
         {
+            bool ok = false;
             if (race < 3)
             {
-                if (race == PlayerBRace)
-                    return false;
-                PlayerARace = race;
-                RaisePropertyChanged("PlayerARaceStr");
+                if (race != PlayerBRace)
+                {
+                    PlayerARace = race;
+                    RaisePropertyChanged("PlayerARaceStr");
+                    ok = true;
+                }
             }
             else
             {
-                if (race == PlayerARace + 3)
-                    return false;
-                PlayerBRace = race - 3;
-                RaisePropertyChanged("PlayerBRaceStr");
+                if (race != PlayerARace + 3)
+                {
+                    PlayerBRace = race - 3;
+                    RaisePropertyChanged("PlayerBRaceStr");
+                    ok = true;
+                }
             }
+
+            ErrorMsg = ok ? "" : "Cannot have the same race!";
+            RaisePropertyChanged("ErrorMsg");
             RaisePropertyChanged("RacesOpacities");
-            return true;
+            return ok;
         }
 
     }
