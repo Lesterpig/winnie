@@ -30,7 +30,8 @@ namespace MGUI
 		public void BlitRandomForest(SpriteBatch sb, Texture2D map, int x, int y) {
 			for (int dx = 0; dx < 3; dx++) {
 				for (int dy = 0; dy < 3; dy++) {
-					BlitRandomTree (sb, map, (x * 3 + dx) * squareSize, (y * 3 + dy) * squareSize);
+                    if (dx == 1 && dy == 1 || rnd.Next(100) < 70) // For a sparse forest
+					    BlitRandomTree (sb, map, (x * 3 + dx) * squareSize, (y * 3 + dy) * squareSize);
 				}
 			}
 		}

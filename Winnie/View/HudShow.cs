@@ -104,12 +104,9 @@ namespace MGUI
             if (!gameEnded)
             {
                 blitRounds();
-                blitNotification();
-                blitEvent();
-                if (game.SelectedUnit != null)
-                {
-                    blitUnitInfo();
-                }
+                if (Notification != "") blitNotification();
+                if (Event != "") blitEvent();
+                if (game.SelectedUnit != null) blitUnitInfo();
             }
             else
             {
@@ -166,7 +163,6 @@ namespace MGUI
                 shift = (1 - alpha) * EVENT_SHIFT_Y; // to bottom
             }
             blitString(game.HugeFont, Event, x, y + shift, 1, 0, Color.White * alpha);
-
         }
 
         void blitUnitInfo()
