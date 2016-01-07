@@ -226,6 +226,9 @@ namespace MGUI
 
 	            //Action: Next turn
 				if (oldKeyboardState.IsKeyUp(Keys.Enter) && currentKeyboardState.IsKeyDown(Keys.Enter) || oldGamepadState.Buttons.LeftShoulder == ButtonState.Released && currentGamepadState.Buttons.LeftShoulder == ButtonState.Pressed)
+                {
+                    NextTurn();
+                }
 
                 //Action: Save game
                 if (oldKeyboardState.IsKeyUp(Keys.F5) && currentKeyboardState.IsKeyDown(Keys.F5))
@@ -326,7 +329,7 @@ namespace MGUI
 		protected void TryToSelectUnit() {
 			if (SelectedTile.Units.Count <= 0)
 				return;
-			SelectedUnit = SelectedTile.Units.Where(unit => unit.Player == GameModel.CurrentPlayer).FirstOrDefault();
+			SelectedUnit = SelectedTile.Units.First();
 		}
 		protected void TryToMoveSelectedTile(Core.Tile NeighbourgTile) {
 			if (NeighbourgTile != null) {
