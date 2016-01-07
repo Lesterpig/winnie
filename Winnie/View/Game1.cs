@@ -225,7 +225,13 @@ namespace MGUI
                 NextTurn();
             }
 
-			Vector2 TriggerMove = new Vector2 (TileSize, TileSize);
+            //Action: Save game
+            if (oldKeyboardState.IsKeyUp(Keys.F5) && currentKeyboardState.IsKeyDown(Keys.F5))
+            {
+                Saver.SaveGame(GameModel);
+            }
+
+            Vector2 TriggerMove = new Vector2 (TileSize, TileSize);
 			Vector2 StepMove = new Vector2 (TileSize, TileSize);
 			camera.Adjust (mapShow.MapToScreen (SelectedTile.Point), TriggerMove, StepMove);
 

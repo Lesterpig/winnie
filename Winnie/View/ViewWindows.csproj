@@ -47,6 +47,7 @@
     <Compile Include="ForestGenerator.cs" />
     <Compile Include="MapShow.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="Saver.cs" />
     <Compile Include="UnitBinding.cs" />
     <Compile Include="UnitShow.cs" />
     <Compile Include="Unit.cs" />
@@ -94,6 +95,10 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{B5830874-7DA8-4C00-B2EB-DD3C4889BED9}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Saver\Saver.csproj">
+      <Project>{d99e4dc6-05aa-4fd6-8359-20c5f01168d2}</Project>
+      <Name>Saver</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

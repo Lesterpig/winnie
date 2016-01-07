@@ -40,6 +40,11 @@ namespace Windows
             dlg.DefaultExt = ".sw";
             dlg.Filter = "Small World Files (*.sw)|*.sw|All Files|*.*";
 
+            if (Directory.Exists(MGUI.Saver.SavePath))
+            {
+                dlg.InitialDirectory = MGUI.Saver.SavePath;
+            }
+
             bool? result = dlg.ShowDialog();
    
             if (result == true)
@@ -49,6 +54,8 @@ namespace Windows
                 try
                 {
                     Game model = Xml.XmlToGame(s);
+                    s.Close();
+                    s.Dispose();
                     startGame(model, 0);
                 }
                 catch (Exception)
