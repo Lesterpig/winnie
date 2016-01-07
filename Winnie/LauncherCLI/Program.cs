@@ -14,8 +14,7 @@ namespace Linux
 			Console.WriteLine ("Launch MonoGame !");
 			var p1 = new Player("Player A", Human.Instance);
 			var p2 = new Player("Player B", Elf.Instance);
-			var GameModel = GameBuilder.New<StandardGameType, PerlinMap>(p1, p2, true, seed);
-			GameModel.Players[0].Units.ElementAt(0).Move(GameModel.Map.Tiles[5]);
+			var GameModel = GameBuilder.New<DemoGameType, PerlinMap>(p1, p2, true, seed);
 			GameCreator.New (GameModel, seed);
 		}
 	}

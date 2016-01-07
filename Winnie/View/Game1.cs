@@ -205,11 +205,9 @@ namespace MGUI
 
 			//Action : Select or move unit
 			if (oldKeyboardState.IsKeyUp(Keys.E) && currentKeyboardState.IsKeyDown (Keys.E) || oldGamepadState.Buttons.A == ButtonState.Released && currentGamepadState.Buttons.A == ButtonState.Pressed) {
-				if (SelectedUnit != null) {
-					TryToMoveUnit ();
-				} else if (SelectedTile.Units.Count > 0) {
-					TryToSelectUnit ();
-				}
+				TryToMoveUnit ();
+				TryToAttackUnit ();
+				TryToSelectUnit ();
 			}
 
 			if (oldKeyboardState.IsKeyDown(Keys.F) && currentKeyboardState.IsKeyUp(Keys.F) 
@@ -292,6 +290,9 @@ namespace MGUI
 		}
 
 		protected void TryToMoveUnit() {
+			if (SelectedUnit == null)
+				return;
+
 			List<Core.Move> moves;
 			SelectedUnit.MovePossibilites.TryGetValue(SelectedTile, out moves);
 			if (moves != null) {
@@ -304,7 +305,25 @@ namespace MGUI
 			}
 		}
 
+		protected void TryToAttackUnit() {
+			if (SelectedUnit == null)
+				return;
+
+			Battle battle;
+			SelectedUnit.BattlePossibilities.TryGetValue (SelectedTile, out battle);
+
+			if (battle == null)
+				return;
+
+			battle.Execute ();
+			SelectedTile = SelectedUnit.Tile;
+			SelectedUnit = null;
+
+		}
+
 		protected void TryToSelectUnit() {
+			if (SelectedTile.Units.Count <= 0)
+				return;
 			SelectedUnit = SelectedTile.Units.First();
 		}
 		protected void TryToMoveSelectedTile(Core.Tile NeighbourgTile) {
