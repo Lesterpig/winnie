@@ -44,5 +44,9 @@
       <Project>{4519A371-A691-4BFD-98FC-64DF6B779E5D}</Project>
       <Name>ViewLinux</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Saver\Saver.csproj">
+      <Project>{D99E4DC6-05AA-4FD6-8359-20C5F01168D2}</Project>
+      <Name>Saver</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

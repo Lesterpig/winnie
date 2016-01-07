@@ -61,6 +61,8 @@
     <Compile Include="Blittable.cs" />
     <Compile Include="OverlayShow.cs" />
     <Compile Include="HudShow.cs" />
+    <Compile Include="HudBinding.cs" />
+    <Compile Include="Saver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icon.png" />
@@ -71,6 +73,10 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{B5830874-7DA8-4C00-B2EB-DD3C4889BED9}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Saver\Saver.csproj">
+      <Project>{D99E4DC6-05AA-4FD6-8359-20C5F01168D2}</Project>
+      <Name>Saver</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +115,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OpenTK.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\gameRessources\bin\fonts\kenpixel_mini_square_huge.xnb">
+      <Link>Content\kenpixel_mini_square_huge.xnb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\gameRessources\bin\sprites\hud_elements.xnb">
+      <Link>Content\hud_elements.xnb</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

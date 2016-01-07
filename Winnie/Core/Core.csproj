@@ -7,7 +7,7 @@
     <ProjectGuid>{B5830874-7DA8-4C00-B2EB-DD3C4889BED9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>winnie</RootNamespace>
+    <RootNamespace>Core</RootNamespace>
     <AssemblyName>winnie</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
