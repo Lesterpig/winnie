@@ -1,11 +1,7 @@
 ﻿using Core;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI
 {
@@ -77,17 +73,22 @@ namespace MGUI
         public void Blit()
         {
             RefreshWindowBounds();
-            drawScores();
-            drawRounds();
-            drawNotification();
+            blitScores();
+            blitRounds();
+            blitNotification();
+
+            if (game.SelectedUnit != null)
+            {
+                blitUnitInfo();
+            }
         }
 
-        private void drawScores()
+        private void blitScores()
         {
             for (int i = 0, y = 10; i < game.GameModel.Players.Length; i++, y += 40)
             {
                 bool playing = game.GameModel.CurrentPlayerIndex == i;
-                drawString(
+                blitString(
                     game.GameModel.Players[i].Name + " : " + scores[i],
                     10,
                     y,
@@ -98,26 +99,61 @@ namespace MGUI
             }
         }
 
-        private void drawRounds()
+        private void blitRounds()
         {
             string text = "Round " + (game.GameModel.CurrentTurn + 1) + "/" + game.GameModel.Turns;
-            drawString(text, sizeX - 170, 10, 0.8f, 0, Color.White);
+            blitString(text, sizeX - 170, 10, 0.8f, 0, Color.White);
         }
 
-        private void drawNotification()
+        private void blitNotification()
         {
             float textSize = game.MainFont.MeasureString(Notification).X;
             float alpha = (NOTIFICATION_DURATION - NotificationDuration) < NOTIFICATION_FADE_START
                         ? 1
                         : NotificationDuration / (NOTIFICATION_DURATION - NOTIFICATION_FADE_START);
-            drawString(Notification, sizeX - textSize - 10, 50, 1, 0, new Color(Color.Blue, alpha));
+            blitString(Notification, sizeX - textSize - 10, 50, 1, 0, new Color(Color.Blue, alpha));
         }
 
-        private void drawString(string text, float x, float y, float scale, float rotation, Color color)
+        private void blitUnitInfo()
+        {   
+            int h = 58;
+
+            game.HudBatch.Draw(
+                game.HudElements,
+                new Rectangle(10, sizeY - h * 5, 48, 48),
+                HudBinding.GetTexture("Heart"),
+                Color.White
+            );
+            game.HudBatch.Draw(
+                game.HudElements,
+                new Rectangle(10, sizeY - h * 4, 48, 48),
+                HudBinding.GetTexture("Sword"),
+                Color.White
+            );
+            game.HudBatch.Draw(
+                game.HudElements,
+                new Rectangle(10, sizeY - h * 3, 48, 48),
+                HudBinding.GetTexture("Shield"),
+                Color.White
+            );
+            game.HudBatch.Draw(
+                game.HudElements,
+                new Rectangle(10, sizeY - h * 2, 48, 48),
+                HudBinding.GetTexture("Gold"),
+                Color.White
+            );
+
+            blitString(game.SelectedUnit.Life + "/" + game.SelectedUnit.Race.Life, 70, sizeY - h * 5, 1, 0, Color.White);
+            blitString(game.SelectedUnit.AttackPoints.ToString(), 70, sizeY - h * 4, 1, 0, Color.White);
+            blitString(game.SelectedUnit.DefensePoints.ToString(), 70, sizeY - h * 3, 1, 0, Color.White);
+            blitString(game.SelectedUnit.VictoryPoints.ToString(), 70, sizeY - h * 2, 1, 0, Color.White);
+        }
+
+        private void blitString(string text, float x, float y, float scale, float rotation, Color color)
         {
             Vector2 position = new Vector2(x, y);
             Vector2 origin = new Vector2(0, 0);
-            game.HUDBatch.DrawString(game.MainFont, text, position, color, rotation, origin, scale, SpriteEffects.None, 0);
+            game.HudBatch.DrawString(game.MainFont, text, position, color, rotation, origin, scale, SpriteEffects.None, 0);
         }
     }
 }

@@ -23,11 +23,12 @@ namespace MGUI
 		public SpriteBatch MapBatch { get; private set; }
 		public SpriteBatch OverlayBatch { get; private set; }
 		public SpriteBatch CharacterBatch { get; private set; }
-		public SpriteBatch HUDBatch { get; private set; }
+		public SpriteBatch HudBatch { get; private set; }
 
 		public Texture2D Map { get; private set;}
 		public Texture2D Character { get; private set;}
 		public Texture2D MapOverlay { get; private set; }
+        public Texture2D HudElements { get; private set; }
         public SpriteFont MainFont { get; private set; }
 		public Core.Game GameModel { get; private set;}
 		public int Seed { get; private set;}
@@ -118,11 +119,12 @@ namespace MGUI
 			MapBatch = new SpriteBatch (GraphicsDevice);
 			OverlayBatch = new SpriteBatch (GraphicsDevice);
 			CharacterBatch = new SpriteBatch (GraphicsDevice);
-            HUDBatch = new SpriteBatch(GraphicsDevice);
+            HudBatch = new SpriteBatch(GraphicsDevice);
 
 			Map = Content.Load<Texture2D> ("map");
 			Character = Content.Load<Texture2D> ("character");
 			MapOverlay = Content.Load<Texture2D> ("overlaytile");
+            HudElements = Content.Load<Texture2D>("hud_elements");
 
             MainFont = Content.Load<SpriteFont>("kenpixel_mini_square");
 
@@ -283,9 +285,9 @@ namespace MGUI
 			unitShow.Blit ();
 			CharacterBatch.End ();
 
-            HUDBatch.Begin();
+            HudBatch.Begin();
             hudShow.Blit();
-            HUDBatch.End();
+            HudBatch.End();
 
 		}
 
