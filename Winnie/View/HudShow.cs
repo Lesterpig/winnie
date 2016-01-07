@@ -15,6 +15,11 @@ namespace MGUI
         static float NOTIFICATION_DURATION = 5;
         static float NOTIFICATION_FADE_START = 4;
 
+        static float EVENT_DURATION = 4;
+        static float EVENT_FADEIN_DURATION = 0.5f;
+        static float EVENT_FADEOUT_DURATION = 1f;
+        static float EVENT_SHIFT_Y = 20;
+
         Game1 game;
         int sizeX;
         int sizeY;
@@ -29,6 +34,7 @@ namespace MGUI
             RefreshDataCache();
             RefreshWindowBounds();
             Notification = "";
+            Event = g.GameModel.CurrentPlayer.Name + "'s turn!";
         }
 
         float NotificationDuration = 0;
@@ -39,6 +45,18 @@ namespace MGUI
             set { _notification = value; if (value != "") { NotificationDuration = NOTIFICATION_DURATION; } }
         }
 
+        float EventDuration = 0;
+        private string _event;
+        public string Event
+        {
+            get { return _event; }
+            set { _event = value; if (value != "") { EventDuration = EVENT_DURATION; } }
+        }
+
+        /// <summary>
+        /// Update text timeouts for fades
+        /// </summary>
+        /// <param name="qty"></param>
         public void UpdateTime(float qty)
         {
             if (NotificationDuration > 0)
@@ -47,6 +65,14 @@ namespace MGUI
                 if (NotificationDuration <= 0)
                 {
                     Notification = "";
+                }
+            }
+            if (EventDuration > 0)
+            {
+                EventDuration -= qty;
+                if (EventDuration <= 0)
+                {
+                    Event = "";
                 }
             }
         }
@@ -79,6 +105,7 @@ namespace MGUI
             {
                 blitRounds();
                 blitNotification();
+                blitEvent();
                 if (game.SelectedUnit != null)
                 {
                     blitUnitInfo();
@@ -118,7 +145,28 @@ namespace MGUI
             float alpha = (NOTIFICATION_DURATION - NotificationDuration) < NOTIFICATION_FADE_START
                         ? 1
                         : NotificationDuration / (NOTIFICATION_DURATION - NOTIFICATION_FADE_START);
-            blitString(Notification, sizeX - textSize - 10, 50, 1, 0, new Color(Color.Blue, alpha));
+            blitString(Notification, sizeX - textSize - 10, 50, 1, 0, Color.Blue * alpha);
+        }
+
+        void blitEvent()
+        {
+            Vector2 textSize = game.HugeFont.MeasureString(Event);
+            float x = (sizeX - textSize.X) / 2;
+            float y = (sizeY - textSize.Y) / 2;
+            float alpha = 1;
+            float shift = 0;
+            if (EVENT_DURATION - EVENT_FADEIN_DURATION < EventDuration)
+            {
+                alpha = (EVENT_DURATION - EventDuration) / EVENT_FADEIN_DURATION;
+                shift = (alpha - 1) * EVENT_SHIFT_Y; // from top
+            }
+            else if(EVENT_FADEOUT_DURATION > EventDuration)
+            {
+                alpha = EventDuration / EVENT_FADEOUT_DURATION;
+                shift = (1 - alpha) * EVENT_SHIFT_Y; // to bottom
+            }
+            blitString(game.HugeFont, Event, x, y + shift, 1, 0, Color.White * alpha);
+
         }
 
         void blitUnitInfo()

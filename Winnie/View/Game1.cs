@@ -342,7 +342,8 @@ namespace MGUI
             {
                 GameModel.NextTurn();
 				EnumeratorUnit = GameModel.CurrentPlayer.Units.GetEnumerator ();
-				SelectedUnit = null;
+                SelectedUnit = null;
+                hudShow.Event = GameModel.CurrentPlayer.Name + "'s turn!";
             }
             catch (Core.Game.EndOfGameException e)
             {
