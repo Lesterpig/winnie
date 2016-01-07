@@ -16,6 +16,9 @@ namespace MGUI
         static Color COLOR_CURRENT_PLAYER = Color.White;
         static Color COLOR_WAITING_PLAYER = new Color(220, 220, 220);
 
+        static float NOTIFICATION_DURATION = 5;
+        static float NOTIFICATION_FADE_START = 4;
+
         Game1 game;
         int sizeX;
         int sizeY;
@@ -29,6 +32,27 @@ namespace MGUI
             scores = new List<int>();
             RefreshDataCache();
             RefreshWindowBounds();
+            Notification = "";
+        }
+
+        float NotificationDuration = 0;
+        private string _notification;
+        public string Notification
+        {
+            get { return _notification; }
+            set { _notification = value; if (value != "") { NotificationDuration = NOTIFICATION_DURATION; } }
+        }
+
+        public void UpdateTime(float qty)
+        {
+            if (NotificationDuration > 0)
+            {
+                NotificationDuration -= qty;
+                if (NotificationDuration <= 0)
+                {
+                    Notification = "";
+                }
+            }
         }
 
         /// <summary>
@@ -55,6 +79,7 @@ namespace MGUI
             RefreshWindowBounds();
             drawScores();
             drawRounds();
+            drawNotification();
         }
 
         private void drawScores()
@@ -79,11 +104,20 @@ namespace MGUI
             drawString(text, sizeX - 170, 10, 0.8f, 0, Color.White);
         }
 
+        private void drawNotification()
+        {
+            float textSize = game.MainFont.MeasureString(Notification).X;
+            float alpha = (NOTIFICATION_DURATION - NotificationDuration) < NOTIFICATION_FADE_START
+                        ? 1
+                        : NotificationDuration / (NOTIFICATION_DURATION - NOTIFICATION_FADE_START);
+            drawString(Notification, sizeX - textSize - 10, 50, 1, 0, new Color(Color.Blue, alpha));
+        }
+
         private void drawString(string text, float x, float y, float scale, float rotation, Color color)
         {
             Vector2 position = new Vector2(x, y);
             Vector2 origin = new Vector2(0, 0);
-            game.HUDBatch.DrawString(game.MainFont, text, position, color, rotation, origin, scale, SpriteEffects.None, 1);
+            game.HUDBatch.DrawString(game.MainFont, text, position, color, rotation, origin, scale, SpriteEffects.None, 0);
         }
     }
 }

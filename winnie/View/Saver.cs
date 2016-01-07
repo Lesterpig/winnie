@@ -26,19 +26,26 @@ namespace MGUI
             }
         }
 
-        public static bool SaveGame(Core.Game g)
+        public static string SaveGame(Core.Game g)
         {
             SafeCreateDirectory();
 
-            string fileName = string.Format("{0:yyyy-MM-dd_HH-mm-ss}.sw", DateTime.Now);
-            string filePath = SavePath + Path.DirectorySeparatorChar + fileName;
-            System.Console.WriteLine(filePath);
-            Stream output = new FileStream(filePath, FileMode.CreateNew);
-            Xml.GameToXml(g, output);
-            output.Close();
-            output.Dispose();
+            try
+            {
+                string fileName = string.Format("{0:yyyy-MM-dd_HH-mm-ss}.sw", DateTime.Now);
+                string filePath = SavePath + Path.DirectorySeparatorChar + fileName;
+                System.Console.WriteLine(filePath);
+                Stream output = new FileStream(filePath, FileMode.Create);
+                Xml.GameToXml(g, output);
+                output.Close();
+                output.Dispose();
 
-            return true;
+                return fileName;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

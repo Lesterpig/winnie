@@ -158,6 +158,7 @@ namespace MGUI
         protected override void Update (GameTime gameTime)
 		{
 			var deltaTime = (float) gameTime.ElapsedGameTime.TotalSeconds;
+            hudShow.UpdateTime(deltaTime);
 
 			GamePadState currentGamepadState = GamePad.GetState (PlayerIndex.One);
 			KeyboardState currentKeyboardState = Keyboard.GetState();
@@ -228,7 +229,11 @@ namespace MGUI
             //Action: Save game
             if (oldKeyboardState.IsKeyUp(Keys.F5) && currentKeyboardState.IsKeyDown(Keys.F5))
             {
-                Saver.SaveGame(GameModel);
+                string fileName = Saver.SaveGame(GameModel);
+                if (fileName != null)
+                    hudShow.Notification = "Saved game as " + fileName;
+                else
+                    hudShow.Notification = "Unable to save file!";
             }
 
             Vector2 TriggerMove = new Vector2 (TileSize, TileSize);
