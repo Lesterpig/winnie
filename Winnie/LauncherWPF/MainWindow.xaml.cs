@@ -78,6 +78,13 @@ namespace Windows
 
             object[] arguments = { p1, p2, VM.CheatMode, seed };
 
+            Random r = new Random();
+            if (r.Next(0,2) == 0) // Swap players
+            {
+                arguments[0] = p2;
+                arguments[1] = p1;
+            }
+
             // Here, we are going some reflexive stuff.
             // The goal is to have a dynamic generic type "GameType" for game creation.
             var GameModel = (Game)typeof(GameBuilder)

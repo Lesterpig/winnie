@@ -6,13 +6,16 @@ namespace MGUI
     class HudBinding
     {
 
+        const int size = 48;
+
         private static Dictionary<string, Rectangle> binding = new Dictionary<string, Rectangle>()
         {
 
-			{"Heart", new Rectangle(0, 0, 24, 24)},
-            {"Sword", new Rectangle(24, 0, 24, 24)},
-            {"Shield", new Rectangle(48, 0, 24, 24)},
-            {"Gold", new Rectangle(72, 0, 24, 24)}
+			{"Heart", new Rectangle(0, 0, size, size)},
+            {"Sword", new Rectangle(size, 0, size, size)},
+            {"Shield", new Rectangle(size*2, 0, size, size)},
+            {"Gold", new Rectangle(size*3, 0, size, size)},
+            {"Arrow", new Rectangle(size*4, 0, size, size)},
 
         };
 

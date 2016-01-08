@@ -190,14 +190,14 @@ namespace MGUI
             game.HudBatch.Draw(
                 game.HudElements,
                 new Rectangle(10, sizeY - h * 2, 48, 48),
-                HudBinding.GetTexture("Gold"),
+                HudBinding.GetTexture("Arrow"),
                 Color.White
             );
 
             blitString(game.SelectedUnit.Life + "/" + game.SelectedUnit.Race.Life, 70, sizeY - h * 5, 1, 0, Color.White);
             blitString(game.SelectedUnit.AttackPoints.ToString(), 70, sizeY - h * 4, 1, 0, Color.White);
             blitString(game.SelectedUnit.DefensePoints.ToString(), 70, sizeY - h * 3, 1, 0, Color.White);
-            blitString(game.SelectedUnit.VictoryPoints.ToString(), 70, sizeY - h * 2, 1, 0, Color.White);
+            blitString(game.SelectedUnit.MovePoints.ToString("G2"), 70, sizeY - h * 2, 1, 0, Color.White);
         }
 
         void blitEndInfo()
