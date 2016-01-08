@@ -94,10 +94,8 @@ namespace MGUI
 
 			SelectedUnit = null;
 			SelectedTile = GameModel.Map.Tiles [0];
-
 			EnumeratorUnit = GameModel.CurrentPlayer.Units.GetEnumerator ();
 
-			// TODO: Add your initialization logic here
 			base.Initialize ();
 				
 		}
@@ -226,8 +224,14 @@ namespace MGUI
 					SelectedTile = SelectedUnit.Tile;
 				}
 
-	            //Action: Next turn
-				if (oldKeyboardState.IsKeyUp(Keys.Enter) && currentKeyboardState.IsKeyDown(Keys.Enter) || oldGamepadState.Buttons.LeftShoulder == ButtonState.Released && currentGamepadState.Buttons.LeftShoulder == ButtonState.Pressed)
+                //Action: Undo
+                if (oldKeyboardState.IsKeyUp(Keys.Delete) && currentKeyboardState.IsKeyDown(Keys.Delete) || oldGamepadState.Buttons.RightStick == ButtonState.Released && currentGamepadState.Buttons.RightStick == ButtonState.Pressed)
+                {
+                    if (GameModel.CheatMode) Undo();
+                }
+
+                //Action: Next turn
+                if (oldKeyboardState.IsKeyUp(Keys.Enter) && currentKeyboardState.IsKeyDown(Keys.Enter) || oldGamepadState.Buttons.LeftShoulder == ButtonState.Released && currentGamepadState.Buttons.LeftShoulder == ButtonState.Pressed)
                 {
                     NextTurn();
                 }
@@ -305,7 +309,7 @@ namespace MGUI
 			if (moves != null) {
 				foreach (Move m in moves) {
 					m.Execute ();
-					GameModel.Actions.Push (m); // The stack will have to be managed by the GUI
+					GameModel.Actions.Push (m);
 				}
 				SelectedTile = SelectedUnit.Tile;
 				SelectedUnit = null;
@@ -323,6 +327,7 @@ namespace MGUI
 				return;
 
 			battle.Execute ();
+            GameModel.Actions.Push(battle);
 
             hudShow.Notification = (battle.Result.Winner.Player == SelectedUnit.Player
                                     ? "Successful attack" : "Failed attack")
@@ -351,6 +356,7 @@ namespace MGUI
                 GameModel.NextTurn();
 				EnumeratorUnit = GameModel.CurrentPlayer.Units.GetEnumerator ();
                 SelectedUnit = null;
+                GameModel.Actions.Clear();
                 hudShow.Event = GameModel.CurrentPlayer.Name + "'s turn!";
             }
             catch (Core.Game.EndOfGameException e)
@@ -358,6 +364,18 @@ namespace MGUI
                 controlsFrozen = true;
             }
             hudShow.RefreshDataCache();
+        }
+        protected void Undo()
+        {
+            if (GameModel.Actions.Count == 0)
+            {
+                hudShow.Notification = "No action to undo";
+            }
+            else
+            {
+                GameModel.Actions.Pop().ReverseExecute();
+                hudShow.Notification = "Undid action!";
+            }
         }
     }
 }
