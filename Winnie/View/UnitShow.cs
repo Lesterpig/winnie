@@ -25,10 +25,20 @@ namespace MGUI
 
 		public void Blit()
 		{
+
+            Unit selected = null;
+
 			foreach (Unit elem in ListUnits.Where(unit => unit.UnitModel.Alive)) {
-				elem.Blit (game.CharacterBatch, game.Character, game.SquareSize);
-			}
-		}
+                if (elem.UnitModel != game.SelectedUnit)
+                    elem.Blit(game.CharacterBatch, game.Character, game.SquareSize);
+                else
+                    selected = elem;
+            }
+
+            // Draw selected unit over all other units
+            if (selected != null)
+                selected.Blit(game.CharacterBatch, game.Character, game.SquareSize);
+        }
 	}
 }
 
