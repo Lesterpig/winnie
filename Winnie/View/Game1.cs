@@ -216,10 +216,12 @@ namespace MGUI
 
 				if (oldKeyboardState.IsKeyDown(Keys.F) && currentKeyboardState.IsKeyUp(Keys.F) 
 					|| oldGamepadState.Buttons.RightShoulder == ButtonState.Released && currentGamepadState.Buttons.RightShoulder == ButtonState.Pressed) {
-					if (!EnumeratorUnit.MoveNext ()) {
-						EnumeratorUnit.Reset ();
-						EnumeratorUnit.MoveNext ();
-					}
+					do {
+						if (!EnumeratorUnit.MoveNext ()) {
+							EnumeratorUnit.Reset ();
+							EnumeratorUnit.MoveNext ();
+						}
+					} while(!EnumeratorUnit.Current.Alive);
 					SelectedUnit = EnumeratorUnit.Current;
 					SelectedTile = SelectedUnit.Tile;
 				}
@@ -329,7 +331,7 @@ namespace MGUI
 		protected void TryToSelectUnit() {
 			if (SelectedTile.Units.Count <= 0)
 				return;
-			SelectedUnit = SelectedTile.Units.First();
+			SelectedUnit = SelectedTile.Units.Where(unit => unit.Alive).First();
 		}
 		protected void TryToMoveSelectedTile(Core.Tile NeighbourgTile) {
 			if (NeighbourgTile != null) {

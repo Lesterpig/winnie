@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 
@@ -24,7 +25,7 @@ namespace MGUI
 
 		public void Blit()
 		{
-			foreach (Unit elem in ListUnits) {
+			foreach (Unit elem in ListUnits.Where(unit => unit.UnitModel.Alive)) {
 				elem.Blit (game.CharacterBatch, game.Character, game.SquareSize);
 			}
 		}
