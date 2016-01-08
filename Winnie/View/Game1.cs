@@ -323,15 +323,21 @@ namespace MGUI
 				return;
 
 			battle.Execute ();
+
+            hudShow.Notification = (battle.Result.Winner.Player == SelectedUnit.Player
+                                    ? "Successful attack" : "Failed attack")
+                                    + " with " + battle.Result.Dmg + " dmg";
+
 			SelectedTile = SelectedUnit.Tile;
 			SelectedUnit = null;
 
 		}
 
 		protected void TryToSelectUnit() {
-			if (SelectedTile.Units.Count <= 0)
+            var alive = SelectedTile.Units.Where(unit => unit.Alive);
+            if (alive.Count() <= 0)
 				return;
-			SelectedUnit = SelectedTile.Units.Where(unit => unit.Alive).First();
+			SelectedUnit = alive.First();
 		}
 		protected void TryToMoveSelectedTile(Core.Tile NeighbourgTile) {
 			if (NeighbourgTile != null) {
