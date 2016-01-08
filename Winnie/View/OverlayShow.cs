@@ -18,7 +18,7 @@ namespace MGUI
 			game = g;
 		}
 
-		public void showTileSquare(ICollection<Core.Tile> tiles, int i, int j, Color c) {
+		void showTileSquare(ICollection<Core.Tile> tiles, int i, int j, Color c) {
 			foreach (Core.Tile t in tiles) {
 				if (t.Point.x == i && t.Point.y == j) {
 					game.OverlayBatch.Draw (
@@ -31,7 +31,7 @@ namespace MGUI
 			}
 		}
 
-		public void BlitMovement() {
+		void BlitMovement() {
 			if (game.SelectedUnit == null)
 				return;
 
@@ -46,7 +46,7 @@ namespace MGUI
 			}
 		}
 
-		public void BlitSelectedTile () {
+		void BlitSelectedTile () {
 			game.OverlayBatch.Draw (
 				game.MapOverlay,
 				new Rectangle (game.SelectedTile.Point.x * 3 * game.SquareSize, game.SelectedTile.Point.y * 3 * game.SquareSize, game.SquareSize * 3, game.SquareSize * 3),
@@ -55,7 +55,7 @@ namespace MGUI
 			);
 		}
 
-		public void Blit()
+        public void Blit()
 		{
 			BlitMovement ();
 			BlitSelectedTile ();

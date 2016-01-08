@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core;
+using System;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
@@ -23,7 +24,21 @@ namespace MGUI
 			}
 		}
 
-		public void Blit()
+        void BlitQty()
+        {
+            foreach (Tile t in game.GameModel.Map.Tiles)
+            {
+                int count = t.Units.Count(unit => unit.Alive);
+                if (count > 1)
+                {
+                    int shift = game.TileSize * 2 / 3 - 20;
+                    Vector2 position = new Vector2(game.TileSize * t.Point.x + shift, game.TileSize * t.Point.y + shift);
+                    game.CharacterBatch.DrawString(game.MainFont, count.ToString(), position, Color.Black);
+                }
+            }
+        }
+
+        public void Blit()
 		{
 
             Unit selected = null;
@@ -38,6 +53,8 @@ namespace MGUI
             // Draw selected unit over all other units
             if (selected != null)
                 selected.Blit(game.CharacterBatch, game.Character, game.SquareSize);
+
+            BlitQty();
         }
 	}
 }
