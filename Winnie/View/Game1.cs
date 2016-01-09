@@ -67,8 +67,8 @@ namespace MGUI
 			graphics.IsFullScreen = false;		
 			Window.AllowUserResizing = true;
             Window.Title = "Small World";
-			graphics.PreferredBackBufferWidth = 1920;
-			graphics.PreferredBackBufferHeight = 1080;
+			graphics.PreferredBackBufferWidth = 1280;
+			graphics.PreferredBackBufferHeight = 720;
 		}
 
 		/// <summary>
@@ -225,7 +225,7 @@ namespace MGUI
 				}
 
                 //Action: Undo
-                if (oldKeyboardState.IsKeyUp(Keys.Delete) && currentKeyboardState.IsKeyDown(Keys.Delete) || oldGamepadState.Buttons.RightStick == ButtonState.Released && currentGamepadState.Buttons.RightStick == ButtonState.Pressed)
+                if (oldKeyboardState.IsKeyUp(Keys.Delete) && currentKeyboardState.IsKeyDown(Keys.Delete) || oldGamepadState.Buttons.Back == ButtonState.Released && currentGamepadState.Buttons.Back == ButtonState.Pressed)
                 {
                     if (GameModel.CheatMode) Undo();
                 }
