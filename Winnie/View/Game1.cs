@@ -122,9 +122,9 @@ namespace MGUI
 			overlayShow = new OverlayShow (this);
             hudShow = new HudShow(this);
 
-			SelectedUnit = null;
 			SelectedTile = GameModel.Map.Tiles [0];
 			EnumeratorUnit = GameModel.CurrentPlayer.Units.GetEnumerator ();
+            SelectNextUnit();
 
 			base.Initialize ();
 				
@@ -244,14 +244,7 @@ namespace MGUI
 
 				if (oldKeyboardState.IsKeyDown(Keys.F) && currentKeyboardState.IsKeyUp(Keys.F) 
 					|| oldGamepadState.Buttons.RightShoulder == ButtonState.Released && currentGamepadState.Buttons.RightShoulder == ButtonState.Pressed) {
-					do {
-						if (!EnumeratorUnit.MoveNext ()) {
-							EnumeratorUnit.Reset ();
-							EnumeratorUnit.MoveNext ();
-						}
-					} while(!EnumeratorUnit.Current.Alive);
-					SelectedUnit = EnumeratorUnit.Current;
-					SelectedTile = SelectedUnit.Tile;
+                    SelectNextUnit();
 				}
 
                 //Action: Undo
@@ -370,7 +363,7 @@ namespace MGUI
 		}
 
 		protected void TryToSelectUnit() {
-            var alive = SelectedTile.Units.Where(unit => unit.Alive);
+            var alive = SelectedTile.Units.Where(unit => unit.Alive && unit.Player == GameModel.CurrentPlayer);
             if (alive.Count() <= 0)
 				return;
 			SelectedUnit = alive.First();
@@ -386,9 +379,9 @@ namespace MGUI
             {
                 GameModel.NextTurn();
 				EnumeratorUnit = GameModel.CurrentPlayer.Units.GetEnumerator ();
-                SelectedUnit = null;
                 GameModel.Actions.Clear();
                 hudShow.Event = GameModel.CurrentPlayer.Name + "'s turn!";
+                SelectNextUnit();
             }
             catch (Core.Game.EndOfGameException e)
             {
@@ -407,6 +400,19 @@ namespace MGUI
                 GameModel.Actions.Pop().ReverseExecute();
                 hudShow.Notification = "Undid action!";
             }
+        }
+        protected void SelectNextUnit()
+        {
+            do
+            {
+                if (!EnumeratorUnit.MoveNext())
+                {
+                    EnumeratorUnit.Reset();
+                    EnumeratorUnit.MoveNext();
+                }
+            } while (!EnumeratorUnit.Current.Alive);
+            SelectedUnit = EnumeratorUnit.Current;
+            SelectedTile = SelectedUnit.Tile;
         }
     }
 }
