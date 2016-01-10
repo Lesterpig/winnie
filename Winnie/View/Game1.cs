@@ -37,12 +37,38 @@ namespace MGUI
 		public int TileSize { get; private set;}
 
 		private const int cameraAcceleration = 600;
-		private const float controllerMinMovement = 0.2f;
+#if !OPENGL
+        private const float controllerMinMovementY = -0.2f;
+#else
+        private const float controllerMinMovementY = 0.2f;
+#endif
+        private const float controllerMinMovementX = 0.2f;
 
-		private List<SoundEffectInstance> soundtracks;
+
+        private List<SoundEffectInstance> soundtracks;
 		private int selectedSong;
 
-		Camera camera;
+#if !OPENGL
+        private Dictionary<string, Keys> keyBinding = new Dictionary<string, Keys>() {
+            { "ZOOM+", Keys.A },
+            { "ZOOM-", Keys.W },
+            { "UP",    Keys.Z },
+            { "DOWN",  Keys.S },
+            { "LEFT",  Keys.Q },
+            { "RIGHT", Keys.D }
+        };
+#else
+        private Dictionary<string, Keys> keyBinding = new Dictionary<string, Keys>() {
+            { "ZOOM+", Keys.Q },
+            { "ZOOM-", Keys.Z },
+            { "UP",    Keys.W },
+            { "DOWN",  Keys.S },
+            { "LEFT",  Keys.A },
+            { "RIGHT", Keys.D }
+        };
+#endif
+
+        Camera camera;
 
 		MapShow mapShow;
 		UnitShow unitShow;
@@ -170,33 +196,33 @@ namespace MGUI
 			GamePadState currentGamepadState = GamePad.GetState (PlayerIndex.One);
 			KeyboardState currentKeyboardState = Keyboard.GetState();
 
-			// Camera Zoom
-			if (currentKeyboardState.IsKeyDown (Keys.Q) || currentGamepadState.Buttons.X == ButtonState.Pressed)
+            // Camera Zoom
+            if (currentKeyboardState.IsKeyDown (keyBinding["ZOOM+"]) || currentGamepadState.Buttons.X == ButtonState.Pressed)
 				camera.ZoomIn(deltaTime * camera.Zoom);
 
-			if (currentKeyboardState.IsKeyDown (Keys.Z) || currentGamepadState.Buttons.Y == ButtonState.Pressed)
+			if (currentKeyboardState.IsKeyDown (keyBinding["ZOOM-"]) || currentGamepadState.Buttons.Y == ButtonState.Pressed)
 				camera.ZoomOut(deltaTime * camera.Zoom);
 
-			//SelectedTile
-			Vector2 currentStick = currentGamepadState.ThumbSticks.Left;
+            //SelectedTile
+            Vector2 currentStick = currentGamepadState.ThumbSticks.Left;
 			Vector2 oldStick = oldGamepadState.ThumbSticks.Left;
 
-			if (oldKeyboardState.IsKeyUp (Keys.W) && currentKeyboardState.IsKeyDown (Keys.W) || oldStick.Y > -controllerMinMovement && currentStick.Y < -controllerMinMovement) {
+			if (oldKeyboardState.IsKeyUp (keyBinding["UP"]) && currentKeyboardState.IsKeyDown (keyBinding["UP"]) || oldStick.Y > -controllerMinMovementY && currentStick.Y < -controllerMinMovementY) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (0, -1));
 				TryToMoveSelectedTile (NeighbourgTile);
 			}
 
-			if (oldKeyboardState.IsKeyUp (Keys.S) && currentKeyboardState.IsKeyDown (Keys.S) || oldStick.Y < controllerMinMovement && currentStick.Y > controllerMinMovement) {
+			if (oldKeyboardState.IsKeyUp (keyBinding["DOWN"]) && currentKeyboardState.IsKeyDown (keyBinding["DOWN"]) || oldStick.Y < controllerMinMovementY && currentStick.Y > controllerMinMovementY) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (0, 1));
 				TryToMoveSelectedTile (NeighbourgTile);
 			}
 
-			if (oldKeyboardState.IsKeyUp (Keys.A) && currentKeyboardState.IsKeyDown (Keys.A) || oldStick.X > -controllerMinMovement && currentStick.X < -controllerMinMovement) {
+			if (oldKeyboardState.IsKeyUp (keyBinding["LEFT"]) && currentKeyboardState.IsKeyDown (keyBinding["LEFT"]) || oldStick.X > -controllerMinMovementX && currentStick.X < -controllerMinMovementX) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (-1, 0));
 				TryToMoveSelectedTile (NeighbourgTile);
 			}
 
-			if (oldKeyboardState.IsKeyUp (Keys.D) && currentKeyboardState.IsKeyDown (Keys.D) || oldStick.X < controllerMinMovement && currentStick.X > controllerMinMovement) {
+			if (oldKeyboardState.IsKeyUp (keyBinding["RIGHT"]) && currentKeyboardState.IsKeyDown (keyBinding["RIGHT"]) || oldStick.X < controllerMinMovementX && currentStick.X > controllerMinMovementX) {
 				var NeighbourgTile = SelectedTile.GetNeighbor (new Tile.Diff (1, 0));
 				TryToMoveSelectedTile (NeighbourgTile);
 			}
@@ -257,13 +283,13 @@ namespace MGUI
 
 			// For Mobile devices, this logic will close the Game when the Back button is pressed
 			// Exit() is obsolete on iOS
-			#if !__IOS__
+#if !__IOS__
 			if (GamePad.GetState (PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
 				Keyboard.GetState ().IsKeyDown (Keys.Escape)) {
                 Exit();
                 //this.Window.Handle;
 			}
-			#endif
+#endif
 
 			oldKeyboardState = currentKeyboardState;
 			oldGamepadState = currentGamepadState;
