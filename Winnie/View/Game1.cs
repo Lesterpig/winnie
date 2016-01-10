@@ -67,17 +67,21 @@ namespace MGUI
 			graphics.IsFullScreen = false;		
 			Window.AllowUserResizing = true;
             Window.Title = "Small World";
-			graphics.PreferredBackBufferWidth = 1280;
-			graphics.PreferredBackBufferHeight = 720;
-		}
+            Window.Position = new Microsoft.Xna.Framework.Point(0,0);
+            Window.IsBorderless = true;
 
-		/// <summary>
-		/// Allows the game to perform any initialization it needs to before starting to run.
-		/// This is where it can query for any required services and load any non-graphic
-		/// related content.  Calling base.Initialize will enumerate through any components
-		/// and initialize them as well.
-		/// </summary>
-		protected override void Initialize ()
+            graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            graphics.ApplyChanges();
+        }
+
+        /// <summary>
+        /// Allows the game to perform any initialization it needs to before starting to run.
+        /// This is where it can query for any required services and load any non-graphic
+        /// related content.  Calling base.Initialize will enumerate through any components
+        /// and initialize them as well.
+        /// </summary>
+        protected override void Initialize ()
 		{
 			SquareSize = 64;
 			TileSize = SquareSize * 3;
@@ -256,7 +260,8 @@ namespace MGUI
 			#if !__IOS__
 			if (GamePad.GetState (PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
 				Keyboard.GetState ().IsKeyDown (Keys.Escape)) {
-				Exit ();
+                Exit();
+                //this.Window.Handle;
 			}
 			#endif
 
