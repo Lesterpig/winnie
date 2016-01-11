@@ -329,7 +329,7 @@ namespace MGUI
 		}
 
 		protected void TryToMoveUnit() {
-			if (SelectedUnit == null)
+			if (SelectedUnit == null || SelectedUnit.Player != GameModel.CurrentPlayer)
 				return;
 
 			List<Core.Move> moves;
@@ -366,10 +366,9 @@ namespace MGUI
 		}
 
 		protected void TryToSelectUnit() {
-            var alive = SelectedTile.Units.Where(unit => unit.Alive && unit.Player == GameModel.CurrentPlayer);
-            if (alive.Count() <= 0)
-				return;
-			SelectedUnit = alive.First();
+            var strongest = SelectedTile.StrongestUnit;
+            if (strongest != null)
+			    SelectedUnit = strongest;
 		}
 		protected void TryToMoveSelectedTile(Core.Tile NeighbourgTile) {
 			if (NeighbourgTile != null) {

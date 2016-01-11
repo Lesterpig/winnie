@@ -34,7 +34,7 @@ namespace MGUI
 		}
 
 		void BlitMovement() {
-			if (game.SelectedUnit == null)
+			if (game.SelectedUnit == null || game.SelectedUnit.Player != game.GameModel.CurrentPlayer)
 				return;
 
 			var AllPossibilities = game.SelectedUnit.MovePossibilites;
