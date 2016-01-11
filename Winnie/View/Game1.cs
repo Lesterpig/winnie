@@ -36,12 +36,9 @@ namespace MGUI
 		public int SquareSize { get; private set;}
 		public int TileSize { get; private set;}
 
-		private const int cameraAcceleration = 600;
-#if !OPENGL
+		private const int cameraAcceleration = 600;	
         private const float controllerMinMovementY = -0.2f;
-#else
-        private const float controllerMinMovementY = 0.2f;
-#endif
+        /*private const float controllerMinMovementY = 0.2f;*/
         private const float controllerMinMovementX = 0.2f;
 
 
@@ -49,7 +46,7 @@ namespace MGUI
         private Dictionary<string, SoundEffectInstance> sfx;
 		private int selectedSong;
 
-#if !OPENGL
+/** FOR AZERTY Keyboards
         private Dictionary<string, Keys> keyBinding = new Dictionary<string, Keys>() {
             { "ZOOM+", Keys.A },
             { "ZOOM-", Keys.W },
@@ -58,7 +55,7 @@ namespace MGUI
             { "LEFT",  Keys.Q },
             { "RIGHT", Keys.D }
         };
-#else
+*/
         private Dictionary<string, Keys> keyBinding = new Dictionary<string, Keys>() {
             { "ZOOM+", Keys.Q },
             { "ZOOM-", Keys.Z },
@@ -67,7 +64,7 @@ namespace MGUI
             { "LEFT",  Keys.A },
             { "RIGHT", Keys.D }
         };
-#endif
+
 
         Camera camera;
 
