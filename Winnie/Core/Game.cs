@@ -32,6 +32,7 @@ namespace Core
             this.Turns = turns;
             this.CheatMode = cheatMode;
             this.Actions = new Stack<Action>();
+			this.Algo = new Algo ();
         }
 
         /// <summary>
@@ -91,6 +92,11 @@ namespace Core
         /// <value>The current player.</value>
         public Player CurrentPlayer { get { return this.Players[this.CurrentPlayerIndex]; } }
 
+		/// <summary>
+		/// The C++ binding to algorithm
+		/// </summary>
+		private Algo Algo;
+
         /// <summary>
         /// Triggers the end of the current turn, and starts the next turn.
         /// </summary>
@@ -109,6 +115,14 @@ namespace Core
             this.CurrentPlayerIndex = (uint) ((this.CurrentPlayerIndex + 1) % this.Players.Length);
             this.CurrentPlayer.StartTurn();
         }
+
+		/// <summary>
+		/// Finds the best actions.
+		/// </summary>
+		/// <returns>The best actions.</returns>
+		public List<Proposition> FindBestActions() {
+			return Algo.FindBestActions (CurrentPlayer, this.Players [(this.CurrentPlayerIndex + 1) % 2], Map);
+		}
 
         /// <summary>
         /// Gets the winner.
