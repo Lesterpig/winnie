@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,13 +12,14 @@ namespace MGUI
 		Color blueColor = new Color (20, 20, 250, 50);
 		Color greenColor = new Color (20, 250, 20, 50);
 		Color redColor = new Color (250, 20, 20, 50);
-		Color purpleColor = new Color (75, 173, 10, 50);
+        Color purpleColor = Color.Purple * 0.3f;
 
-
+        public bool MoveSuggestionEnabled { get; set; }
 
 		public OverlayShow (Game1 g)
 		{
 			game = g;
+            MoveSuggestionEnabled = false;
 		}
 
 		void showTileSquare(ICollection<Core.Tile> tiles, int i, int j, Color c) {
@@ -57,24 +59,28 @@ namespace MGUI
 			);
 		}
 
-
+        private int glowingCmp = 0;
 		public void BlitRecommandedTile() {
-			List<Core.Proposition> gp = game.GameModel.FindBestActions ();
+            if (game.SelectedUnit == null)
+                return;
+            var gp = game.GameModel.FindBestActions().Where(a => a.start.Equals(game.SelectedUnit.Tile.Point) && !a.start.Equals(a.goal));
 			foreach (Core.Proposition prop in gp) {
 				game.OverlayBatch.Draw (
 					game.MapOverlay,
 					new Rectangle (prop.goal.x * 3 * game.SquareSize, prop.goal.y * 3 * game.SquareSize, game.SquareSize * 3, game.SquareSize * 3),
 					new Rectangle (0, 0, 128, 128),
-					purpleColor
+                    purpleColor * (float) (0.5f + 0.5f * (Math.Cos(glowingCmp / 10)))
 				);
 			}
-		}
+            glowingCmp = (glowingCmp + 1) % 1000000; // Quick and dirty...
+        }
 
 		public void Blit()
 		{
 			BlitMovement ();
 			BlitSelectedTile ();
-			BlitRecommandedTile ();
+            if (MoveSuggestionEnabled)
+			    BlitRecommandedTile ();
 		}
 	}
 }

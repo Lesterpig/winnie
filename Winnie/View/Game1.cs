@@ -272,6 +272,13 @@ namespace MGUI
                     else
                         hudShow.Notification = "Unable to save file!";
                 }
+
+                //Enable/Disable move suggestion
+                if (oldKeyboardState.IsKeyUp(Keys.F4) && currentKeyboardState.IsKeyDown(Keys.F4))
+                {
+                    overlayShow.MoveSuggestionEnabled = !overlayShow.MoveSuggestionEnabled;
+                    hudShow.Notification = "Move suggestion " + (overlayShow.MoveSuggestionEnabled ? "enabled" : "disabled");
+                }
             }
 
             Vector2 TriggerMove = new Vector2 (TileSize, TileSize);

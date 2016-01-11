@@ -36,6 +36,21 @@ namespace Core
 			this.x = x;
 			this.y = y;
 		}
-	}  
+
+        /// <summary>
+        /// Determines whether the specified <see cref="System.Object"/> is equal to the current <see cref="Core.Point"/>.
+        /// </summary>
+        /// <param name="obj">The <see cref="System.Object"/> to compare with the current <see cref="Core.Point"/>.</param>
+        /// <returns>><c>true</c> if the specified <see cref="System.Object"/> is equal to the current
+        /// <see cref="Core.Tile+Diff"/>; otherwise, <c>false</c>.</returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            Point b = (Point)obj;
+            return this.x == b.x && this.y == b.y;
+        }
+    }  
 }
 
