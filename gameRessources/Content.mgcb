@@ -91,3 +91,27 @@
 /processorParam:TextureFormat=Color
 /build:sprites/hud_elements.png
 
+#begin sfx/arrow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sfx/arrow.wav
+
+#begin sfx/drums.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sfx/drums.wav
+
+#begin sfx/sword.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sfx/sword.wav
+
+#begin sfx/turn.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sfx/turn.wav
+

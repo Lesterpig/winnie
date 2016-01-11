@@ -46,6 +46,7 @@ namespace MGUI
 
 
         private List<SoundEffectInstance> soundtracks;
+        private Dictionary<string, SoundEffectInstance> sfx;
 		private int selectedSong;
 
 #if !OPENGL
@@ -164,7 +165,13 @@ namespace MGUI
 			soundtracks.Add(Content.Load<SoundEffect> ("soundtrack2").CreateInstance());
 			soundtracks.Add(Content.Load<SoundEffect> ("soundtrack3").CreateInstance());
 
-			Random rnd = new Random ();
+            sfx = new Dictionary<string, SoundEffectInstance>();
+            sfx.Add("drums", Content.Load<SoundEffect>("drums").CreateInstance());
+            sfx.Add("sword", Content.Load<SoundEffect>("sword").CreateInstance());
+            sfx.Add("arrow", Content.Load<SoundEffect>("arrow").CreateInstance());
+            sfx.Add("turn", Content.Load<SoundEffect>("turn").CreateInstance());
+
+            Random rnd = new Random ();
 			selectedSong = rnd.Next (0, 3);
 
 
@@ -353,13 +360,12 @@ namespace MGUI
 			battle.Execute ();
             GameModel.Actions.Push(battle);
 
+            sfx[battle.Ranged ? "arrow" : "sword"].Play();
             hudShow.Notification = (battle.Result.Winner.Player == SelectedUnit.Player
                                     ? "Successful attack" : "Failed attack")
                                     + " with " + battle.Result.Dmg + " dmg";
 
 			SelectedTile = SelectedUnit.Tile;
-			SelectedUnit = null;
-
 		}
 
 		protected void TryToSelectUnit() {
@@ -380,11 +386,13 @@ namespace MGUI
                 GameModel.NextTurn();
 				EnumeratorUnit = GameModel.CurrentPlayer.Units.GetEnumerator ();
                 GameModel.Actions.Clear();
+                sfx["turn"].Play();
                 hudShow.Event = GameModel.CurrentPlayer.Name + "'s turn!";
                 SelectNextUnit();
             }
-            catch (Core.Game.EndOfGameException e)
+            catch (Core.Game.EndOfGameException)
             {
+                sfx["drums"].Play();
                 controlsFrozen = true;
             }
             hudShow.RefreshDataCache();
