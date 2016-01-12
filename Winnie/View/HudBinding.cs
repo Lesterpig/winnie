@@ -11,7 +11,7 @@ namespace MGUI
         private static Dictionary<string, Rectangle> binding = new Dictionary<string, Rectangle>()
         {
 
-			{"Heart", new Rectangle(0, 0, size, size)},
+            {"Heart", new Rectangle(0, 0, size, size)},
             {"Sword", new Rectangle(size, 0, size, size)},
             {"Shield", new Rectangle(size*2, 0, size, size)},
             {"Gold", new Rectangle(size*3, 0, size, size)},

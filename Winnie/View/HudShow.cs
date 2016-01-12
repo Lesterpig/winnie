@@ -83,7 +83,7 @@ namespace MGUI
         public void RefreshDataCache()
         {
             scores.Clear();
-            foreach(Player p in game.GameModel.Players)
+            foreach (Player p in game.GameModel.Players)
             {
                 scores.Add(p.Score);
             }
@@ -157,7 +157,7 @@ namespace MGUI
                 alpha = (EVENT_DURATION - EventDuration) / EVENT_FADEIN_DURATION;
                 shift = (alpha - 1) * EVENT_SHIFT_Y; // from top
             }
-            else if(EVENT_FADEOUT_DURATION > EventDuration)
+            else if (EVENT_FADEOUT_DURATION > EventDuration)
             {
                 alpha = EventDuration / EVENT_FADEOUT_DURATION;
                 shift = (1 - alpha) * EVENT_SHIFT_Y; // to bottom
@@ -166,7 +166,7 @@ namespace MGUI
         }
 
         void blitUnitInfo()
-        {   
+        {
             int h = 58;
 
             game.HudBatch.Draw(

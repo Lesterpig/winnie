@@ -2,9 +2,9 @@
 
 namespace MGUI
 {
-	public interface Blittable
-	{
-		void Blit();
-	}
+    public interface Blittable
+    {
+        void Blit();
+    }
 }
 

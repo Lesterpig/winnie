@@ -10,7 +10,7 @@ namespace MGUI
         {
             get
             {
-                string home = (  Environment.OSVersion.Platform == PlatformID.Unix ||
+                string home = (Environment.OSVersion.Platform == PlatformID.Unix ||
                                  Environment.OSVersion.Platform == PlatformID.MacOSX)
                                  ? Environment.GetEnvironmentVariable("HOME")
                                  : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%\\Saved Games");
