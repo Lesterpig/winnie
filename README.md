@@ -1,5 +1,14 @@
-﻿WINNIE
+﻿Winnie
 ======
+
+Winnie is a strategy video-game inspired from the board game "Small World".
+It's build using WPF and MonoGame technologies, with a C++ library.
+
+This is an educational project for Computer Science Departement of [INSA Rennes](http://www.insa-rennes.fr/en.html), built by:
+- [Quentin Dufour (Superboum)](https://github.com/superboum)
+- [Loïck Bonniot (Lesterpig)](https://github.com/lesterpig)
+
+The user manual is available [in this repository](USER_MANUAL.pdf).
 
 Build from source
 -----------------
